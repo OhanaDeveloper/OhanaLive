@@ -94,7 +94,7 @@ From Ohana Live - ohanalive.org
 
       <motion.div
         whileHover={{ y: -5 }}
-        className="relative bg-gray-900/70 backdrop-blur-sm border border-gray-800 rounded-2xl overflow-hidden hover:border-gray-700 transition-colors"
+        className="relative bg-purple-900/70 backdrop-blur-sm border border-purple-800 rounded-2xl overflow-hidden hover:border-purple-700 transition-colors"
       >
         {/* Header with color accent */}
         <div
@@ -119,7 +119,7 @@ From Ohana Live - ohanalive.org
               >
                 {worksheet.difficulty}
               </span>
-              <span className="text-xs px-2 py-1 rounded-full bg-gray-800 text-gray-400 border border-gray-700">
+              <span className="text-xs px-2 py-1 rounded-full bg-purple-800 text-gray-400 border border-purple-700">
                 {worksheet.timeEstimate}
               </span>
             </div>
@@ -139,7 +139,7 @@ From Ohana Live - ohanalive.org
               onClick={() => setIsExpanded(!isExpanded)}
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
-              className="flex-1 py-2 px-4 rounded-lg bg-gray-800 hover:bg-gray-700 text-gray-300 text-sm font-medium transition-colors"
+              className="flex-1 py-2 px-4 rounded-lg bg-purple-800 hover:bg-purple-700 text-gray-300 text-sm font-medium transition-colors"
             >
               {isExpanded ? "Hide Preview" : "Preview"}
             </motion.button>
@@ -168,7 +168,7 @@ From Ohana Live - ohanalive.org
               className="overflow-hidden"
             >
               <div className="px-6 pb-6">
-                <div className="border-t border-gray-800 pt-4">
+                <div className="border-t border-purple-800 pt-4">
                   <p className="text-xs text-gray-500 uppercase tracking-wider mb-3">
                     Preview Prompts
                   </p>

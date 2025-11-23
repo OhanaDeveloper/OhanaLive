@@ -30,7 +30,7 @@ export default function StoryHero() {
           className="object-cover opacity-30"
           priority
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-slate-950/80 via-slate-950/60 to-slate-950" />
+        <div className="absolute inset-0 bg-gradient-to-b from-purple-950/80 via-purple-950/60 to-purple-950" />
       </motion.div>
 
       {/* Parallax background elements */}
@@ -53,7 +53,7 @@ export default function StoryHero() {
             y: [0, 30, 0],
           }}
           transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-emerald-600/10 rounded-full blur-3xl"
+          className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-teal-600/10 rounded-full blur-3xl"
         />
       </motion.div>
 

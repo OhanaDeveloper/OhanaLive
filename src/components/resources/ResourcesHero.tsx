@@ -15,7 +15,7 @@ export default function ResourcesHero() {
           className="object-cover opacity-20"
           priority
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-slate-950/80 via-slate-950/90 to-slate-950" />
+        <div className="absolute inset-0 bg-gradient-to-b from-purple-950/80 via-purple-950/90 to-purple-950" />
       </div>
 
       <div className="relative max-w-4xl mx-auto px-4 text-center">

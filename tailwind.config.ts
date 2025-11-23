@@ -11,11 +11,28 @@ const config: Config = {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        // Main accent - Teal
         accent: {
-          DEFAULT: "#10b981", // emerald-500
-          light: "#34d399",   // emerald-400
-          dark: "#059669",    // emerald-600
+          DEFAULT: "#2dd4bf", // teal-400
+          light: "#5eead4",   // teal-300
+          dark: "#14b8a6",    // teal-500
         },
+        // Secondary - Gold/Orange splashes
+        gold: {
+          DEFAULT: "#d97706", // amber-600
+          light: "#f59e0b",   // amber-500
+          dark: "#b45309",    // amber-700
+        },
+        // Deep purple background tones
+        purple: {
+          950: "#1a0a2e",     // deepest purple (main bg)
+          900: "#2d1b4e",     // dark purple
+          800: "#3d2a5c",     // medium dark
+          700: "#4c3a6e",     // medium
+          600: "#5c4a7e",     // lighter accent
+        },
+        // Light text colors
+        light: "#e2e8f0",     // slate-200
       },
       animation: {
         "fade-in": "fadeIn 0.6s ease-in-out",

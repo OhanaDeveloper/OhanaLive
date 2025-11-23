@@ -44,7 +44,7 @@ export default function WorksheetGrid() {
               placeholder="Search worksheets..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full bg-gray-900/50 border border-gray-800 rounded-xl py-3 px-4 pl-12 text-gray-100 placeholder-gray-500 focus:outline-none focus:border-accent/50 transition-colors"
+              className="w-full bg-purple-900/50 border border-purple-800 rounded-xl py-3 px-4 pl-12 text-gray-100 placeholder-gray-500 focus:outline-none focus:border-accent/50 transition-colors"
             />
             <span className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500">
               🔍

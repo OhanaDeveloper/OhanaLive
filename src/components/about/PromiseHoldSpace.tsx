@@ -59,7 +59,7 @@ function PillarCard({ pillar, index }: { pillar: typeof pillars[0]; index: numbe
         className="absolute inset-0 bg-accent/20 rounded-2xl blur-xl transition-all duration-500"
       />
 
-      <div className="relative bg-gray-900/60 backdrop-blur-sm border border-gray-800 rounded-2xl p-6 h-full hover:border-accent/40 transition-all duration-300">
+      <div className="relative bg-purple-900/60 backdrop-blur-sm border border-purple-800 rounded-2xl p-6 h-full hover:border-accent/40 transition-all duration-300">
         {/* Animated icon */}
         <motion.div
           animate={{
@@ -98,7 +98,7 @@ export default function PromiseHoldSpace() {
     <section className="py-32 px-4 relative">
       {/* Background pattern */}
       <div className="absolute inset-0 opacity-5">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,#10b981_1px,transparent_1px)] bg-[size:40px_40px]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,#2dd4bf_1px,transparent_1px)] bg-[size:40px_40px]" />
       </div>
 
       <div className="max-w-6xl mx-auto relative z-10">
@@ -124,8 +124,8 @@ export default function PromiseHoldSpace() {
             </motion.span>
           </h2>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            This is not a space of conditions. It's a space of unconditional belonging.
-            Whoever you are, wherever you've been, there's room for you here.
+            This is not a space of conditions. It&apos;s a space of unconditional belonging.
+            Whoever you are, wherever you&apos;ve been, there&apos;s room for you here.
           </p>
         </motion.div>
 
@@ -146,7 +146,7 @@ export default function PromiseHoldSpace() {
         >
           <motion.div
             whileHover={{ scale: 1.02 }}
-            className="inline-block bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 border border-gray-700 rounded-2xl p-8 max-w-2xl"
+            className="inline-block bg-gradient-to-r from-purple-900 via-purple-800 to-purple-900 border border-purple-700 rounded-2xl p-8 max-w-2xl"
           >
             <motion.div
               animate={{ rotate: [0, 5, -5, 0] }}
@@ -156,7 +156,7 @@ export default function PromiseHoldSpace() {
               🏠
             </motion.div>
             <p className="text-xl text-gray-200 font-medium mb-2">
-              "Come as you are, not as you think you should be."
+              &ldquo;Come as you are, not as you think you should be.&rdquo;
             </p>
             <p className="text-gray-500 text-sm">
               — The Ohana Promise

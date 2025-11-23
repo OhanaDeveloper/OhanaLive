@@ -1,5 +1,6 @@
 "use client"
 
+import type { ReactNode } from "react"
 import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { MEETING_INFO } from "@/lib/meetings"
@@ -9,7 +10,7 @@ type ContactOption = {
   icon: string
   title: string
   description: string
-  content: React.ReactNode
+  content: ReactNode
   urgent?: boolean
 }
 
@@ -23,7 +24,7 @@ const contactOptions: ContactOption[] = [
     content: (
       <div className="space-y-4">
         <p className="text-gray-300">
-          If you're in crisis, please reach out to these resources:
+          If you&apos;re in crisis, please reach out to these resources:
         </p>
         <div className="space-y-3">
           <a
@@ -66,13 +67,13 @@ const contactOptions: ContactOption[] = [
         <p className="text-gray-300">
           Ohana Live meets every night from <span className="text-accent font-semibold">11 PM to 3 AM Pacific</span>.
         </p>
-        <div className="bg-gray-800/50 rounded-lg p-4 border border-gray-700">
+        <div className="bg-purple-800/50 rounded-lg p-4 border border-purple-700">
           <div className="text-sm text-gray-400 mb-2">Meeting Details</div>
           <ul className="text-gray-300 space-y-1 text-sm">
             <li>• No sign-up or registration required</li>
             <li>• Camera and mic optional</li>
             <li>• Newcomers always welcome</li>
-            <li>• What's shared here, stays here</li>
+            <li>• What&apos;s shared here, stays here</li>
           </ul>
         </div>
         <a
@@ -95,43 +96,43 @@ const contactOptions: ContactOption[] = [
     content: (
       <div className="space-y-4">
         <div className="space-y-3">
-          <details className="group bg-gray-800/30 rounded-lg border border-gray-700">
+          <details className="group bg-purple-800/30 rounded-lg border border-purple-700">
             <summary className="cursor-pointer p-4 font-medium text-gray-200 hover:text-accent transition-colors">
               What happens in the meetings?
             </summary>
             <div className="px-4 pb-4 text-gray-400 text-sm">
               Our meetings are casual, supportive conversations about recovery and life.
               We share experiences, offer support, and build genuine connections.
-              No pressure to speak — you can just listen if that's more comfortable.
+              No pressure to speak — you can just listen if that&apos;s more comfortable.
             </div>
           </details>
-          <details className="group bg-gray-800/30 rounded-lg border border-gray-700">
+          <details className="group bg-purple-800/30 rounded-lg border border-purple-700">
             <summary className="cursor-pointer p-4 font-medium text-gray-200 hover:text-accent transition-colors">
               Is this a 12-step program?
             </summary>
             <div className="px-4 pb-4 text-gray-400 text-sm">
-              We're not affiliated with any specific program. Ohana Live is a community
+              We&apos;re not affiliated with any specific program. Ohana Live is a community
               space that welcomes people from all recovery paths — 12-step, SMART Recovery,
               therapy, medication-assisted treatment, or your own approach.
             </div>
           </details>
-          <details className="group bg-gray-800/30 rounded-lg border border-gray-700">
+          <details className="group bg-purple-800/30 rounded-lg border border-purple-700">
             <summary className="cursor-pointer p-4 font-medium text-gray-200 hover:text-accent transition-colors">
               Why late night?
             </summary>
             <div className="px-4 pb-4 text-gray-400 text-sm">
               Late nights can be the hardest part of recovery — when most meetings are
-              closed and isolation hits hardest. We're here during those difficult hours
-              because that's when connection matters most.
+              closed and isolation hits hardest. We&apos;re here during those difficult hours
+              because that&apos;s when connection matters most.
             </div>
           </details>
-          <details className="group bg-gray-800/30 rounded-lg border border-gray-700">
+          <details className="group bg-purple-800/30 rounded-lg border border-purple-700">
             <summary className="cursor-pointer p-4 font-medium text-gray-200 hover:text-accent transition-colors">
               Is it anonymous?
             </summary>
             <div className="px-4 pb-4 text-gray-400 text-sm">
               You can use any name you want on Zoom. Camera and microphone are optional.
-              We respect everyone's privacy and ask that what's shared in meetings stays
+              We respect everyone&apos;s privacy and ask that what&apos;s shared in meetings stays
               in meetings.
             </div>
           </details>
@@ -150,28 +151,28 @@ const contactOptions: ContactOption[] = [
           Ohana Live is built by and for our community. There are many ways to contribute:
         </p>
         <div className="grid gap-3">
-          <div className="bg-gray-800/30 rounded-lg p-4 border border-gray-700">
+          <div className="bg-purple-800/30 rounded-lg p-4 border border-purple-700">
             <div className="font-medium text-gray-200 mb-1">Join as a Regular</div>
             <div className="text-gray-400 text-sm">
               Show up, share your experience, and be part of the community.
             </div>
           </div>
-          <div className="bg-gray-800/30 rounded-lg p-4 border border-gray-700">
+          <div className="bg-purple-800/30 rounded-lg p-4 border border-purple-700">
             <div className="font-medium text-gray-200 mb-1">Help Moderate</div>
             <div className="text-gray-400 text-sm">
               Support meeting facilitation and help maintain a safe space.
             </div>
           </div>
-          <div className="bg-gray-800/30 rounded-lg p-4 border border-gray-700">
+          <div className="bg-purple-800/30 rounded-lg p-4 border border-purple-700">
             <div className="font-medium text-gray-200 mb-1">Technical Skills</div>
             <div className="text-gray-400 text-sm">
-              We're always looking for developers, designers, and creators.
+              We&apos;re always looking for developers, designers, and creators.
             </div>
           </div>
         </div>
         <a
           href="mailto:dev@ohanarecovery.org?subject=Getting%20Involved%20with%20Ohana%20Live"
-          className="inline-flex items-center gap-2 bg-gray-700 hover:bg-gray-600 text-white font-semibold px-6 py-3 rounded-lg transition-colors"
+          className="inline-flex items-center gap-2 bg-purple-700 hover:bg-gray-600 text-white font-semibold px-6 py-3 rounded-lg transition-colors"
         >
           <span>Email Us</span>
           <span>→</span>
@@ -189,7 +190,7 @@ const contactOptions: ContactOption[] = [
         <p className="text-gray-300">
           For general inquiries, partnerships, or anything else:
         </p>
-        <div className="bg-gray-800/50 rounded-lg p-6 border border-gray-700 text-center">
+        <div className="bg-purple-800/50 rounded-lg p-6 border border-purple-700 text-center">
           <div className="text-gray-400 text-sm mb-2">Email us at</div>
           <a
             href="mailto:dev@ohanarecovery.org"
@@ -229,10 +230,10 @@ export default function ContactMenu() {
               whileTap={{ scale: 0.98 }}
               className={`w-full text-left p-5 rounded-xl border transition-all ${
                 selectedOption === option.id
-                  ? "bg-gray-800/80 border-accent/50 shadow-lg shadow-accent/10"
+                  ? "bg-purple-800/80 border-accent/50 shadow-lg shadow-accent/10"
                   : option.urgent
                     ? "bg-red-950/30 border-red-800/30 hover:border-red-700/50"
-                    : "bg-gray-900/50 border-gray-800 hover:border-gray-700"
+                    : "bg-purple-900/50 border-purple-800 hover:border-purple-700"
               }`}
             >
               <div className="flex items-center gap-4">
@@ -270,7 +271,7 @@ export default function ContactMenu() {
                   transition={{ duration: 0.3, ease: "easeInOut" }}
                   className="overflow-hidden"
                 >
-                  <div className="p-6 bg-gray-900/30 border-x border-b border-gray-800 rounded-b-xl">
+                  <div className="p-6 bg-purple-900/30 border-x border-b border-purple-800 rounded-b-xl">
                     {option.content}
                   </div>
                 </motion.div>

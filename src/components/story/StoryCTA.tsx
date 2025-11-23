@@ -16,7 +16,7 @@ export default function StoryCTA() {
           fill
           className="object-cover opacity-30"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/90 to-slate-950/70" />
+        <div className="absolute inset-0 bg-gradient-to-t from-purple-950 via-purple-950/90 to-purple-950/70" />
       </div>
 
       {/* Animated background */}
@@ -56,8 +56,8 @@ export default function StoryCTA() {
         </h2>
 
         <p className="text-xl text-gray-400 mb-12 max-w-2xl mx-auto leading-relaxed">
-          Whether you're just starting out, deep in the journey, or somewhere
-          in between — there's a seat waiting for you. No prerequisites. No
+          Whether you&apos;re just starting out, deep in the journey, or somewhere
+          in between — there&apos;s a seat waiting for you. No prerequisites. No
           expectations. Just show up.
         </p>
 
@@ -75,13 +75,13 @@ export default function StoryCTA() {
               transition={{ repeat: Infinity, duration: 2 }}
               className="w-3 h-3 bg-white rounded-full"
             />
-            Join Tonight's Meeting
+            Join Tonight&apos;s Meeting
           </motion.a>
 
           <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 bg-gray-800 hover:bg-gray-700 text-gray-100 font-semibold px-8 py-4 rounded-xl transition-colors text-lg border border-gray-700"
+              className="inline-flex items-center gap-2 bg-purple-800 hover:bg-purple-700 text-gray-100 font-semibold px-8 py-4 rounded-xl transition-colors text-lg border border-purple-700"
             >
               Get in Touch
               <span>→</span>

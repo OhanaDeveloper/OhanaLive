@@ -1,4 +1,5 @@
 import type { Metadata } from "next"
+import type { ReactNode } from "react"
 import "./globals.css"
 import ClientLayout from "@/components/layout/ClientLayout"
 
@@ -26,7 +27,7 @@ export const metadata: Metadata = {
         locale: "en_US",
         type: "website",
     },
-    themeColor: "#0f172a",
+    themeColor: "#1a0a2e",
     icons: {
         icon: "/favicon.ico",
         shortcut: "/favicon-32x32.png",
@@ -37,11 +38,11 @@ export const metadata: Metadata = {
 export default function RootLayout({
                                        children,
                                    }: {
-    children: React.ReactNode
+    children: ReactNode
 }) {
     return (
         <html lang="en" suppressHydrationWarning>
-        <body className="min-h-screen bg-slate-950 text-gray-100 antialiased">
+        <body className="min-h-screen bg-purple-950 text-light antialiased">
         <ClientLayout>{children}</ClientLayout>
         </body>
         </html>

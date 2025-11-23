@@ -30,7 +30,7 @@ const values = [
   },
 ]
 
-function ValueCard({ value, index }: { value: typeof values[0]; index: number }) {
+function ValueCard({ value }: { value: typeof values[0]; index: number }) {
   const ref = useRef<HTMLDivElement>(null)
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -50,7 +50,7 @@ function ValueCard({ value, index }: { value: typeof values[0]; index: number })
     >
       <div className="absolute inset-0 bg-gradient-to-br from-accent/20 to-transparent rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
-      <div className="relative bg-gray-900/60 backdrop-blur-sm border border-gray-800 rounded-2xl p-8 h-full hover:border-accent/30 transition-colors duration-300">
+      <div className="relative bg-purple-900/60 backdrop-blur-sm border border-purple-800 rounded-2xl p-8 h-full hover:border-accent/30 transition-colors duration-300">
         <motion.div
           initial={{ scale: 1 }}
           whileHover={{ scale: 1.2, rotate: 10 }}
@@ -69,7 +69,7 @@ function ValueCard({ value, index }: { value: typeof values[0]; index: number })
         </p>
 
         {/* Decorative corner */}
-        <div className="absolute top-4 right-4 w-8 h-8 border-t-2 border-r-2 border-gray-700/50 rounded-tr-lg opacity-0 group-hover:opacity-100 group-hover:border-accent/30 transition-all duration-300" />
+        <div className="absolute top-4 right-4 w-8 h-8 border-t-2 border-r-2 border-purple-700/50 rounded-tr-lg opacity-0 group-hover:opacity-100 group-hover:border-accent/30 transition-all duration-300" />
       </div>
     </motion.div>
   )
@@ -93,7 +93,7 @@ export default function StoryValues() {
             Our Core Values
           </h2>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            These aren't just words on a page. They're the principles that guide
+            These aren&apos;t just words on a page. They&apos;re the principles that guide
             every meeting, every conversation, every connection.
           </p>
         </motion.div>

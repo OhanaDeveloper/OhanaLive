@@ -53,7 +53,7 @@ export default function MeetingSection() {
   }, [startHour, endHour, timeZone])
 
   return (
-    <section className="py-24 text-center bg-gradient-to-b from-black/80 to-gray-900/80 backdrop-blur-sm">
+    <section className="py-24 text-center bg-gradient-to-b from-black/80 to-purple-900/80 backdrop-blur-sm">
       <div className="max-w-3xl mx-auto space-y-6 px-4">
         <motion.h1
           initial={{ opacity: 0, y: -20 }}
@@ -70,7 +70,7 @@ export default function MeetingSection() {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="text-gray-300 text-lg leading-relaxed"
         >
-          Ohana Live meets every night from 11 PM – 3 AM (Pacific). It's a space
+          Ohana Live meets every night from 11 PM – 3 AM (Pacific). It&apos;s a space
           for connection, raw honesty, and community. Expect candid conversation,
           practical recovery, and real people — no judgment, no preaching.
         </motion.p>
@@ -85,14 +85,14 @@ export default function MeetingSection() {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5, delay: 0.5 }}
-            className="bg-gray-900/60 backdrop-blur-md border border-gray-800 rounded-2xl p-8 shadow-xl"
+            className="bg-purple-900/60 backdrop-blur-md border border-purple-800 rounded-2xl p-8 shadow-xl"
           >
             <h2 className="text-2xl font-semibold text-white mb-4">
               {isLive ? "Meeting in Progress" : "Next Meeting Starts In"}
             </h2>
 
             {isLoading ? (
-              <div className="h-10 w-48 mx-auto bg-gray-700 rounded animate-pulse mb-6" />
+              <div className="h-10 w-48 mx-auto bg-purple-700 rounded animate-pulse mb-6" />
             ) : (
               <motion.p
                 key={timeLeft}
@@ -115,7 +115,7 @@ export default function MeetingSection() {
               className={`inline-block px-8 py-4 rounded-xl font-semibold text-white text-lg transition-all shadow-lg ${
                 isLive
                   ? "bg-accent hover:bg-accent-light shadow-accent/30"
-                  : "bg-gray-700 hover:bg-gray-600"
+                  : "bg-purple-700 hover:bg-gray-600"
               }`}
             >
               {isLive ? (

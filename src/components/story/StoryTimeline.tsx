@@ -102,7 +102,7 @@ function TimelineItem({
         className={`flex-1 rounded-2xl border backdrop-blur-sm overflow-hidden ${
           event.highlight
             ? "bg-accent/10 border-accent/30 shadow-lg shadow-accent/10"
-            : "bg-gray-900/50 border-gray-800"
+            : "bg-purple-900/50 border-purple-800"
         }`}
       >
         {/* Image */}
@@ -113,7 +113,7 @@ function TimelineItem({
             fill
             className="object-cover transition-transform duration-500 hover:scale-110"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent to-gray-900/90" />
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent to-purple-900/90" />
           <div
             className={`absolute bottom-3 left-4 text-sm font-mono ${
               event.highlight ? "text-accent" : "text-gray-400"

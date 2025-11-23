@@ -1,11 +1,14 @@
 "use client"
 
+import type { ReactNode } from "react"
 import Navigation from "@/components/layout/Navigation"
 import Background from "@/components/layout/Background"
+import RotatingLogo from "@/components/layout/RotatingLogo"
 import { AnimatePresence, motion } from "framer-motion"
 import { usePathname } from "next/navigation"
+import Link from "next/link"
 
-export default function ClientLayout({ children }: { children: React.ReactNode }) {
+export default function ClientLayout({ children }: { children: ReactNode }) {
     const pathname = usePathname()
 
     return (
@@ -14,6 +17,14 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
             <header className="fixed top-0 left-0 w-full p-4 flex justify-center z-50">
                 <Navigation />
             </header>
+
+            {/* Subtle rotating logo in bottom left corner */}
+            <Link
+                href="/"
+                className="fixed bottom-6 left-6 z-40 opacity-20 hover:opacity-40 transition-opacity duration-500"
+            >
+                <RotatingLogo size={48} />
+            </Link>
             <main className="pt-20 p-6">
                 <AnimatePresence mode="wait">
                     <motion.div

@@ -25,7 +25,7 @@ export default function AnimatedCard({
       viewport={{ once: true, amount: 0.3 }}
       transition={{ duration: 0.5, delay }}
       whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
-      className={`bg-gray-900/50 backdrop-blur-sm border border-gray-800 rounded-xl p-6 shadow-lg hover:shadow-xl hover:shadow-accent/10 hover:border-accent/30 transition-all ${className}`}
+      className={`bg-purple-900/50 backdrop-blur-sm border border-purple-800 rounded-xl p-6 shadow-lg hover:shadow-xl hover:shadow-accent/10 hover:border-accent/30 transition-all ${className}`}
     >
       {icon && (
         <motion.div

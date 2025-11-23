@@ -74,12 +74,12 @@ function SkillBar({ skill, delay }: { skill: { name: string; level: number }; de
           {skill.level}%
         </motion.span>
       </div>
-      <div className="h-2 bg-gray-800 rounded-full overflow-hidden">
+      <div className="h-2 bg-purple-800 rounded-full overflow-hidden">
         <motion.div
           initial={{ width: 0 }}
           animate={{ width: `${skill.level}%` }}
           transition={{ delay: delay + 0.1, duration: 0.8, ease: "easeOut" }}
-          className="h-full bg-gradient-to-r from-accent to-emerald-400 rounded-full"
+          className="h-full bg-gradient-to-r from-accent to-teal-400 rounded-full"
         />
       </div>
     </motion.div>
@@ -142,7 +142,7 @@ export default function InteractiveSkills() {
         {/* Skills display */}
         <motion.div
           layout
-          className="bg-gray-900/50 backdrop-blur-sm border border-gray-800 rounded-2xl p-8"
+          className="bg-purple-900/50 backdrop-blur-sm border border-purple-800 rounded-2xl p-8"
         >
           <AnimatePresence mode="wait">
             <motion.div

@@ -1,6 +1,7 @@
 "use client"
 
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion"
+import type { MouseEvent } from "react"
 import { useRef, useState } from "react"
 
 const techStack = [
@@ -25,7 +26,7 @@ function TechCard({ tech, index }: { tech: typeof techStack[0]; index: number })
   const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["7deg", "-7deg"])
   const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-7deg", "7deg"])
 
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+  const handleMouseMove = (e: MouseEvent<HTMLDivElement>) => {
     if (!ref.current) return
 
     const rect = ref.current.getBoundingClientRect()
@@ -65,7 +66,7 @@ function TechCard({ tech, index }: { tech: typeof techStack[0]; index: number })
             ? `0 20px 40px -20px ${tech.color}40`
             : "0 0 0 transparent",
         }}
-        className="bg-gray-900/80 backdrop-blur-sm border border-gray-800 rounded-xl p-6 h-full hover:border-gray-700 transition-colors"
+        className="bg-purple-900/80 backdrop-blur-sm border border-purple-800 rounded-xl p-6 h-full hover:border-purple-700 transition-colors"
         style={{ transformStyle: "preserve-3d" }}
       >
         {/* Floating icon */}
@@ -178,7 +179,7 @@ export default function Life() {
         >
           <motion.div
             whileHover={{ scale: 1.05 }}
-            className="inline-flex items-center gap-2 bg-gray-800/50 border border-gray-700 rounded-full px-6 py-3"
+            className="inline-flex items-center gap-2 bg-purple-800/50 border border-purple-700 rounded-full px-6 py-3"
           >
             <motion.span
               animate={{ rotate: [0, 10, -10, 0] }}

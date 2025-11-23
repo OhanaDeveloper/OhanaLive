@@ -35,7 +35,7 @@ export default function AboutHero() {
               }}
               whileHover={{
                 scale: 1.2,
-                color: "#10b981",
+                color: "#2dd4bf",
                 textShadow: "0 0 40px rgba(16,185,129,0.5)",
               }}
               className="text-6xl md:text-9xl font-black text-gray-100 cursor-default"
@@ -77,16 +77,16 @@ export default function AboutHero() {
           transition={{ delay: 1.2 }}
           className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed"
         >
-          "Ohana means family. Family means{" "}
+          &ldquo;Ohana means family. Family means{" "}
           <motion.span
             initial={{ color: "#d1d5db" }}
-            animate={{ color: "#10b981" }}
+            animate={{ color: "#2dd4bf" }}
             transition={{ delay: 1.5, duration: 0.5 }}
             className="font-semibold"
           >
             nobody gets left behind
           </motion.span>
-          {" "}or forgotten."
+          {" "}or forgotten.&rdquo;
         </motion.p>
       </div>
     </section>

@@ -65,7 +65,7 @@ export default function PromiseStruggling() {
             Our Promise to You
           </h2>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            If you're in the thick of it right now — if the nights feel endless and
+            If you&apos;re in the thick of it right now — if the nights feel endless and
             the weight feels unbearable — these words are for you.
           </p>
         </motion.div>
@@ -88,14 +88,14 @@ export default function PromiseStruggling() {
                 className={`relative p-6 rounded-xl border transition-all duration-300 cursor-default ${
                   hoveredIndex === i
                     ? "bg-accent/10 border-accent/50 shadow-lg shadow-accent/10"
-                    : "bg-gray-900/30 border-gray-800"
+                    : "bg-purple-900/30 border-purple-800"
                 }`}
               >
                 {/* Number indicator */}
                 <motion.span
                   animate={{
                     scale: hoveredIndex === i ? 1.2 : 1,
-                    color: hoveredIndex === i ? "#10b981" : "#4b5563",
+                    color: hoveredIndex === i ? "#2dd4bf" : "#4b5563",
                   }}
                   className="absolute -left-2 top-1/2 -translate-y-1/2 text-6xl font-black opacity-20"
                 >
@@ -141,7 +141,7 @@ export default function PromiseStruggling() {
           className="text-center mt-16"
         >
           <p className="text-2xl text-gray-300 italic">
-            "You are not alone. You never were."
+            &ldquo;You are not alone. You never were.&rdquo;
           </p>
         </motion.div>
       </div>

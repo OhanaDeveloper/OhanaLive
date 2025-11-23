@@ -47,7 +47,7 @@ export default function StoryQuotes() {
           fill
           className="object-cover opacity-20"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-slate-950 via-slate-950/80 to-slate-950" />
+        <div className="absolute inset-0 bg-gradient-to-b from-purple-950 via-purple-950/80 to-purple-950" />
       </div>
 
       {/* Background gradient */}
@@ -83,7 +83,7 @@ export default function StoryQuotes() {
                 transition={{ delay: 0.2 }}
                 className="text-6xl text-accent/30 mb-4"
               >
-                "
+                &ldquo;
               </motion.div>
               <p className="text-2xl md:text-3xl text-gray-200 font-light leading-relaxed mb-6">
                 {quotes[currentIndex].text}

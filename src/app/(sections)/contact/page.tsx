@@ -9,7 +9,7 @@ export default function ContactPage() {
             How Can We Help?
           </h1>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            Select what best describes your needs, and we'll point you in the right direction.
+            Select what best describes your needs, and we&apos;ll point you in the right direction.
           </p>
         </div>
         <ContactMenu />

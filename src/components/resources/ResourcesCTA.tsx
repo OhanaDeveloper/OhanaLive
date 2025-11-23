@@ -45,7 +45,7 @@ export default function ResourcesCTA() {
           <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 bg-gray-800 hover:bg-gray-700 text-gray-100 font-semibold px-8 py-4 rounded-xl transition-colors border border-gray-700"
+              className="inline-flex items-center gap-2 bg-purple-800 hover:bg-purple-700 text-gray-100 font-semibold px-8 py-4 rounded-xl transition-colors border border-purple-700"
             >
               Get in Touch
             </Link>
@@ -58,12 +58,12 @@ export default function ResourcesCTA() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.3 }}
-          className="mt-16 p-6 bg-gray-900/50 border border-gray-800 rounded-2xl"
+          className="mt-16 p-6 bg-purple-900/50 border border-purple-800 rounded-2xl"
         >
           <p className="text-gray-400 text-sm">
             <span className="text-accent font-medium">Have an idea for a worksheet?</span>
             <br />
-            We're always looking to create new resources. Reach out and let us know
+            We&apos;re always looking to create new resources. Reach out and let us know
             what would help your recovery journey.
           </p>
         </motion.div>
