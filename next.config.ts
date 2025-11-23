@@ -7,8 +7,11 @@ const nextConfig: NextConfig = {
       {
         protocol: "https",
         hostname: "images.unsplash.com",
+        pathname: "/**",
       },
     ],
+    // Allow unoptimized images for external sources on Vercel
+    unoptimized: process.env.NODE_ENV === "production",
   },
 };
 
