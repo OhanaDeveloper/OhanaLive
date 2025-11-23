@@ -2,11 +2,23 @@
 
 import { motion } from "framer-motion"
 import Link from "next/link"
+import Image from "next/image"
 import { MEETING_INFO } from "@/lib/meetings"
 
 export default function StoryCTA() {
   return (
     <section className="py-32 px-4 relative overflow-hidden">
+      {/* Background image */}
+      <div className="absolute inset-0">
+        <Image
+          src="https://images.unsplash.com/photo-1419242902214-272b3f66ee7a?w=1920&q=80"
+          alt="Starry night sky"
+          fill
+          className="object-cover opacity-30"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/90 to-slate-950/70" />
+      </div>
+
       {/* Animated background */}
       <div className="absolute inset-0">
         <motion.div

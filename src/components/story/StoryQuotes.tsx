@@ -2,6 +2,7 @@
 
 import { motion, AnimatePresence } from "framer-motion"
 import { useState, useEffect } from "react"
+import Image from "next/image"
 
 const quotes = [
   {
@@ -38,6 +39,17 @@ export default function StoryQuotes() {
 
   return (
     <section className="py-32 px-4 relative overflow-hidden">
+      {/* Background image */}
+      <div className="absolute inset-0">
+        <Image
+          src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920&q=80"
+          alt="Mountain silhouette at dusk"
+          fill
+          className="object-cover opacity-20"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-slate-950 via-slate-950/80 to-slate-950" />
+      </div>
+
       {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-accent/5 to-transparent" />
 

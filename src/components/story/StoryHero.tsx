@@ -2,6 +2,7 @@
 
 import { motion, useScroll, useTransform } from "framer-motion"
 import { useRef } from "react"
+import Image from "next/image"
 
 export default function StoryHero() {
   const ref = useRef<HTMLDivElement>(null)
@@ -13,9 +14,25 @@ export default function StoryHero() {
   const y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"])
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0])
   const scale = useTransform(scrollYProgress, [0, 0.5], [1, 0.9])
+  const imageScale = useTransform(scrollYProgress, [0, 1], [1, 1.2])
 
   return (
     <div ref={ref} className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      {/* Background image with parallax */}
+      <motion.div
+        style={{ scale: imageScale }}
+        className="absolute inset-0 z-0"
+      >
+        <Image
+          src="https://images.unsplash.com/photo-1507400492013-162706c8c05e?w=1920&q=80"
+          alt="Night sky with stars"
+          fill
+          className="object-cover opacity-30"
+          priority
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-slate-950/80 via-slate-950/60 to-slate-950" />
+      </motion.div>
+
       {/* Parallax background elements */}
       <motion.div
         style={{ y }}
