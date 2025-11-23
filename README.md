@@ -1,36 +1,77 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Ohana Live
+
+A modern recovery community platform connecting people through technology, conversation, and shared experience.
+
+## About
+
+Ohana Live is a digital space where technology and recovery meet. We host nightly meetings from 11 PM – 3 AM Pacific, creating a place for connection, raw honesty, and community support.
+
+## Tech Stack
+
+- **Next.js 16** - React framework with App Router
+- **React 19** - Latest React with server components
+- **TypeScript** - Type-safe development
+- **Tailwind CSS 4** - Modern utility-first styling
+- **Three.js** - 3D graphics and interactive experiences
+- **Framer Motion** - Smooth animations
+- **Zustand** - Lightweight state management
+- **React Query** - Data fetching and caching
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
+# Install dependencies
+npm install
+
+# Run development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
+# Build for production
+npm run build
+
+# Start production server
+npm start
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to view the application.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Project Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+src/
+├── app/
+│   ├── (sections)/      # Route groups for different sections
+│   │   ├── home/
+│   │   ├── about/
+│   │   ├── contact/
+│   │   └── projects/
+│   ├── layout.tsx       # Root layout
+│   ├── page.tsx         # Home page
+│   └── globals.css      # Global styles
+├── components/
+│   ├── home/            # Home-specific components
+│   └── layout/          # Layout components
+├── lib/                 # Utilities and helpers
+├── store/               # State management
+├── styles/              # Additional styles
+└── types/               # TypeScript type definitions
+```
 
-## Learn More
+## Features
 
-To learn more about Next.js, take a look at the following resources:
+- **Live Meeting Countdown** - Real-time countdown to next meeting
+- **Responsive Design** - Optimized for all devices
+- **Modern UI/UX** - Clean, accessible interface
+- **Interactive Elements** - Engaging user experience
+- **Community Focused** - Built for connection and support
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Development
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+This project uses:
+- ESLint for code quality
+- Prettier for code formatting
+- TypeScript for type safety
 
-## Deploy on Vercel
+## License
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Private - All Rights Reserved

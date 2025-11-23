@@ -1,11 +1,13 @@
 "use client"
 
 import { useEffect, useState } from "react"
+import { motion } from "framer-motion"
 import { MEETING_INFO } from "@/lib/meetings"
 
 export default function MeetingSection() {
   const [timeLeft, setTimeLeft] = useState("")
   const [isLive, setIsLive] = useState(false)
+  const [isLoading, setIsLoading] = useState(true)
 
   const { zoomLink, startHour, endHour, timeZone } = MEETING_INFO
 
@@ -13,7 +15,7 @@ export default function MeetingSection() {
     const updateCountdown = () => {
       const now = new Date()
       const pacificNow = new Date(
-          now.toLocaleString("en-US", { timeZone })
+        now.toLocaleString("en-US", { timeZone })
       )
 
       // Define start and end times for today's meeting
@@ -41,6 +43,8 @@ export default function MeetingSection() {
         const seconds = Math.floor((diff % (1000 * 60)) / 1000)
         setTimeLeft(`${hours}h ${minutes}m ${seconds}s`)
       }
+
+      setIsLoading(false)
     }
 
     updateCountdown()
@@ -49,37 +53,87 @@ export default function MeetingSection() {
   }, [startHour, endHour, timeZone])
 
   return (
-      <section className="py-24 text-center bg-gradient-to-b from-black to-gray-900">
-        <div className="max-w-3xl mx-auto space-y-6">
-          <h1 className="text-4xl font-bold text-accent">Ohana Live Meetings</h1>
+    <section className="py-24 text-center bg-gradient-to-b from-black/80 to-gray-900/80 backdrop-blur-sm">
+      <div className="max-w-3xl mx-auto space-y-6 px-4">
+        <motion.h1
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="text-4xl md:text-5xl font-bold text-accent"
+        >
+          Ohana Live Meetings
+        </motion.h1>
 
-          <p className="text-gray-300 text-lg leading-relaxed">
-            Ohana Live meets every night from 11 PM – 3 AM (Pacific). It’s a space
-            for connection, raw honesty, and community. Expect candid conversation,
-            practical recovery, and real people — no judgment, no preaching.
-          </p>
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="text-gray-300 text-lg leading-relaxed"
+        >
+          Ohana Live meets every night from 11 PM – 3 AM (Pacific). It's a space
+          for connection, raw honesty, and community. Expect candid conversation,
+          practical recovery, and real people — no judgment, no preaching.
+        </motion.p>
 
-          <div className="mt-8">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          className="mt-8"
+        >
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5, delay: 0.5 }}
+            className="bg-gray-900/60 backdrop-blur-md border border-gray-800 rounded-2xl p-8 shadow-xl"
+          >
             <h2 className="text-2xl font-semibold text-white mb-4">
               {isLive ? "Meeting in Progress" : "Next Meeting Starts In"}
             </h2>
 
-            <p className="text-3xl font-mono text-accent mb-6">{timeLeft}</p>
-
-            <a
-                href={zoomLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`px-6 py-3 rounded-lg font-semibold text-white transition ${
-                    isLive
-                        ? "bg-accent hover:bg-accent-light animate-pulse"
-                        : "bg-gray-700 hover:bg-gray-600"
+            {isLoading ? (
+              <div className="h-10 w-48 mx-auto bg-gray-700 rounded animate-pulse mb-6" />
+            ) : (
+              <motion.p
+                key={timeLeft}
+                initial={{ scale: 1.1 }}
+                animate={{ scale: 1 }}
+                className={`text-4xl font-mono mb-6 ${
+                  isLive ? "text-accent animate-pulse" : "text-accent"
                 }`}
+              >
+                {timeLeft}
+              </motion.p>
+            )}
+
+            <motion.a
+              href={zoomLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.98 }}
+              className={`inline-block px-8 py-4 rounded-xl font-semibold text-white text-lg transition-all shadow-lg ${
+                isLive
+                  ? "bg-accent hover:bg-accent-light shadow-accent/30"
+                  : "bg-gray-700 hover:bg-gray-600"
+              }`}
             >
-              {isLive ? "JOIN NOW" : "Join Waiting Room"}
-            </a>
-          </div>
-        </div>
-      </section>
+              {isLive ? (
+                <span className="flex items-center gap-2">
+                  <motion.span
+                    animate={{ scale: [1, 1.2, 1] }}
+                    transition={{ repeat: Infinity, duration: 1.5 }}
+                    className="inline-block w-3 h-3 bg-white rounded-full"
+                  />
+                  JOIN NOW
+                </span>
+              ) : (
+                "Join Waiting Room"
+              )}
+            </motion.a>
+          </motion.div>
+        </motion.div>
+      </div>
+    </section>
   )
 }

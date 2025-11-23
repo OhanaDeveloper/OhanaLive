@@ -1,5 +1,6 @@
 import SectionWrapper from "@/components/layout/SectionWrapper"
 import MeetingSection from "@/components/home/MeetingSection"
+import FeaturesSection from "@/components/home/FeaturesSection"
 
 export default function HomePage() {
   return (
@@ -16,6 +17,7 @@ export default function HomePage() {
           meet through community, creativity, and real conversation.
         </p>
       </SectionWrapper>
+      <FeaturesSection />
     </>
   )
 }
