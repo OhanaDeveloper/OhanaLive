@@ -5,13 +5,15 @@ import { motion } from "framer-motion"
 import { MEETING_INFO } from "@/lib/meetings"
 
 export default function MeetingSection() {
+  const [mounted, setMounted] = useState(false)
   const [timeLeft, setTimeLeft] = useState("")
   const [isLive, setIsLive] = useState(false)
-  const [isLoading, setIsLoading] = useState(true)
 
   const { zoomLink, startHour, endHour, timeZone } = MEETING_INFO
 
   useEffect(() => {
+    setMounted(true)
+
     const updateCountdown = () => {
       const now = new Date()
       const pacificNow = new Date(
@@ -43,8 +45,6 @@ export default function MeetingSection() {
         const seconds = Math.floor((diff % (1000 * 60)) / 1000)
         setTimeLeft(`${hours}h ${minutes}m ${seconds}s`)
       }
-
-      setIsLoading(false)
     }
 
     updateCountdown()
@@ -52,7 +52,7 @@ export default function MeetingSection() {
     return () => clearInterval(timer)
   }, [startHour, endHour, timeZone])
 
-  if (isLoading) {
+  if (!mounted) {
     return (
       <section className="py-24 text-center bg-gradient-to-b from-black/80 to-dark-900/80 backdrop-blur-sm">
         <div className="max-w-3xl mx-auto space-y-6 px-4">

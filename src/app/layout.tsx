@@ -1,4 +1,4 @@
-import type { Metadata } from "next"
+import type { Metadata, Viewport } from "next"
 import type { ReactNode } from "react"
 import { Ubuntu } from "next/font/google"
 import "./globals.css"
@@ -12,6 +12,7 @@ const ubuntu = Ubuntu({
 })
 
 export const metadata: Metadata = {
+    metadataBase: new URL('https://ohanarecovery.org'),
     title: {
         default: "Ohana Live",
         template: "%s | Ohana Live",
@@ -35,12 +36,15 @@ export const metadata: Metadata = {
         locale: "en_US",
         type: "website",
     },
-    themeColor: "#0a0a0a",
     icons: {
         icon: "/favicon.ico",
         shortcut: "/favicon-32x32.png",
         apple: "/apple-touch-icon.png",
     },
+}
+
+export const viewport: Viewport = {
+    themeColor: "#0a0a0a",
 }
 
 export default function RootLayout({

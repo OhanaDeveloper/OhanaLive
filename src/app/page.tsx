@@ -2,9 +2,6 @@ import SectionWrapper from "@/components/layout/SectionWrapper"
 import MeetingSection from "@/components/home/MeetingSection"
 import FeaturesSection from "@/components/home/FeaturesSection"
 
-export const dynamic = 'force-static'
-export const revalidate = 3600 // Revalidate every hour
-
 export default function HomePage() {
   return (
     <>
