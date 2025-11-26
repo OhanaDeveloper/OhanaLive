@@ -52,6 +52,19 @@ export default function MeetingSection() {
     return () => clearInterval(timer)
   }, [startHour, endHour, timeZone])
 
+  if (isLoading) {
+    return (
+      <section className="py-24 text-center bg-gradient-to-b from-black/80 to-dark-900/80 backdrop-blur-sm">
+        <div className="max-w-3xl mx-auto space-y-6 px-4">
+          <div className="h-12 w-96 mx-auto bg-dark-700 rounded-lg animate-pulse" />
+          <div className="h-6 w-full max-w-2xl mx-auto bg-dark-700 rounded animate-pulse" />
+          <div className="h-6 w-3/4 mx-auto bg-dark-700 rounded animate-pulse" />
+          <div className="mt-8 h-64 max-w-xl mx-auto bg-dark-800 rounded-2xl animate-pulse" />
+        </div>
+      </section>
+    )
+  }
+
   return (
     <section className="py-24 text-center bg-gradient-to-b from-black/80 to-dark-900/80 backdrop-blur-sm">
       <div className="max-w-3xl mx-auto space-y-6 px-4">
@@ -91,20 +104,16 @@ export default function MeetingSection() {
               {isLive ? "Meeting in Progress" : "Next Meeting Starts In"}
             </h2>
 
-            {isLoading ? (
-              <div className="h-10 w-48 mx-auto bg-dark-700 rounded animate-pulse mb-6" />
-            ) : (
-              <motion.p
-                key={timeLeft}
-                initial={{ scale: 1.1 }}
-                animate={{ scale: 1 }}
-                className={`text-4xl font-mono mb-6 ${
-                  isLive ? "text-teal animate-pulse" : "text-teal"
-                }`}
-              >
-                {timeLeft}
-              </motion.p>
-            )}
+            <motion.p
+              key={timeLeft}
+              initial={{ scale: 1.1 }}
+              animate={{ scale: 1 }}
+              className={`text-4xl font-mono mb-6 ${
+                isLive ? "text-teal animate-pulse" : "text-teal"
+              }`}
+            >
+              {timeLeft}
+            </motion.p>
 
             <motion.a
               href={zoomLink}

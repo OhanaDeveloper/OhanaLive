@@ -13,9 +13,9 @@ export default function RotatingLogo({ size = 40, className = "" }: RotatingLogo
     <motion.div
       className={`relative ${className}`}
       style={{ width: size, height: size }}
-      animate={{ rotate: 360 }}
+      animate={{ rotateZ: 360 }}
       transition={{
-        duration: 20,
+        duration: 30,
         repeat: Infinity,
         ease: "linear",
       }}
@@ -26,6 +26,7 @@ export default function RotatingLogo({ size = 40, className = "" }: RotatingLogo
         fill
         className="object-contain"
         priority
+        unoptimized
       />
     </motion.div>
   )

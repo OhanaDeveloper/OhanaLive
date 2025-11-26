@@ -18,12 +18,12 @@ export default function ClientLayout({ children }: { children: ReactNode }) {
                 <Navigation />
             </header>
 
-            {/* Subtle rotating logo in bottom left corner */}
+            {/* Lotus logo - top left corner */}
             <Link
                 href="/"
-                className="fixed bottom-6 left-6 z-40 opacity-60 hover:opacity-90 transition-opacity duration-500"
+                className="fixed top-6 left-6 z-50 opacity-80 hover:opacity-100 transition-opacity duration-300"
             >
-                <RotatingLogo size={64} />
+                <RotatingLogo size={80} />
             </Link>
             <main className="pt-20 p-6">
                 <AnimatePresence mode="wait">
