@@ -11,28 +11,56 @@ const config: Config = {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
-        // Main accent - Teal
+        // Primary - Black/Dark Grey
+        dark: {
+          950: "#0a0a0a",     // near black
+          900: "#1a1a1a",     // very dark grey
+          800: "#2a2a2a",     // dark grey
+          700: "#3a3a3a",     // medium dark grey
+          600: "#4a4a4a",     // medium grey
+        },
+        // Secondary - Calming Teal (main brand color)
+        teal: {
+          DEFAULT: "#14b8a6", // teal-500 - main teal
+          light: "#2dd4bf",   // teal-400 - lighter teal
+          dark: "#0d9488",    // teal-600 - darker teal
+          50: "#f0fdfa",
+          100: "#ccfbf1",
+          200: "#99f6e4",
+        },
+        // Accent alias (points to teal for compatibility)
         accent: {
-          DEFAULT: "#2dd4bf", // teal-400
-          light: "#5eead4",   // teal-300
-          dark: "#14b8a6",    // teal-500
+          DEFAULT: "#14b8a6",
+          light: "#2dd4bf",
+          dark: "#0d9488",
         },
-        // Secondary - Gold/Orange splashes
-        gold: {
-          DEFAULT: "#d97706", // amber-600
-          light: "#f59e0b",   // amber-500
-          dark: "#b45309",    // amber-700
-        },
-        // Deep purple background tones
+        // Accent - Purple (for alternate states/hover)
         purple: {
-          950: "#1a0a2e",     // deepest purple (main bg)
-          900: "#2d1b4e",     // dark purple
-          800: "#3d2a5c",     // medium dark
-          700: "#4c3a6e",     // medium
-          600: "#5c4a7e",     // lighter accent
+          DEFAULT: "#a855f7", // purple-500
+          light: "#c084fc",   // purple-400
+          dark: "#9333ea",    // purple-600
+          50: "#faf5ff",
+          100: "#f3e8ff",
         },
-        // Light text colors
-        light: "#e2e8f0",     // slate-200
+        // Accent - Gold (for highlights/CTAs)
+        gold: {
+          DEFAULT: "#f59e0b", // amber-500
+          light: "#fbbf24",   // amber-400
+          dark: "#d97706",    // amber-600
+          50: "#fffbeb",
+          100: "#fef3c7",
+        },
+        // Text colors
+        light: "#f5f5f5",
+      },
+      fontFamily: {
+        ubuntu: ['var(--font-ubuntu)', 'sans-serif'],
+      },
+      fontWeight: {
+        light: '300',
+        normal: '400',
+        medium: '500',
+        bold: '700',
       },
       animation: {
         "fade-in": "fadeIn 0.6s ease-in-out",

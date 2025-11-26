@@ -44,7 +44,7 @@ export default function WorksheetGrid() {
               placeholder="Search worksheets..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full bg-purple-900/50 border border-purple-800 rounded-xl py-3 px-4 pl-12 text-gray-100 placeholder-gray-500 focus:outline-none focus:border-accent/50 transition-colors"
+              className="w-full bg-dark-900/50 border border-dark-800 rounded-xl py-3 px-4 pl-12 text-gray-100 placeholder-gray-500 focus:outline-none focus:border-teal/50 transition-colors"
             />
             <span className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500">
               🔍
@@ -74,7 +74,7 @@ export default function WorksheetGrid() {
               {activeFilter === category.key && (
                 <motion.div
                   layoutId="activeFilter"
-                  className="absolute inset-0 bg-accent/20 border border-accent/50 rounded-xl"
+                  className="absolute inset-0 bg-teal/20 border border-teal/50 rounded-xl"
                   transition={{ type: "spring", stiffness: 500, damping: 30 }}
                 />
               )}
@@ -128,7 +128,7 @@ export default function WorksheetGrid() {
                 setSearchQuery("")
                 setActiveFilter("all")
               }}
-              className="mt-4 text-accent hover:text-accent-light transition-colors"
+              className="mt-4 text-teal hover:text-teal-light transition-colors"
             >
               Clear filters
             </button>

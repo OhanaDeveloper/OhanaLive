@@ -57,7 +57,7 @@ export default function SectionWrapper({
                 className="max-w-3xl mx-auto space-y-6"
             >
                 {title && (
-                    <h2 className="text-3xl md:text-5xl font-bold text-accent tracking-tight">
+                    <h2 className="text-3xl md:text-5xl font-bold text-teal tracking-tight">
                         {title}
                     </h2>
                 )}

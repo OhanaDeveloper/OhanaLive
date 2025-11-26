@@ -43,7 +43,7 @@ export default function PromiseStruggling() {
             repeat: Infinity,
             delay: i * 0.5,
           }}
-          className="absolute w-2 h-2 bg-accent/30 rounded-full"
+          className="absolute w-2 h-2 bg-teal/30 rounded-full"
           style={{
             left: `${15 + i * 15}%`,
             top: `${20 + (i % 3) * 25}%`,
@@ -87,15 +87,15 @@ export default function PromiseStruggling() {
                 whileHover={{ scale: 1.02, x: 10 }}
                 className={`relative p-6 rounded-xl border transition-all duration-300 cursor-default ${
                   hoveredIndex === i
-                    ? "bg-accent/10 border-accent/50 shadow-lg shadow-accent/10"
-                    : "bg-purple-900/30 border-purple-800"
+                    ? "bg-teal/10 border-teal/50 shadow-lg shadow-accent/10"
+                    : "bg-dark-900/30 border-dark-800"
                 }`}
               >
                 {/* Number indicator */}
                 <motion.span
                   animate={{
                     scale: hoveredIndex === i ? 1.2 : 1,
-                    color: hoveredIndex === i ? "#2dd4bf" : "#4b5563",
+                    color: hoveredIndex === i ? "#14b8a6" : "#4b5563",
                   }}
                   className="absolute -left-2 top-1/2 -translate-y-1/2 text-6xl font-black opacity-20"
                 >
@@ -109,7 +109,7 @@ export default function PromiseStruggling() {
                     }}
                     transition={{ duration: 0.3 }}
                     className={`w-3 h-3 rounded-full ${
-                      hoveredIndex === i ? "bg-accent" : "bg-gray-600"
+                      hoveredIndex === i ? "bg-teal" : "bg-gray-600"
                     }`}
                   />
                   <p

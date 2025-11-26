@@ -25,13 +25,13 @@ export default function AnimatedCard({
       viewport={{ once: true, amount: 0.3 }}
       transition={{ duration: 0.5, delay }}
       whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
-      className={`bg-purple-900/50 backdrop-blur-sm border border-purple-800 rounded-xl p-6 shadow-lg hover:shadow-xl hover:shadow-accent/10 hover:border-accent/30 transition-all ${className}`}
+      className={`bg-dark-900/50 backdrop-blur-sm border border-dark-800 rounded-xl p-6 shadow-lg hover:shadow-xl hover:shadow-accent/10 hover:border-teal/30 transition-all ${className}`}
     >
       {icon && (
         <motion.div
           whileHover={{ rotate: 360 }}
           transition={{ duration: 0.6 }}
-          className="mb-4 text-4xl text-accent"
+          className="mb-4 text-4xl text-teal"
         >
           {icon}
         </motion.div>

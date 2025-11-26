@@ -53,13 +53,13 @@ export default function MeetingSection() {
   }, [startHour, endHour, timeZone])
 
   return (
-    <section className="py-24 text-center bg-gradient-to-b from-black/80 to-purple-900/80 backdrop-blur-sm">
+    <section className="py-24 text-center bg-gradient-to-b from-black/80 to-dark-900/80 backdrop-blur-sm">
       <div className="max-w-3xl mx-auto space-y-6 px-4">
         <motion.h1
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-4xl md:text-5xl font-bold text-accent"
+          className="text-4xl md:text-5xl font-bold text-teal"
         >
           Ohana Live Meetings
         </motion.h1>
@@ -85,21 +85,21 @@ export default function MeetingSection() {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5, delay: 0.5 }}
-            className="bg-purple-900/60 backdrop-blur-md border border-purple-800 rounded-2xl p-8 shadow-xl"
+            className="bg-dark-900/60 backdrop-blur-md border border-dark-800 rounded-2xl p-8 shadow-xl"
           >
             <h2 className="text-2xl font-semibold text-white mb-4">
               {isLive ? "Meeting in Progress" : "Next Meeting Starts In"}
             </h2>
 
             {isLoading ? (
-              <div className="h-10 w-48 mx-auto bg-purple-700 rounded animate-pulse mb-6" />
+              <div className="h-10 w-48 mx-auto bg-dark-700 rounded animate-pulse mb-6" />
             ) : (
               <motion.p
                 key={timeLeft}
                 initial={{ scale: 1.1 }}
                 animate={{ scale: 1 }}
                 className={`text-4xl font-mono mb-6 ${
-                  isLive ? "text-accent animate-pulse" : "text-accent"
+                  isLive ? "text-teal animate-pulse" : "text-teal"
                 }`}
               >
                 {timeLeft}
@@ -114,8 +114,8 @@ export default function MeetingSection() {
               whileTap={{ scale: 0.98 }}
               className={`inline-block px-8 py-4 rounded-xl font-semibold text-white text-lg transition-all shadow-lg ${
                 isLive
-                  ? "bg-accent hover:bg-accent-light shadow-accent/30"
-                  : "bg-purple-700 hover:bg-gray-600"
+                  ? "bg-teal hover:bg-teal-light shadow-accent/30"
+                  : "bg-dark-700 hover:bg-gray-600"
               }`}
             >
               {isLive ? (

@@ -1,44 +1,71 @@
 @import "tailwindcss";
 
 :root {
-  --background: #1a0a2e;
-  --foreground: #e2e8f0;
-  --purple-deep: #1a0a2e;
-  --purple-dark: #2d1b4e;
-  --purple-medium: #3d2a5c;
-  --teal: #2dd4bf;
-  --teal-light: #5eead4;
-  --gold: #d97706;
-  --gold-light: #f59e0b;
+  --background: #0a0a0a;
+  --foreground: #f5f5f5;
+  --dark-bg: #0a0a0a;
+  --dark-grey: #1a1a1a;
+  --teal: #14b8a6;
+  --teal-light: #2dd4bf;
+  --purple: #a855f7;
+  --gold: #f59e0b;
+  --font-ubuntu: 'Ubuntu', sans-serif;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-ubuntu);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-ubuntu);
 }
 
-/* Custom scrollbar for dark purple theme */
+/* Smooth font rendering */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom scrollbar for dark theme */
 ::-webkit-scrollbar {
   width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--purple-deep);
+  background: var(--dark-bg);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--purple-medium);
+  background: var(--dark-grey);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
   background: var(--teal);
+}
+
+/* Typography scale using Ubuntu font variations */
+h1, h2, h3 {
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+h4, h5, h6 {
+  font-weight: 500;
+}
+
+p {
+  font-weight: 400;
+}
+
+.font-light {
+  font-weight: 300;
+}
+
+.font-medium {
+  font-weight: 500;
 }

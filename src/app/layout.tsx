@@ -1,7 +1,15 @@
 import type { Metadata } from "next"
 import type { ReactNode } from "react"
+import { Ubuntu } from "next/font/google"
 import "./globals.css"
 import ClientLayout from "@/components/layout/ClientLayout"
+
+const ubuntu = Ubuntu({
+    weight: ['300', '400', '500', '700'],
+    subsets: ['latin'],
+    display: 'swap',
+    variable: '--font-ubuntu',
+})
 
 export const metadata: Metadata = {
     title: {
@@ -14,7 +22,7 @@ export const metadata: Metadata = {
         title: "Ohana Live",
         description:
             "A living platform that merges recovery and technology into a seamless, immersive experience.",
-        url: "https://ohana-live.vercel.app",
+        url: "https://ohanarecovery.org",
         siteName: "Ohana Live",
         images: [
             {
@@ -27,7 +35,7 @@ export const metadata: Metadata = {
         locale: "en_US",
         type: "website",
     },
-    themeColor: "#1a0a2e",
+    themeColor: "#0a0a0a",
     icons: {
         icon: "/favicon.ico",
         shortcut: "/favicon-32x32.png",
@@ -41,8 +49,8 @@ export default function RootLayout({
     children: ReactNode
 }) {
     return (
-        <html lang="en" suppressHydrationWarning>
-        <body className="min-h-screen bg-purple-950 text-light antialiased">
+        <html lang="en" suppressHydrationWarning className={ubuntu.variable}>
+        <body className="min-h-screen bg-black text-gray-100 antialiased font-ubuntu">
         <ClientLayout>{children}</ClientLayout>
         </body>
         </html>

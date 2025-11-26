@@ -35,7 +35,7 @@ export default function AboutHero() {
               }}
               whileHover={{
                 scale: 1.2,
-                color: "#2dd4bf",
+                color: "#14b8a6",
                 textShadow: "0 0 40px rgba(16,185,129,0.5)",
               }}
               className="text-6xl md:text-9xl font-black text-gray-100 cursor-default"
@@ -58,7 +58,7 @@ export default function AboutHero() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.8 }}
-            className="text-xl text-accent"
+            className="text-xl text-teal"
           >
             Hawaiian — meaning family, in an extended sense
           </motion.p>
@@ -80,7 +80,7 @@ export default function AboutHero() {
           &ldquo;Ohana means family. Family means{" "}
           <motion.span
             initial={{ color: "#d1d5db" }}
-            animate={{ color: "#2dd4bf" }}
+            animate={{ color: "#14b8a6" }}
             transition={{ delay: 1.5, duration: 0.5 }}
             className="font-semibold"
           >

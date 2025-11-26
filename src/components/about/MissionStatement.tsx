@@ -18,11 +18,11 @@ export default function MissionStatement() {
       {/* Decorative elements */}
       <motion.div
         style={{ opacity }}
-        className="absolute top-20 left-10 w-20 h-20 border border-accent/20 rounded-full"
+        className="absolute top-20 left-10 w-20 h-20 border border-teal/20 rounded-full"
       />
       <motion.div
         style={{ opacity }}
-        className="absolute bottom-20 right-10 w-32 h-32 border border-accent/10 rounded-full"
+        className="absolute bottom-20 right-10 w-32 h-32 border border-teal/10 rounded-full"
       />
 
       <motion.div
@@ -33,7 +33,7 @@ export default function MissionStatement() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="inline-block text-accent/80 text-sm font-mono tracking-widest uppercase mb-6"
+          className="inline-block text-teal/80 text-sm font-mono tracking-widest uppercase mb-6"
         >
           Our Mission
         </motion.span>
@@ -53,7 +53,7 @@ export default function MissionStatement() {
               whileInView={{ width: "100%" }}
               viewport={{ once: true }}
               transition={{ delay: 0.5, duration: 0.5 }}
-              className="absolute bottom-2 left-0 h-3 bg-accent/30 -z-0"
+              className="absolute bottom-2 left-0 h-3 bg-teal/30 -z-0"
             />
           </span>{" "}
           in the{" "}
@@ -64,7 +64,7 @@ export default function MissionStatement() {
               whileInView={{ width: "100%" }}
               viewport={{ once: true }}
               transition={{ delay: 0.7, duration: 0.5 }}
-              className="absolute bottom-2 left-0 h-3 bg-accent/30 -z-0"
+              className="absolute bottom-2 left-0 h-3 bg-teal/30 -z-0"
             />
           </span>
         </motion.h2>
@@ -105,7 +105,7 @@ export default function MissionStatement() {
                 whileInView={{ scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.6 + i * 0.1, type: "spring" }}
-                className="text-4xl md:text-5xl font-bold text-accent mb-2"
+                className="text-4xl md:text-5xl font-bold text-teal mb-2"
               >
                 {stat.number}
               </motion.div>

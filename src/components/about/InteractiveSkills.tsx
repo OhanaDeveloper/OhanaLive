@@ -69,12 +69,12 @@ function SkillBar({ skill, delay }: { skill: { name: string; level: number }; de
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: delay + 0.3 }}
-          className="text-accent text-sm"
+          className="text-teal text-sm"
         >
           {skill.level}%
         </motion.span>
       </div>
-      <div className="h-2 bg-purple-800 rounded-full overflow-hidden">
+      <div className="h-2 bg-dark-800 rounded-full overflow-hidden">
         <motion.div
           initial={{ width: 0 }}
           animate={{ width: `${skill.level}%` }}
@@ -99,7 +99,7 @@ export default function InteractiveSkills() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <span className="text-accent/80 text-sm font-mono tracking-widest uppercase mb-4 block">
+          <span className="text-teal/80 text-sm font-mono tracking-widest uppercase mb-4 block">
             Capabilities
           </span>
           <h2 className="text-4xl md:text-5xl font-bold text-gray-100 mb-6">
@@ -127,7 +127,7 @@ export default function InteractiveSkills() {
               {activeCategory === category.id && (
                 <motion.div
                   layoutId="activeTab"
-                  className="absolute inset-0 bg-accent/20 border border-accent/50 rounded-xl"
+                  className="absolute inset-0 bg-teal/20 border border-teal/50 rounded-xl"
                   transition={{ type: "spring", stiffness: 500, damping: 30 }}
                 />
               )}
@@ -142,7 +142,7 @@ export default function InteractiveSkills() {
         {/* Skills display */}
         <motion.div
           layout
-          className="bg-purple-900/50 backdrop-blur-sm border border-purple-800 rounded-2xl p-8"
+          className="bg-dark-900/50 backdrop-blur-sm border border-dark-800 rounded-2xl p-8"
         >
           <AnimatePresence mode="wait">
             <motion.div

@@ -23,8 +23,8 @@ export default function Navigation() {
                 <Link key={href} href={href} className="relative">
           <span
               className={clsx(
-                  "transition-colors duration-300 hover:text-accent",
-                  pathname === href ? "text-accent" : "text-light"
+                  "transition-colors duration-300 hover:text-teal",
+                  pathname === href ? "text-teal" : "text-light"
               )}
           >
             {label}
@@ -32,7 +32,7 @@ export default function Navigation() {
                     {pathname === href && (
                         <motion.div
                             layoutId="underline"
-                            className="absolute left-0 -bottom-1 h-[2px] w-full bg-accent"
+                            className="absolute left-0 -bottom-1 h-[2px] w-full bg-teal"
                             transition={{ type: "spring", stiffness: 500, damping: 30 }}
                         />
                     )}

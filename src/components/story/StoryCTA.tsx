@@ -16,7 +16,7 @@ export default function StoryCTA() {
           fill
           className="object-cover opacity-30"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-purple-950 via-purple-950/90 to-purple-950/70" />
+        <div className="absolute inset-0 bg-gradient-to-t from-dark-950 via-dark-950/90 to-dark-950/70" />
       </div>
 
       {/* Animated background */}
@@ -46,7 +46,7 @@ export default function StoryCTA() {
           whileInView={{ scale: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
-          className="w-20 h-20 mx-auto mb-8 rounded-full bg-accent/20 flex items-center justify-center"
+          className="w-20 h-20 mx-auto mb-8 rounded-full bg-teal/20 flex items-center justify-center"
         >
           <span className="text-4xl">✨</span>
         </motion.div>
@@ -68,7 +68,7 @@ export default function StoryCTA() {
             rel="noopener noreferrer"
             whileHover={{ scale: 1.05, boxShadow: "0 0 40px rgba(16, 185, 129, 0.3)" }}
             whileTap={{ scale: 0.98 }}
-            className="inline-flex items-center gap-3 bg-accent hover:bg-accent-light text-white font-bold px-8 py-4 rounded-xl transition-colors text-lg"
+            className="inline-flex items-center gap-3 bg-teal hover:bg-teal-light text-white font-bold px-8 py-4 rounded-xl transition-colors text-lg"
           >
             <motion.span
               animate={{ scale: [1, 1.2, 1] }}
@@ -81,7 +81,7 @@ export default function StoryCTA() {
           <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 bg-purple-800 hover:bg-purple-700 text-gray-100 font-semibold px-8 py-4 rounded-xl transition-colors text-lg border border-purple-700"
+              className="inline-flex items-center gap-2 bg-dark-800 hover:bg-dark-700 text-gray-100 font-semibold px-8 py-4 rounded-xl transition-colors text-lg border border-dark-700"
             >
               Get in Touch
               <span>→</span>

@@ -15,14 +15,14 @@ export default function ResourcesHero() {
           className="object-cover opacity-20"
           priority
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-purple-950/80 via-purple-950/90 to-purple-950" />
+        <div className="absolute inset-0 bg-gradient-to-b from-dark-950/80 via-dark-950/90 to-dark-950" />
       </div>
 
       <div className="relative max-w-4xl mx-auto px-4 text-center">
         <motion.span
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="inline-block text-accent/80 text-sm font-mono tracking-widest uppercase mb-4"
+          className="inline-block text-teal/80 text-sm font-mono tracking-widest uppercase mb-4"
         >
           Free Resources
         </motion.span>
@@ -34,7 +34,7 @@ export default function ResourcesHero() {
           className="text-4xl md:text-6xl font-bold text-gray-100 mb-6"
         >
           Recovery{" "}
-          <span className="text-accent">Worksheets</span>
+          <span className="text-teal">Worksheets</span>
         </motion.h1>
 
         <motion.p
@@ -64,7 +64,7 @@ export default function ResourcesHero() {
                 initial={{ scale: 0 }}
                 animate={{ scale: 1 }}
                 transition={{ delay: 0.4 + i * 0.1, type: "spring" }}
-                className="text-3xl font-bold text-accent"
+                className="text-3xl font-bold text-teal"
               >
                 {stat.number}
               </motion.div>

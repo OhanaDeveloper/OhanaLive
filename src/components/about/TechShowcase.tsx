@@ -66,7 +66,7 @@ function TechCard({ tech, index }: { tech: typeof techStack[0]; index: number })
             ? `0 20px 40px -20px ${tech.color}40`
             : "0 0 0 transparent",
         }}
-        className="bg-purple-900/80 backdrop-blur-sm border border-purple-800 rounded-xl p-6 h-full hover:border-purple-700 transition-colors"
+        className="bg-dark-900/80 backdrop-blur-sm border border-dark-800 rounded-xl p-6 h-full hover:border-dark-700 transition-colors"
         style={{ transformStyle: "preserve-3d" }}
       >
         {/* Floating icon */}
@@ -109,7 +109,7 @@ export default function TechShowcase() {
   return (
     <section className="py-32 px-4 relative overflow-hidden">
       {/* Animated code background */}
-      <div className="absolute inset-0 opacity-5 font-mono text-xs text-accent overflow-hidden">
+      <div className="absolute inset-0 opacity-5 font-mono text-xs text-teal overflow-hidden">
         <motion.div
           animate={{ y: [0, -1000] }}
           transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
@@ -150,7 +150,7 @@ export default function Life() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <span className="text-accent/80 text-sm font-mono tracking-widest uppercase mb-4 block">
+          <span className="text-teal/80 text-sm font-mono tracking-widest uppercase mb-4 block">
             Built With
           </span>
           <h2 className="text-4xl md:text-5xl font-bold text-gray-100 mb-6">
@@ -179,7 +179,7 @@ export default function Life() {
         >
           <motion.div
             whileHover={{ scale: 1.05 }}
-            className="inline-flex items-center gap-2 bg-purple-800/50 border border-purple-700 rounded-full px-6 py-3"
+            className="inline-flex items-center gap-2 bg-dark-800/50 border border-dark-700 rounded-full px-6 py-3"
           >
             <motion.span
               animate={{ rotate: [0, 10, -10, 0] }}

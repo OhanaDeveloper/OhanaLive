@@ -65,9 +65,9 @@ const contactOptions: ContactOption[] = [
     content: (
       <div className="space-y-4">
         <p className="text-gray-300">
-          Ohana Live meets every night from <span className="text-accent font-semibold">11 PM to 3 AM Pacific</span>.
+          Ohana Live meets every night from <span className="text-teal font-semibold">11 PM to 3 AM Pacific</span>.
         </p>
-        <div className="bg-purple-800/50 rounded-lg p-4 border border-purple-700">
+        <div className="bg-dark-800/50 rounded-lg p-4 border border-dark-700">
           <div className="text-sm text-gray-400 mb-2">Meeting Details</div>
           <ul className="text-gray-300 space-y-1 text-sm">
             <li>• No sign-up or registration required</li>
@@ -80,7 +80,7 @@ const contactOptions: ContactOption[] = [
           href={MEETING_INFO.zoomLink}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 bg-accent hover:bg-accent-light text-white font-semibold px-6 py-3 rounded-lg transition-colors"
+          className="inline-flex items-center gap-2 bg-teal hover:bg-teal-light text-white font-semibold px-6 py-3 rounded-lg transition-colors"
         >
           <span>Join Zoom Meeting</span>
           <span>→</span>
@@ -96,8 +96,8 @@ const contactOptions: ContactOption[] = [
     content: (
       <div className="space-y-4">
         <div className="space-y-3">
-          <details className="group bg-purple-800/30 rounded-lg border border-purple-700">
-            <summary className="cursor-pointer p-4 font-medium text-gray-200 hover:text-accent transition-colors">
+          <details className="group bg-dark-800/30 rounded-lg border border-dark-700">
+            <summary className="cursor-pointer p-4 font-medium text-gray-200 hover:text-teal transition-colors">
               What happens in the meetings?
             </summary>
             <div className="px-4 pb-4 text-gray-400 text-sm">
@@ -106,8 +106,8 @@ const contactOptions: ContactOption[] = [
               No pressure to speak — you can just listen if that&apos;s more comfortable.
             </div>
           </details>
-          <details className="group bg-purple-800/30 rounded-lg border border-purple-700">
-            <summary className="cursor-pointer p-4 font-medium text-gray-200 hover:text-accent transition-colors">
+          <details className="group bg-dark-800/30 rounded-lg border border-dark-700">
+            <summary className="cursor-pointer p-4 font-medium text-gray-200 hover:text-teal transition-colors">
               Is this a 12-step program?
             </summary>
             <div className="px-4 pb-4 text-gray-400 text-sm">
@@ -116,8 +116,8 @@ const contactOptions: ContactOption[] = [
               therapy, medication-assisted treatment, or your own approach.
             </div>
           </details>
-          <details className="group bg-purple-800/30 rounded-lg border border-purple-700">
-            <summary className="cursor-pointer p-4 font-medium text-gray-200 hover:text-accent transition-colors">
+          <details className="group bg-dark-800/30 rounded-lg border border-dark-700">
+            <summary className="cursor-pointer p-4 font-medium text-gray-200 hover:text-teal transition-colors">
               Why late night?
             </summary>
             <div className="px-4 pb-4 text-gray-400 text-sm">
@@ -126,8 +126,8 @@ const contactOptions: ContactOption[] = [
               because that&apos;s when connection matters most.
             </div>
           </details>
-          <details className="group bg-purple-800/30 rounded-lg border border-purple-700">
-            <summary className="cursor-pointer p-4 font-medium text-gray-200 hover:text-accent transition-colors">
+          <details className="group bg-dark-800/30 rounded-lg border border-dark-700">
+            <summary className="cursor-pointer p-4 font-medium text-gray-200 hover:text-teal transition-colors">
               Is it anonymous?
             </summary>
             <div className="px-4 pb-4 text-gray-400 text-sm">
@@ -151,19 +151,19 @@ const contactOptions: ContactOption[] = [
           Ohana Live is built by and for our community. There are many ways to contribute:
         </p>
         <div className="grid gap-3">
-          <div className="bg-purple-800/30 rounded-lg p-4 border border-purple-700">
+          <div className="bg-dark-800/30 rounded-lg p-4 border border-dark-700">
             <div className="font-medium text-gray-200 mb-1">Join as a Regular</div>
             <div className="text-gray-400 text-sm">
               Show up, share your experience, and be part of the community.
             </div>
           </div>
-          <div className="bg-purple-800/30 rounded-lg p-4 border border-purple-700">
+          <div className="bg-dark-800/30 rounded-lg p-4 border border-dark-700">
             <div className="font-medium text-gray-200 mb-1">Help Moderate</div>
             <div className="text-gray-400 text-sm">
               Support meeting facilitation and help maintain a safe space.
             </div>
           </div>
-          <div className="bg-purple-800/30 rounded-lg p-4 border border-purple-700">
+          <div className="bg-dark-800/30 rounded-lg p-4 border border-dark-700">
             <div className="font-medium text-gray-200 mb-1">Technical Skills</div>
             <div className="text-gray-400 text-sm">
               We&apos;re always looking for developers, designers, and creators.
@@ -172,7 +172,7 @@ const contactOptions: ContactOption[] = [
         </div>
         <a
           href="mailto:dev@ohanarecovery.org?subject=Getting%20Involved%20with%20Ohana%20Live"
-          className="inline-flex items-center gap-2 bg-purple-700 hover:bg-gray-600 text-white font-semibold px-6 py-3 rounded-lg transition-colors"
+          className="inline-flex items-center gap-2 bg-dark-700 hover:bg-gray-600 text-white font-semibold px-6 py-3 rounded-lg transition-colors"
         >
           <span>Email Us</span>
           <span>→</span>
@@ -190,11 +190,11 @@ const contactOptions: ContactOption[] = [
         <p className="text-gray-300">
           For general inquiries, partnerships, or anything else:
         </p>
-        <div className="bg-purple-800/50 rounded-lg p-6 border border-purple-700 text-center">
+        <div className="bg-dark-800/50 rounded-lg p-6 border border-dark-700 text-center">
           <div className="text-gray-400 text-sm mb-2">Email us at</div>
           <a
             href="mailto:dev@ohanarecovery.org"
-            className="text-xl text-accent hover:text-accent-light font-medium transition-colors"
+            className="text-xl text-teal hover:text-teal-light font-medium transition-colors"
           >
             dev@ohanarecovery.org
           </a>
@@ -230,10 +230,10 @@ export default function ContactMenu() {
               whileTap={{ scale: 0.98 }}
               className={`w-full text-left p-5 rounded-xl border transition-all ${
                 selectedOption === option.id
-                  ? "bg-purple-800/80 border-accent/50 shadow-lg shadow-accent/10"
+                  ? "bg-dark-800/80 border-teal/50 shadow-lg shadow-accent/10"
                   : option.urgent
                     ? "bg-red-950/30 border-red-800/30 hover:border-red-700/50"
-                    : "bg-purple-900/50 border-purple-800 hover:border-purple-700"
+                    : "bg-dark-900/50 border-dark-800 hover:border-dark-700"
               }`}
             >
               <div className="flex items-center gap-4">
@@ -271,7 +271,7 @@ export default function ContactMenu() {
                   transition={{ duration: 0.3, ease: "easeInOut" }}
                   className="overflow-hidden"
                 >
-                  <div className="p-6 bg-purple-900/30 border-x border-b border-purple-800 rounded-b-xl">
+                  <div className="p-6 bg-dark-900/30 border-x border-b border-dark-800 rounded-b-xl">
                     {option.content}
                   </div>
                 </motion.div>

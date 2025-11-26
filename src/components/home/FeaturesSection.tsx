@@ -37,7 +37,7 @@ export default function FeaturesSection() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-accent mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-teal mb-4">
             What Makes Us Different
           </h2>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto">

@@ -98,7 +98,7 @@ function CrewCard({ member, index }: { member: CrewMember; index: number }) {
           transition={{ duration: 0.6 }}
           style={{ backfaceVisibility: "hidden" }}
         >
-          <div className="relative h-full bg-gradient-to-b from-purple-800/50 to-purple-900/80 border border-purple-700 rounded-2xl overflow-hidden group">
+          <div className="relative h-full bg-gradient-to-b from-dark-800/50 to-dark-900/80 border border-dark-700 rounded-2xl overflow-hidden group">
             {/* Image */}
             <div className="relative h-56 overflow-hidden">
               <Image
@@ -107,13 +107,13 @@ function CrewCard({ member, index }: { member: CrewMember; index: number }) {
                 fill
                 className="object-cover transition-transform duration-500 group-hover:scale-110"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-purple-900 via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-dark-900 via-transparent to-transparent" />
             </div>
 
             {/* Content */}
             <div className="p-6">
               <h3 className="text-2xl font-bold text-gray-100 mb-1">{member.name}</h3>
-              <p className="text-accent text-sm font-medium mb-4">{member.role}</p>
+              <p className="text-teal text-sm font-medium mb-4">{member.role}</p>
               <p className="text-gray-400 text-sm leading-relaxed line-clamp-4">
                 {member.bio}
               </p>
@@ -142,8 +142,8 @@ function CrewCard({ member, index }: { member: CrewMember; index: number }) {
           transition={{ duration: 0.6 }}
           style={{ backfaceVisibility: "hidden" }}
         >
-          <div className="h-full bg-gradient-to-b from-purple-800 to-purple-900 border border-accent/30 rounded-2xl p-6 flex flex-col">
-            <h3 className="text-xl font-bold text-accent mb-4">{member.name}</h3>
+          <div className="h-full bg-gradient-to-b from-dark-800 to-dark-900 border border-teal/30 rounded-2xl p-6 flex flex-col">
+            <h3 className="text-xl font-bold text-teal mb-4">{member.name}</h3>
 
             {/* Why Recovery */}
             <div className="mb-4">
@@ -212,7 +212,7 @@ export default function CrewGrid() {
           transition={{ delay: 0.3 }}
           className="mt-20 text-center"
         >
-          <div className="inline-block bg-purple-900/60 border border-purple-700 rounded-2xl p-8 max-w-xl">
+          <div className="inline-block bg-dark-900/60 border border-dark-700 rounded-2xl p-8 max-w-xl">
             <h3 className="text-2xl font-bold text-gray-100 mb-3">
               Want to Join the Crew?
             </h3>
@@ -222,7 +222,7 @@ export default function CrewGrid() {
             </p>
             <a
               href="/contact"
-              className="inline-flex items-center gap-2 bg-accent hover:bg-accent-light text-white font-semibold px-6 py-3 rounded-lg transition-colors"
+              className="inline-flex items-center gap-2 bg-teal hover:bg-teal-light text-white font-semibold px-6 py-3 rounded-lg transition-colors"
             >
               <span>Get Involved</span>
               <span>&rarr;</span>

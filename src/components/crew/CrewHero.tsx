@@ -13,7 +13,7 @@ export default function CrewHero() {
             y: [0, -20, 0],
           }}
           transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-1/4 left-1/4 w-64 h-64 bg-accent/20 rounded-full blur-3xl"
+          className="absolute top-1/4 left-1/4 w-64 h-64 bg-teal/20 rounded-full blur-3xl"
         />
         <motion.div
           animate={{
@@ -36,7 +36,7 @@ export default function CrewHero() {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.2 }}
-            className="inline-block text-accent/80 text-sm font-mono tracking-widest uppercase mb-6"
+            className="inline-block text-teal/80 text-sm font-mono tracking-widest uppercase mb-6"
           >
             The Faces Behind the Meetings
           </motion.span>
@@ -54,7 +54,7 @@ export default function CrewHero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5 }}
-              className="block text-accent"
+              className="block text-teal"
             >
               Crew
             </motion.span>

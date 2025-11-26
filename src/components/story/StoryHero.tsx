@@ -30,7 +30,7 @@ export default function StoryHero() {
           className="object-cover opacity-30"
           priority
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-purple-950/80 via-purple-950/60 to-purple-950" />
+        <div className="absolute inset-0 bg-gradient-to-b from-dark-950/80 via-dark-950/60 to-dark-950" />
       </motion.div>
 
       {/* Parallax background elements */}
@@ -45,7 +45,7 @@ export default function StoryHero() {
             y: [0, -20, 0],
           }}
           transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-1/4 left-1/4 w-64 h-64 bg-accent/20 rounded-full blur-3xl"
+          className="absolute top-1/4 left-1/4 w-64 h-64 bg-teal/20 rounded-full blur-3xl"
         />
         <motion.div
           animate={{
@@ -71,7 +71,7 @@ export default function StoryHero() {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.2 }}
-            className="inline-block text-accent/80 text-sm font-mono tracking-widest uppercase mb-6"
+            className="inline-block text-teal/80 text-sm font-mono tracking-widest uppercase mb-6"
           >
             Our Origin
           </motion.span>
@@ -89,7 +89,7 @@ export default function StoryHero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5 }}
-              className="block text-accent"
+              className="block text-teal"
             >
               Ohana Live
             </motion.span>
@@ -127,7 +127,7 @@ export default function StoryHero() {
               <motion.div
                 animate={{ y: [0, 12, 0] }}
                 transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-                className="w-1.5 h-1.5 bg-accent rounded-full"
+                className="w-1.5 h-1.5 bg-teal rounded-full"
               />
             </motion.div>
           </motion.div>

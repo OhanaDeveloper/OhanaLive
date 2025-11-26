@@ -101,8 +101,8 @@ function TimelineItem({
         transition={{ duration: 0.3 }}
         className={`flex-1 rounded-2xl border backdrop-blur-sm overflow-hidden ${
           event.highlight
-            ? "bg-accent/10 border-accent/30 shadow-lg shadow-accent/10"
-            : "bg-purple-900/50 border-purple-800"
+            ? "bg-teal/10 border-teal/30 shadow-lg shadow-accent/10"
+            : "bg-dark-900/50 border-dark-800"
         }`}
       >
         {/* Image */}
@@ -113,10 +113,10 @@ function TimelineItem({
             fill
             className="object-cover transition-transform duration-500 hover:scale-110"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent to-purple-900/90" />
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent to-dark-900/90" />
           <div
             className={`absolute bottom-3 left-4 text-sm font-mono ${
-              event.highlight ? "text-accent" : "text-gray-400"
+              event.highlight ? "text-teal" : "text-gray-400"
             }`}
           >
             {event.year}
@@ -138,7 +138,7 @@ function TimelineItem({
           viewport={{ once: true }}
           transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
           className={`w-4 h-4 rounded-full z-10 ${
-            event.highlight ? "bg-accent shadow-lg shadow-accent/50" : "bg-gray-600"
+            event.highlight ? "bg-teal shadow-lg shadow-accent/50" : "bg-gray-600"
           }`}
         />
         {index < timelineEvents.length - 1 && (

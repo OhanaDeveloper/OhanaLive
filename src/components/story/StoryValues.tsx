@@ -50,7 +50,7 @@ function ValueCard({ value }: { value: typeof values[0]; index: number }) {
     >
       <div className="absolute inset-0 bg-gradient-to-br from-accent/20 to-transparent rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
-      <div className="relative bg-purple-900/60 backdrop-blur-sm border border-purple-800 rounded-2xl p-8 h-full hover:border-accent/30 transition-colors duration-300">
+      <div className="relative bg-dark-900/60 backdrop-blur-sm border border-dark-800 rounded-2xl p-8 h-full hover:border-teal/30 transition-colors duration-300">
         <motion.div
           initial={{ scale: 1 }}
           whileHover={{ scale: 1.2, rotate: 10 }}
@@ -60,7 +60,7 @@ function ValueCard({ value }: { value: typeof values[0]; index: number }) {
           {value.icon}
         </motion.div>
 
-        <h3 className="text-xl font-bold text-gray-100 mb-3 group-hover:text-accent transition-colors">
+        <h3 className="text-xl font-bold text-gray-100 mb-3 group-hover:text-teal transition-colors">
           {value.title}
         </h3>
 
@@ -69,7 +69,7 @@ function ValueCard({ value }: { value: typeof values[0]; index: number }) {
         </p>
 
         {/* Decorative corner */}
-        <div className="absolute top-4 right-4 w-8 h-8 border-t-2 border-r-2 border-purple-700/50 rounded-tr-lg opacity-0 group-hover:opacity-100 group-hover:border-accent/30 transition-all duration-300" />
+        <div className="absolute top-4 right-4 w-8 h-8 border-t-2 border-r-2 border-dark-700/50 rounded-tr-lg opacity-0 group-hover:opacity-100 group-hover:border-teal/30 transition-all duration-300" />
       </div>
     </motion.div>
   )
@@ -86,7 +86,7 @@ export default function StoryValues() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <span className="text-accent/80 text-sm font-mono tracking-widest uppercase mb-4 block">
+          <span className="text-teal/80 text-sm font-mono tracking-widest uppercase mb-4 block">
             What We Believe
           </span>
           <h2 className="text-4xl md:text-5xl font-bold text-gray-100 mb-4">

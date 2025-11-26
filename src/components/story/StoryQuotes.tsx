@@ -47,7 +47,7 @@ export default function StoryQuotes() {
           fill
           className="object-cover opacity-20"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-purple-950 via-purple-950/80 to-purple-950" />
+        <div className="absolute inset-0 bg-gradient-to-b from-dark-950 via-dark-950/80 to-dark-950" />
       </div>
 
       {/* Background gradient */}
@@ -61,7 +61,7 @@ export default function StoryQuotes() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <span className="text-accent/80 text-sm font-mono tracking-widest uppercase">
+          <span className="text-teal/80 text-sm font-mono tracking-widest uppercase">
             Voices from the Community
           </span>
         </motion.div>
@@ -81,7 +81,7 @@ export default function StoryQuotes() {
                 initial={{ scale: 0 }}
                 animate={{ scale: 1 }}
                 transition={{ delay: 0.2 }}
-                className="text-6xl text-accent/30 mb-4"
+                className="text-6xl text-teal/30 mb-4"
               >
                 &ldquo;
               </motion.div>
@@ -105,7 +105,7 @@ export default function StoryQuotes() {
               whileTap={{ scale: 0.9 }}
               className={`w-2 h-2 rounded-full transition-all duration-300 ${
                 index === currentIndex
-                  ? "bg-accent w-8"
+                  ? "bg-teal w-8"
                   : "bg-gray-600 hover:bg-gray-500"
               }`}
             />

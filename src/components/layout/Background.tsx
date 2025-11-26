@@ -21,9 +21,9 @@ function FloatingOrb({ position, color, speed = 1 }: { position: [number, number
       <meshStandardMaterial
         color={color}
         emissive={color}
-        emissiveIntensity={0.5}
+        emissiveIntensity={0.4}
         transparent
-        opacity={0.8}
+        opacity={0.7}
       />
     </Sphere>
   )
@@ -43,11 +43,11 @@ function GlowingRing({ position }: { position: [number, number, number] }) {
     <mesh ref={ringRef} position={position}>
       <torusGeometry args={[0.8, 0.02, 16, 100]} />
       <meshStandardMaterial
-        color="#2dd4bf"
-        emissive="#2dd4bf"
-        emissiveIntensity={0.8}
+        color="#14b8a6"
+        emissive="#14b8a6"
+        emissiveIntensity={0.6}
         transparent
-        opacity={0.6}
+        opacity={0.5}
       />
     </mesh>
   )
@@ -56,32 +56,35 @@ function GlowingRing({ position }: { position: [number, number, number] }) {
 export default function Background() {
   return (
     <div className="absolute inset-0 -z-10">
-      {/* Deep purple gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-purple-950 via-purple-900/50 to-purple-950" />
+      {/* Dark gradient overlay */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black via-dark-900/50 to-black" />
 
       <Canvas camera={{ position: [0, 0, 5] }}>
-        <ambientLight intensity={0.2} />
-        <pointLight position={[10, 10, 10]} intensity={0.4} />
-        <pointLight position={[-10, -10, -10]} color="#2dd4bf" intensity={0.2} />
-        <pointLight position={[5, -5, 5]} color="#d97706" intensity={0.15} />
+        <ambientLight intensity={0.15} />
+        <pointLight position={[10, 10, 10]} intensity={0.3} />
+        <pointLight position={[-10, -10, -10]} color="#14b8a6" intensity={0.2} />
+        <pointLight position={[5, -5, 5]} color="#a855f7" intensity={0.1} />
 
-        <Stars radius={50} depth={100} count={3000} factor={4} fade speed={0.3} />
+        <Stars radius={50} depth={100} count={2500} factor={3} fade speed={0.2} />
 
-        {/* Floating accent orbs - teal */}
-        <FloatingOrb position={[-3, 2, -2]} color="#2dd4bf" speed={0.8} />
-        <FloatingOrb position={[3, -1, -3]} color="#5eead4" speed={1.2} />
+        {/* Floating accent orbs - teal primary */}
+        <FloatingOrb position={[-3, 2, -2]} color="#14b8a6" speed={0.8} />
+        <FloatingOrb position={[3, -1, -3]} color="#14b8a6" speed={1.2} />
+
+        {/* Purple accent orb */}
+        <FloatingOrb position={[-2, -2, -4]} color="#a855f7" speed={0.9} />
 
         {/* Gold accent orb */}
-        <FloatingOrb position={[2, 2, -4]} color="#d97706" speed={1} />
+        <FloatingOrb position={[2, 2, -4]} color="#f59e0b" speed={1} />
 
-        {/* Subtle glowing ring */}
+        {/* Subtle glowing ring - teal */}
         <GlowingRing position={[0, 0, -5]} />
 
         <OrbitControls
           enableZoom={false}
           enablePan={false}
           autoRotate
-          autoRotateSpeed={0.2}
+          autoRotateSpeed={0.15}
           maxDistance={10}
           minDistance={3}
         />

@@ -56,10 +56,10 @@ function PillarCard({ pillar, index }: { pillar: typeof pillars[0]; index: numbe
           opacity: isHovered ? 0.5 : 0,
           scale: isHovered ? 1.1 : 0.8,
         }}
-        className="absolute inset-0 bg-accent/20 rounded-2xl blur-xl transition-all duration-500"
+        className="absolute inset-0 bg-teal/20 rounded-2xl blur-xl transition-all duration-500"
       />
 
-      <div className="relative bg-purple-900/60 backdrop-blur-sm border border-purple-800 rounded-2xl p-6 h-full hover:border-accent/40 transition-all duration-300">
+      <div className="relative bg-dark-900/60 backdrop-blur-sm border border-dark-800 rounded-2xl p-6 h-full hover:border-teal/40 transition-all duration-300">
         {/* Animated icon */}
         <motion.div
           animate={{
@@ -72,7 +72,7 @@ function PillarCard({ pillar, index }: { pillar: typeof pillars[0]; index: numbe
           {pillar.icon}
         </motion.div>
 
-        <h3 className="text-lg font-bold text-gray-100 mb-2 group-hover:text-accent transition-colors">
+        <h3 className="text-lg font-bold text-gray-100 mb-2 group-hover:text-teal transition-colors">
           {pillar.title}
         </h3>
 
@@ -86,7 +86,7 @@ function PillarCard({ pillar, index }: { pillar: typeof pillars[0]; index: numbe
             opacity: isHovered ? 1 : 0,
             scale: isHovered ? 1 : 0.5,
           }}
-          className="absolute top-3 right-3 w-2 h-2 bg-accent rounded-full"
+          className="absolute top-3 right-3 w-2 h-2 bg-teal rounded-full"
         />
       </div>
     </motion.div>
@@ -98,7 +98,7 @@ export default function PromiseHoldSpace() {
     <section className="py-32 px-4 relative">
       {/* Background pattern */}
       <div className="absolute inset-0 opacity-5">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,#2dd4bf_1px,transparent_1px)] bg-[size:40px_40px]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,#14b8a6_1px,transparent_1px)] bg-[size:40px_40px]" />
       </div>
 
       <div className="max-w-6xl mx-auto relative z-10">
@@ -108,7 +108,7 @@ export default function PromiseHoldSpace() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <span className="text-accent/80 text-sm font-mono tracking-widest uppercase mb-4 block">
+          <span className="text-teal/80 text-sm font-mono tracking-widest uppercase mb-4 block">
             Our Commitment
           </span>
           <h2 className="text-4xl md:text-5xl font-bold text-gray-100 mb-6">
@@ -118,7 +118,7 @@ export default function PromiseHoldSpace() {
               whileInView={{ backgroundSize: "100% 3px" }}
               viewport={{ once: true }}
               transition={{ delay: 0.5, duration: 0.8 }}
-              className="bg-gradient-to-r from-accent to-accent bg-no-repeat bg-bottom"
+              className="bg-gradient-to-r from-teal to-teal bg-no-repeat bg-bottom"
             >
               All
             </motion.span>
@@ -146,7 +146,7 @@ export default function PromiseHoldSpace() {
         >
           <motion.div
             whileHover={{ scale: 1.02 }}
-            className="inline-block bg-gradient-to-r from-purple-900 via-purple-800 to-purple-900 border border-purple-700 rounded-2xl p-8 max-w-2xl"
+            className="inline-block bg-gradient-to-r from-dark-900 via-dark-800 to-dark-900 border border-dark-700 rounded-2xl p-8 max-w-2xl"
           >
             <motion.div
               animate={{ rotate: [0, 5, -5, 0] }}
