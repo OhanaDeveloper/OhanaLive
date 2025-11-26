@@ -21,9 +21,9 @@ export default function ClientLayout({ children }: { children: ReactNode }) {
             {/* Subtle rotating logo in bottom left corner */}
             <Link
                 href="/"
-                className="fixed bottom-6 left-6 z-40 opacity-20 hover:opacity-40 transition-opacity duration-500"
+                className="fixed bottom-6 left-6 z-40 opacity-60 hover:opacity-90 transition-opacity duration-500"
             >
-                <RotatingLogo size={48} />
+                <RotatingLogo size={64} />
             </Link>
             <main className="pt-20 p-6">
                 <AnimatePresence mode="wait">
