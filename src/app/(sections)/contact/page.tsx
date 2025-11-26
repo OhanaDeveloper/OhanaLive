@@ -1,5 +1,8 @@
 import ContactMenu from "@/components/contact/ContactMenu"
 
+export const dynamic = 'force-static'
+export const revalidate = 3600
+
 export default function ContactPage() {
   return (
     <section className="min-h-screen py-24 px-4">

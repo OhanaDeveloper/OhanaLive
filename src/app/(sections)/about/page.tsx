@@ -5,6 +5,9 @@ import PromiseHoldSpace from "@/components/about/PromiseHoldSpace"
 import TechShowcase from "@/components/about/TechShowcase"
 import InteractiveSkills from "@/components/about/InteractiveSkills"
 
+export const dynamic = 'force-static'
+export const revalidate = 3600
+
 export default function AboutPage() {
   return (
     <div className="relative">

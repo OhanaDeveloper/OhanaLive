@@ -12,8 +12,12 @@ export default function RotatingLogo({ size = 40, className = "" }: RotatingLogo
   return (
     <motion.div
       className={`relative ${className}`}
-      style={{ width: size, height: size }}
-      animate={{ rotateZ: 360 }}
+      style={{
+        width: size,
+        height: size,
+        transformStyle: 'preserve-3d',
+      }}
+      animate={{ rotateY: 360 }}
       transition={{
         duration: 30,
         repeat: Infinity,
