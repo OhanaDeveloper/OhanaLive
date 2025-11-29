@@ -3,7 +3,6 @@ import MissionStatement from "@/components/about/MissionStatement"
 import PromiseStruggling from "@/components/about/PromiseStruggling"
 import PromiseHoldSpace from "@/components/about/PromiseHoldSpace"
 import TechShowcase from "@/components/about/TechShowcase"
-import InteractiveSkills from "@/components/about/InteractiveSkills"
 
 export const dynamic = 'force-static'
 export const revalidate = 3600
@@ -16,7 +15,6 @@ export default function AboutPage() {
       <PromiseStruggling />
       <PromiseHoldSpace />
       <TechShowcase />
-      <InteractiveSkills />
     </div>
   )
 }
