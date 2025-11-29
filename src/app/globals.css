@@ -69,3 +69,13 @@ p {
 .font-medium {
   font-weight: 500;
 }
+
+/* Hide Vercel toolbar/badge in bottom-left */
+[data-vercel-toolbar],
+[data-speedinsights-badge],
+.vercel-live-feedback-button {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
