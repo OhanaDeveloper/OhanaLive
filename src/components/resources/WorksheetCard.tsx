@@ -3,6 +3,8 @@
 import { motion, AnimatePresence } from "framer-motion"
 import { useState } from "react"
 import type { Worksheet } from "@/lib/worksheets"
+import WorksheetModal from "./WorksheetModal"
+import { getWorksheetResponse } from "@/lib/worksheetStorage"
 
 interface WorksheetCardProps {
   worksheet: Worksheet
@@ -12,6 +14,12 @@ interface WorksheetCardProps {
 export default function WorksheetCard({ worksheet, index }: WorksheetCardProps) {
   const [isExpanded, setIsExpanded] = useState(false)
   const [isHovered, setIsHovered] = useState(false)
+  const [isModalOpen, setIsModalOpen] = useState(false)
+
+  // Check if this worksheet has been started
+  const savedResponse = getWorksheetResponse(worksheet.id)
+  const isStarted = savedResponse !== null
+  const isCompleted = savedResponse?.completedAt !== undefined
 
   const difficultyColors = {
     beginner: "bg-green-500/20 text-green-400 border-green-500/30",
@@ -19,57 +27,8 @@ export default function WorksheetCard({ worksheet, index }: WorksheetCardProps) 
     advanced: "bg-red-500/20 text-red-400 border-red-500/30",
   }
 
-  const handleDownload = () => {
-    // Generate worksheet content as text
-    const content = `
-═══════════════════════════════════════════════════════════════
-${worksheet.title.toUpperCase()}
-═══════════════════════════════════════════════════════════════
-
-${worksheet.description}
-
-Category: ${worksheet.category}
-Time: ${worksheet.timeEstimate}
-Difficulty: ${worksheet.difficulty}
-
-───────────────────────────────────────────────────────────────
-WORKSHEET
-───────────────────────────────────────────────────────────────
-
-${worksheet.preview.map((prompt, i) => `${i + 1}. ${prompt}\n\n   _______________________________________________\n\n   _______________________________________________\n`).join("\n")}
-
-───────────────────────────────────────────────────────────────
-
-Notes:
-_______________________________________________
-
-_______________________________________________
-
-_______________________________________________
-
-
-Date completed: _______________
-
-How I felt before (1-10): _____
-
-How I felt after (1-10): _____
-
-
-═══════════════════════════════════════════════════════════════
-From Ohana Live - ohanalive.org
-"Nobody gets left behind."
-═══════════════════════════════════════════════════════════════
-`
-
-    const blob = new Blob([content], { type: "text/plain" })
-    const url = URL.createObjectURL(blob)
-    const a = document.createElement("a")
-    a.href = url
-    a.download = `${worksheet.id}-worksheet.txt`
-    document.body.appendChild(a)
-    a.click()
-    document.body.removeChild(a)
-    URL.revokeObjectURL(url)
+  const handleStartWorksheet = () => {
+    setIsModalOpen(true)
   }
 
   return (
@@ -108,12 +67,25 @@ From Ohana Live - ohanalive.org
             <motion.div
               animate={{ rotate: isHovered ? [0, -10, 10, 0] : 0 }}
               transition={{ duration: 0.5 }}
-              className="text-4xl"
+              className="text-4xl relative"
             >
               {worksheet.icon}
+              {isCompleted && (
+                <span className="absolute -top-1 -right-1 text-lg">✓</span>
+              )}
             </motion.div>
 
-            <div className="flex gap-2">
+            <div className="flex gap-2 flex-wrap justify-end">
+              {isCompleted && (
+                <span className="text-xs px-2 py-1 rounded-full bg-teal/20 text-teal border border-teal/30">
+                  Completed
+                </span>
+              )}
+              {isStarted && !isCompleted && (
+                <span className="text-xs px-2 py-1 rounded-full bg-yellow-500/20 text-yellow-400 border border-yellow-500/30">
+                  In Progress
+                </span>
+              )}
               <span
                 className={`text-xs px-2 py-1 rounded-full border ${difficultyColors[worksheet.difficulty]}`}
               >
@@ -145,14 +117,14 @@ From Ohana Live - ohanalive.org
             </motion.button>
 
             <motion.button
-              onClick={handleDownload}
+              onClick={handleStartWorksheet}
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
               style={{ backgroundColor: worksheet.color }}
               className="flex-1 py-2 px-4 rounded-lg text-white text-sm font-medium flex items-center justify-center gap-2 hover:opacity-90 transition-opacity"
             >
-              <span>Download</span>
-              <span>↓</span>
+              <span>{isStarted ? (isCompleted ? "View" : "Continue") : "Start"}</span>
+              <span>→</span>
             </motion.button>
           </div>
         </div>
@@ -200,6 +172,13 @@ From Ohana Live - ohanalive.org
           )}
         </AnimatePresence>
       </motion.div>
+
+      {/* Interactive worksheet modal */}
+      <WorksheetModal
+        worksheet={worksheet}
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+      />
     </motion.div>
   )
 }
