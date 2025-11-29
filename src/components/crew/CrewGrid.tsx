@@ -15,60 +15,60 @@ type CrewMember = {
 
 const crewMembers: CrewMember[] = [
   {
-    name: "Daniel",
-    role: "Founder & Facilitator",
+    name: "Team Member 1",
+    role: "[Role Pending]",
     image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face",
-    bio: "Daniel started Ohana Live after years of navigating his own recovery journey. A night owl by nature, he realized that the hardest hours for most people in recovery were the ones with the fewest resources available.",
-    whyRecovery: "After losing too many friends to addiction during the late-night hours when no help was available, Daniel knew he had to create a space that existed when others didn&apos;t. Recovery saved his life, and now he pays it forward every night.",
-    funFact: "Can solve a Rubik&apos;s cube in under 2 minutes and has an inexplicable collection of over 200 vintage spoons.",
+    bio: "This is placeholder content. Team member information will be updated once roles and responsibilities are finalized.",
+    whyRecovery: "Placeholder text for team member's recovery story and motivation. This section will be updated with authentic information soon.",
+    funFact: "Fun fact placeholder - to be updated with real information.",
   },
   {
-    name: "Joey",
-    role: "Co-Facilitator",
+    name: "Team Member 2",
+    role: "[Role Pending]",
     image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop&crop=face",
-    bio: "Joey brings warmth and humor to every meeting. With a background in peer support and a natural gift for making people feel at ease, he&apos;s often the first friendly face newcomers encounter.",
-    whyRecovery: "Joey spent a decade in active addiction before finding recovery through a late-night conversation with a stranger. That moment changed everything, and now he aims to be that stranger for someone else.",
-    funFact: "Once competed in a regional hot dog eating contest and came in dead last — but still talks about it like he won.",
+    bio: "This is placeholder content. Team member information will be updated once roles and responsibilities are finalized.",
+    whyRecovery: "Placeholder text for team member's recovery story and motivation. This section will be updated with authentic information soon.",
+    funFact: "Fun fact placeholder - to be updated with real information.",
   },
   {
-    name: "Anne",
-    role: "Community Coordinator",
+    name: "Team Member 3",
+    role: "[Role Pending]",
     image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop&crop=face",
-    bio: "Anne is the organizational backbone of Ohana Live. She keeps the community connected, coordinates resources, and ensures everyone feels seen and heard.",
-    whyRecovery: "As a mother who watched her child struggle with addiction, Anne knows recovery from a different angle. She joined Ohana to support families and remind everyone that healing happens together.",
-    funFact: "Has read every Stephen King novel at least twice and insists &apos;The Stand&apos; is actually a self-help book.",
+    bio: "This is placeholder content. Team member information will be updated once roles and responsibilities are finalized.",
+    whyRecovery: "Placeholder text for team member's recovery story and motivation. This section will be updated with authentic information soon.",
+    funFact: "Fun fact placeholder - to be updated with real information.",
   },
   {
-    name: "Randal",
-    role: "Facilitator",
+    name: "Team Member 4",
+    role: "[Role Pending]",
     image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&crop=face",
-    bio: "Randal is a veteran of multiple recovery programs and brings decades of experience to his facilitation style. His calm demeanor and thoughtful questions help people dig deeper.",
-    whyRecovery: "After 25 years of sobriety, Randal knows that recovery is a lifelong journey. He shows up every night because staying connected to newcomers keeps his own recovery fresh and meaningful.",
-    funFact: "Builds intricate model trains in his spare time and has a fully operational miniature town in his basement named &apos;Serenity Springs.&apos;",
+    bio: "This is placeholder content. Team member information will be updated once roles and responsibilities are finalized.",
+    whyRecovery: "Placeholder text for team member's recovery story and motivation. This section will be updated with authentic information soon.",
+    funFact: "Fun fact placeholder - to be updated with real information.",
   },
   {
-    name: "Jonni",
-    role: "Facilitator & Outreach",
+    name: "Team Member 5",
+    role: "[Role Pending]",
     image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop&crop=face",
-    bio: "Jonni handles outreach and social media while also facilitating meetings. Her energy is infectious, and she has a talent for meeting people exactly where they are.",
-    whyRecovery: "Jonni found recovery young and realized how few resources existed for people her age. She&apos;s passionate about making Ohana accessible to the next generation of people seeking help.",
-    funFact: "Has an encyclopedic knowledge of 90s sitcoms and can quote entire episodes of &apos;Friends&apos; from memory.",
+    bio: "This is placeholder content. Team member information will be updated once roles and responsibilities are finalized.",
+    whyRecovery: "Placeholder text for team member's recovery story and motivation. This section will be updated with authentic information soon.",
+    funFact: "Fun fact placeholder - to be updated with real information.",
   },
   {
-    name: "Ty",
-    role: "Tech & Facilitator",
+    name: "Team Member 6",
+    role: "[Role Pending]",
     image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=400&fit=crop&crop=face",
-    bio: "Ty keeps the technical side of Ohana running smoothly while also facilitating meetings. He built the website and manages the Zoom infrastructure that makes late-night meetings possible.",
-    whyRecovery: "Ty used coding as an escape during his addiction. Now in recovery, he channels those same skills into building tools that help others. He believes technology should serve healing, not isolation.",
-    funFact: "Has never lost a game of chess to another human — but was once defeated by a chess program he wrote himself.",
+    bio: "This is placeholder content. Team member information will be updated once roles and responsibilities are finalized.",
+    whyRecovery: "Placeholder text for team member's recovery story and motivation. This section will be updated with authentic information soon.",
+    funFact: "Fun fact placeholder - to be updated with real information.",
   },
   {
-    name: "Nia",
-    role: "Facilitator & Wellness Guide",
+    name: "Team Member 7",
+    role: "[Role Pending]",
     image: "https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=400&h=400&fit=crop&crop=face",
-    bio: "Nia incorporates mindfulness and holistic wellness into her facilitation approach. She often leads breathing exercises and grounding techniques during meetings.",
-    whyRecovery: "Nia discovered that addiction was a symptom of deeper disconnection. Through yoga and meditation, she found tools that complemented her recovery. Now she shares these practices with the Ohana community.",
-    funFact: "Can hold a headstand for over 10 minutes and once taught a yoga class to a group of skeptical bikers — who all came back the next week.",
+    bio: "This is placeholder content. Team member information will be updated once roles and responsibilities are finalized.",
+    whyRecovery: "Placeholder text for team member's recovery story and motivation. This section will be updated with authentic information soon.",
+    funFact: "Fun fact placeholder - to be updated with real information.",
   },
 ]
 
@@ -192,9 +192,12 @@ export default function CrewGrid() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+          <p className="text-gray-400 text-lg max-w-2xl mx-auto mb-4">
             These are the people who show up night after night, not because they have to,
             but because they remember what it was like to need someone there.
+          </p>
+          <p className="text-teal text-sm max-w-xl mx-auto italic">
+            Note: Team member information below is placeholder content and will be updated with official roles and bios soon.
           </p>
         </motion.div>
 
