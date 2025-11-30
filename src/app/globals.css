@@ -79,3 +79,78 @@ p {
   opacity: 0 !important;
   pointer-events: none !important;
 }
+
+/* ADA Accessible Mode - High Contrast */
+.accessible-mode {
+  /* Increase contrast ratios to meet WCAG AAA standards (7:1) */
+  --background: #000000;
+  --foreground: #ffffff;
+  --dark-bg: #000000;
+  --dark-grey: #1a1a1a;
+  --teal: #00ffdd; /* Brighter teal for better contrast */
+  --teal-light: #33ffee;
+  --purple: #dd88ff; /* Brighter purple */
+  --gold: #ffcc00; /* Brighter gold */
+}
+
+.accessible-mode body {
+  background: #000000 !important;
+  color: #ffffff !important;
+}
+
+.accessible-mode h1,
+.accessible-mode h2,
+.accessible-mode h3,
+.accessible-mode h4,
+.accessible-mode h5,
+.accessible-mode h6 {
+  color: #ffffff !important;
+}
+
+.accessible-mode p,
+.accessible-mode span,
+.accessible-mode div {
+  color: #ffffff !important;
+}
+
+.accessible-mode .text-gray-300,
+.accessible-mode .text-gray-400,
+.accessible-mode .text-gray-500 {
+  color: #ffffff !important;
+}
+
+.accessible-mode .text-teal {
+  color: #00ffdd !important;
+}
+
+.accessible-mode .bg-dark-900,
+.accessible-mode .bg-dark-800,
+.accessible-mode .bg-dark-700 {
+  background-color: #1a1a1a !important;
+}
+
+.accessible-mode .border-dark-800,
+.accessible-mode .border-dark-700 {
+  border-color: #00ffdd !important;
+}
+
+/* Increase focus indicators for keyboard navigation */
+.accessible-mode *:focus {
+  outline: 3px solid #00ffdd !important;
+  outline-offset: 2px !important;
+}
+
+/* Ensure buttons have high contrast */
+.accessible-mode button {
+  border: 2px solid #00ffdd !important;
+}
+
+/* Remove subtle backgrounds in accessible mode */
+.accessible-mode .backdrop-blur-sm {
+  backdrop-filter: none !important;
+}
+
+/* Increase text size slightly for readability */
+.accessible-mode {
+  font-size: 110%;
+}

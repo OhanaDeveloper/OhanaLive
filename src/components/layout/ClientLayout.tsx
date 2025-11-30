@@ -5,6 +5,7 @@ import type { ReactNode } from "react"
 import Navigation from "@/components/layout/Navigation"
 import Background from "@/components/layout/Background"
 import RotatingLogo from "@/components/layout/RotatingLogo"
+import AccessibilityToggle from "@/components/ui/AccessibilityToggle"
 import { motion } from "framer-motion"
 import { usePathname } from "next/navigation"
 import Link from "next/link"
@@ -31,6 +32,10 @@ export default function ClientLayout({ children }: { children: ReactNode }) {
             >
                 <RotatingLogo size={80} />
             </Link>
+
+            {/* Accessibility Toggle - bottom right corner */}
+            <AccessibilityToggle />
+
             <main className="pt-20 p-6">
                 {mounted ? (
                     <motion.div
