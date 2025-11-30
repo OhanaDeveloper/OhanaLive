@@ -2,6 +2,7 @@ import AboutHero from "@/components/about/AboutHero"
 import MissionStatement from "@/components/about/MissionStatement"
 import PromiseStruggling from "@/components/about/PromiseStruggling"
 import PromiseHoldSpace from "@/components/about/PromiseHoldSpace"
+import VideoIntro from "@/components/about/VideoIntro"
 import TechShowcase from "@/components/about/TechShowcase"
 import CollapsibleSection from "@/components/ui/CollapsibleSection"
 
@@ -23,6 +24,10 @@ export default function AboutPage() {
 
       <CollapsibleSection title="Our Promise" defaultOpen={false}>
         <PromiseHoldSpace />
+      </CollapsibleSection>
+
+      <CollapsibleSection title="The Voice Behind It All" defaultOpen={false}>
+        <VideoIntro />
       </CollapsibleSection>
 
       <CollapsibleSection title="Built With Purpose" defaultOpen={false}>
