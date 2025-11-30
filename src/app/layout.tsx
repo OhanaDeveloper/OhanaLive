@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next"
 import type { ReactNode } from "react"
 import { Ubuntu } from "next/font/google"
+import { Analytics } from "@vercel/analytics/next"
 import "./globals.css"
 import ClientLayout from "@/components/layout/ClientLayout"
 
@@ -59,6 +60,7 @@ export default function RootLayout({
         <html lang="en" suppressHydrationWarning className={ubuntu.variable}>
         <body className="min-h-screen bg-black text-gray-100 antialiased font-ubuntu">
         <ClientLayout>{children}</ClientLayout>
+        <Analytics />
         </body>
         </html>
     )
