@@ -132,6 +132,16 @@ function LoginForm() {
               />
             </div>
 
+            {/* Forgot Password Link */}
+            <div className="text-right">
+              <Link
+                href="/forgot-password"
+                className="text-sm text-teal hover:text-teal-light transition-colors focus:ring-2 focus:ring-teal rounded px-1"
+              >
+                Forgot password?
+              </Link>
+            </div>
+
             {/* Error Message */}
             {error && (
               <motion.div
