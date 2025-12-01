@@ -1,22 +1,29 @@
 """
-URL configuration for ohana_backend project.
-
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/5.0/topics/http/urls/
-Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  path('', views.home, name='home')
-Class-based views
-    1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
-Including another URLconf
-    1. Import the include() function: from django.urls import include, path
-    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
+Ohana Live Backend - Main URL Configuration
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
+from drf_spectacular.views import SpectacularAPIView, SpectacularSwaggerView
 
 urlpatterns = [
+    # Django Admin
     path('admin/', admin.site.urls),
+
+    # API Documentation
+    path('api/schema/', SpectacularAPIView.as_view(), name='schema'),
+    path('api/docs/', SpectacularSwaggerView.as_view(url_name='schema'), name='swagger-ui'),
+
+    # OAuth 2.0
+    path('oauth/', include('oauth2_provider.urls', namespace='oauth2_provider')),
+
+    # User authentication & management
+    path('api/', include('users.urls')),
+
+    # Other apps (to be added)
+    # path('api/social/', include('social.urls')),
+    # path('api/journal/', include('journal.urls')),
+    # path('api/recovery/', include('recovery.urls')),
+    # path('api/community/', include('community.urls')),
+    # path('api/messaging/', include('messaging.urls')),
+    # path('api/resources/', include('resources.urls')),
 ]
