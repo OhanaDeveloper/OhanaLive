@@ -6,6 +6,7 @@ import Navigation from "@/components/layout/Navigation"
 import Background from "@/components/layout/Background"
 import RotatingLogo from "@/components/layout/RotatingLogo"
 import AccessibilityToggle from "@/components/ui/AccessibilityToggle"
+import { AuthProvider } from "@/contexts/AuthContext"
 import { motion } from "framer-motion"
 import { usePathname } from "next/navigation"
 import Link from "next/link"
@@ -19,7 +20,7 @@ export default function ClientLayout({ children }: { children: ReactNode }) {
     }, [])
 
     return (
-        <>
+        <AuthProvider>
             <Background />
             <header className="fixed top-0 left-0 w-full p-4 flex justify-center z-50">
                 <Navigation />
@@ -50,6 +51,6 @@ export default function ClientLayout({ children }: { children: ReactNode }) {
                     <div style={{ opacity: 0 }}>{children}</div>
                 )}
             </main>
-        </>
+        </AuthProvider>
     )
 }
