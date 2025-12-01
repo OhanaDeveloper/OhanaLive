@@ -155,8 +155,28 @@ class ApiClient {
       const data = await response.json();
 
       if (!response.ok) {
+        // Handle different error formats
+        let errorMessage = 'An error occurred';
+
+        if (data.error) {
+          errorMessage = data.error;
+        } else if (data.detail) {
+          errorMessage = data.detail;
+        } else if (typeof data === 'object') {
+          // Django validation errors: {"field": ["error message"]}
+          const errors = Object.entries(data)
+            .map(([field, messages]) => {
+              if (Array.isArray(messages)) {
+                return `${field}: ${messages.join(', ')}`;
+              }
+              return `${field}: ${messages}`;
+            })
+            .join('; ');
+          if (errors) errorMessage = errors;
+        }
+
         return {
-          error: data.error || data.detail || 'An error occurred',
+          error: errorMessage,
           status: response.status,
         };
       }
