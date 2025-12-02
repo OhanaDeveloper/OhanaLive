@@ -10,7 +10,9 @@ const techStack = [
   { name: "TypeScript", icon: "TS", color: "#3178C6", description: "Full Type Safety" },
   { name: "Tailwind CSS", icon: "🎨", color: "#06B6D4", description: "Utility-First Styling" },
   { name: "Framer Motion", icon: "🎬", color: "#FF0055", description: "Production Animations" },
-  { name: "Three.js", icon: "🌐", color: "#049EF4", description: "3D WebGL Graphics" },
+  { name: "Django", icon: "🐍", color: "#092E20", description: "Python Backend Framework" },
+  { name: "Vercel", icon: "▲", color: "#000000", description: "Edge Network Deployment" },
+  { name: "Railway", icon: "🚂", color: "#0B0D0E", description: "Backend Infrastructure" },
 ]
 
 function TechCard({ tech, index }: { tech: typeof techStack[0]; index: number }) {
@@ -23,8 +25,9 @@ function TechCard({ tech, index }: { tech: typeof techStack[0]; index: number })
   const mouseXSpring = useSpring(x, { stiffness: 500, damping: 100 })
   const mouseYSpring = useSpring(y, { stiffness: 500, damping: 100 })
 
-  const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["7deg", "-7deg"])
-  const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-7deg", "7deg"])
+  // Enhanced parallax by ~20%: 7deg → 8.5deg
+  const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["8.5deg", "-8.5deg"])
+  const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-8.5deg", "8.5deg"])
 
   const handleMouseMove = (e: MouseEvent<HTMLDivElement>) => {
     if (!ref.current) return
@@ -66,39 +69,39 @@ function TechCard({ tech, index }: { tech: typeof techStack[0]; index: number })
             ? `0 20px 40px -20px ${tech.color}40`
             : "0 0 0 transparent",
         }}
-        className="bg-dark-900/80 backdrop-blur-sm border border-dark-800 rounded-xl p-6 h-full hover:border-dark-700 transition-colors"
+        className="bg-dark-900/80 backdrop-blur-sm border border-dark-800 rounded-2xl md:rounded-3xl p-6 h-full hover:border-dark-700 transition-colors"
         style={{ transformStyle: "preserve-3d" }}
       >
-        {/* Floating icon */}
+        {/* Floating icon with enhanced parallax */}
         <motion.div
-          style={{ transform: "translateZ(40px)" }}
-          animate={{ y: isHovered ? -5 : 0 }}
+          style={{ transform: "translateZ(50px)" }}
+          animate={{ y: isHovered ? -6 : 0 }}
           className="text-4xl mb-4"
         >
           {tech.icon}
         </motion.div>
 
         <motion.h3
-          style={{ transform: "translateZ(30px)" }}
+          style={{ transform: "translateZ(38px)" }}
           className="text-lg font-bold text-gray-100 mb-1"
         >
           {tech.name}
         </motion.h3>
 
         <motion.p
-          style={{ transform: "translateZ(20px)" }}
+          style={{ transform: "translateZ(25px)" }}
           className="text-gray-500 text-sm"
         >
           {tech.description}
         </motion.p>
 
-        {/* Shine effect */}
+        {/* Shine effect with softer edges */}
         <motion.div
           animate={{
             opacity: isHovered ? 0.1 : 0,
             background: `linear-gradient(135deg, transparent 40%, ${tech.color} 50%, transparent 60%)`,
           }}
-          className="absolute inset-0 rounded-xl"
+          className="absolute inset-0 rounded-2xl md:rounded-3xl"
         />
       </motion.div>
     </motion.div>
@@ -107,7 +110,7 @@ function TechCard({ tech, index }: { tech: typeof techStack[0]; index: number })
 
 export default function TechShowcase() {
   return (
-    <section className="py-32 px-4 relative overflow-hidden">
+    <section className="py-16 px-4 relative overflow-hidden">
       {/* Animated code background */}
       <div className="absolute inset-0 opacity-5 font-mono text-xs text-teal overflow-hidden">
         <motion.div
@@ -148,7 +151,7 @@ export default function Life() {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-10"
         >
           <span className="text-teal/80 text-sm font-mono tracking-widest uppercase mb-4 block">
             Built With
@@ -175,7 +178,7 @@ export default function Life() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.8 }}
-          className="mt-16 text-center"
+          className="mt-10 text-center"
         >
           <motion.div
             whileHover={{ scale: 1.05 }}

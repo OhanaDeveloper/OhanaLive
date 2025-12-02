@@ -3,7 +3,9 @@ import StoryTimeline from "@/components/story/StoryTimeline"
 import StoryQuotes from "@/components/story/StoryQuotes"
 import StoryValues from "@/components/story/StoryValues"
 import StoryCTA from "@/components/story/StoryCTA"
-import CollapsibleSection from "@/components/ui/CollapsibleSection"
+import ShareStoryCTA from "@/components/shared/ShareStoryCTA"
+import MeetingCTA from "@/components/shared/MeetingCTA"
+import SectionWrapper from "@/components/layout/SectionWrapper"
 
 export const dynamic = 'force-static'
 export const revalidate = 3600
@@ -12,22 +14,22 @@ export default function StoryPage() {
   return (
     <div className="relative">
       <StoryHero />
+      <StoryTimeline />
+      <StoryQuotes />
+      <StoryValues />
+      <StoryCTA />
 
-      <CollapsibleSection title="Our Journey" defaultOpen={false}>
-        <StoryTimeline />
-      </CollapsibleSection>
+      {/* Secondary CTA: Share Your Story */}
+      <SectionWrapper>
+        <ShareStoryCTA variant="card" />
+      </SectionWrapper>
 
-      <CollapsibleSection title="Voices From Our Community" defaultOpen={false}>
-        <StoryQuotes />
-      </CollapsibleSection>
-
-      <CollapsibleSection title="Our Core Values" defaultOpen={false}>
-        <StoryValues />
-      </CollapsibleSection>
-
-      <CollapsibleSection title="Join Our Story" defaultOpen={false}>
-        <StoryCTA />
-      </CollapsibleSection>
+      {/* Primary CTA: Join Meeting */}
+      <SectionWrapper>
+        <div className="text-center">
+          <MeetingCTA variant="hero" />
+        </div>
+      </SectionWrapper>
     </div>
   )
 }

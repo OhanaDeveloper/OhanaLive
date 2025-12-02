@@ -46,7 +46,7 @@ export default function SectionWrapper({
     return (
         <section
             id={id}
-            className={`relative flex flex-col items-center justify-center min-h-screen w-full px-6 py-16 text-center ${className}`}
+            className={`relative flex flex-col items-center justify-center w-full px-6 py-12 text-center ${className}`}
         >
             <motion.div
                 initial="hidden"
@@ -54,7 +54,7 @@ export default function SectionWrapper({
                 viewport={{ once: true, amount: 0.25 }}
                 transition={{ duration: 0.8, ease: "easeOut" }}
                 variants={variant}
-                className="max-w-3xl mx-auto space-y-6"
+                className="max-w-3xl mx-auto space-y-4"
             >
                 {title && (
                     <h2 className="text-3xl md:text-5xl font-bold text-teal tracking-tight">
@@ -65,7 +65,7 @@ export default function SectionWrapper({
                     <p className="text-sm md:text-lg text-gray-300">{subtitle}</p>
                 )}
 
-                <div className="mt-10">{children}</div>
+                <div className="mt-6">{children}</div>
             </motion.div>
         </section>
     )

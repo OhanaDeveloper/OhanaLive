@@ -9,10 +9,10 @@ import { useAuth } from "@/contexts/AuthContext"
 const navItems = [
     { label: "Home", href: "/" },
     { label: "About", href: "/about" },
-    { label: "Journey", href: "/story" },
-    { label: "Guides", href: "/crew" },
+    { label: "Story", href: "/story" },
+    { label: "Mālama", href: "/crew" },
     { label: "Resources", href: "/resources" },
-    { label: "Contact", href: "/contact" },
+    { label: "Support", href: "/support" },
 ]
 
 export default function Navigation() {

@@ -3,6 +3,8 @@
 import { useState, useEffect } from "react"
 import type { ReactNode } from "react"
 import Navigation from "@/components/layout/Navigation"
+import MobileNav from "@/components/layout/MobileNav"
+import Footer from "@/components/layout/Footer"
 import Background from "@/components/layout/Background"
 import RotatingLogo from "@/components/layout/RotatingLogo"
 import AccessibilityToggle from "@/components/ui/AccessibilityToggle"
@@ -22,22 +24,22 @@ export default function ClientLayout({ children }: { children: ReactNode }) {
     return (
         <AuthProvider>
             <Background />
-            <header className="fixed top-0 left-0 w-full p-4 flex justify-center z-50">
+            <header className="fixed top-0 left-0 w-full p-4 justify-center z-50 hidden md:flex">
                 <Navigation />
             </header>
 
-            {/* Lotus logo - top left corner */}
+            {/* Lotus logo with branding - top left corner */}
             <Link
                 href="/"
-                className="fixed top-6 left-6 z-50 opacity-80 hover:opacity-100 transition-opacity duration-300"
+                className="fixed top-6 left-6 z-50 opacity-90 hover:opacity-100 transition-opacity duration-300"
             >
-                <RotatingLogo size={80} />
+                <RotatingLogo size={60} showText={true} />
             </Link>
 
             {/* Accessibility Toggle - bottom right corner */}
             <AccessibilityToggle />
 
-            <main className="pt-20 p-6">
+            <main className="pt-16 p-4 pb-20 md:pb-4">
                 {mounted ? (
                     <motion.div
                         key={pathname}
@@ -51,6 +53,12 @@ export default function ClientLayout({ children }: { children: ReactNode }) {
                     <div style={{ opacity: 0 }}>{children}</div>
                 )}
             </main>
+
+            {/* Footer */}
+            <Footer />
+
+            {/* Mobile sticky bottom nav */}
+            <MobileNav />
         </AuthProvider>
     )
 }

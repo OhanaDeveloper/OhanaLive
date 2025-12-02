@@ -1,25 +1,22 @@
 import ResourcesHero from "@/components/resources/ResourcesHero"
 import WorksheetGrid from "@/components/resources/WorksheetGrid"
-import MyWorksheetsSection from "@/components/resources/MyWorksheetsSection"
 import ResourcesCTA from "@/components/resources/ResourcesCTA"
-import CollapsibleSection from "@/components/ui/CollapsibleSection"
+import MeetingCTA from "@/components/shared/MeetingCTA"
+import SectionWrapper from "@/components/layout/SectionWrapper"
 
 export default function ResourcesPage() {
   return (
     <div className="relative">
       <ResourcesHero />
+      <WorksheetGrid />
+      <ResourcesCTA />
 
-      <CollapsibleSection title="My Progress" defaultOpen={false}>
-        <MyWorksheetsSection />
-      </CollapsibleSection>
-
-      <CollapsibleSection title="All Worksheets" defaultOpen={false}>
-        <WorksheetGrid />
-      </CollapsibleSection>
-
-      <CollapsibleSection title="Need Help?" defaultOpen={false}>
-        <ResourcesCTA />
-      </CollapsibleSection>
+      {/* Primary CTA: Join Meeting */}
+      <SectionWrapper>
+        <div className="text-center">
+          <MeetingCTA variant="hero" />
+        </div>
+      </SectionWrapper>
     </div>
   )
 }

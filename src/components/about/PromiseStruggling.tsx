@@ -23,7 +23,7 @@ export default function PromiseStruggling() {
   const backgroundY = useTransform(scrollYProgress, [0, 1], ["20%", "0%"])
 
   return (
-    <section ref={ref} className="py-32 px-4 relative overflow-hidden">
+    <section ref={ref} className="py-16 px-4 relative overflow-hidden">
       {/* Dramatic gradient background */}
       <motion.div
         style={{ y: backgroundY }}
@@ -56,7 +56,7 @@ export default function PromiseStruggling() {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-10"
         >
           <span className="text-red-400/80 text-sm font-mono tracking-widest uppercase mb-4 block">
             To Those Still Struggling
@@ -138,7 +138,7 @@ export default function PromiseStruggling() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.5 }}
-          className="text-center mt-16"
+          className="text-center mt-10"
         >
           <p className="text-2xl text-gray-300 italic">
             &ldquo;You are not alone. You never were.&rdquo;

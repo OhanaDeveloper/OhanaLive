@@ -38,7 +38,7 @@ export default function CrewHero() {
             transition={{ delay: 0.2 }}
             className="inline-block text-teal/80 text-sm font-mono tracking-widest uppercase mb-6"
           >
-            The Faces Behind the Meetings
+            Those Who Care & Protect
           </motion.span>
 
           <h1 className="text-5xl md:text-7xl font-bold mb-6">
@@ -48,7 +48,7 @@ export default function CrewHero() {
               transition={{ delay: 0.3 }}
               className="block text-gray-100"
             >
-              Meet the
+              Meet
             </motion.span>
             <motion.span
               initial={{ opacity: 0, y: 20 }}
@@ -56,7 +56,7 @@ export default function CrewHero() {
               transition={{ delay: 0.5 }}
               className="block text-teal"
             >
-              Crew
+              Mālama
             </motion.span>
           </h1>
 
@@ -66,8 +66,8 @@ export default function CrewHero() {
             transition={{ delay: 0.7 }}
             className="text-xl md:text-2xl text-gray-400 leading-relaxed max-w-2xl mx-auto"
           >
-            Real people with real stories. Get to know the facilitators
-            who keep Ohana Live running every night.
+            Real people with real stories. The dedicated souls who tend, preserve,
+            and hold space every single night.
           </motion.p>
         </motion.div>
       </div>

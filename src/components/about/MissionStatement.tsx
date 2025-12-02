@@ -14,7 +14,7 @@ export default function MissionStatement() {
   const scale = useTransform(scrollYProgress, [0, 0.3, 0.7, 1], [0.8, 1, 1, 0.8])
 
   return (
-    <section ref={ref} className="py-32 px-4 relative">
+    <section ref={ref} className="py-16 px-4 relative">
       {/* Decorative elements */}
       <motion.div
         style={{ opacity }}
@@ -88,7 +88,7 @@ export default function MissionStatement() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.5 }}
-          className="grid grid-cols-3 gap-8 mt-16"
+          className="grid grid-cols-3 gap-8 mt-10"
         >
           {[
             { number: "365", label: "Nights a Year" },

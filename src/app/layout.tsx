@@ -16,23 +16,23 @@ const ubuntu = Ubuntu({
 export const metadata: Metadata = {
     metadataBase: new URL('https://ohanarecovery.org'),
     title: {
-        default: "Ohana Live",
-        template: "%s | Ohana Live",
+        default: "Ohana Recovery",
+        template: "%s | Ohana Recovery",
     },
     description:
-        "Ohana Live — a minimalist, responsive, and interactive experience for recovery, community, and technology.",
+        "Ohana Recovery — a safe space for connection, healing, and growth in recovery. Join our nightly meetings at 8pm PT.",
     openGraph: {
-        title: "Ohana Live",
+        title: "Ohana Recovery",
         description:
-            "A living platform that merges recovery and technology into a seamless, immersive experience.",
+            "A safe space for connection, healing, and growth in recovery. Join our nightly meetings at 8pm PT.",
         url: "https://ohanarecovery.org",
-        siteName: "Ohana Live",
+        siteName: "Ohana Recovery",
         images: [
             {
-                url: "/og-image.png",
+                url: "/lotus-logo.png",
                 width: 1200,
                 height: 630,
-                alt: "Ohana Live",
+                alt: "Ohana Recovery - Lotus Logo",
             },
         ],
         locale: "en_US",

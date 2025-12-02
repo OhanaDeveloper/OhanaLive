@@ -91,13 +91,13 @@ export default function InteractiveSkills() {
   const activeSkills = skillCategories.find((c) => c.id === activeCategory)?.skills || []
 
   return (
-    <section className="py-32 px-4">
+    <section className="py-16 px-4">
       <div className="max-w-4xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-10"
         >
           <span className="text-teal/80 text-sm font-mono tracking-widest uppercase mb-4 block">
             Capabilities
@@ -111,7 +111,7 @@ export default function InteractiveSkills() {
         </motion.div>
 
         {/* Category tabs */}
-        <div className="flex flex-wrap justify-center gap-4 mb-12">
+        <div className="flex flex-wrap justify-center gap-4 mb-8">
           {skillCategories.map((category) => (
             <motion.button
               key={category.id}

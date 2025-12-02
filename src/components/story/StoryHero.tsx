@@ -73,7 +73,7 @@ export default function StoryHero() {
             transition={{ delay: 0.2 }}
             className="inline-block text-teal/80 text-sm font-mono tracking-widest uppercase mb-6"
           >
-            Our Origin
+            Moʻolelo · Our Story
           </motion.span>
 
           <h1 className="text-5xl md:text-7xl font-bold mb-6">

@@ -6,7 +6,7 @@ export default function AboutHero() {
   const letters = "OHANA".split("")
 
   return (
-    <section className="min-h-screen flex items-center justify-center relative overflow-hidden py-20">
+    <section className="flex items-center justify-center relative overflow-hidden py-16">
       {/* Animated background grid */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute inset-0 bg-[linear-gradient(rgba(16,185,129,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(16,185,129,0.03)_1px,transparent_1px)] bg-[size:60px_60px]" />
@@ -68,7 +68,7 @@ export default function AboutHero() {
           initial={{ scaleX: 0 }}
           animate={{ scaleX: 1 }}
           transition={{ delay: 1, duration: 0.8 }}
-          className="w-32 h-1 bg-gradient-to-r from-transparent via-accent to-transparent mx-auto my-12"
+          className="w-32 h-1 bg-gradient-to-r from-transparent via-accent to-transparent mx-auto my-8"
         />
 
         <motion.p

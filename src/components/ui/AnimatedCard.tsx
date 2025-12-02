@@ -1,7 +1,7 @@
 "use client"
 
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion"
-import { ReactNode, useRef } from "react"
+import { ReactNode, useRef, useCallback } from "react"
 
 interface AnimatedCardProps {
   title: string
@@ -20,17 +20,17 @@ export default function AnimatedCard({
 }: AnimatedCardProps) {
   const ref = useRef<HTMLDivElement>(null)
 
-  // Magnetic cursor effect
+  // Optimized magnetic cursor effect with reduced spring stiffness
   const x = useMotionValue(0)
   const y = useMotionValue(0)
 
-  const mouseXSpring = useSpring(x, { stiffness: 150, damping: 15 })
-  const mouseYSpring = useSpring(y, { stiffness: 150, damping: 15 })
+  const mouseXSpring = useSpring(x, { stiffness: 100, damping: 20 })
+  const mouseYSpring = useSpring(y, { stiffness: 100, damping: 20 })
 
   const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["7deg", "-7deg"])
   const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-7deg", "7deg"])
 
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+  const handleMouseMove = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
     if (!ref.current) return
 
     const rect = ref.current.getBoundingClientRect()
@@ -45,12 +45,12 @@ export default function AnimatedCard({
 
     x.set(xPct)
     y.set(yPct)
-  }
+  }, [x, y])
 
-  const handleMouseLeave = () => {
+  const handleMouseLeave = useCallback(() => {
     x.set(0)
     y.set(0)
-  }
+  }, [x, y])
 
   return (
     <motion.div
@@ -65,6 +65,7 @@ export default function AnimatedCard({
         rotateX,
         rotateY,
         transformStyle: "preserve-3d",
+        willChange: "transform",
       }}
       className={`relative bg-dark-900/50 backdrop-blur-sm border border-dark-800 rounded-xl p-6 shadow-lg hover:shadow-2xl hover:shadow-teal/20 hover:border-teal/50 transition-all group ${className}`}
     >
