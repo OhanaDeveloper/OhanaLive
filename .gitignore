@@ -180,3 +180,8 @@ dist
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
 .vite/
+
+# Documentation - Session logs (optional - can commit if desired)
+_documentation/sessions/*.md
+!_documentation/sessions/template.md
+_documentation/sessions/LATEST.md

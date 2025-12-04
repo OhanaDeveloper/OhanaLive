@@ -1,0 +1,23 @@
+# Project Context for Claude Code
+
+**Project:** Ohana Recovery
+**Last Updated:** $(date +%Y-%m-%d)
+
+## Quick Start
+- **What this does:** Recovery community platform with nightly meetings 11 PM - 3 AM PT
+- **Tech stack:** Next.js 16, React 19, TypeScript, Tailwind CSS, Framer Motion, Django
+- **Current focus:** Performance optimization, spacing improvements, Recovery Network directory
+
+## Where We Are
+- **Working on:** Frontend optimization and content density improvements
+- **Last completed:** Performance optimizations (96% reduction in DOM nodes), Recovery Network directory, Home page redesign
+- **Next up:** About page elevation to Story-level quality, donation platform integration
+
+## Critical Knowledge
+- **Key patterns:** Story page is the quality benchmark - parallax scrolling, floating gradient orbs, smooth animations
+- **Things to avoid:** min-h-screen creates excessive whitespace, metadata exports in client components, 30+ animated DOM nodes
+- **Gotchas:** User prefers tighter spacing (reduce padding by 35-50%), aesthetics over functionality
+
+## Session Startup
+Run: `./quick-catch-up.sh`
+Or paste: "Read .claude-context and the last session in sessions/LATEST.md"
