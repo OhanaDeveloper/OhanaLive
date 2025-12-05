@@ -17,39 +17,41 @@ export default function PromiseStruggling() {
 
   const { scrollYProgress } = useScroll({
     target: ref,
-    offset: ["start end", "center center"],
+    offset: ["start end", "end start"],
   })
 
   const backgroundY = useTransform(scrollYProgress, [0, 1], ["20%", "0%"])
 
+  // Glow intensity based on scroll position - peaks when section is centered
+  const glowOpacity = useTransform(
+    scrollYProgress,
+    [0, 0.3, 0.5, 0.7, 1],
+    [0, 0.3, 0.6, 0.3, 0]
+  )
+  const glowScale = useTransform(
+    scrollYProgress,
+    [0, 0.3, 0.5, 0.7, 1],
+    [0.8, 1, 1.2, 1, 0.8]
+  )
+
   return (
     <section ref={ref} className="py-16 px-4 relative overflow-hidden">
-      {/* Dramatic gradient background */}
+      {/* Scroll-based warm gradient glow - intensifies as you scroll by */}
       <motion.div
-        style={{ y: backgroundY }}
-        className="absolute inset-0 bg-gradient-to-b from-transparent via-red-950/20 to-transparent"
+        style={{
+          y: backgroundY,
+          opacity: glowOpacity,
+          scale: glowScale,
+        }}
+        className="absolute inset-0 bg-gradient-to-b from-transparent via-red-950/50 to-transparent blur-3xl"
       />
-
-      {/* Floating particles */}
-      {[...Array(6)].map((_, i) => (
-        <motion.div
-          key={i}
-          animate={{
-            y: [0, -30, 0],
-            opacity: [0.2, 0.5, 0.2],
-          }}
-          transition={{
-            duration: 4 + i,
-            repeat: Infinity,
-            delay: i * 0.5,
-          }}
-          className="absolute w-2 h-2 bg-teal/30 rounded-full"
-          style={{
-            left: `${15 + i * 15}%`,
-            top: `${20 + (i % 3) * 25}%`,
-          }}
-        />
-      ))}
+      <motion.div
+        style={{
+          opacity: glowOpacity,
+          scale: glowScale,
+        }}
+        className="absolute inset-0 bg-gradient-to-r from-transparent via-amber-900/40 to-transparent blur-3xl"
+      />
 
       <div className="max-w-4xl mx-auto relative z-10">
         <motion.div

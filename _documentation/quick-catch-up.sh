@@ -1,13 +1,42 @@
 #!/bin/bash
-echo "=== QUICK CATCH-UP ==="
+
+# Quick Catch-Up Script
+# Fast overview without starting a full session
+
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo "⚡ Ohana Recovery - Quick Catch-Up"
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo ""
-echo "📋 PROJECT CONTEXT:"
-cat .claude-context
+
+# Current focus
+echo "🎯 CURRENT FOCUS"
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+if [ -f .claude-context ]; then
+    grep -A 2 "## Where We Are" .claude-context | tail -2
+else
+    echo "⚠️  No context found"
+fi
 echo ""
-echo "📝 LAST 2 SESSIONS:"
-ls -t sessions/*.md 2>/dev/null | head -2 | xargs tail -n 20 2>/dev/null
+
+# Last session summary
+echo "📝 LAST SESSION"
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+if [ -f sessions/LATEST.md ]; then
+    echo "📄 $(basename "$(readlink sessions/LATEST.md)")"
+    echo ""
+    awk '/## Done/,/---/ {if (/---/) exit; print}' sessions/LATEST.md | head -15
+else
+    echo "No recent sessions logged"
+fi
 echo ""
-echo "🔀 RECENT COMMITS:"
-git log --oneline -5
+
+# Recent commit
+echo "🔀 LAST COMMIT"
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+cd .. && git log --oneline --decorate -1
 echo ""
-echo "=== Ready to code! ==="
+
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo "💡 For full session start: ./start-session.sh"
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo ""

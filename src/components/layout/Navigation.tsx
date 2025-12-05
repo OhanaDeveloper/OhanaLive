@@ -25,7 +25,7 @@ export default function Navigation() {
     }
 
     return (
-        <nav className="flex gap-6 text-sm md:text-base font-medium items-center">
+        <nav className="flex gap-6 text-sm md:text-base font-medium items-center bg-dark-900/50 backdrop-blur-sm border-2 border-teal/10 rounded-2xl px-8 py-4 shadow-lg">
             {navItems.map(({ label, href }) => (
                 <Link key={href} href={href} className="relative">
           <span

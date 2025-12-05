@@ -19,10 +19,10 @@ urlpatterns = [
     # User authentication & management
     path('api/', include('users.urls')),
 
-    # Other apps (to be added)
-    # path('api/social/', include('social.urls')),
+    # Other apps
+    path('api/social/', include('social.urls')),
     # path('api/journal/', include('journal.urls')),
-    # path('api/recovery/', include('recovery.urls')),
+    path('api/recovery/', include('recovery.urls')),
     # path('api/community/', include('community.urls')),
     # path('api/messaging/', include('messaging.urls')),
     # path('api/resources/', include('resources.urls')),

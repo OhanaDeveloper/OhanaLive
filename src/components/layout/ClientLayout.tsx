@@ -7,7 +7,7 @@ import MobileNav from "@/components/layout/MobileNav"
 import Footer from "@/components/layout/Footer"
 import Background from "@/components/layout/Background"
 import RotatingLogo from "@/components/layout/RotatingLogo"
-import AccessibilityToggle from "@/components/ui/AccessibilityToggle"
+import SettingsMenu from "@/components/layout/SettingsMenu"
 import { AuthProvider } from "@/contexts/AuthContext"
 import { motion } from "framer-motion"
 import { usePathname } from "next/navigation"
@@ -36,8 +36,8 @@ export default function ClientLayout({ children }: { children: ReactNode }) {
                 <RotatingLogo size={60} showText={true} />
             </Link>
 
-            {/* Accessibility Toggle - bottom right corner */}
-            <AccessibilityToggle />
+            {/* Unified Settings Menu - bottom right corner */}
+            <SettingsMenu />
 
             <main className="pt-16 p-4 pb-20 md:pb-4">
                 {mounted ? (

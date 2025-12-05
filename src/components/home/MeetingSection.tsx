@@ -4,15 +4,50 @@ import { useEffect, useState } from "react"
 import { motion } from "framer-motion"
 import { MEETING_INFO } from "@/lib/meetings"
 
+interface TonightsMeeting {
+  host?: {
+    id: string
+    public_handle: string
+    first_name: string
+    avatar_url?: string
+    pronouns?: string
+  }
+  theme?: string
+  zoom_link?: string
+}
+
 export default function MeetingSection() {
   const [mounted, setMounted] = useState(false)
   const [timeLeft, setTimeLeft] = useState("")
   const [isLive, setIsLive] = useState(false)
+  const [tonightsMeeting, setTonightsMeeting] = useState<TonightsMeeting | null>(null)
+  const [loadingMeeting, setLoadingMeeting] = useState(true)
 
   const { zoomLink, startHour, endHour, timeZone } = MEETING_INFO
 
   useEffect(() => {
     setMounted(true)
+
+    // Fetch tonight's meeting info
+    const fetchTonightsMeeting = async () => {
+      try {
+        const response = await fetch('http://127.0.0.1:8000/api/recovery/meetings/tonight/')
+        if (response.ok) {
+          const data = await response.json()
+          setTonightsMeeting(data)
+        } else {
+          // No meeting scheduled for tonight
+          setTonightsMeeting(null)
+        }
+      } catch (error) {
+        console.error('Failed to fetch tonight\'s meeting:', error)
+        setTonightsMeeting(null)
+      } finally {
+        setLoadingMeeting(false)
+      }
+    }
+
+    fetchTonightsMeeting()
 
     const updateCountdown = () => {
       const now = new Date()
@@ -88,6 +123,46 @@ export default function MeetingSection() {
           practical recovery, and real people — no judgment, no preaching.
         </motion.p>
 
+        {/* Tonight's Host Display */}
+        {!loadingMeeting && tonightsMeeting?.host && (
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="mt-6 bg-dark-800/60 backdrop-blur-md border border-teal/20 rounded-xl p-6 shadow-lg"
+          >
+            <p className="text-gray-400 text-sm mb-3 uppercase tracking-wider">Tonight&apos;s Mālama</p>
+            <div className="flex items-center gap-4">
+              {tonightsMeeting.host.avatar_url ? (
+                <img
+                  src={tonightsMeeting.host.avatar_url}
+                  alt={tonightsMeeting.host.public_handle}
+                  className="w-16 h-16 rounded-full border-2 border-teal/30 object-cover"
+                />
+              ) : (
+                <div className="w-16 h-16 rounded-full border-2 border-teal/30 bg-dark-700 flex items-center justify-center">
+                  <span className="text-2xl text-teal">
+                    {tonightsMeeting.host.first_name.charAt(0).toUpperCase()}
+                  </span>
+                </div>
+              )}
+              <div className="text-left">
+                <h3 className="text-xl font-semibold text-teal">
+                  {tonightsMeeting.host.public_handle}
+                </h3>
+                {tonightsMeeting.host.pronouns && (
+                  <p className="text-gray-400 text-sm">({tonightsMeeting.host.pronouns})</p>
+                )}
+                {tonightsMeeting.theme && (
+                  <p className="text-gray-300 text-sm mt-1">
+                    Theme: <span className="text-white">{tonightsMeeting.theme}</span>
+                  </p>
+                )}
+              </div>
+            </div>
+          </motion.div>
+        )}
+
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -116,7 +191,7 @@ export default function MeetingSection() {
             </motion.p>
 
             <motion.a
-              href={zoomLink}
+              href={tonightsMeeting?.zoom_link || zoomLink}
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ scale: 1.05 }}

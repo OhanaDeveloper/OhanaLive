@@ -26,7 +26,7 @@ export default function MeetingCTA({ variant = "inline", className = "" }: Meeti
                     Join Tonight's Meeting
                 </Link>
                 <p className="text-sm text-gray-400 mt-4">
-                    Every night at 8pm PT · Free · No sign-up required
+                    Every night 11pm-3am PT · Free · No sign-up required
                 </p>
             </motion.div>
         )
@@ -39,7 +39,7 @@ export default function MeetingCTA({ variant = "inline", className = "" }: Meeti
                     Join Us Tonight
                 </h3>
                 <p className="text-gray-400 mb-6">
-                    Connect with others in recovery. Every night at 8pm PT.
+                    Connect with others in recovery. Every night 11pm-3am PT.
                 </p>
                 <Link
                     href="/#meeting"

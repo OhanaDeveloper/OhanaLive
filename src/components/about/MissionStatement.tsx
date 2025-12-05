@@ -12,22 +12,45 @@ export default function MissionStatement() {
 
   const opacity = useTransform(scrollYProgress, [0, 0.3, 0.7, 1], [0, 1, 1, 0])
   const scale = useTransform(scrollYProgress, [0, 0.3, 0.7, 1], [0.8, 1, 1, 0.8])
+  const y = useTransform(scrollYProgress, [0, 1], ["0%", "30%"])
+
+  // Gentle glow based on scroll position - peaks when section is centered
+  const glowOpacity = useTransform(
+    scrollYProgress,
+    [0, 0.2, 0.5, 0.8, 1],
+    [0, 0.3, 0.5, 0.3, 0]
+  )
 
   return (
-    <section ref={ref} className="py-16 px-4 relative">
-      {/* Decorative elements */}
+    <section ref={ref} className="py-16 px-4 relative overflow-hidden">
+      {/* Peaceful scroll-based ambient glow */}
       <motion.div
-        style={{ opacity }}
-        className="absolute top-20 left-10 w-20 h-20 border border-teal/20 rounded-full"
+        style={{
+          y,
+          opacity: glowOpacity,
+        }}
+        className="absolute top-20 left-10 w-48 h-48 bg-gradient-radial from-amber-500/30 via-orange-500/15 to-transparent rounded-full blur-3xl"
       />
       <motion.div
-        style={{ opacity }}
-        className="absolute bottom-20 right-10 w-32 h-32 border border-teal/10 rounded-full"
+        style={{
+          y: useTransform(scrollYProgress, [0, 1], ["0%", "-20%"]),
+          opacity: glowOpacity,
+        }}
+        className="absolute bottom-20 right-10 w-56 h-56 bg-gradient-radial from-teal-400/30 via-cyan-500/15 to-transparent rounded-full blur-3xl"
+      />
+
+      {/* Additional gentle ambient light */}
+      <motion.div
+        style={{
+          y,
+          opacity: glowOpacity,
+        }}
+        className="absolute top-1/2 right-1/4 w-40 h-40 bg-gradient-radial from-rose-400/20 via-pink-500/10 to-transparent rounded-full blur-3xl"
       />
 
       <motion.div
         style={{ opacity, scale }}
-        className="max-w-4xl mx-auto text-center"
+        className="max-w-4xl mx-auto text-center relative z-10"
       >
         <motion.span
           initial={{ opacity: 0, y: 20 }}
