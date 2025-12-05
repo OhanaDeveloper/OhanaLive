@@ -12,6 +12,12 @@ from rest_framework_simplejwt.tokens import RefreshToken
 from django.db import transaction
 from django.contrib.auth import authenticate
 from django.utils import timezone as django_timezone
+from django.contrib.auth.tokens import default_token_generator
+from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
+from django.utils.encoding import force_bytes, force_str
+from django.core.mail import send_mail
+from django.conf import settings
+from django.template.loader import render_to_string
 
 from .models import CustomUser, Profile, SobrietyDate, Role
 from .serializers import (
@@ -363,3 +369,184 @@ class ProfileViewSet(viewsets.ModelViewSet):
             profile, created = Profile.objects.get_or_create(user=self.request.user)
             return profile
         return super().get_object()
+
+
+class PasswordResetRequestView(APIView):
+    """
+    POST /api/auth/password-reset/
+    Request a password reset email.
+    Always returns success to prevent email enumeration attacks.
+    """
+    permission_classes = [permissions.AllowAny]
+
+    def post(self, request):
+        email = request.data.get('email', '').strip().lower()
+
+        if not email:
+            return Response({
+                'error': 'Email is required'
+            }, status=status.HTTP_400_BAD_REQUEST)
+
+        try:
+            user = CustomUser.objects.get(email=email, is_active=True)
+
+            # Generate password reset token
+            token = default_token_generator.make_token(user)
+            uid = urlsafe_base64_encode(force_bytes(user.pk))
+
+            # Build reset URL (frontend URL)
+            frontend_url = settings.CORS_ALLOWED_ORIGINS[0] if settings.CORS_ALLOWED_ORIGINS else 'http://localhost:3000'
+            reset_url = f"{frontend_url}/reset-password?uid={uid}&token={token}"
+
+            # Send email
+            subject = 'Reset Your Ohana Recovery Password'
+            message = f"""
+Aloha,
+
+You requested to reset your password for Ohana Recovery.
+
+Click the link below to reset your password:
+{reset_url}
+
+This link will expire in 24 hours.
+
+If you didn't request this, you can safely ignore this email.
+
+With aloha,
+The Ohana Recovery Team
+
+---
+ʻOhana means family. Nobody gets left behind.
+            """.strip()
+
+            html_message = f"""
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {{ font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0a0a0a; color: #e5e5e5; padding: 20px; }}
+        .container {{ max-width: 600px; margin: 0 auto; background: #171717; border-radius: 12px; padding: 40px; border: 1px solid #262626; }}
+        .header {{ text-align: center; margin-bottom: 30px; }}
+        .logo {{ font-size: 28px; font-weight: bold; background: linear-gradient(to right, #14b8a6, #8b5cf6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }}
+        .button {{ display: inline-block; background: linear-gradient(to right, #14b8a6, #0d9488); color: #000 !important; padding: 14px 32px; border-radius: 8px; text-decoration: none; font-weight: bold; margin: 20px 0; }}
+        .footer {{ text-align: center; margin-top: 30px; padding-top: 20px; border-top: 1px solid #262626; color: #737373; font-size: 14px; }}
+        .tagline {{ color: #14b8a6; font-style: italic; }}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">Ohana Recovery</div>
+        </div>
+        <p>Aloha,</p>
+        <p>You requested to reset your password for Ohana Recovery.</p>
+        <p style="text-align: center;">
+            <a href="{reset_url}" class="button">Reset Password</a>
+        </p>
+        <p>Or copy and paste this link into your browser:</p>
+        <p style="word-break: break-all; color: #14b8a6; font-size: 12px;">{reset_url}</p>
+        <p>This link will expire in 24 hours.</p>
+        <p>If you didn't request this, you can safely ignore this email.</p>
+        <p>With aloha,<br>The Ohana Recovery Team</p>
+        <div class="footer">
+            <p class="tagline">ʻOhana means family. Nobody gets left behind.</p>
+        </div>
+    </div>
+</body>
+</html>
+            """.strip()
+
+            send_mail(
+                subject=subject,
+                message=message,
+                from_email=settings.DEFAULT_FROM_EMAIL,
+                recipient_list=[email],
+                html_message=html_message,
+                fail_silently=False,
+            )
+
+            # Log activity
+            ActivityLog.objects.create(
+                user=user,
+                action='password_reset_request',
+                description='Password reset email sent',
+                ip_address=get_client_ip(request)
+            )
+
+        except CustomUser.DoesNotExist:
+            # Don't reveal if email exists - security best practice
+            pass
+        except Exception as e:
+            # Log error but don't reveal to user
+            import logging
+            logger = logging.getLogger(__name__)
+            logger.error(f"Password reset email failed: {str(e)}")
+
+        # Always return success to prevent email enumeration
+        return Response({
+            'message': 'If an account exists with that email, you will receive password reset instructions shortly.'
+        }, status=status.HTTP_200_OK)
+
+
+class PasswordResetConfirmView(APIView):
+    """
+    POST /api/auth/password-reset/confirm/
+    Confirm password reset with token and set new password.
+    """
+    permission_classes = [permissions.AllowAny]
+
+    def post(self, request):
+        uid = request.data.get('uid')
+        token = request.data.get('token')
+        new_password = request.data.get('new_password')
+        new_password_confirm = request.data.get('new_password_confirm')
+
+        # Validate required fields
+        if not all([uid, token, new_password, new_password_confirm]):
+            return Response({
+                'error': 'All fields are required: uid, token, new_password, new_password_confirm'
+            }, status=status.HTTP_400_BAD_REQUEST)
+
+        # Validate passwords match
+        if new_password != new_password_confirm:
+            return Response({
+                'error': 'Passwords do not match'
+            }, status=status.HTTP_400_BAD_REQUEST)
+
+        # Validate password length
+        if len(new_password) < 8:
+            return Response({
+                'error': 'Password must be at least 8 characters long'
+            }, status=status.HTTP_400_BAD_REQUEST)
+
+        try:
+            # Decode uid
+            user_id = force_str(urlsafe_base64_decode(uid))
+            user = CustomUser.objects.get(pk=user_id)
+
+            # Verify token
+            if not default_token_generator.check_token(user, token):
+                return Response({
+                    'error': 'Invalid or expired reset link. Please request a new one.'
+                }, status=status.HTTP_400_BAD_REQUEST)
+
+            # Set new password
+            user.set_password(new_password)
+            user.save()
+
+            # Log activity
+            ActivityLog.objects.create(
+                user=user,
+                action='password_reset_complete',
+                description='Password reset completed',
+                ip_address=get_client_ip(request)
+            )
+
+            return Response({
+                'message': 'Password reset successful! You can now log in with your new password.'
+            }, status=status.HTTP_200_OK)
+
+        except (TypeError, ValueError, OverflowError, CustomUser.DoesNotExist):
+            return Response({
+                'error': 'Invalid reset link. Please request a new one.'
+            }, status=status.HTTP_400_BAD_REQUEST)

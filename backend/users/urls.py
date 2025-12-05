@@ -11,7 +11,9 @@ from .views import (
     UserLoginView,
     UserViewSet,
     SobrietyDateViewSet,
-    ProfileViewSet
+    ProfileViewSet,
+    PasswordResetRequestView,
+    PasswordResetConfirmView,
 )
 
 # Create router for viewsets
@@ -25,6 +27,10 @@ urlpatterns = [
     path('auth/register/', UserRegistrationView.as_view(), name='register'),
     path('auth/login/', UserLoginView.as_view(), name='login'),
     path('auth/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
+
+    # Password reset endpoints
+    path('auth/password-reset/', PasswordResetRequestView.as_view(), name='password_reset'),
+    path('auth/password-reset/confirm/', PasswordResetConfirmView.as_view(), name='password_reset_confirm'),
 
     # ViewSet routes
     path('', include(router.urls)),
