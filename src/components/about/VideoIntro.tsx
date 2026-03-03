@@ -4,7 +4,7 @@ import { motion } from "framer-motion"
 import { useState } from "react"
 
 export default function VideoIntro() {
-  const [videoUrl] = useState<string>("")
+  const [videoUrl] = useState<string>("https://www.youtube.com/embed/Q0yAWu1_CjE")
 
   return (
     <section className="py-16 px-4">
