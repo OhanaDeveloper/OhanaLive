@@ -111,6 +111,11 @@ export default function Footer() {
                                     Resources
                                 </Link>
                             </li>
+                            <li>
+                                <Link href="/give" className="text-gray-400 hover:text-teal transition-colors text-sm">
+                                    Give
+                                </Link>
+                            </li>
                         </ul>
                     </div>
 
@@ -179,7 +184,7 @@ export default function Footer() {
                         <span>Support Us</span>
                     </a>
                     <p className="text-sm text-gray-400 mt-4 mb-6">
-                        Community-funded • ~$50/month • Mahalo for your kōkua 🌺
+                        Community-funded • ~$200/month • Mahalo for your kōkua 🌺
                     </p>
                 </div>
 

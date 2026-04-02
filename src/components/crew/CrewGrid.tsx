@@ -3,6 +3,7 @@
 import { motion } from "framer-motion"
 import Image from "next/image"
 import { useState } from "react"
+import Link from "next/link"
 
 type CrewMember = {
   name: string
@@ -13,165 +14,139 @@ type CrewMember = {
   funFact: string
 }
 
+// ─── CREW DATA — update bio, whyRecovery, funFact, and role for each member ──
 const crewMembers: CrewMember[] = [
   {
-    name: "Team Member 1",
-    role: "[Role Pending]",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face",
-    bio: "This is placeholder content. Team member information will be updated once roles and responsibilities are finalized.",
-    whyRecovery: "Placeholder text for team member's recovery story and motivation. This section will be updated with authentic information soon.",
-    funFact: "Fun fact placeholder - to be updated with real information.",
+    name: "Joey",
+    role: "Mālama Host",
+    image: "/OhanaProfile_Joey2.png",
+    bio: "Bio coming soon.",
+    whyRecovery: "Why recovery story coming soon.",
+    funFact: "Fun fact coming soon.",
   },
   {
-    name: "Team Member 2",
-    role: "[Role Pending]",
-    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop&crop=face",
-    bio: "This is placeholder content. Team member information will be updated once roles and responsibilities are finalized.",
-    whyRecovery: "Placeholder text for team member's recovery story and motivation. This section will be updated with authentic information soon.",
-    funFact: "Fun fact placeholder - to be updated with real information.",
+    name: "Randal",
+    role: "Mālama Host",
+    image: "/OhanaProfile_Randal2.png",
+    bio: "Bio coming soon.",
+    whyRecovery: "Why recovery story coming soon.",
+    funFact: "Fun fact coming soon.",
   },
   {
-    name: "Team Member 3",
-    role: "[Role Pending]",
-    image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop&crop=face",
-    bio: "This is placeholder content. Team member information will be updated once roles and responsibilities are finalized.",
-    whyRecovery: "Placeholder text for team member's recovery story and motivation. This section will be updated with authentic information soon.",
-    funFact: "Fun fact placeholder - to be updated with real information.",
+    name: "Jonni",
+    role: "Mālama Host",
+    image: "/OhanaProfile_Jonni2.png",
+    bio: "Bio coming soon.",
+    whyRecovery: "Why recovery story coming soon.",
+    funFact: "Fun fact coming soon.",
   },
   {
-    name: "Team Member 4",
-    role: "[Role Pending]",
-    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&crop=face",
-    bio: "This is placeholder content. Team member information will be updated once roles and responsibilities are finalized.",
-    whyRecovery: "Placeholder text for team member's recovery story and motivation. This section will be updated with authentic information soon.",
-    funFact: "Fun fact placeholder - to be updated with real information.",
-  },
-  {
-    name: "Team Member 5",
-    role: "[Role Pending]",
-    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop&crop=face",
-    bio: "This is placeholder content. Team member information will be updated once roles and responsibilities are finalized.",
-    whyRecovery: "Placeholder text for team member's recovery story and motivation. This section will be updated with authentic information soon.",
-    funFact: "Fun fact placeholder - to be updated with real information.",
-  },
-  {
-    name: "Team Member 6",
-    role: "[Role Pending]",
-    image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=400&fit=crop&crop=face",
-    bio: "This is placeholder content. Team member information will be updated once roles and responsibilities are finalized.",
-    whyRecovery: "Placeholder text for team member's recovery story and motivation. This section will be updated with authentic information soon.",
-    funFact: "Fun fact placeholder - to be updated with real information.",
-  },
-  {
-    name: "Team Member 7",
-    role: "[Role Pending]",
-    image: "https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=400&h=400&fit=crop&crop=face",
-    bio: "This is placeholder content. Team member information will be updated once roles and responsibilities are finalized.",
-    whyRecovery: "Placeholder text for team member's recovery story and motivation. This section will be updated with authentic information soon.",
-    funFact: "Fun fact placeholder - to be updated with real information.",
+    name: "Anne",
+    role: "Mālama Host",
+    image: "/OhanaProfile_Anne2.png",
+    bio: "Bio coming soon.",
+    whyRecovery: "Why recovery story coming soon.",
+    funFact: "Fun fact coming soon.",
   },
 ]
+
+// ─── Card ─────────────────────────────────────────────────────────────────────
 
 function CrewCard({ member, index }: { member: CrewMember; index: number }) {
   const [isFlipped, setIsFlipped] = useState(false)
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 50 }}
+      initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ delay: index * 0.1, duration: 0.5 }}
       className="perspective-1000"
     >
       <motion.div
-        className="relative h-[500px] cursor-pointer"
+        className="relative h-[520px] cursor-pointer"
         onClick={() => setIsFlipped(!isFlipped)}
         whileHover={{ scale: 1.02 }}
-        transition={{ duration: 0.3 }}
+        transition={{ type: "spring", stiffness: 300, damping: 20 }}
+        style={{ willChange: "transform", transform: "translateZ(0)" }}
       >
-        {/* Front of card */}
+        {/* ── Front ── */}
         <motion.div
-          className={`absolute inset-0 backface-hidden rounded-2xl overflow-hidden ${
-            isFlipped ? "pointer-events-none" : ""
-          }`}
+          className={`absolute inset-0 ${isFlipped ? "pointer-events-none" : ""}`}
           animate={{ rotateY: isFlipped ? 180 : 0 }}
           transition={{ duration: 0.6 }}
           style={{ backfaceVisibility: "hidden" }}
         >
-          <div className="relative h-full bg-gradient-to-b from-dark-800/50 to-dark-900/80 border border-dark-700 rounded-2xl overflow-hidden group">
-            {/* Image */}
-            <div className="relative h-56 overflow-hidden">
+          <div className="relative h-full rounded-2xl overflow-hidden border border-dark-700 hover:border-teal/30 transition-colors group"
+            style={{ background: "linear-gradient(160deg, rgba(20,184,166,0.12) 0%, #1a1a1a 55%, #0a0a0a 100%)" }}
+          >
+            {/* Transparent PNG — floats against the gradient */}
+            <div className="relative h-72">
               <Image
                 src={member.image}
                 alt={member.name}
                 fill
-                className="object-cover transition-transform duration-500 group-hover:scale-110"
+                className="object-contain object-bottom transition-transform duration-500 group-hover:scale-105"
+                style={{ willChange: "transform" }}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-dark-900 via-transparent to-transparent" />
+              {/* Fade into card body */}
+              <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-[#0f1f1e]/80 to-transparent pointer-events-none" />
             </div>
 
             {/* Content */}
-            <div className="p-6">
-              <h3 className="text-2xl font-bold text-gray-100 mb-1">{member.name}</h3>
-              <p className="text-teal text-sm font-medium mb-4">{member.role}</p>
-              <p className="text-gray-400 text-sm leading-relaxed line-clamp-4">
+            <div className="px-6 pt-2 pb-6">
+              <h3 className="text-2xl font-bold text-gray-100 mb-0.5">{member.name}</h3>
+              <p className="text-teal text-sm font-medium mb-3">{member.role}</p>
+              <p className="text-gray-400 text-sm leading-relaxed line-clamp-3">
                 {member.bio}
               </p>
             </div>
 
             {/* Tap indicator */}
-            <div className="absolute bottom-4 right-4 text-gray-500 text-xs flex items-center gap-1">
+            <div className="absolute bottom-4 right-5 text-gray-600 text-xs flex items-center gap-1">
               <span>Tap to learn more</span>
               <motion.span
-                animate={{ x: [0, 5, 0] }}
+                animate={{ x: [0, 4, 0] }}
                 transition={{ duration: 1.5, repeat: Infinity }}
               >
-                &rarr;
+                →
               </motion.span>
             </div>
           </div>
         </motion.div>
 
-        {/* Back of card */}
+        {/* ── Back ── */}
         <motion.div
-          className={`absolute inset-0 backface-hidden rounded-2xl overflow-hidden ${
-            !isFlipped ? "pointer-events-none" : ""
-          }`}
+          className={`absolute inset-0 ${!isFlipped ? "pointer-events-none" : ""}`}
           initial={{ rotateY: -180 }}
           animate={{ rotateY: isFlipped ? 0 : -180 }}
           transition={{ duration: 0.6 }}
           style={{ backfaceVisibility: "hidden" }}
         >
-          <div className="h-full bg-gradient-to-b from-dark-800 to-dark-900 border border-teal/30 rounded-2xl p-6 flex flex-col">
-            <h3 className="text-xl font-bold text-teal mb-4">{member.name}</h3>
+          <div className="h-full bg-gradient-to-b from-dark-800 to-dark-900 border border-teal/30 rounded-2xl p-6 flex flex-col gap-5">
+            <h3 className="text-xl font-bold text-teal">{member.name}</h3>
 
-            {/* Why Recovery */}
-            <div className="mb-4">
-              <h4 className="text-sm font-semibold text-gray-300 uppercase tracking-wider mb-2">
+            <div>
+              <h4 className="text-xs font-semibold text-gray-500 uppercase tracking-widest mb-2">
                 Why Recovery Work?
               </h4>
-              <p className="text-gray-400 text-sm leading-relaxed">
-                {member.whyRecovery}
-              </p>
+              <p className="text-gray-300 text-sm leading-relaxed">{member.whyRecovery}</p>
             </div>
 
-            {/* Fun Fact */}
             <div className="mt-auto">
-              <h4 className="text-sm font-semibold text-gray-300 uppercase tracking-wider mb-2">
+              <h4 className="text-xs font-semibold text-gray-500 uppercase tracking-widest mb-2">
                 Fun Fact
               </h4>
-              <p className="text-gray-400 text-sm leading-relaxed italic">
-                {member.funFact}
-              </p>
+              <p className="text-gray-400 text-sm leading-relaxed italic">{member.funFact}</p>
             </div>
 
             {/* Tap indicator */}
-            <div className="absolute bottom-4 right-4 text-gray-500 text-xs flex items-center gap-1">
+            <div className="absolute bottom-4 right-5 text-gray-600 text-xs flex items-center gap-1">
               <motion.span
-                animate={{ x: [0, -5, 0] }}
+                animate={{ x: [0, -4, 0] }}
                 transition={{ duration: 1.5, repeat: Infinity }}
               >
-                &larr;
+                ←
               </motion.span>
               <span>Tap to go back</span>
             </div>
@@ -182,54 +157,51 @@ function CrewCard({ member, index }: { member: CrewMember; index: number }) {
   )
 }
 
+// ─── Grid ─────────────────────────────────────────────────────────────────────
+
 export default function CrewGrid() {
   return (
-    <section className="py-20 px-4">
-      <div className="max-w-7xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
+    <section className="py-16 px-4">
+      <div className="max-w-5xl mx-auto">
+        <motion.p
+          initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center text-gray-400 text-lg max-w-2xl mx-auto mb-12"
         >
-          <p className="text-gray-400 text-lg max-w-2xl mx-auto mb-4">
-            These are the people who show up night after night, not because they have to,
-            but because they remember what it was like to need someone there.
-          </p>
-          <p className="text-teal text-sm max-w-xl mx-auto italic">
-            Note: Team member information below is placeholder content and will be updated with official roles and bios soon.
-          </p>
-        </motion.div>
+          These are the people who show up night after night — not because they have to,
+          but because they remember what it felt like to need someone there.
+        </motion.p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {crewMembers.map((member, index) => (
             <CrewCard key={member.name} member={member} index={index} />
           ))}
         </div>
 
-        {/* Join the crew CTA */}
+        {/* Join CTA */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.3 }}
-          className="mt-20 text-center"
+          className="mt-16 text-center"
         >
           <div className="inline-block bg-dark-900/60 border border-dark-700 rounded-2xl p-8 max-w-xl">
             <h3 className="text-2xl font-bold text-gray-100 mb-3">
               Want to Join the Crew?
             </h3>
             <p className="text-gray-400 mb-6">
-              We&apos;re always looking for passionate people to help facilitate meetings
-              and support our community.
+              We&apos;re always looking for people who show up. If you feel the call,
+              we&apos;d love to hear from you.
             </p>
-            <a
-              href="/contact"
-              className="inline-flex items-center gap-2 bg-teal hover:bg-teal-light text-white font-semibold px-6 py-3 rounded-lg transition-colors"
+            <Link
+              href="/forms/volunteer"
+              className="inline-flex items-center gap-2 bg-gradient-to-r from-teal to-purple text-white font-semibold px-6 py-3 rounded-xl hover:shadow-lg hover:shadow-teal/20 transition-all"
             >
-              <span>Get Involved</span>
-              <span>&rarr;</span>
-            </a>
+              <span>Become Mālama</span>
+              <span>→</span>
+            </Link>
           </div>
         </motion.div>
       </div>

@@ -18,8 +18,7 @@ export default function FloatingDonateButton() {
   }, [])
 
   const handleClick = () => {
-    // Open Ko-fi in new tab
-    window.open('https://ko-fi.com/ohanarecovery', '_blank')
+    window.location.href = '/give'
   }
 
   return (
@@ -46,9 +45,9 @@ export default function FloatingDonateButton() {
               >
                 <div className="bg-dark-900 border border-teal/30 px-4 py-2 rounded-lg shadow-lg">
                   <p className="text-sm text-gray-300">
-                    Support <span className="text-teal font-semibold">Ohana Recovery</span>
+                    Fund the <span className="text-teal font-semibold">ʻOhana</span>
                   </p>
-                  <p className="text-xs text-gray-500 mt-1">Mahalo for your kōkua 🌺</p>
+                  <p className="text-xs text-gray-500 mt-1">$7 keeps one night running 🌺</p>
                 </div>
               </motion.div>
             )}

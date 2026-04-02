@@ -1,77 +1,219 @@
 # Ohana Live
 
-A modern recovery community platform connecting people through technology, conversation, and shared experience.
+A recovery community platform connecting people through technology, conversation, and shared experience. Nightly meetings run 11 PM – 3 AM Pacific, hosted by trained Mālama crew members.
 
-## About
+> *ʻOhana means family. Nobody gets left behind.*
 
-Ohana Live is a digital space where technology and recovery meet. We host nightly meetings from 11 PM – 3 AM Pacific, creating a place for connection, raw honesty, and community support.
+---
 
 ## Tech Stack
 
-- **Next.js 16** - React framework with App Router
-- **React 19** - Latest React with server components
-- **TypeScript** - Type-safe development
-- **Tailwind CSS 4** - Modern utility-first styling
-- **Three.js** - 3D graphics and interactive experiences
-- **Framer Motion** - Smooth animations
-- **Zustand** - Lightweight state management
-- **React Query** - Data fetching and caching
+### Frontend
+| | |
+|---|---|
+| **Next.js 16** | React framework with App Router |
+| **React 19** | Server and client components |
+| **TypeScript 5** | Type-safe development |
+| **Tailwind CSS 4** | Utility-first styling |
+| **Framer Motion 12** | Animations and transitions |
+| **Three.js / R3F** | 3D interactive elements |
+| **Zustand 5** | Client state management |
+| **TanStack Query 5** | Server state and data fetching |
+| **@react-pdf/renderer** | In-browser PDF generation for worksheets |
 
-## Getting Started
+### Backend
+| | |
+|---|---|
+| **Django 5.0** | Web framework |
+| **Django REST Framework 3.14** | API layer |
+| **PostgreSQL** | Primary database |
+| **SimpleJWT** | JWT authentication |
+| **Gunicorn** | Production WSGI server |
 
-```bash
-# Install dependencies
-npm install
+### Infrastructure
+- **Frontend:** Vercel (`https://ohanarecovery.org`)
+- **Backend:** Railway (`https://ohanalive-backend-production.up.railway.app`)
+- **Database:** Railway-managed PostgreSQL
 
-# Run development server
-npm run dev
-
-# Build for production
-npm run build
-
-# Start production server
-npm start
-```
-
-Open [http://localhost:3000](http://localhost:3000) to view the application.
+---
 
 ## Project Structure
 
 ```
-src/
-├── app/
-│   ├── (sections)/      # Route groups for different sections
-│   │   ├── home/
+OhanaLive/
+├── src/                          # Next.js frontend
+│   ├── app/
+│   │   ├── (sections)/           # Public-facing pages
+│   │   │   ├── about/            # Mission, promises, founder video
+│   │   │   ├── crew/             # Mālama team directory
+│   │   │   ├── resources/        # Recovery worksheets & guides
+│   │   │   ├── story/            # Community stories & timeline
+│   │   │   └── support/          # Recovery organization directory
+│   │   ├── admin/                # Admin dashboard (protected)
+│   │   │   ├── meetings/
+│   │   │   ├── signups/
+│   │   │   ├── announcements/
+│   │   │   └── contacts/
+│   │   ├── forms/                # Standalone form pages
+│   │   │   ├── contact/
+│   │   │   ├── volunteer/
+│   │   │   └── story/
+│   │   ├── login/
+│   │   ├── signup/
+│   │   ├── forgot-password/
+│   │   ├── reset-password/
+│   │   └── page.tsx              # Home
+│   ├── components/
 │   │   ├── about/
-│   │   ├── contact/
-│   │   └── projects/
-│   ├── layout.tsx       # Root layout
-│   ├── page.tsx         # Home page
-│   └── globals.css      # Global styles
-├── components/
-│   ├── home/            # Home-specific components
-│   └── layout/          # Layout components
-├── lib/                 # Utilities and helpers
-├── store/               # State management
-├── styles/              # Additional styles
-└── types/               # TypeScript type definitions
+│   │   ├── crew/
+│   │   ├── home/
+│   │   ├── story/
+│   │   ├── resources/
+│   │   ├── forms/
+│   │   ├── layout/               # Nav, Footer, Background, Toolbar
+│   │   ├── shared/               # CTAs, FloatingDonateButton, LotusBreath
+│   │   └── ui/                   # AnimatedCard, AccessibilityToggle, ADAModal
+│   ├── contexts/
+│   │   └── AuthContext.tsx       # Global auth state
+│   └── lib/
+│       ├── api.ts                # API client with JWT auto-refresh
+│       ├── meetings.ts
+│       └── worksheets.ts
+│
+├── backend/                      # Django backend
+│   ├── users/                    # Auth, profiles, sobriety tracking
+│   ├── recovery/                 # Meetings, Mālama crew, announcements
+│   ├── social/                   # Messaging, friendships, posts (built, not yet active)
+│   ├── security/                 # Login history, reports, activity logs
+│   ├── journal/                  # (Planned)
+│   ├── community/                # (Planned)
+│   └── ohana_backend/            # Django settings and URL routing
+│
+└── _documentation/               # Dev session notes, architecture decisions
 ```
+
+---
+
+## Getting Started
+
+### Frontend
+
+```bash
+npm install
+npm run dev
+# → http://localhost:3000
+```
+
+**Environment variables** — create `.env.local`:
+```
+NEXT_PUBLIC_API_URL=http://localhost:8000
+NEXT_PUBLIC_RECAPTCHA_KEY=your_recaptcha_v3_site_key
+```
+
+### Backend
+
+```bash
+cd backend
+python -m venv venv
+source venv/bin/activate       # Windows: venv\Scripts\activate
+pip install -r requirements.txt
+
+cp .env.example .env            # Fill in values
+
+python manage.py migrate
+python manage.py createsuperuser
+python manage.py runserver
+# → http://localhost:8000
+```
+
+**API docs** available at `http://localhost:8000/api/docs/` (Swagger UI) once running.
+
+---
 
 ## Features
 
-- **Live Meeting Countdown** - Real-time countdown to next meeting
-- **Responsive Design** - Optimized for all devices
-- **Modern UI/UX** - Clean, accessible interface
-- **Interactive Elements** - Engaging user experience
-- **Community Focused** - Built for connection and support
+### Live & Functional
+- **Nightly Meeting System** — Scheduled meetings with Mālama host assignment, sign-up workflow, and anonymous attendance tracking
+- **Authentication** — Register, login, password reset via email; JWT with auto-refresh; reCAPTCHA v3 protection
+- **User Profiles** — Public handles for pseudonymity, bio, avatar, privacy visibility settings
+- **Sobriety Tracking** — Log sobriety dates per substance, restart counter with full history
+- **Admin Dashboard** — Manage meetings, review Mālama sign-up requests, post announcements, track crew contacts
+- **Recovery Resources** — Downloadable worksheets with in-browser PDF generation and preview
+- **Recovery Network Directory** — Curated list of secular, faith-based, and specialized recovery organizations
+- **Accessibility** — WCAG AAA compliant; accessibility toggle with multiple display modes; ADA compliance modal
+- **Floating Donate Button** — Ko-fi integration (`ko-fi.com/ohanarecovery`); appears after 20 seconds
 
-## Development
+### Built, Not Yet Active
+- **Social features** — Direct messaging, group chats, friendship requests, community posts, comments, likes (backend models and API complete; commented out of URL router pending frontend integration)
 
-This project uses:
-- ESLint for code quality
-- Prettier for code formatting
-- TypeScript for type safety
+### Planned
+- Live journal with encryption
+- Community groups
+- Member-facing dashboard
+- Resources directory (backend app stubbed)
+
+---
+
+## Backend Data Models
+
+**Users app:** `CustomUser` (email-based auth, UUID primary key) · `Profile` · `SobrietyDate` · `Role` (user / guide / moderator / admin)
+
+**Recovery app:** `Meeting` · `MeetingSignUp` · `MeetingAttendance` · `MalamaContact` · `Announcement`
+
+**Social app:** `Conversation` · `Message` · `Friendship` · `Block` · `Post` · `PostLike` · `Comment`
+
+**Security app:** `LoginHistory` (IP, device fingerprint, geolocation) · `UserReport` · `ActivityLog`
+
+---
+
+## Key API Endpoints
+
+```
+POST   /api/auth/register/
+POST   /api/auth/login/
+POST   /api/auth/token/refresh/
+POST   /api/auth/password-reset/
+POST   /api/auth/password-reset/confirm/
+
+GET    /api/users/me/
+PATCH  /api/users/me/
+PATCH  /api/users/me/profile/
+POST   /api/users/me/change_password/
+GET    /api/users/me/privacy/
+
+GET    /api/sobriety-dates/
+POST   /api/sobriety-dates/
+POST   /api/sobriety-dates/{id}/restart/
+
+GET    /api/recovery/meetings/
+GET    /api/recovery/meeting-signups/
+POST   /api/recovery/meeting-signups/{id}/approve/
+GET    /api/recovery/announcements/
+GET    /api/recovery/malama-contacts/
+```
+
+Full API schema: `GET /api/schema/` · Swagger UI: `/api/docs/`
+
+---
+
+## Deployment
+
+See [`backend/DEPLOYMENT.md`](backend/DEPLOYMENT.md) for the full Railway deployment guide.
+
+**Frontend** — push to `main`, Vercel auto-deploys.
+
+**Backend environment variables required:**
+```
+SECRET_KEY
+DEBUG=False
+DATABASE_URL          # Auto-provided by Railway
+ALLOWED_HOSTS
+CORS_ALLOWED_ORIGINS
+EMAIL_BACKEND / EMAIL_HOST / EMAIL_HOST_USER / EMAIL_HOST_PASSWORD
+```
+
+---
 
 ## License
 
-Private - All Rights Reserved
+Private — All Rights Reserved

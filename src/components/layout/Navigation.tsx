@@ -13,6 +13,7 @@ const navItems = [
     { label: "Mālama", href: "/crew" },
     { label: "Resources", href: "/resources" },
     { label: "Support", href: "/support" },
+    { label: "Give", href: "/give" },
 ]
 
 export default function Navigation() {
@@ -50,12 +51,18 @@ export default function Navigation() {
             <div className="ml-4 flex gap-3 items-center border-l border-gray-600 pl-6">
                 {isAuthenticated ? (
                     <>
-                        <span className="text-xs text-gray-400">
+                        <Link
+                            href="/dashboard"
+                            className={clsx(
+                                "text-xs transition-colors duration-300 hover:text-teal",
+                                pathname === "/dashboard" ? "text-teal" : "text-gray-400"
+                            )}
+                        >
                             Hi, {user?.public_handle || user?.first_name || 'User'}
-                        </span>
+                        </Link>
                         <button
                             onClick={handleLogout}
-                            className="text-sm px-4 py-2 rounded-lg bg-ohana-ocean/20 hover:bg-ohana-ocean/40 text-light transition-colors"
+                            className="text-sm px-4 py-2 rounded-lg bg-dark-800 hover:bg-dark-700 text-light transition-colors"
                         >
                             Logout
                         </button>

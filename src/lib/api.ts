@@ -255,6 +255,22 @@ class ApiClient {
     return this.request('/api/sobriety-dates/');
   }
 
+  async restartSobrietyDate(id: string): Promise<ApiResponse<any>> {
+    return this.request(`/api/sobriety-dates/${id}/restart/`, {
+      method: 'POST',
+    });
+  }
+
+  async deleteSobrietyDate(id: string): Promise<ApiResponse<any>> {
+    return this.request(`/api/sobriety-dates/${id}/`, {
+      method: 'DELETE',
+    });
+  }
+
+  async getAnnouncements(): Promise<ApiResponse<any[]>> {
+    return this.request('/api/recovery/announcements/');
+  }
+
   // Check if user is authenticated
   isAuthenticated(): boolean {
     return !!this.getAccessToken();
