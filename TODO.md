@@ -1,69 +1,66 @@
-# Tonight's To-Do
+# Project To-Do
 
-**Date:** 2026-04-02  
-**Session Goal:** Four feature additions — Mālama real data, video migration, donations page, member dashboard
-
----
-
-## Pre-Build (You Do These)
-
-- [ ] Gather Mālama crew photos — **600×600px, square crop, face-centered, WebP or JPG**
-- [ ] Upload founder's video to Vimeo — get the embed URL when done
+**Last Updated:** 2026-04-02  
 
 ---
 
-## 1. Mālama Real Data — `src/components/crew/CrewGrid.tsx`
-*Blocked until photos + copy are ready. ~30 min once assets arrive.*
+## Completed This Session
 
-- [ ] Replace placeholder `crewMembers` array with real names, roles, bios
-- [ ] Swap Unsplash URLs for real hosted photo URLs
-- [ ] Write "why recovery" back-of-card copy for each member (150–200 chars)
-- [ ] Write fun fact for each member (optional, keep or remove the field)
-- [ ] Confirm final member count — adjust grid columns if fewer than 5 members
+### Crew Page
+- [x] Real member photos uploaded (Joey, Randal, Jonni, Anne) — transparent PNG variants
+- [x] CrewGrid rebuilt for transparent PNGs — floating against teal gradient cards
+- [x] Member order set: Joey, Randal, Jonni, Anne
+- [x] Grid updated to 4-column desktop / 2-column tablet / 1-column mobile
+- [x] "Malama" removed sitewide — replaced with "Crew" throughout all UI
 
----
+### Video
+- [x] YouTube replaced with Vimeo (`player.vimeo.com/video/1179537268`)
+- [x] Clean player params: no branding, no tracking
+- [x] Caption updated to "Ohana Recovery"
 
-## 2. Vimeo Migration — `src/components/about/VideoIntro.tsx`
-*Blocked until Vimeo URL is ready. ~15 min once uploaded.*
+### Donations
+- [x] `/give` page built — hero, 4 tiers, transparency breakdown, Ko-fi CTAs
+- [x] Inline `DonationCTA` added after MeetingSection on home page
+- [x] Floating donate button routes to `/give`
+- [x] Give page hidden from public nav and footer (page still accessible at `/give`)
 
-- [ ] Swap YouTube embed URL for Vimeo embed URL
-- [ ] Set Vimeo privacy to "Only on sites I specify" → `ohanarecovery.org`
-- [ ] Remove YouTube-specific iframe params (`accelerometer`, `gyroscope`, etc.)
-- [ ] Add Vimeo params: `?title=0&byline=0&portrait=0&dnt=1` (clean player, no tracking)
-- [ ] Test autoplay behavior and caption copy below video
+### Member Dashboard
+- [x] `/dashboard` — protected route, redirects to `/login` if unauthenticated
+- [x] Time-of-day greeting, sobriety tracker with animated counter
+- [x] Meeting countdown widget, announcements feed, profile card, quick links
 
----
-
-## 3. Donations & Fundraising Page ✅ COMPLETE
-- `src/app/give/page.tsx` — hero + 4 giving tiers + transparency + Ko-fi CTAs
-- `src/components/give/GiveHero.tsx` — StoryHero-quality parallax hero
-- `src/components/give/GivingTiers.tsx` — tiers, impact statements, transparency breakdown
-- `src/components/home/DonationCTA.tsx` — inline CTA after MeetingSection on home
-- Footer updated: ~$200/month, Give link added to Navigate column
-- Navigation: Give added to navItems
-- FloatingDonateButton: routes to `/give`, updated tooltip copy
-- `api.ts`: added `getAnnouncements()`, `restartSobrietyDate()`, `deleteSobrietyDate()`
-
----
-
-## 4. Member Dashboard ✅ COMPLETE
-- `src/app/dashboard/page.tsx` — protected, redirects to `/login` if unauthenticated
-- Time-of-day greeting (morning / afternoon / evening / welcome back)
-- Sobriety tracker: add dates, animated counter (Framer Motion useMotionValue), inline restart confirmation
-- Meeting countdown widget with live detection + Zoom link
-- Announcements feed from `/api/recovery/announcements/` with empty state
-- Profile card with avatar/initials fallback, edit link
-- Quick links grid: Resources, Crew, Story, Recovery Network
-- Staggered entrance animations on all sections
-- Navigation: logged-in username now links to `/dashboard`
+### Codebase Hygiene
+- [x] Em dashes removed from all 17 files sitewide
+- [x] README rewritten to accurately reflect full stack
+- [x] Stale documentation replaced with `PROGRESS.md` and `TODO.md`
+- [x] Lotus logo restored after accidental deletion
+- [x] Next.js upgraded 16.0.1 to 16.2.2 (resolved Vercel deployment issue)
+- [x] Git user set to OhanaDeveloper / dev@ohanarecovery.org
+- [x] Claude/Anthropic attribution stripped from all commit history
 
 ---
 
-## Definition of Done
+## Still Pending
 
-- [ ] All four features merged to `main`
-- [ ] No placeholder data remaining on crew page
-- [ ] YouTube removed from codebase entirely
-- [ ] `/give` page live with real Ko-fi links
-- [ ] `/dashboard` protected, interactive, and animated
-- [ ] `_documentation/PROGRESS.md` updated with new status
+### Crew Page Copy
+- [ ] Roles for Joey, Randal, Jonni, Anne (currently "Crew Host" for all)
+- [ ] Personal quotes for each member (front of card) — drafts ready, need member approval
+- [ ] Back-of-card content: decide on replacement for "Why Recovery Work?" and "Fun Fact" labels
+- [ ] Once copy is approved, final swap in `src/components/crew/CrewGrid.tsx`
+
+### Give Page
+- [ ] Decide when to make `/give` publicly visible (add back to nav/footer when ready)
+- [ ] Confirm Ko-fi account `ko-fi.com/ohanarecovery` is active and linked correctly
+
+### Vimeo
+- [ ] Set video privacy on Vimeo to "Only on sites I specify" and add `ohanarecovery.org`
+
+### Backend Wiring
+- [ ] Admin dashboard pages fetch placeholder data — needs real API calls
+- [ ] Contact, volunteer, and story forms submit to no endpoint — needs Django views
+- [ ] Social features (messaging, friendships, posts) built in backend but not active in frontend
+
+### Future
+- [ ] Mobile testing — verify all new pages on actual devices
+- [ ] Accessibility audit on dashboard and give page
+- [ ] SEO: Open Graph tags for `/give`, `/dashboard`, `/crew`
