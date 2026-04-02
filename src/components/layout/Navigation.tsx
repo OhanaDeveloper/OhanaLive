@@ -13,7 +13,6 @@ const navItems = [
     { label: "Crew", href: "/crew" },
     { label: "Resources", href: "/resources" },
     { label: "Support", href: "/support" },
-    { label: "Give", href: "/give" },
 ]
 
 export default function Navigation() {

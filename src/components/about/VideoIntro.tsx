@@ -4,7 +4,7 @@ import { motion } from "framer-motion"
 import { useState } from "react"
 
 export default function VideoIntro() {
-  const [videoUrl] = useState<string>("https://www.youtube.com/embed/Q0yAWu1_CjE")
+  const [videoUrl] = useState<string>("https://player.vimeo.com/video/1179537268?title=0&byline=0&portrait=0&dnt=1")
 
   return (
     <section className="py-16 px-4">
@@ -18,13 +18,11 @@ export default function VideoIntro() {
           className="relative aspect-video rounded-2xl overflow-hidden border-2 border-teal/30 bg-dark-900/50 backdrop-blur-sm shadow-2xl shadow-teal/10"
         >
           {videoUrl ? (
-            // YouTube embed will go here
             <iframe
               src={videoUrl}
-              title="Inaugural Video Launch"
+              title="A Message from the Founder"
               frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              referrerPolicy="strict-origin-when-cross-origin"
+              allow="autoplay; fullscreen; picture-in-picture"
               allowFullScreen
               className="absolute inset-0 w-full h-full"
             />
@@ -89,7 +87,7 @@ export default function VideoIntro() {
           transition={{ delay: 0.3, duration: 0.6 }}
           className="text-center text-gray-400 text-sm mt-4 italic"
         >
-          Hear directly from the heart of Ohana Live
+          Hear directly from the heart of Ohana Recovery
         </motion.p>
       </div>
     </section>

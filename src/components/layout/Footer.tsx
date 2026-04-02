@@ -111,11 +111,6 @@ export default function Footer() {
                                     Resources
                                 </Link>
                             </li>
-                            <li>
-                                <Link href="/give" className="text-gray-400 hover:text-teal transition-colors text-sm">
-                                    Give
-                                </Link>
-                            </li>
                         </ul>
                     </div>
 
