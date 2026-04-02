@@ -67,8 +67,8 @@ export default function PromiseStruggling() {
             Our Promise to You
           </h2>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            If you&apos;re in the thick of it right now — if the nights feel endless and
-            the weight feels unbearable — these words are for you.
+            If you&apos;re in the thick of it right now, if the nights feel endless and
+            the weight feels unbearable, these words are for you.
           </p>
         </motion.div>
 

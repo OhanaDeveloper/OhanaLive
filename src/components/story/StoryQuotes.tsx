@@ -89,7 +89,7 @@ export default function StoryQuotes() {
                 {quotes[currentIndex].text}
               </p>
               <p className="text-gray-500 text-sm">
-                — {quotes[currentIndex].author}
+                {quotes[currentIndex].author}
               </p>
             </motion.div>
           </AnimatePresence>

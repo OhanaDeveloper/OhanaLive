@@ -88,7 +88,7 @@ export default function AdminSignUpsPage() {
             ← Back to Dashboard
           </Link>
           <h1 className="text-4xl font-bold text-teal">Sign-Up Requests</h1>
-          <p className="text-gray-400 mt-2">Review and approve Mālama hosting requests</p>
+          <p className="text-gray-400 mt-2">Review and approve Crew hosting requests</p>
         </div>
 
         {/* Requests List */}
@@ -110,7 +110,7 @@ export default function AdminSignUpsPage() {
             <p className="text-6xl mb-4">✋</p>
             <p className="text-gray-400 text-xl mb-2">No pending sign-up requests</p>
             <p className="text-gray-500 text-sm">
-              Mālama requests to host meetings will appear here
+              Crew requests to host meetings will appear here
             </p>
           </motion.div>
         ) : (
@@ -171,7 +171,7 @@ export default function AdminSignUpsPage() {
                       {/* Message */}
                       {signup.message && (
                         <div className="mb-6">
-                          <p className="text-gray-500 text-sm mb-2">Message from Mālama:</p>
+                          <p className="text-gray-500 text-sm mb-2">Message from Crew:</p>
                           <p className="text-gray-300 italic">"{signup.message}"</p>
                         </div>
                       )}

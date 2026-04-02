@@ -3,7 +3,7 @@ import SectionWrapper from "@/components/layout/SectionWrapper"
 import { Heart } from "lucide-react"
 
 export const metadata = {
-    title: "Become Mālama | Ohana Live",
+    title: "Join the Crew | Ohana Live",
     description: "Apply to join our team of dedicated facilitators who care for and protect our recovery space.",
 }
 
@@ -19,7 +19,7 @@ export default function VolunteerPage() {
                         </div>
                     </div>
                     <h1 className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-teal to-purple bg-clip-text text-transparent mb-4">
-                        Become Mālama
+                        Join the Crew
                     </h1>
                     <p className="text-xl text-gray-300">
                         Join us in caring for, protecting, and preserving this space.

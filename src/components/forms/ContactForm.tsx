@@ -107,7 +107,7 @@ export default function ContactForm() {
                     <option value="">Select a subject</option>
                     <option value="general">General Inquiry</option>
                     <option value="support">Support Question</option>
-                    <option value="volunteer">Becoming Mālama</option>
+                    <option value="volunteer">Joining the Crew</option>
                     <option value="partnership">Partnership Opportunity</option>
                     <option value="feedback">Feedback</option>
                     <option value="other">Other</option>

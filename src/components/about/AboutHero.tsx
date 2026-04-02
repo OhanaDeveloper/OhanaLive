@@ -241,7 +241,7 @@ export default function AboutHero() {
             transition={{ delay: 0.8 }}
             className="text-xl text-teal"
           >
-            Hawaiian — meaning family, in an extended sense
+            Hawaiian: meaning family, in an extended sense
           </motion.p>
         </motion.div>
 

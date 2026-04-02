@@ -7,27 +7,27 @@ const pillars = [
   {
     icon: "🌈",
     title: "Every Identity",
-    description: "LGBTQ+, straight, questioning — all are embraced here.",
+    description: "LGBTQ+, straight, questioning: all are embraced here.",
   },
   {
     icon: "🌍",
     title: "Every Background",
-    description: "Race, culture, religion, none — diversity is our strength.",
+    description: "Race, culture, religion, none: diversity is our strength.",
   },
   {
     icon: "🛤️",
     title: "Every Path",
-    description: "12-step, SMART, therapy, your own way — all roads are valid.",
+    description: "12-step, SMART, therapy, your own way: all roads are valid.",
   },
   {
     icon: "📍",
     title: "Every Stage",
-    description: "Day one or decade ten — your journey is honored here.",
+    description: "Day one or decade ten: your journey is honored here.",
   },
   {
     icon: "💔",
     title: "Every Struggle",
-    description: "Substances, behaviors, mental health — pain is pain.",
+    description: "Substances, behaviors, mental health: pain is pain.",
   },
   {
     icon: "✨",
@@ -159,7 +159,7 @@ export default function PromiseHoldSpace() {
               &ldquo;Come as you are, not as you think you should be.&rdquo;
             </p>
             <p className="text-gray-500 text-sm">
-              — The Ohana Promise
+              The Ohana Promise
             </p>
           </motion.div>
         </motion.div>

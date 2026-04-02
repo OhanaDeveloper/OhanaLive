@@ -21,7 +21,7 @@ export default function AboutPage() {
       <VideoIntro />
       <TechShowcase />
 
-      {/* Secondary CTA: Become Mālama */}
+      {/* Secondary CTA: Join the Crew */}
       <SectionWrapper>
         <VolunteerCTA variant="card" />
       </SectionWrapper>

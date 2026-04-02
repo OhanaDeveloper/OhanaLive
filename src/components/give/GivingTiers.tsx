@@ -9,7 +9,7 @@ const tiers = [
     amount: "$7",
     label: "One Night",
     frequency: "one-time",
-    description: "Covers one full night of meetings — the Zoom, the hosting, the whole thing.",
+    description: "Covers one full night of meetings: the Zoom, the hosting, the whole thing.",
     impact: "1 night of community",
     featured: false,
     color: "teal",
@@ -20,7 +20,7 @@ const tiers = [
     label: "Founding Member",
     frequency: "per month",
     description:
-      "Join the inner circle. Recurring members are the backbone of Ohana — recognized, appreciated, and never forgotten.",
+      "Join the inner circle. Recurring members are the backbone of Ohana, recognized, appreciated, and never forgotten.",
     impact: "3+ nights per month",
     featured: true,
     badge: "Most Meaningful",
@@ -42,7 +42,7 @@ const tiers = [
     label: "Month Sponsor",
     frequency: "one-time",
     description:
-      "Cover the entire month. Your handle can be acknowledged in meeting intros — or stay anonymous, your call.",
+      "Cover the entire month. Your handle can be acknowledged in meeting intros, or stay anonymous. Your call.",
     impact: "Full month covered",
     featured: false,
     color: "gold",
@@ -81,7 +81,7 @@ export default function GivingTiers() {
           </h2>
           <p className="text-gray-400 max-w-xl mx-auto">
             Every dollar goes directly to keeping the meetings running. $200 covers a
-            full month — broken down, that&apos;s $6.67 per night.
+            full month. Broken down, that&apos;s $6.67 per night.
           </p>
         </motion.div>
 

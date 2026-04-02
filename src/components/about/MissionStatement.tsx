@@ -99,7 +99,7 @@ export default function MissionStatement() {
           transition={{ delay: 0.3 }}
           className="text-xl text-gray-400 leading-relaxed max-w-3xl mx-auto"
         >
-          We exist to create a sanctuary for those navigating recovery — a place where
+          We exist to create a sanctuary for those navigating recovery, a place where
           vulnerability is strength, where silence is broken by understanding, and where
           no one has to face the night alone. Through authentic connection and radical
           acceptance, we build bridges from isolation to community.

@@ -90,7 +90,7 @@ export default function GiveHero() {
           className="text-base text-gray-500 max-w-xl mx-auto"
         >
           No grants. No sponsors. No agenda. Just community members who show up
-          for each other — and supporters who keep the lights on.
+          for each other, and supporters who keep the lights on.
         </motion.p>
 
         {/* Scroll indicator */}

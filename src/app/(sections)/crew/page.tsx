@@ -5,8 +5,8 @@ import MeetingCTA from "@/components/shared/MeetingCTA"
 import SectionWrapper from "@/components/layout/SectionWrapper"
 
 export const metadata = {
-  title: "Mālama | Ohana Live",
-  description: "Meet Mālama — the dedicated souls who care for and protect our recovery space every night.",
+  title: "Crew | Ohana Live",
+  description: "Meet the Crew: the dedicated souls who care for and protect our recovery space every night.",
 }
 
 export const dynamic = 'force-static'
@@ -18,7 +18,7 @@ export default function CrewPage() {
       <CrewHero />
       <CrewGrid />
 
-      {/* Primary CTA: Become Mālama */}
+      {/* Primary CTA: Join the Crew */}
       <SectionWrapper>
         <VolunteerCTA variant="card" />
       </SectionWrapper>

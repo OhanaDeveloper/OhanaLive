@@ -51,7 +51,7 @@ export default function Footer() {
                                 Contact
                             </Link>
                             <Link href="/crew" className="text-sm text-gray-400 hover:text-teal transition-colors text-left">
-                                Mālama
+                                Crew
                             </Link>
                             <Link href="/privacy" className="text-sm text-gray-400 hover:text-teal transition-colors text-right">
                                 Privacy
@@ -103,7 +103,7 @@ export default function Footer() {
                             </li>
                             <li>
                                 <Link href="/crew" className="text-gray-400 hover:text-teal transition-colors text-sm">
-                                    Mālama Crew
+                                    Crew
                                 </Link>
                             </li>
                             <li>
@@ -155,7 +155,7 @@ export default function Footer() {
                         <ul className="space-y-2">
                             <li>
                                 <Link href="/forms/volunteer" className="text-gray-400 hover:text-teal transition-colors text-sm">
-                                    Become Mālama
+                                    Join the Crew
                                 </Link>
                             </li>
                             <li>

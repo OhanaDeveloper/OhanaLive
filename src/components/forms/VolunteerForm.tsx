@@ -49,7 +49,7 @@ export default function VolunteerForm() {
                     Mahalo!
                 </h2>
                 <p className="text-xl text-gray-300 mb-2">
-                    Thank you for your interest in becoming Mālama.
+                    Thank you for your interest in joining the Crew.
                 </p>
                 <p className="text-gray-400">
                     We'll be in touch soon.
@@ -178,7 +178,7 @@ export default function VolunteerForm() {
                     required
                     rows={6}
                     className="w-full px-4 py-3 bg-dark-800 border-2 border-dark-700 text-light rounded-lg focus:ring-2 focus:ring-teal focus:border-teal transition-all resize-none"
-                    placeholder="Share what brought you to recovery, what you hope to offer, and why you want to become Mālama..."
+                    placeholder="Share what brought you to recovery, what you hope to offer, and why you want to join the Crew..."
                 />
             </div>
 

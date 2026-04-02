@@ -14,11 +14,11 @@ type CrewMember = {
   funFact: string
 }
 
-// ─── CREW DATA — update bio, whyRecovery, funFact, and role for each member ──
+// ─── CREW DATA: update bio, whyRecovery, funFact, and role for each member ──
 const crewMembers: CrewMember[] = [
   {
     name: "Joey",
-    role: "Mālama Host",
+    role: "Crew Host",
     image: "/OhanaProfile_Joey2.png",
     bio: "Bio coming soon.",
     whyRecovery: "Why recovery story coming soon.",
@@ -26,7 +26,7 @@ const crewMembers: CrewMember[] = [
   },
   {
     name: "Randal",
-    role: "Mālama Host",
+    role: "Crew Host",
     image: "/OhanaProfile_Randal2.png",
     bio: "Bio coming soon.",
     whyRecovery: "Why recovery story coming soon.",
@@ -34,7 +34,7 @@ const crewMembers: CrewMember[] = [
   },
   {
     name: "Jonni",
-    role: "Mālama Host",
+    role: "Crew Host",
     image: "/OhanaProfile_Jonni2.png",
     bio: "Bio coming soon.",
     whyRecovery: "Why recovery story coming soon.",
@@ -42,7 +42,7 @@ const crewMembers: CrewMember[] = [
   },
   {
     name: "Anne",
-    role: "Mālama Host",
+    role: "Crew Host",
     image: "/OhanaProfile_Anne2.png",
     bio: "Bio coming soon.",
     whyRecovery: "Why recovery story coming soon.",
@@ -80,7 +80,7 @@ function CrewCard({ member, index }: { member: CrewMember; index: number }) {
           <div className="relative h-full rounded-2xl overflow-hidden border border-dark-700 hover:border-teal/30 transition-colors group"
             style={{ background: "linear-gradient(160deg, rgba(20,184,166,0.12) 0%, #1a1a1a 55%, #0a0a0a 100%)" }}
           >
-            {/* Transparent PNG — floats against the gradient */}
+            {/* Transparent PNG, floats against the gradient */}
             <div className="relative h-72">
               <Image
                 src={member.image}
@@ -169,7 +169,7 @@ export default function CrewGrid() {
           viewport={{ once: true }}
           className="text-center text-gray-400 text-lg max-w-2xl mx-auto mb-12"
         >
-          These are the people who show up night after night — not because they have to,
+          These are the people who show up night after night, not because they have to,
           but because they remember what it felt like to need someone there.
         </motion.p>
 
@@ -199,7 +199,7 @@ export default function CrewGrid() {
               href="/forms/volunteer"
               className="inline-flex items-center gap-2 bg-gradient-to-r from-teal to-purple text-white font-semibold px-6 py-3 rounded-xl hover:shadow-lg hover:shadow-teal/20 transition-all"
             >
-              <span>Become Mālama</span>
+              <span>Join the Crew</span>
               <span>→</span>
             </Link>
           </div>

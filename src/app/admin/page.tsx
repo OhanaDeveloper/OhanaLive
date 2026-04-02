@@ -45,7 +45,7 @@ export default function AdminDashboard() {
     },
     {
       title: "Sign-Up Requests",
-      description: "Review Mālama hosting requests",
+      description: "Review Crew hosting requests",
       href: "/admin/signups",
       icon: "✋",
       color: "from-accent/20 to-yellow-500/20 border-accent/30",
@@ -62,7 +62,7 @@ export default function AdminDashboard() {
       statLabel: "active",
     },
     {
-      title: "Mālama Contacts",
+      title: "Crew Contacts",
       description: "View emergency contacts and availability",
       href: "/admin/contacts",
       icon: "👥",
@@ -83,7 +83,7 @@ export default function AdminDashboard() {
         >
           <h1 className="text-5xl font-bold text-teal mb-4">Admin Dashboard</h1>
           <p className="text-gray-400 text-lg">
-            Manage meetings, announcements, and Mālama crew
+            Manage meetings, announcements, and the Crew
           </p>
         </motion.div>
 
@@ -175,7 +175,7 @@ export default function AdminDashboard() {
             </div>
             <div>
               <p className="text-3xl font-bold text-blue-400">{stats.activeMalama}</p>
-              <p className="text-gray-400 text-sm">Mālama Crew</p>
+              <p className="text-gray-400 text-sm">Crew</p>
             </div>
           </div>
         </motion.div>

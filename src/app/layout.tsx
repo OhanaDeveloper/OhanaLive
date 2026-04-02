@@ -20,7 +20,7 @@ export const metadata: Metadata = {
         template: "%s | Ohana Recovery",
     },
     description:
-        "Ohana Recovery — a safe space for connection, healing, and growth in recovery. Join our nightly meetings at 8pm PT.",
+        "Ohana Recovery: a safe space for connection, healing, and growth in recovery. Join our nightly meetings at 8pm PT.",
     openGraph: {
         title: "Ohana Recovery",
         description:

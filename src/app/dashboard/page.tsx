@@ -480,7 +480,7 @@ function ProfileCard({ user }: { user: { public_handle: string; first_name: stri
 
 const quickLinks = [
   { label: "Resources", desc: "Worksheets & guides", href: "/resources", icon: BookOpen, color: "teal" },
-  { label: "Mālama Crew", desc: "Meet the hosts", href: "/crew", icon: Users, color: "purple" },
+  { label: "Crew", desc: "Meet the hosts", href: "/crew", icon: Users, color: "purple" },
   { label: "Share Your Story", desc: "Inspire the ʻOhana", href: "/forms/story", icon: PenLine, color: "gold" },
   { label: "Recovery Network", desc: "Find your path", href: "/support", icon: Heart, color: "teal" },
 ]
@@ -619,12 +619,12 @@ export default function DashboardPage() {
 
         {/* Main grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {/* Sobriety — left */}
+          {/* Sobriety: left */}
           <motion.div custom={2} variants={sectionVariants} initial="hidden" animate="show">
             <SobrietyWidget />
           </motion.div>
 
-          {/* Meeting + Announcements — right */}
+          {/* Meeting + Announcements: right */}
           <div className="flex flex-col gap-6">
             <motion.div custom={3} variants={sectionVariants} initial="hidden" animate="show">
               <MeetingWidget />

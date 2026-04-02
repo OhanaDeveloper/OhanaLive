@@ -20,7 +20,7 @@ export default function VolunteerCTA({ variant = "inline", className = "" }: Vol
             >
                 <Heart className="w-12 h-12 text-teal mx-auto mb-4" />
                 <h3 className="text-3xl font-bold text-light mb-4">
-                    Become Mālama
+                    Join the Crew
                 </h3>
                 <p className="text-gray-300 text-lg mb-6 max-w-2xl mx-auto">
                     Help tend, preserve, and hold space for others. Join our dedicated
@@ -44,7 +44,7 @@ export default function VolunteerCTA({ variant = "inline", className = "" }: Vol
             className={`inline-flex items-center gap-2 px-6 py-3 bg-teal/20 hover:bg-teal/30 border-2 border-teal text-teal font-semibold rounded-lg transition-all ${className}`}
         >
             <Heart className="w-5 h-5" />
-            Become Mālama
+            Join the Crew
         </Link>
     )
 }

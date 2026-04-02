@@ -44,7 +44,7 @@ export default function ResourcesHero() {
           className="text-xl text-gray-400 max-w-2xl mx-auto leading-relaxed"
         >
           Practical tools for your journey. Download, print, and use these
-          worksheets to support your recovery — completely free.
+          worksheets to support your recovery, completely free.
         </motion.p>
 
         {/* Stats */}

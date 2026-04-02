@@ -104,7 +104,7 @@ export default function RecoveryNetworkPage() {
         </h1>
 
         <p className="text-xl text-gray-400 leading-relaxed max-w-2xl mx-auto">
-          Recovery isn't one-size-fits-all. Here are communities we respect — each with their own philosophy,
+          Recovery isn't one-size-fits-all. Here are communities we respect, each with their own philosophy,
           approach, and heart. Find what resonates with you.
         </p>
       </motion.div>
@@ -211,7 +211,7 @@ export default function RecoveryNetworkPage() {
       >
         <Heart className="w-8 h-8 text-teal mx-auto mb-4" />
         <p className="text-gray-300 text-lg leading-relaxed">
-          Recovery is personal. What works for one person might not work for another — and that's okay.
+          Recovery is personal. What works for one person might not work for another, and that's okay.
           We're all just trying to stay alive and find peace.
         </p>
         <p className="text-gray-500 text-sm mt-4">

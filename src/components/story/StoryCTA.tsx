@@ -57,7 +57,7 @@ export default function StoryCTA() {
 
         <p className="text-xl text-gray-400 mb-12 max-w-2xl mx-auto leading-relaxed">
           Whether you&apos;re just starting out, deep in the journey, or somewhere
-          in between — there&apos;s a seat waiting for you. No prerequisites. No
+          in between. There&apos;s a seat waiting for you. No prerequisites. No
           expectations. Just show up.
         </p>
 

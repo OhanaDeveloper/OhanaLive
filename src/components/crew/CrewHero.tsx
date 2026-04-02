@@ -56,7 +56,7 @@ export default function CrewHero() {
               transition={{ delay: 0.5 }}
               className="block text-teal"
             >
-              Mālama
+              the Crew
             </motion.span>
           </h1>
 

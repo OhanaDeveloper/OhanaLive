@@ -62,7 +62,7 @@ export default function AdminContactsPage() {
           <Link href="/admin" className="text-teal hover:text-teal-light mb-4 inline-block">
             ← Back to Dashboard
           </Link>
-          <h1 className="text-4xl font-bold text-teal">Mālama Contacts</h1>
+          <h1 className="text-4xl font-bold text-teal">Crew Contacts</h1>
           <p className="text-gray-400 mt-2">View emergency contacts and crew availability</p>
         </div>
 
@@ -92,12 +92,12 @@ export default function AdminContactsPage() {
           >
             <p className="text-6xl mb-4">👥</p>
             <p className="text-gray-400 text-xl mb-2">
-              {searchQuery ? "No contacts found" : "No Mālama contacts yet"}
+              {searchQuery ? "No contacts found" : "No Crew contacts yet"}
             </p>
             <p className="text-gray-500 text-sm">
               {searchQuery
                 ? "Try a different search term"
-                : "Mālama crew contact information will appear here"}
+                : "Crew contact information will appear here"}
             </p>
           </motion.div>
         ) : (

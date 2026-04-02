@@ -27,7 +27,7 @@ const timelineEvents: TimelineEvent[] = [
     year: "The Vision",
     title: "Building a Digital Campfire",
     description:
-      "We imagined a space that felt like sitting around a fire with people who understood — no pretense, no program agenda, just human connection when it matters most.",
+      "We imagined a space that felt like sitting around a fire with people who understood. No pretense, no program agenda, just human connection when it matters most.",
     image: "https://images.unsplash.com/photo-1475483768296-6163e08872a1?w=600&q=80",
     imageAlt: "Warm campfire glowing in darkness",
   },
@@ -60,7 +60,7 @@ const timelineEvents: TimelineEvent[] = [
     year: "Tomorrow",
     title: "The Story Continues",
     description:
-      "This isn't an ending — it's an invitation. The next chapter of Ohana Live includes you. Your story. Your voice. Your presence in the late-night hours.",
+      "This isn't an ending. It's an invitation. The next chapter of Ohana Live includes you. Your story. Your voice. Your presence in the late-night hours.",
     image: "https://images.unsplash.com/photo-1464639351491-a172c2aa2911?w=600&q=80",
     imageAlt: "Sunrise over horizon representing new beginnings",
   },

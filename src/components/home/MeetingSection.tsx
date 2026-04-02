@@ -120,7 +120,7 @@ export default function MeetingSection() {
         >
           Ohana Live meets every night from 11 PM – 3 AM (Pacific). It&apos;s a space
           for connection, raw honesty, and community. Expect candid conversation,
-          practical recovery, and real people — no judgment, no preaching.
+          practical recovery, and real people. No judgment, no preaching.
         </motion.p>
 
         {/* Tonight's Host Display */}
@@ -131,7 +131,7 @@ export default function MeetingSection() {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="mt-6 bg-dark-800/60 backdrop-blur-md border border-teal/20 rounded-xl p-6 shadow-lg"
           >
-            <p className="text-gray-400 text-sm mb-3 uppercase tracking-wider">Tonight&apos;s Mālama</p>
+            <p className="text-gray-400 text-sm mb-3 uppercase tracking-wider">Tonight&apos;s Host</p>
             <div className="flex items-center gap-4">
               {tonightsMeeting.host.avatar_url ? (
                 <img
