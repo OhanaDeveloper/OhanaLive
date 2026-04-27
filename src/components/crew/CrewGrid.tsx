@@ -25,14 +25,6 @@ const crewMembers: CrewMember[] = [
     funFact: "Fun fact coming soon.",
   },
   {
-    name: "Randal",
-    role: "Crew Host",
-    image: "/OhanaProfile_Randal2.png",
-    bio: "Bio coming soon.",
-    whyRecovery: "Why recovery story coming soon.",
-    funFact: "Fun fact coming soon.",
-  },
-  {
     name: "Jonni",
     role: "Crew Host",
     image: "/OhanaProfile_Jonni2.png",

@@ -39,8 +39,6 @@ OhanaLive/
 │   ├── OhanaProfile_Joey2.png
 │   ├── OhanaProfile_Jonni.png
 │   ├── OhanaProfile_Jonni2.png
-│   ├── OhanaProfile_Randal.png
-│   └── OhanaProfile_Randal2.png
 │
 ├── src/                            Next.js frontend source
 └── backend/                        Django backend source
