@@ -37,6 +37,7 @@ OhanaLive/
 │   ├── OhanaProfile_Anne2.png      Crew photo — transparent background
 │   ├── OhanaProfile_Joey.png
 │   ├── OhanaProfile_Joey2.png
+│   ├── OhanaProfile_Daniel.png
 │   ├── OhanaProfile_Jonni.png
 │   ├── OhanaProfile_Jonni2.png
 │

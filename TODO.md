@@ -7,9 +7,9 @@
 ## Completed This Session
 
 ### Crew Page
-- [x] Real member photos uploaded (Joey, Jonni, Anne) — transparent PNG variants
+- [x] Real member photos uploaded (Joey, Daniel, Jonni, Anne) — transparent PNG variants
 - [x] CrewGrid rebuilt for transparent PNGs — floating against teal gradient cards
-- [x] Member order set: Joey, Jonni, Anne
+- [x] Member order set: Joey, Daniel, Jonni, Anne
 - [x] Grid updated to 4-column desktop / 2-column tablet / 1-column mobile
 - [x] "Malama" removed sitewide — replaced with "Crew" throughout all UI
 
@@ -43,7 +43,7 @@
 ## Still Pending
 
 ### Crew Page Copy
-- [ ] Roles for Joey, Jonni, Anne (currently "Crew Host" for all)
+- [ ] Roles for Joey, Daniel, Jonni, Anne (currently "Crew Host" for all)
 - [ ] Personal quotes for each member (front of card) — drafts ready, need member approval
 - [ ] Back-of-card content: decide on replacement for "Why Recovery Work?" and "Fun Fact" labels
 - [ ] Once copy is approved, final swap in `src/components/crew/CrewGrid.tsx`
