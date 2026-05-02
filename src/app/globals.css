@@ -178,3 +178,114 @@ p {
 .accessible-mode {
   font-size: 110%;
 }
+
+/* ==============================
+   WORKSHEET PRINT STYLES
+   ============================== */
+@media print {
+  /* Hide everything except the print target */
+  body > *:not(#worksheet-print-root) { display: none !important; }
+  #worksheet-print-root { display: block !important; }
+
+  /* Reset for print */
+  .worksheet-print {
+    font-family: Georgia, 'Times New Roman', serif;
+    color: #111;
+    background: #fff;
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 40px 32px;
+  }
+
+  .worksheet-print-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border-bottom: 2px solid #14b8a6;
+    padding-bottom: 12px;
+    margin-bottom: 24px;
+  }
+
+  .worksheet-print-brand {
+    font-family: system-ui, sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: #14b8a6;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .worksheet-print-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: #111;
+    margin-bottom: 6px;
+  }
+
+  .worksheet-print-subtitle {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 20px;
+  }
+
+  .worksheet-print-meta {
+    display: flex;
+    gap: 16px;
+    font-family: system-ui, sans-serif;
+    font-size: 11px;
+    color: #777;
+    margin-bottom: 28px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #e5e5e5;
+  }
+
+  .worksheet-print-section {
+    margin-bottom: 28px;
+    page-break-inside: avoid;
+  }
+
+  .worksheet-print-section-title {
+    font-family: system-ui, sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: #14b8a6;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 6px;
+  }
+
+  .worksheet-print-instructions {
+    font-size: 13px;
+    color: #444;
+    line-height: 1.6;
+    margin-bottom: 10px;
+  }
+
+  .worksheet-print-field-label {
+    font-family: system-ui, sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 4px;
+    margin-top: 10px;
+  }
+
+  .worksheet-print-lines {
+    border-bottom: 1px solid #ddd;
+    height: 26px;
+    margin-bottom: 2px;
+  }
+
+  .worksheet-print-lines + .worksheet-print-lines + .worksheet-print-lines { margin-bottom: 10px; }
+
+  .worksheet-print-footer {
+    margin-top: 40px;
+    padding-top: 12px;
+    border-top: 1px solid #e5e5e5;
+    font-family: system-ui, sans-serif;
+    font-size: 11px;
+    color: #aaa;
+    display: flex;
+    justify-content: space-between;
+  }
+}

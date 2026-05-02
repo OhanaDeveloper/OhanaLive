@@ -42,6 +42,54 @@ export default function WorksheetViewer({ worksheet, onClose }: Props) {
     setTimeout(() => onClose(), 1500)
   }, [responses, saveResponses, onClose])
 
+  const handlePrint = useCallback(() => {
+    const printContent = document.getElementById('worksheet-print-root')
+    if (!printContent) {
+      // Build print content dynamically
+      const el = document.createElement('div')
+      el.id = 'worksheet-print-root'
+      el.className = 'worksheet-print'
+      el.innerHTML = `
+        <div class="worksheet-print-header">
+          <span class="worksheet-print-brand">Ohana Recovery</span>
+          <span style="color:#ccc;font-size:12px">· Recovery Worksheet</span>
+        </div>
+        <div style="font-size:28px;margin-bottom:4px">${worksheet.icon}</div>
+        <h1 class="worksheet-print-title">${worksheet.title}</h1>
+        <p class="worksheet-print-subtitle">${worksheet.subtitle}</p>
+        <div class="worksheet-print-meta">
+          <span>${worksheet.difficulty}</span>
+          <span>·</span>
+          <span>${worksheet.estimatedMinutes} min</span>
+          <span>·</span>
+          <span>${worksheet.therapeuticFramework.join(', ')}</span>
+        </div>
+        ${worksheet.sections.map((s, si) => `
+          <div class="worksheet-print-section">
+            <div class="worksheet-print-section-title">${s.title}</div>
+            <div class="worksheet-print-instructions">${s.content.replace(/\n/g, '<br>')}</div>
+            ${(s.fields ?? []).map(f => `
+              <div class="worksheet-print-field-label">${f.label}</div>
+              ${['textarea', 'freewrite'].includes(f.type) || f.type === 'textarea'
+                ? ['', '', '', ''].map(() => `<div class="worksheet-print-lines"></div>`).join('')
+                : `<div class="worksheet-print-lines"></div>`
+              }
+            `).join('')}
+          </div>
+        `).join('')}
+        <div class="worksheet-print-footer">
+          <span>ohanarecovery.org · ${new Date().toLocaleDateString()}</span>
+          <span>All responses are private</span>
+        </div>
+      `
+      document.body.appendChild(el)
+      window.print()
+      document.body.removeChild(el)
+    } else {
+      window.print()
+    }
+  }, [worksheet])
+
   // Auto-save every 30 seconds
   useEffect(() => {
     autoSaveTimer.current = setInterval(handleSave, 30_000)
@@ -174,6 +222,15 @@ export default function WorksheetViewer({ worksheet, onClose }: Props) {
             >
               <Save className="w-3 h-3" />
               Save
+            </button>
+            <button
+              onClick={handlePrint}
+              className="flex items-center gap-1.5 rounded-xl border border-dark-700 bg-dark-800
+                         px-3 py-1.5 text-xs text-gray-400 hover:text-gray-200 hover:border-dark-600 transition-colors"
+              title="Print worksheet"
+            >
+              <Printer className="w-3 h-3" />
+              Print
             </button>
             {saveMsg && (
               <motion.span
