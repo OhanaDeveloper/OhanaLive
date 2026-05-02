@@ -8,6 +8,7 @@ import Footer from "@/components/layout/Footer"
 import Background from "@/components/layout/Background"
 import RotatingLogo from "@/components/ui/RotatingLogo"
 import SettingsMenu from "@/components/layout/SettingsMenu"
+import ChatWidget from "@/components/chat/ChatWidget"
 import { AuthProvider } from "@/contexts/AuthContext"
 import { motion, MotionConfig } from "framer-motion"
 import { usePathname } from "next/navigation"
@@ -60,6 +61,9 @@ export default function ClientLayout({ children }: { children: ReactNode }) {
 
             {/* Mobile sticky bottom nav */}
             <MobileNav />
+
+            {/* Anonymous peer support chat widget */}
+            <ChatWidget />
         </AuthProvider>
         </MotionConfig>
     )
