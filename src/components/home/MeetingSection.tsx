@@ -176,7 +176,7 @@ export default function MeetingSection() {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5, delay: 0.5 }}
-            className="bg-dark-900/60 backdrop-blur-md border border-dark-800 rounded-2xl p-8 shadow-xl"
+            className="bg-dark-900/60 backdrop-blur-md border border-dark-800 rounded-2xl p-5 md:p-8 shadow-xl"
           >
             <h2 className="text-2xl font-semibold text-white mb-4">
               {isLive ? "Meeting in Progress" : "Next Meeting Starts In"}

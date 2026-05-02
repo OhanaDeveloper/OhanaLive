@@ -95,7 +95,7 @@ function PillarCard({ pillar, index }: { pillar: typeof pillars[0]; index: numbe
 
 export default function PromiseHoldSpace() {
   return (
-    <section className="py-32 px-4 relative">
+    <section className="py-16 md:py-32 px-4 relative">
       {/* Background pattern */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,#14b8a6_1px,transparent_1px)] bg-[size:40px_40px]" />
@@ -130,7 +130,7 @@ export default function PromiseHoldSpace() {
         </motion.div>
 
         {/* Pillar grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {pillars.map((pillar, i) => (
             <PillarCard key={pillar.title} pillar={pillar} index={i} />
           ))}

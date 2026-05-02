@@ -111,7 +111,7 @@ export default function MissionStatement() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.5 }}
-          className="grid grid-cols-3 gap-8 mt-10"
+          className="grid grid-cols-3 gap-4 md:gap-8 mt-10"
         >
           {[
             { number: "365", label: "Nights a Year" },
@@ -128,7 +128,7 @@ export default function MissionStatement() {
                 whileInView={{ scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.6 + i * 0.1, type: "spring" }}
-                className="text-4xl md:text-5xl font-bold text-teal mb-2"
+                className="text-3xl md:text-5xl font-bold text-teal mb-2"
               >
                 {stat.number}
               </motion.div>

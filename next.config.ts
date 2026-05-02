@@ -2,6 +2,12 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   reactCompiler: true,
+  async redirects() {
+    return [
+      { source: '/resources', destination: '/toolkit', permanent: true },
+      { source: '/resources/:path*', destination: '/toolkit/:path*', permanent: true },
+    ]
+  },
   images: {
     remotePatterns: [
       {

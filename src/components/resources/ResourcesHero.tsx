@@ -68,7 +68,7 @@ export default function ResourcesHero() {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.26 }}
-          className="flex justify-center gap-10 mt-10"
+          className="flex justify-center gap-5 md:gap-10 mt-10"
         >
           {[
             { number: '108', label: 'Worksheets' },

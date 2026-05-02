@@ -35,7 +35,7 @@ export default function WorksheetExplorer() {
 
   // Randomized on mount, stable for the session
   const randomized12 = useMemo(
-    () => [...ALL_WORKSHEETS].sort(() => Math.random() - 0.5).slice(0, 12),
+    () => [...ALL_WORKSHEETS].sort(() => Math.random() - 0.5).slice(0, 6),
     // eslint-disable-next-line react-hooks/exhaustive-deps
     []
   )

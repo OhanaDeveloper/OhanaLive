@@ -4,19 +4,28 @@ import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { motion } from "framer-motion"
 import clsx from "clsx"
-import { Home, Info, BookOpen, Users, FileText, Heart } from "lucide-react"
+import { Home, BookOpen, Users, FileText, Heart, UserCircle2 } from "lucide-react"
+import { useAuth } from "@/contexts/AuthContext"
 
-const navItems = [
+const staticNavItems = [
     { label: "Home", href: "/", icon: Home },
-    { label: "About", href: "/about", icon: Info },
     { label: "Story", href: "/story", icon: BookOpen },
     { label: "Crew", href: "/crew", icon: Users },
-    { label: "Resources", href: "/resources", icon: FileText },
+    { label: "Toolkit", href: "/toolkit", icon: FileText },
     { label: "Support", href: "/support", icon: Heart },
 ]
 
 export default function MobileNav() {
     const pathname = usePathname()
+    const { isAuthenticated, user } = useAuth()
+
+    const authItem = {
+        label: isAuthenticated ? (user?.public_handle || "Me") : "Login",
+        href: isAuthenticated ? "/dashboard" : "/login",
+        icon: UserCircle2,
+    }
+
+    const navItems = [...staticNavItems, authItem]
 
     // Hide mobile nav on auth pages
     if (pathname.startsWith('/login') || pathname.startsWith('/signup') || pathname.startsWith('/forgot-password') || pathname.startsWith('/reset-password')) {

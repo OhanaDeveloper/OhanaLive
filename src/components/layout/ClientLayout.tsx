@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react"
 import type { ReactNode } from "react"
 import Navigation from "@/components/layout/Navigation"
+import AuthButtons from "@/components/layout/AuthButtons"
 import MobileNav from "@/components/layout/MobileNav"
 import Footer from "@/components/layout/Footer"
 import Background from "@/components/layout/Background"
@@ -32,13 +33,16 @@ export default function ClientLayout({ children }: { children: ReactNode }) {
                 <Navigation />
             </header>
 
-            {/* Lotus logo with branding - top left corner */}
+            {/* Lotus logo — top left */}
             <Link
                 href="/"
                 className="fixed top-6 left-6 z-50 opacity-90 hover:opacity-100 transition-opacity duration-300"
             >
                 <RotatingLogo size={60} showText={true} />
             </Link>
+
+            {/* Auth buttons — top right */}
+            <AuthButtons />
 
             {/* Unified Settings Menu - bottom right corner */}
             <SettingsMenu />

@@ -479,7 +479,7 @@ function ProfileCard({ user }: { user: { public_handle: string; first_name: stri
 // ─── Quick Links ──────────────────────────────────────────────────────────────
 
 const quickLinks = [
-  { label: "Resources", desc: "Worksheets & guides", href: "/resources", icon: BookOpen, color: "teal" },
+  { label: "Toolkit", desc: "Worksheets & guides", href: "/toolkit", icon: BookOpen, color: "teal" },
   { label: "Crew", desc: "Meet the hosts", href: "/crew", icon: Users, color: "purple" },
   { label: "Share Your Story", desc: "Inspire the ʻOhana", href: "/forms/story", icon: PenLine, color: "gold" },
   { label: "Recovery Network", desc: "Find your path", href: "/support", icon: Heart, color: "teal" },

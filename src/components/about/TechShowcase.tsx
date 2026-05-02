@@ -314,7 +314,7 @@ function PerformanceMetrics() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.5 }}
-        className="mt-8 grid grid-cols-2 md:grid-cols-4 gap-4"
+        className="mt-8 grid grid-cols-2 sm:grid-cols-4 gap-4"
       >
         {[
           { label: "Edge Locations", value: "300+", icon: "🌍" },

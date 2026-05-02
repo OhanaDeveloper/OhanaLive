@@ -38,11 +38,11 @@ export default function Footer() {
                     {/* Quick links - compact grid */}
                     <div className="border-t border-dark-700 pt-6">
                         <div className="grid grid-cols-2 gap-x-8 gap-y-3 max-w-xs mx-auto">
-                            <Link href="/about" className="text-sm text-gray-400 hover:text-teal transition-colors text-left">
-                                About
+                            <Link href="/toolkit" className="text-sm text-gray-400 hover:text-teal transition-colors text-left">
+                                Toolkit
                             </Link>
-                            <Link href="/resources" className="text-sm text-gray-400 hover:text-teal transition-colors text-right">
-                                Resources
+                            <Link href="/story" className="text-sm text-gray-400 hover:text-teal transition-colors text-right">
+                                Story
                             </Link>
                             <Link href="/story" className="text-sm text-gray-400 hover:text-teal transition-colors text-left">
                                 Story
@@ -93,11 +93,6 @@ export default function Footer() {
                                 </Link>
                             </li>
                             <li>
-                                <Link href="/about" className="text-gray-400 hover:text-teal transition-colors text-sm">
-                                    About
-                                </Link>
-                            </li>
-                            <li>
                                 <Link href="/story" className="text-gray-400 hover:text-teal transition-colors text-sm">
                                     Story
                                 </Link>
@@ -108,8 +103,8 @@ export default function Footer() {
                                 </Link>
                             </li>
                             <li>
-                                <Link href="/resources" className="text-gray-400 hover:text-teal transition-colors text-sm">
-                                    Resources
+                                <Link href="/toolkit" className="text-gray-400 hover:text-teal transition-colors text-sm">
+                                    Toolkit
                                 </Link>
                             </li>
                         </ul>

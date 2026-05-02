@@ -40,7 +40,7 @@ export default function SettingsMenu() {
   return (
     <>
       {/* Settings Menu - Top Right on mobile, Bottom Right on desktop */}
-      <div className="fixed top-6 md:top-auto md:bottom-6 right-6 z-50">
+      <div className="fixed bottom-20 md:bottom-6 right-4 md:right-6 z-50">
         {/* Main Settings Button */}
         <motion.button
           onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -81,7 +81,7 @@ export default function SettingsMenu() {
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: 20, scale: 0.8 }}
               transition={{ duration: 0.3 }}
-              className="absolute top-20 md:top-auto md:bottom-20 right-0 w-80 bg-dark-900/95 backdrop-blur-md border-2 border-dark-700 rounded-2xl shadow-2xl overflow-hidden"
+              className="absolute bottom-20 right-0 w-72 md:w-80 bg-dark-900/95 backdrop-blur-md border-2 border-dark-700 rounded-2xl shadow-2xl overflow-hidden"
             >
               {/* Header */}
               <div className="bg-gradient-to-r from-teal/10 to-purple/10 border-b border-dark-700 px-6 py-4">
