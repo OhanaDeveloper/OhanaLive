@@ -43,8 +43,8 @@ export default function ResourcesHero() {
           transition={{ delay: 0.2 }}
           className="text-xl text-gray-400 max-w-2xl mx-auto leading-relaxed"
         >
-          Practical tools for your journey. Download, print, and use these
-          worksheets to support your recovery, completely free.
+          108 evidence-based worksheets across 14 categories — CBT, DBT, ACT,
+          mindfulness, trauma-informed, and more. Built for real recovery.
         </motion.p>
 
         {/* Stats */}
@@ -55,8 +55,8 @@ export default function ResourcesHero() {
           className="flex justify-center gap-12 mt-12"
         >
           {[
-            { number: "12", label: "Worksheets" },
-            { number: "6", label: "Categories" },
+            { number: "108", label: "Worksheets" },
+            { number: "14", label: "Categories" },
             { number: "100%", label: "Free" },
           ].map((stat, i) => (
             <div key={stat.label} className="text-center">
