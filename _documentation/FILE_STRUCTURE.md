@@ -60,6 +60,9 @@ src/app/
 ├── apple-icon.tsx                  PWA apple icon
 ├── icon.tsx                        Favicon
 │
+├── api/
+│   └── chat/route.ts               Claude streaming endpoint — anonymous peer support chat
+│
 ├── (sections)/                     Public-facing pages
 │   ├── about/page.tsx              Mission, promises, founder video, tech showcase
 │   ├── crew/page.tsx               Crew member directory
@@ -126,6 +129,12 @@ src/components/
 │   ├── FeaturesSection.tsx         Key features showcase
 │   ├── HomeHero.tsx                Landing hero with parallax
 │   └── MeetingSection.tsx          Live meeting countdown and Zoom link
+│
+├── chat/                           Anonymous peer support chat widget
+│   ├── ChatWidget.tsx              Floating toggle button + animated panel mount
+│   ├── ChatWindow.tsx              Chat UI — messages, streaming, typing indicator
+│   ├── ChatMessage.tsx             Individual message bubble (user / assistant)
+│   └── ChatInput.tsx               Auto-resizing textarea + send button
 │
 ├── layout/                         Global layout components
 │   ├── Background.tsx              Animated dark background

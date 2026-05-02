@@ -130,7 +130,7 @@ export async function POST(req: NextRequest) {
     async start(controller) {
       try {
         const stream = client.messages.stream({
-          model: 'claude-haiku-4-5-20251001',
+          model: 'claude-haiku-4-5',
           max_tokens: 300,
           system: SYSTEM_PROMPT,
           messages,
@@ -144,8 +144,9 @@ export async function POST(req: NextRequest) {
             controller.enqueue(new TextEncoder().encode(event.delta.text))
           }
         }
-      } finally {
         controller.close()
+      } catch (err) {
+        controller.error(err)
       }
     },
   })

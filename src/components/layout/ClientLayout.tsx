@@ -8,7 +8,9 @@ import Footer from "@/components/layout/Footer"
 import Background from "@/components/layout/Background"
 import RotatingLogo from "@/components/ui/RotatingLogo"
 import SettingsMenu from "@/components/layout/SettingsMenu"
-import ChatWidget from "@/components/chat/ChatWidget"
+import dynamic from "next/dynamic"
+
+const ChatWidget = dynamic(() => import("@/components/chat/ChatWidget"), { ssr: false })
 import { AuthProvider } from "@/contexts/AuthContext"
 import { motion, MotionConfig } from "framer-motion"
 import { usePathname } from "next/navigation"

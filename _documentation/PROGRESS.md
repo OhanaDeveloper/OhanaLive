@@ -1,6 +1,6 @@
 # Ohana Live — Project Progress
 
-**Last Updated:** 2026-04-02 (session 2)  
+**Last Updated:** 2026-05-02  
 **Stack:** Next.js 16 / React 19 / TypeScript / Tailwind CSS 4 / Framer Motion · Django 5 / PostgreSQL  
 **Deploys:** Vercel (frontend) · Railway (backend + DB)
 
@@ -20,6 +20,7 @@
 | Member dashboard | Complete — `/dashboard`, protected, interactive |
 | Donation / fundraising page | Complete — `/give` with tiers, transparency, Ko-fi CTAs |
 | Founder's intro video | YouTube embed on About page (needs replacement — Vimeo pending) |
+| Anonymous peer support chat | Complete — Claude-powered, streaming, globally mounted |
 
 ---
 
@@ -42,6 +43,14 @@
 - **social app** — Conversations, messages, friendships, blocks, posts, likes, comments (built, URL router commented out)
 - **security app** — Login history with device fingerprinting + geolocation, user reports, activity logs
 - **journal / community / resources apps** — stubbed, empty
+
+### Anonymous Peer Support Chat
+- Floating widget mounted globally via `ClientLayout.tsx` (dynamic import, no SSR)
+- Claude Haiku 4.5 via Anthropic SDK — streaming plain-text over `ReadableStream`
+- System prompt tuned for peer tone: short responses, no therapist-speak, crisis escalation to 741741
+- No logs, no accounts, no session persistence — chat clears on widget close
+- Input capped at 40 messages (20 exchanges) and 4,000 chars/message
+- `src/app/api/chat/route.ts` · `src/components/chat/`
 
 ### Infrastructure
 - JWT authentication with 60-min access / 7-day refresh tokens

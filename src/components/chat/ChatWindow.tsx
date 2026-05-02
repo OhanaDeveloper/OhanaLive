@@ -74,9 +74,9 @@ export default function ChatWindow({ onClose }: ChatWindowProps) {
 
   return (
     <div
-      className="flex flex-col bg-dark-950 border border-teal/20 rounded-2xl
+      className="flex flex-col border border-teal/20 rounded-2xl
                  shadow-2xl shadow-black/60 overflow-hidden"
-      style={{ width: 'min(360px, calc(100vw - 1.5rem))', maxHeight: 'min(580px, calc(100dvh - 8rem))' }}
+      style={{ width: 'min(360px, calc(100vw - 1.5rem))', maxHeight: 'min(580px, calc(100dvh - 8rem))', backgroundColor: 'rgba(10, 10, 10, 0.95)' }}
     >
       {/* Header */}
       <div className="flex items-center justify-between px-4 py-3 border-b border-dark-800 flex-shrink-0">
