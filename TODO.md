@@ -46,7 +46,7 @@
 - [ ] Roles for Joey, Daniel, Jonni, Anne (currently "Crew Host" for all)
 - [ ] Personal quotes for each member (front of card) — drafts ready, need member approval
 - [ ] Back-of-card content: decide on replacement for "Why Recovery Work?" and "Fun Fact" labels
-- [ ] Once copy is approved, final swap in `src/components/crew/CrewGrid.tsx`
+- [ ] Once copy is approved, final swap in `frontend/src/components/crew/CrewGrid.tsx`
 
 ### Give Page
 - [ ] Decide when to make `/give` publicly visible (add back to nav/footer when ready)

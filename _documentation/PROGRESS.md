@@ -50,7 +50,7 @@
 - System prompt tuned for peer tone: short responses, no therapist-speak, crisis escalation to 741741
 - No logs, no accounts, no session persistence — chat clears on widget close
 - Input capped at 40 messages (20 exchanges) and 4,000 chars/message
-- `src/app/api/chat/route.ts` · `src/components/chat/`
+- `frontend/src/app/api/chat/route.ts` · `frontend/src/components/chat/`
 
 ### Infrastructure
 - JWT authentication with 60-min access / 7-day refresh tokens
@@ -64,12 +64,12 @@
 ## Active To-Do (Next Sessions)
 
 ### 1. Mālama Section — Real Team Data  ← NEXT
-- Replace placeholder crew members in `src/components/crew/CrewGrid.tsx`
+- Replace placeholder crew members in `frontend/src/components/crew/CrewGrid.tsx`
 - Needs: real names, roles, photos, bios, "why recovery" copy
 - Layout is done (flip cards, 3-column grid) — this is a data swap
 
 ### 2. Founder's Video — Migrate Away from YouTube
-- Current: YouTube embed in `src/components/about/VideoIntro.tsx`
+- Current: YouTube embed in `frontend/src/components/about/VideoIntro.tsx`
 - Decision pending: Vimeo (recommended) vs. Cloudflare Stream vs. Bunny.net
 - Do not host video files in the repository
 
@@ -128,7 +128,9 @@ dark-800:   #262626   (borders)
 
 ```bash
 # Frontend
-npm install && npm run dev        # → localhost:3000
+cd frontend
+npm install
+npm run dev                       # → localhost:3000
 
 # Backend
 cd backend

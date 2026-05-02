@@ -41,44 +41,17 @@ A recovery community platform connecting people through technology, conversation
 
 ```
 OhanaLive/
-├── src/                          # Next.js frontend
-│   ├── app/
-│   │   ├── (sections)/           # Public-facing pages
-│   │   │   ├── about/            # Mission, promises, founder video
-│   │   │   ├── crew/             # Mālama team directory
-│   │   │   ├── resources/        # Recovery worksheets & guides
-│   │   │   ├── story/            # Community stories & timeline
-│   │   │   └── support/          # Recovery organization directory
-│   │   ├── admin/                # Admin dashboard (protected)
-│   │   │   ├── meetings/
-│   │   │   ├── signups/
-│   │   │   ├── announcements/
-│   │   │   └── contacts/
-│   │   ├── forms/                # Standalone form pages
-│   │   │   ├── contact/
-│   │   │   ├── volunteer/
-│   │   │   └── story/
-│   │   ├── login/
-│   │   ├── signup/
-│   │   ├── forgot-password/
-│   │   ├── reset-password/
-│   │   └── page.tsx              # Home
-│   ├── components/
-│   │   ├── about/
-│   │   ├── crew/
-│   │   ├── home/
-│   │   ├── story/
-│   │   ├── resources/
-│   │   ├── forms/
-│   │   ├── layout/               # Nav, Footer, Background, Toolbar
-│   │   ├── shared/               # CTAs, FloatingDonateButton, LotusBreath
-│   │   └── ui/                   # AnimatedCard, AccessibilityToggle, ADAModal
-│   ├── contexts/
-│   │   └── AuthContext.tsx       # Global auth state
-│   └── lib/
-│       ├── api.ts                # API client with JWT auto-refresh
-│       ├── meetings.ts
-│       └── worksheets.ts
+├── frontend/                     # Next.js frontend
+│   ├── src/
+│   │   ├── app/                  # App Router routes
+│   │   ├── components/           # Shared and page-level UI components
+│   │   ├── contexts/             # React context providers
+│   │   ├── features/             # Domain feature modules
+│   │   ├── lib/                  # API client, constants, storage helpers
+│   │   └── providers/            # App providers
+│   ├── public/                   # Static frontend assets
+│   ├── package.json
+│   └── next.config.ts
 │
 ├── backend/                      # Django backend
 │   ├── users/                    # Auth, profiles, sobriety tracking
@@ -89,6 +62,7 @@ OhanaLive/
 │   ├── community/                # (Planned)
 │   └── ohana_backend/            # Django settings and URL routing
 │
+├── package.json                  # Root convenience scripts
 └── _documentation/               # Dev session notes, architecture decisions
 ```
 
@@ -99,12 +73,21 @@ OhanaLive/
 ### Frontend
 
 ```bash
+cd frontend
 npm install
 npm run dev
 # → http://localhost:3000
 ```
 
-**Environment variables** — create `.env.local`:
+From the repository root, the same frontend commands are also available through convenience scripts:
+
+```bash
+npm run dev
+npm run build
+npm run lint
+```
+
+**Environment variables** — create `frontend/.env.local`:
 ```
 NEXT_PUBLIC_API_URL=http://localhost:8000
 NEXT_PUBLIC_RECAPTCHA_KEY=your_recaptcha_v3_site_key
@@ -200,7 +183,7 @@ Full API schema: `GET /api/schema/` · Swagger UI: `/api/docs/`
 
 See [`backend/DEPLOYMENT.md`](backend/DEPLOYMENT.md) for the full Railway deployment guide.
 
-**Frontend** — push to `main`, Vercel auto-deploys.
+**Frontend** — Vercel should use `frontend/` as the project root.
 
 **Backend environment variables required:**
 ```
