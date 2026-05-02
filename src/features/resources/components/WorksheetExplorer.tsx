@@ -1,11 +1,12 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useMemo } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { X, ChevronDown } from 'lucide-react'
 import type { Worksheet } from '../data/types'
 import { useWorksheetSearch, type DifficultyFilter, type DurationFilter } from '../hooks/useWorksheetSearch'
 import { useAllProgress } from '../hooks/useWorksheetProgress'
+import { ALL_WORKSHEETS } from '../data/worksheets/index'
 import WorksheetCard from './WorksheetCard'
 import WorksheetViewer from './WorksheetViewer'
 import SearchCommand from './SearchCommand'
@@ -31,6 +32,15 @@ export default function WorksheetExplorer() {
     useWorksheetSearch()
   const allProgress = useAllProgress()
   const [activeWorksheet, setActiveWorksheet] = useState<Worksheet | null>(null)
+
+  // Randomized on mount, stable for the session
+  const randomized12 = useMemo(
+    () => [...ALL_WORKSHEETS].sort(() => Math.random() - 0.5).slice(0, 12),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    []
+  )
+
+  const displayedResults = hasActiveFilters ? results : randomized12
 
   return (
     <>
@@ -91,13 +101,13 @@ export default function WorksheetExplorer() {
 
             {/* Count */}
             <span className="ml-auto text-xs text-gray-600">
-              {results.length} worksheet{results.length !== 1 ? 's' : ''}
+              {displayedResults.length} worksheet{displayedResults.length !== 1 ? 's' : ''}
             </span>
           </div>
         </div>
 
         {/* Grid */}
-        {results.length === 0 ? (
+        {displayedResults.length === 0 ? (
           <div className="flex flex-col items-center gap-4 py-20 text-center">
             <span className="text-4xl">🔍</span>
             <p className="text-gray-400 text-sm">No worksheets match your filters.</p>
@@ -108,7 +118,7 @@ export default function WorksheetExplorer() {
         ) : (
           <motion.div layout className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             <AnimatePresence mode="popLayout">
-              {results.map((w, i) => (
+              {displayedResults.map((w, i) => (
                 <WorksheetCard
                   key={w.id}
                   worksheet={w}
