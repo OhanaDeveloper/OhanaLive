@@ -1,5 +1,5 @@
 import VolunteerForm from "@/components/forms/VolunteerForm"
-import SectionWrapper from "@/components/layout/SectionWrapper"
+import SectionWrapper from "@/components/ui/SectionWrapper"
 import { Heart } from "lucide-react"
 
 export const metadata = {

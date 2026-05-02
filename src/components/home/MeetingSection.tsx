@@ -28,19 +28,22 @@ export default function MeetingSection() {
   useEffect(() => {
     setMounted(true)
 
-    // Fetch tonight's meeting info
+    // Fetch tonight's meeting info — only when API URL is explicitly configured
     const fetchTonightsMeeting = async () => {
+      const apiBase = process.env.NEXT_PUBLIC_API_URL
+      if (!apiBase) {
+        setLoadingMeeting(false)
+        return
+      }
       try {
-        const response = await fetch('http://127.0.0.1:8000/api/recovery/meetings/tonight/')
+        const response = await fetch(`${apiBase}/api/recovery/meetings/tonight/`)
         if (response.ok) {
           const data = await response.json()
           setTonightsMeeting(data)
         } else {
-          // No meeting scheduled for tonight
           setTonightsMeeting(null)
         }
-      } catch (error) {
-        console.error('Failed to fetch tonight\'s meeting:', error)
+      } catch {
         setTonightsMeeting(null)
       } finally {
         setLoadingMeeting(false)
@@ -101,16 +104,16 @@ export default function MeetingSection() {
   }
 
   return (
-    <section className="py-12 text-center bg-gradient-to-b from-black/80 to-dark-900/80 backdrop-blur-sm">
+    <section id="meeting" className="py-12 text-center bg-gradient-to-b from-black/80 to-dark-900/80 backdrop-blur-sm">
       <div className="max-w-3xl mx-auto space-y-4 px-4">
-        <motion.h1
+        <motion.h2
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           className="text-4xl md:text-5xl font-bold text-teal"
         >
-          Ohana Live Meetings
-        </motion.h1>
+          Tonight's Meeting
+        </motion.h2>
 
         <motion.p
           initial={{ opacity: 0 }}
@@ -194,25 +197,26 @@ export default function MeetingSection() {
               href={tonightsMeeting?.zoom_link || zoomLink}
               target="_blank"
               rel="noopener noreferrer"
-              whileHover={{ scale: 1.05 }}
+              whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.98 }}
-              className={`inline-block px-8 py-4 rounded-xl font-semibold text-white text-lg transition-all shadow-lg ${
+              style={{ willChange: "transform" }}
+              className={`inline-flex items-center gap-3 px-8 py-4 rounded-xl font-bold text-lg transition-all shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal focus-visible:ring-offset-2 focus-visible:ring-offset-black ${
                 isLive
-                  ? "bg-teal hover:bg-teal-light shadow-accent/30"
-                  : "bg-dark-700 hover:bg-gray-600"
+                  ? "bg-gradient-to-r from-teal to-teal-dark text-dark-950 shadow-teal/30 hover:shadow-teal/50"
+                  : "bg-dark-800 border border-dark-700 hover:border-teal/40 text-gray-100"
               }`}
+              aria-label={isLive ? "Join the live Ohana Recovery meeting on Zoom" : "Get the Ohana Recovery meeting link"}
             >
               {isLive ? (
-                <span className="flex items-center gap-2">
-                  <motion.span
-                    animate={{ scale: [1, 1.2, 1] }}
-                    transition={{ repeat: Infinity, duration: 1.5 }}
-                    className="inline-block w-3 h-3 bg-white rounded-full"
-                  />
-                  JOIN NOW
-                </span>
+                <>
+                  <span className="relative flex h-3 w-3" aria-hidden="true">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-dark-950 opacity-75" />
+                    <span className="relative inline-flex rounded-full h-3 w-3 bg-dark-950" />
+                  </span>
+                  Join Now — We're Live
+                </>
               ) : (
-                "Join Waiting Room"
+                "Get the Meeting Link →"
               )}
             </motion.a>
           </motion.div>

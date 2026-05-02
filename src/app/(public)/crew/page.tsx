@@ -2,7 +2,7 @@ import CrewHero from "@/components/crew/CrewHero"
 import CrewGrid from "@/components/crew/CrewGrid"
 import VolunteerCTA from "@/components/shared/VolunteerCTA"
 import MeetingCTA from "@/components/shared/MeetingCTA"
-import SectionWrapper from "@/components/layout/SectionWrapper"
+import SectionWrapper from "@/components/ui/SectionWrapper"
 
 export const metadata = {
   title: "Crew | Ohana Live",

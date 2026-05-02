@@ -12,7 +12,7 @@ import { useRouter } from 'next/navigation';
 import { motion } from 'framer-motion';
 import { useAuth } from '@/contexts/AuthContext';
 import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
-import ReCaptchaProvider from '@/components/ReCaptchaProvider';
+import ReCaptchaProvider from '@/providers/ReCaptchaProvider';
 import Link from 'next/link';
 
 function LoginForm() {

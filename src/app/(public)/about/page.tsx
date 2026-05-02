@@ -6,7 +6,7 @@ import VideoIntro from "@/components/about/VideoIntro"
 import TechShowcase from "@/components/about/TechShowcase"
 import VolunteerCTA from "@/components/shared/VolunteerCTA"
 import MeetingCTA from "@/components/shared/MeetingCTA"
-import SectionWrapper from "@/components/layout/SectionWrapper"
+import SectionWrapper from "@/components/ui/SectionWrapper"
 
 export const dynamic = 'force-static'
 export const revalidate = 3600

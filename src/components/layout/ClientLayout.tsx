@@ -6,10 +6,10 @@ import Navigation from "@/components/layout/Navigation"
 import MobileNav from "@/components/layout/MobileNav"
 import Footer from "@/components/layout/Footer"
 import Background from "@/components/layout/Background"
-import RotatingLogo from "@/components/layout/RotatingLogo"
+import RotatingLogo from "@/components/ui/RotatingLogo"
 import SettingsMenu from "@/components/layout/SettingsMenu"
 import { AuthProvider } from "@/contexts/AuthContext"
-import { motion } from "framer-motion"
+import { motion, MotionConfig } from "framer-motion"
 import { usePathname } from "next/navigation"
 import Link from "next/link"
 
@@ -22,6 +22,7 @@ export default function ClientLayout({ children }: { children: ReactNode }) {
     }, [])
 
     return (
+        <MotionConfig reducedMotion="user">
         <AuthProvider>
             <Background />
             <header className="fixed top-0 left-0 w-full p-4 justify-center z-50 hidden md:flex">
@@ -60,5 +61,6 @@ export default function ClientLayout({ children }: { children: ReactNode }) {
             {/* Mobile sticky bottom nav */}
             <MobileNav />
         </AuthProvider>
+        </MotionConfig>
     )
 }

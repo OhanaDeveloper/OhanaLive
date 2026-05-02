@@ -14,18 +14,18 @@ const ubuntu = Ubuntu({
 })
 
 export const metadata: Metadata = {
-    metadataBase: new URL('https://ohanarecovery.org'),
+    metadataBase: new URL('https://www.ohanarecovery.org'),
     title: {
-        default: "Ohana Recovery",
+        default: "Ohana Recovery | Free Late-Night Online Recovery Meetings",
         template: "%s | Ohana Recovery",
     },
     description:
-        "Ohana Recovery: a safe space for connection, healing, and growth in recovery. Join our nightly meetings at 8pm PT.",
+        "Free peer-led online recovery meetings every night from 11 PM to 3 AM Pacific Time, with practical tools, community support, and no judgment.",
     openGraph: {
-        title: "Ohana Recovery",
+        title: "Ohana Recovery | Free Late-Night Online Recovery Meetings",
         description:
-            "A safe space for connection, healing, and growth in recovery. Join our nightly meetings at 8pm PT.",
-        url: "https://ohanarecovery.org",
+            "Free peer-led online recovery meetings every night from 11 PM to 3 AM Pacific Time, with practical tools, community support, and no judgment.",
+        url: "https://www.ohanarecovery.org",
         siteName: "Ohana Recovery",
         images: [
             {

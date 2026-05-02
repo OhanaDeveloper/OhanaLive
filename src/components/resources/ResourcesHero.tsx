@@ -5,7 +5,7 @@ import Image from "next/image"
 
 export default function ResourcesHero() {
   return (
-    <section className="relative py-24 overflow-hidden">
+    <section className="relative py-16 overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0">
         <Image

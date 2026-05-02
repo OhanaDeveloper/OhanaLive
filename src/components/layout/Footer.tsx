@@ -59,11 +59,12 @@ export default function Footer() {
                         </div>
                     </div>
 
-                    {/* Copyright */}
-                    <div className="pt-4 text-xs text-gray-500">
-                        © {new Date().getFullYear()} Ohana Recovery
-                        <br />
-                        Free. Always.
+                    {/* Copyright + disclaimer */}
+                    <div className="pt-4 text-xs text-gray-500 space-y-2">
+                        <p>© {new Date().getFullYear()} Ohana Recovery — Free. Always.</p>
+                        <p className="text-gray-600 max-w-xs mx-auto">
+                            Peer-led support. Not a substitute for emergency care, medical advice, therapy, or professional treatment.
+                        </p>
                     </div>
                 </div>
             </div>
@@ -185,9 +186,12 @@ export default function Footer() {
 
                 {/* Bottom bar */}
                 <div className="pt-6 border-t border-dark-700 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-gray-500">
-                    <p>
-                        © {new Date().getFullYear()} Ohana Recovery. Free. Always.
-                    </p>
+                    <div>
+                        <p>© {new Date().getFullYear()} Ohana Recovery. Free. Always.</p>
+                        <p className="mt-1 text-gray-600 max-w-sm">
+                            Ohana Recovery is peer-led support and not a substitute for emergency care, medical advice, therapy, or professional treatment.
+                        </p>
+                    </div>
                     <div className="flex gap-4">
                         <Link href="/privacy" className="hover:text-teal transition-colors">
                             Privacy

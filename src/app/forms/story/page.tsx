@@ -1,5 +1,5 @@
 import StoryForm from "@/components/forms/StoryForm"
-import SectionWrapper from "@/components/layout/SectionWrapper"
+import SectionWrapper from "@/components/ui/SectionWrapper"
 import { PenLine } from "lucide-react"
 
 export const metadata = {

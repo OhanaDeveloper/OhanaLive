@@ -2,8 +2,10 @@
 
 import { motion, useScroll, useTransform } from "framer-motion"
 import { useRef } from "react"
-import LotusBreath from "@/components/shared/LotusBreath"
-import { Calendar, Clock, Users } from "lucide-react"
+import Link from "next/link"
+import LotusBreath from "@/components/ui/LotusBreath"
+import { Calendar, Clock, Users, Video } from "lucide-react"
+import { MEETING_INFO } from "@/lib/meetings"
 
 export default function HomeHero() {
   const ref = useRef<HTMLDivElement>(null)
@@ -97,10 +99,39 @@ export default function HomeHero() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1 }}
-            className="text-sm text-teal/60 font-mono tracking-widest uppercase mb-12"
+            className="text-sm text-teal/60 font-mono tracking-widest uppercase mb-10"
           >
             ʻOhana means family · Nobody gets left behind
           </motion.p>
+
+          {/* Primary CTA */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1.1 }}
+            className="flex flex-col sm:flex-row gap-4 justify-center mb-12"
+          >
+            <motion.a
+              href={MEETING_INFO.zoomLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ scale: 1.04, y: -2 }}
+              whileTap={{ scale: 0.97 }}
+              style={{ willChange: "transform" }}
+              className="inline-flex items-center justify-center gap-3 bg-gradient-to-r from-teal to-teal-dark text-dark-950 font-bold text-lg px-8 py-4 rounded-xl shadow-lg shadow-teal/20 hover:shadow-teal/40 transition-shadow focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal focus-visible:ring-offset-2 focus-visible:ring-offset-black"
+            >
+              <Video className="w-5 h-5" aria-hidden="true" />
+              Join Tonight's Meeting
+            </motion.a>
+            <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.97 }}>
+              <Link
+                href="/resources"
+                className="inline-flex items-center justify-center gap-2 bg-dark-900/60 border border-dark-700 hover:border-teal/40 text-gray-300 hover:text-gray-100 font-medium text-lg px-8 py-4 rounded-xl transition-all backdrop-blur-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal focus-visible:ring-offset-2 focus-visible:ring-offset-black"
+              >
+                Free Worksheets
+              </Link>
+            </motion.div>
+          </motion.div>
         </motion.div>
 
         {/* Meeting Info Cards */}

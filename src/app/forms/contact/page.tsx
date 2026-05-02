@@ -1,5 +1,5 @@
 import ContactForm from "@/components/forms/ContactForm"
-import SectionWrapper from "@/components/layout/SectionWrapper"
+import SectionWrapper from "@/components/ui/SectionWrapper"
 import { Mail } from "lucide-react"
 
 export const metadata = {
