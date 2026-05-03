@@ -15,9 +15,9 @@ export default function WallOfNights() {
   const nightCount = getNightCount()
 
   const stats = [
-    { icon: Moon, value: nightCount.toLocaleString(), label: "nights with a room open" },
-    { icon: CalendarCheck, value: "365", label: "days a year" },
-    { icon: Users, value: "11 PM-3 AM", label: "Pacific, every night" },
+    { icon: Moon, value: nightCount.toLocaleString(), label: "nights with a room open", accent: "teal" },
+    { icon: CalendarCheck, value: "365", label: "days a year", accent: "gold" },
+    { icon: Users, value: "11 PM-3 AM", label: "Pacific, every night", accent: "purple" },
   ]
 
   return (
@@ -42,8 +42,25 @@ export default function WallOfNights() {
             const Icon = stat.icon
 
             return (
-              <div key={stat.label} className="rounded-lg border border-dark-700 bg-dark-950/45 p-5">
-                <Icon className="mb-4 h-5 w-5 text-teal" />
+              <div
+                key={stat.label}
+                className={`rounded-lg border bg-dark-950/45 p-5 ${
+                  stat.accent === "gold"
+                    ? "border-gold/30"
+                    : stat.accent === "purple"
+                      ? "border-purple/30"
+                      : "border-teal/30"
+                }`}
+              >
+                <Icon
+                  className={`mb-4 h-5 w-5 ${
+                    stat.accent === "gold"
+                      ? "text-gold"
+                      : stat.accent === "purple"
+                        ? "text-purple"
+                        : "text-teal"
+                  }`}
+                />
                 <p className="text-3xl font-black text-gray-100">{stat.value}</p>
                 <p className="mt-1 text-sm text-gray-400">{stat.label}</p>
               </div>

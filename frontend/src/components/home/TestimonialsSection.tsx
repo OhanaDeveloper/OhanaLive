@@ -7,21 +7,25 @@ const testimonials = [
     quote:
       "I thought I was the only one awake at 2 AM fighting this. Turns out I had a whole family I didn't know about.",
     attribution: "Night Owl",
+    accent: "teal",
   },
   {
     quote:
       "No one asked me to introduce myself. No one asked how many days I had. I just sat there and listened, and for the first time in months, I didn't feel alone.",
     attribution: "Community Member",
+    accent: "gold",
   },
   {
     quote:
       "I've been to a hundred meetings. This is the first one that felt like it was built for people like me.",
     attribution: "Community Member",
+    accent: "purple",
   },
   {
     quote:
       "The room was quiet, honest, and still there when everything else felt too loud.",
     attribution: "Night Owl",
+    accent: "teal",
   },
 ]
 
@@ -52,7 +56,13 @@ export default function TestimonialsSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.08, duration: 0.45 }}
-              className="rounded-xl border-l-4 border-teal/60 bg-dark-900/55 p-6 text-left shadow-lg shadow-black/10"
+              className={`rounded-xl border-l-4 bg-dark-900/55 p-6 text-left shadow-lg shadow-black/10 ${
+                testimonial.accent === "gold"
+                  ? "border-gold/60"
+                  : testimonial.accent === "purple"
+                    ? "border-purple/60"
+                    : "border-teal/60"
+              }`}
             >
               <blockquote className="text-base leading-relaxed text-gray-300 md:text-lg">
                 &ldquo;{testimonial.quote}&rdquo;

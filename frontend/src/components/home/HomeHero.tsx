@@ -55,7 +55,7 @@ export default function HomeHero() {
         <motion.div
           animate={{ x: [0, 40, 0], y: [0, -30, 0] }}
           transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-1/4 left-1/4 w-96 h-96 bg-teal/8 rounded-full blur-3xl"
+          className="absolute top-1/4 left-1/4 w-96 h-96 bg-teal/10 rounded-full blur-3xl"
         />
         <motion.div
           animate={{ x: [0, -30, 0], y: [0, 40, 0] }}
@@ -218,7 +218,7 @@ export default function HomeHero() {
             whileHover={{ scale: 1.04, y: -2 }}
             whileTap={{ scale: 0.97 }}
             style={{ willChange: "transform" }}
-            className="inline-flex items-center justify-center gap-3 bg-gradient-to-r from-teal via-teal-light to-gold text-dark-950 font-black text-base md:text-xl px-7 py-4 md:px-9 md:py-5 rounded-xl shadow-xl shadow-teal/30 hover:shadow-teal/50 transition-shadow focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal focus-visible:ring-offset-2 focus-visible:ring-offset-black"
+            className="inline-flex items-center justify-center gap-3 bg-gradient-to-r from-teal via-gold to-purple text-dark-950 font-black text-base md:text-xl px-7 py-4 md:px-9 md:py-5 rounded-xl shadow-xl shadow-teal/30 hover:shadow-teal/50 transition-shadow focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal focus-visible:ring-offset-2 focus-visible:ring-offset-black"
           >
             <Video className="w-5 h-5" aria-hidden="true" />
             Join Tonight&apos;s Meeting
@@ -243,9 +243,9 @@ export default function HomeHero() {
           className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 max-w-3xl mx-auto"
         >
           {[
-            { icon: Calendar, label: "Every Night", value: "365 Days/Year" },
-            { icon: Clock, label: "Meeting Time", value: "11 PM – 3 AM PT" },
-            { icon: Users, label: "Community", value: "Always Welcome" },
+            { icon: Calendar, label: "Every Night", value: "365 Days/Year", accent: "teal" },
+            { icon: Clock, label: "Meeting Time", value: "11 PM – 3 AM PT", accent: "gold" },
+            { icon: Users, label: "Community", value: "Always Welcome", accent: "purple" },
           ].map((item, i) => (
             <motion.div
               key={item.label}
@@ -253,11 +253,33 @@ export default function HomeHero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1.8 + i * 0.1 }}
               whileHover={{ y: -5, scale: 1.02 }}
-              className="relative group bg-dark-900/50 backdrop-blur-sm border border-dark-800 rounded-xl p-5 hover:border-teal/50 transition-all"
+              className={`relative group bg-dark-900/50 backdrop-blur-sm rounded-xl p-5 transition-all ${
+                item.accent === "gold"
+                  ? "border border-gold/25 hover:border-gold/50"
+                  : item.accent === "purple"
+                    ? "border border-purple/25 hover:border-purple/50"
+                    : "border border-teal/25 hover:border-teal/50"
+              }`}
             >
-              <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-teal/0 via-teal/5 to-purple/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div
+                className={`absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 ${
+                  item.accent === "gold"
+                    ? "bg-gradient-to-br from-gold/0 via-gold/10 to-transparent"
+                    : item.accent === "purple"
+                      ? "bg-gradient-to-br from-purple/0 via-purple/10 to-transparent"
+                      : "bg-gradient-to-br from-teal/0 via-teal/10 to-transparent"
+                }`}
+              />
               <div className="relative z-10">
-                <item.icon className="w-6 h-6 text-teal mx-auto mb-2" />
+                <item.icon
+                  className={`w-6 h-6 mx-auto mb-2 ${
+                    item.accent === "gold"
+                      ? "text-gold"
+                      : item.accent === "purple"
+                        ? "text-purple"
+                        : "text-teal"
+                  }`}
+                />
                 <p className="text-xs text-gray-500 uppercase tracking-wider mb-1">{item.label}</p>
                 <p className="text-sm font-semibold text-gray-200">{item.value}</p>
               </div>

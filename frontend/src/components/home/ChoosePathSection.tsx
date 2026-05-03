@@ -12,6 +12,8 @@ const paths = [
     description: "Go straight to the nightly room, see the current status, and get the Zoom link when you are ready.",
     href: "/meeting",
     cta: "Join the meeting",
+    accent: "from-teal/20 to-teal/10 hover:border-teal/45",
+    badge: "teal",
   },
   {
     icon: HeartHandshake,
@@ -19,6 +21,8 @@ const paths = [
     description: "Read the story behind Ohana and what makes this peer-led recovery room different.",
     href: "/story",
     cta: "Read our story",
+    accent: "from-gold/20 to-gold/10 hover:border-gold/45",
+    badge: "gold",
   },
   {
     icon: BookOpen,
@@ -26,6 +30,8 @@ const paths = [
     description: "Use practical recovery worksheets for urges, reflection, grounding, relapse prevention, and daily care.",
     href: "/toolkit",
     cta: "Open the toolkit",
+    accent: "from-purple/20 to-purple/10 hover:border-purple/45",
+    badge: "purple",
   },
 ]
 
@@ -67,9 +73,15 @@ export default function ChoosePathSection() {
               >
                 <Link
                   href={path.href}
-                  className="group flex h-full flex-col rounded-lg border border-dark-700 bg-dark-900/65 p-6 transition-colors hover:border-teal/45 hover:bg-dark-900"
+                  className={`group flex h-full flex-col rounded-lg border border-dark-700 bg-gradient-to-br ${path.accent} p-6 transition-colors hover:bg-dark-900`}
                 >
-                  <div className="mb-5 flex h-11 w-11 items-center justify-center rounded-lg border border-teal/25 bg-teal/10 text-teal">
+                  <div className={`mb-5 flex h-11 w-11 items-center justify-center rounded-lg border ${
+                    path.badge === "gold"
+                      ? "border-gold/25 bg-gold/10 text-gold"
+                      : path.badge === "purple"
+                        ? "border-purple/25 bg-purple/10 text-purple"
+                        : "border-teal/25 bg-teal/10 text-teal"
+                  }`}>
                     <Icon className="h-5 w-5" />
                   </div>
                   <h3 className="text-xl font-bold text-gray-100 transition-colors group-hover:text-teal">
@@ -78,6 +90,13 @@ export default function ChoosePathSection() {
                   <p className="mt-3 flex-1 text-sm leading-relaxed text-gray-400">
                     {path.description}
                   </p>
+                  <div className={`mt-5 h-0.5 w-16 rounded-full ${
+                    path.badge === "gold"
+                      ? "bg-gold"
+                      : path.badge === "purple"
+                        ? "bg-purple"
+                        : "bg-teal"
+                  }`} />
                   <span className="mt-6 text-sm font-semibold text-teal">
                     {path.cta} →
                   </span>

@@ -15,7 +15,7 @@ export default function VideoIntro() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="relative aspect-video rounded-2xl overflow-hidden border-2 border-teal/30 bg-dark-900/50 backdrop-blur-sm shadow-2xl shadow-teal/10"
+          className="relative aspect-video rounded-2xl overflow-hidden border-2 border-teal/30 bg-gradient-to-br from-teal/10 via-dark-900/70 to-purple/10 backdrop-blur-sm shadow-2xl shadow-teal/10"
         >
           {videoUrl ? (
             <iframe
@@ -73,7 +73,7 @@ export default function VideoIntro() {
                   repeat: Infinity,
                   ease: "easeInOut",
                 }}
-                className="absolute inset-0 bg-gradient-to-br from-teal/5 to-purple/5 rounded-2xl"
+                className="absolute inset-0 bg-gradient-to-br from-teal/5 via-gold/5 to-purple/5 rounded-2xl"
               />
             </div>
           )}

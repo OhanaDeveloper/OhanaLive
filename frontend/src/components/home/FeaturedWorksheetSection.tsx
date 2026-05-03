@@ -36,26 +36,27 @@ export default function FeaturedWorksheetSection() {
           </Link>
         </div>
 
-        <div className="rounded-lg border border-dark-700 bg-dark-900/70 p-6">
+        <div className="rounded-lg border border-dark-700 bg-gradient-to-br from-teal/10 via-dark-900/80 to-purple/10 p-6 shadow-lg shadow-black/10">
           <div className="mb-5 flex items-center justify-between gap-4">
-            <div className="flex h-12 w-12 items-center justify-center rounded-lg border border-teal/25 bg-teal/10 text-teal">
+            <div className="flex h-12 w-12 items-center justify-center rounded-lg border border-gold/25 bg-gold/10 text-gold">
               <FileText className="h-6 w-6" />
             </div>
-            <div className="flex items-center gap-2 rounded-full border border-dark-700 bg-dark-800/70 px-3 py-1.5 text-xs text-gray-400">
+            <div className="flex items-center gap-2 rounded-full border border-purple/25 bg-purple/10 px-3 py-1.5 text-xs text-purple-100">
               <Clock className="h-3.5 w-3.5 text-teal" />
               {worksheet.estimatedMinutes} min
             </div>
           </div>
 
           <h3 className="text-2xl font-bold text-gray-100">{worksheet.title}</h3>
-          <p className="mt-2 text-sm font-medium text-teal/80">{worksheet.subtitle}</p>
+          <p className="mt-2 text-sm font-medium text-gold/80">{worksheet.subtitle}</p>
           <p className="mt-4 text-sm leading-relaxed text-gray-400">{worksheet.description}</p>
+          <div className="mt-5 h-px w-full bg-gradient-to-r from-teal/40 via-gold/50 to-purple/40" />
 
           <div className="mt-6 flex flex-col gap-3 sm:flex-row">
             <Link
               href={`/toolkit?worksheet=${worksheet.id}`}
               onClick={() => trackEvent("featured_worksheet_click", { worksheet_id: worksheet.id })}
-              className="inline-flex items-center justify-center gap-2 rounded-lg bg-teal px-5 py-3 text-sm font-semibold text-dark-950 transition-colors hover:bg-teal/90"
+              className="inline-flex items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-teal via-gold to-purple px-5 py-3 text-sm font-semibold text-dark-950 transition-opacity hover:opacity-95"
             >
               Try It Now
               <ArrowRight className="h-4 w-4" />
