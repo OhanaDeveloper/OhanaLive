@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useMemo } from 'react'
+import { useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { X, ChevronDown } from 'lucide-react'
 import type { Worksheet } from '../data/types'
@@ -28,19 +28,24 @@ const DIFFICULTY_LABELS: Record<DifficultyFilter, string> = {
 }
 
 export default function WorksheetExplorer() {
-  const { results, filters, setQuery, setCategory, setDifficulty, setDuration, clearFilters, hasActiveFilters } =
+  const { results, filters, setCategory, setDifficulty, setDuration, clearFilters, hasActiveFilters } =
     useWorksheetSearch()
   const allProgress = useAllProgress()
-  const [activeWorksheet, setActiveWorksheet] = useState<Worksheet | null>(null)
+  const [activeWorksheet, setActiveWorksheet] = useState<Worksheet | null>(() => {
+    if (typeof window === 'undefined') {
+      return null
+    }
 
-  // Randomized on mount, stable for the session
-  const randomized12 = useMemo(
-    () => [...ALL_WORKSHEETS].sort(() => Math.random() - 0.5).slice(0, 6),
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    []
-  )
+    const worksheetId = new URLSearchParams(window.location.search).get('worksheet')
+    return worksheetId
+      ? ALL_WORKSHEETS.find((worksheet) => worksheet.id === worksheetId) ?? null
+      : null
+  })
 
-  const displayedResults = hasActiveFilters ? results : randomized12
+  const featuredWorksheets = ALL_WORKSHEETS.filter((worksheet) => worksheet.featured).slice(0, 6)
+  const defaultWorksheets = featuredWorksheets.length > 0 ? featuredWorksheets : ALL_WORKSHEETS.slice(0, 6)
+
+  const displayedResults = hasActiveFilters ? results : defaultWorksheets
 
   return (
     <>

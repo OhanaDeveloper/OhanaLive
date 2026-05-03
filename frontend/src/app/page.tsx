@@ -1,10 +1,12 @@
 import HomeHero from "@/components/home/HomeHero"
 import MissionStatement from "@/components/about/MissionStatement"
-import MeetingSection from "@/components/home/MeetingSection"
 import PromiseStruggling from "@/components/about/PromiseStruggling"
 import PromiseHoldSpace from "@/components/about/PromiseHoldSpace"
 import VideoIntro from "@/components/about/VideoIntro"
-import TechShowcase from "@/components/about/TechShowcase"
+import ChoosePathSection from "@/components/home/ChoosePathSection"
+import FeaturedWorksheetSection from "@/components/home/FeaturedWorksheetSection"
+import TestimonialsSection from "@/components/home/TestimonialsSection"
+import WallOfNights from "@/components/home/WallOfNights"
 import VolunteerCTA from "@/components/shared/VolunteerCTA"
 import MeetingCTA from "@/components/shared/MeetingCTA"
 import SectionWrapper from "@/components/ui/SectionWrapper"
@@ -13,12 +15,14 @@ export default function HomePage() {
   return (
     <>
       <HomeHero />
+      <ChoosePathSection />
       <MissionStatement />
-      <MeetingSection />
+      <TestimonialsSection />
+      <WallOfNights />
       <PromiseStruggling />
+      <FeaturedWorksheetSection />
       <PromiseHoldSpace />
       <VideoIntro />
-      <TechShowcase />
 
       <SectionWrapper>
         <VolunteerCTA variant="card" />

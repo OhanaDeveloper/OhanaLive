@@ -19,7 +19,7 @@ export default function MeetingCTA({ variant = "inline", className = "" }: Meeti
                 className={`text-center ${className}`}
             >
                 <Link
-                    href="/#meeting"
+                    href="/meeting"
                     className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-teal to-teal-dark text-dark-950 font-bold text-lg rounded-lg hover:shadow-lg hover:shadow-teal/50 hover:scale-105 transition-all"
                 >
                     <Video className="w-6 h-6" />
@@ -42,7 +42,7 @@ export default function MeetingCTA({ variant = "inline", className = "" }: Meeti
                     Connect with others in recovery. Every night 11pm-3am PT.
                 </p>
                 <Link
-                    href="/#meeting"
+                    href="/meeting"
                     className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-teal to-teal-dark text-dark-950 font-bold rounded-lg hover:shadow-lg hover:shadow-teal/30 transition-all"
                 >
                     <Video className="w-5 h-5" />
@@ -55,7 +55,7 @@ export default function MeetingCTA({ variant = "inline", className = "" }: Meeti
     // inline variant (default)
     return (
         <Link
-            href="/#meeting"
+            href="/meeting"
             className={`inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-teal to-teal-dark text-dark-950 font-bold rounded-lg hover:shadow-lg hover:shadow-teal/30 transition-all ${className}`}
         >
             <Video className="w-5 h-5" />

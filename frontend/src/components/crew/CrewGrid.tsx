@@ -14,39 +14,39 @@ type CrewMember = {
   funFact: string
 }
 
-// ─── CREW DATA: update bio, whyRecovery, funFact, and role for each member ──
+// ─── CREW DATA: replace fallback copy with approved member bios when ready ──
 const crewMembers: CrewMember[] = [
   {
     name: "Joey",
     role: "Crew Host",
     image: "/OhanaProfile_Joey2.png",
-    bio: "Bio coming soon.",
-    whyRecovery: "Why recovery story coming soon.",
-    funFact: "Fun fact coming soon.",
+    bio: "Shows up with steady presence so nobody has to sit through the hard hours alone.",
+    whyRecovery: "Because someone staying present can change the whole night for a person who is barely holding on.",
+    funFact: "Brings calm, practical care to the room when the night feels loud.",
   },
   {
     name: "Daniel",
     role: "Crew Host",
     image: "/OhanaProfile_Daniel.png",
-    bio: "Bio coming soon.",
-    whyRecovery: "Why recovery story coming soon.",
-    funFact: "Fun fact coming soon.",
+    bio: "Helps hold the door open for anyone looking for honest recovery support after dark.",
+    whyRecovery: "Because recovery is easier to believe in when another person is willing to sit with you in it.",
+    funFact: "Keeps the focus on simple, human connection over polished answers.",
   },
   {
     name: "Jonni",
     role: "Crew Host",
     image: "/OhanaProfile_Jonni2.png",
-    bio: "Bio coming soon.",
-    whyRecovery: "Why recovery story coming soon.",
-    funFact: "Fun fact coming soon.",
+    bio: "Creates space for people to be quiet, honest, messy, hopeful, or anything in between.",
+    whyRecovery: "Because people deserve a place where they do not have to perform being okay before they are welcomed.",
+    funFact: "Makes room for both silence and truth, which is often exactly what someone needs.",
   },
   {
     name: "Anne",
     role: "Crew Host",
     image: "/OhanaProfile_Anne2.png",
-    bio: "Bio coming soon.",
-    whyRecovery: "Why recovery story coming soon.",
-    funFact: "Fun fact coming soon.",
+    bio: "Shows up with warmth and consistency for people finding their way through recovery.",
+    whyRecovery: "Because being met with kindness at the right moment can help someone make it to morning.",
+    funFact: "Believes small acts of care matter, especially when nobody else sees them.",
   },
 ]
 

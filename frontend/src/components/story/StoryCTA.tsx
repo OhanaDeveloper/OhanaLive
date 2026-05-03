@@ -3,7 +3,6 @@
 import { motion } from "framer-motion"
 import Link from "next/link"
 import Image from "next/image"
-import { MEETING_INFO } from "@/lib/meetings"
 
 export default function StoryCTA() {
   return (
@@ -63,9 +62,7 @@ export default function StoryCTA() {
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
           <motion.a
-            href={MEETING_INFO.zoomLink}
-            target="_blank"
-            rel="noopener noreferrer"
+            href="/meeting"
             whileHover={{ scale: 1.05, boxShadow: "0 0 40px rgba(16, 185, 129, 0.3)" }}
             whileTap={{ scale: 0.98 }}
             className="inline-flex items-center gap-3 bg-teal hover:bg-teal-light text-white font-bold px-8 py-4 rounded-xl transition-colors text-lg"

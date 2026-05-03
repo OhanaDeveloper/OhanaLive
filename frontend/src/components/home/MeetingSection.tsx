@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react"
 import { motion } from "framer-motion"
-import { MEETING_INFO } from "@/lib/meetings"
+import { getMeetingStatus, type MeetingStatusInfo } from "@/lib/meetingTime"
 
 interface TonightsMeeting {
   host?: {
@@ -18,12 +18,9 @@ interface TonightsMeeting {
 
 export default function MeetingSection() {
   const [mounted, setMounted] = useState(false)
-  const [timeLeft, setTimeLeft] = useState("")
-  const [isLive, setIsLive] = useState(false)
+  const [status, setStatus] = useState<MeetingStatusInfo | null>(null)
   const [tonightsMeeting, setTonightsMeeting] = useState<TonightsMeeting | null>(null)
   const [loadingMeeting, setLoadingMeeting] = useState(true)
-
-  const { zoomLink, startHour, endHour, timeZone } = MEETING_INFO
 
   useEffect(() => {
     setMounted(true)
@@ -52,43 +49,11 @@ export default function MeetingSection() {
 
     fetchTonightsMeeting()
 
-    const updateCountdown = () => {
-      const now = new Date()
-      const pacificNow = new Date(
-        now.toLocaleString("en-US", { timeZone })
-      )
-
-      // Define start and end times for today's meeting
-      let meetingStart = new Date(pacificNow)
-      meetingStart.setHours(startHour, 0, 0, 0)
-
-      let meetingEnd = new Date(pacificNow)
-      if (endHour < startHour) {
-        meetingEnd.setDate(meetingEnd.getDate() + 1)
-      }
-      meetingEnd.setHours(endHour, 0, 0, 0)
-
-      // Determine live state
-      if (pacificNow >= meetingStart && pacificNow <= meetingEnd) {
-        setIsLive(true)
-        setTimeLeft("Now Live!")
-      } else {
-        setIsLive(false)
-        // If already past today's meeting start, calculate next day's
-        if (pacificNow > meetingStart) meetingStart.setDate(meetingStart.getDate() + 1)
-
-        const diff = meetingStart.getTime() - pacificNow.getTime()
-        const hours = Math.floor(diff / (1000 * 60 * 60))
-        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60))
-        const seconds = Math.floor((diff % (1000 * 60)) / 1000)
-        setTimeLeft(`${hours}h ${minutes}m ${seconds}s`)
-      }
-    }
-
-    updateCountdown()
-    const timer = setInterval(updateCountdown, 1000)
+    const updateStatus = () => setStatus(getMeetingStatus())
+    updateStatus()
+    const timer = setInterval(updateStatus, 60000)
     return () => clearInterval(timer)
-  }, [startHour, endHour, timeZone])
+  }, [])
 
   if (!mounted) {
     return (
@@ -112,7 +77,7 @@ export default function MeetingSection() {
           transition={{ duration: 0.6 }}
           className="text-4xl md:text-5xl font-bold text-teal"
         >
-          Tonight's Meeting
+          Tonight&apos;s Meeting
         </motion.h2>
 
         <motion.p
@@ -179,41 +144,45 @@ export default function MeetingSection() {
             className="bg-dark-900/60 backdrop-blur-md border border-dark-800 rounded-2xl p-5 md:p-8 shadow-xl"
           >
             <h2 className="text-2xl font-semibold text-white mb-4">
-              {isLive ? "Meeting in Progress" : "Next Meeting Starts In"}
+              {status?.isLive ? "Meeting in Progress" : "Next Meeting Starts In"}
             </h2>
 
             <motion.p
-              key={timeLeft}
+              key={status?.countdownLabel}
               initial={{ scale: 1.1 }}
               animate={{ scale: 1 }}
               className={`text-4xl font-mono mb-6 ${
-                isLive ? "text-teal animate-pulse" : "text-teal"
+                status?.isLive ? "text-teal animate-pulse" : "text-teal"
               }`}
             >
-              {timeLeft}
+              {status?.isLive ? "Now Live!" : status?.countdownLabel}
             </motion.p>
 
+            {status && (
+              <p className="mb-6 text-sm text-gray-400">
+                {status.localStartLabel} - {status.localEndLabel} your time · 11 PM - 3 AM Pacific
+              </p>
+            )}
+
             <motion.a
-              href={tonightsMeeting?.zoom_link || zoomLink}
-              target="_blank"
-              rel="noopener noreferrer"
+              href="/meeting"
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.98 }}
               style={{ willChange: "transform" }}
               className={`inline-flex items-center gap-3 px-8 py-4 rounded-xl font-bold text-lg transition-all shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal focus-visible:ring-offset-2 focus-visible:ring-offset-black ${
-                isLive
+                status?.isLive
                   ? "bg-gradient-to-r from-teal to-teal-dark text-dark-950 shadow-teal/30 hover:shadow-teal/50"
                   : "bg-dark-800 border border-dark-700 hover:border-teal/40 text-gray-100"
               }`}
-              aria-label={isLive ? "Join the live Ohana Recovery meeting on Zoom" : "Get the Ohana Recovery meeting link"}
+              aria-label={status?.isLive ? "Join the live Ohana Recovery meeting on Zoom" : "Get the Ohana Recovery meeting link"}
             >
-              {isLive ? (
+              {status?.isLive ? (
                 <>
                   <span className="relative flex h-3 w-3" aria-hidden="true">
                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-dark-950 opacity-75" />
                     <span className="relative inline-flex rounded-full h-3 w-3 bg-dark-950" />
                   </span>
-                  Join Now — We're Live
+                  Join Now — We&apos;re Live
                 </>
               ) : (
                 "Get the Meeting Link →"

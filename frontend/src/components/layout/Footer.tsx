@@ -1,7 +1,7 @@
 "use client"
 
 import Link from "next/link"
-import { Heart, Phone, FileText, Users, Mail } from "lucide-react"
+import { Heart, Phone, Users } from "lucide-react"
 
 export default function Footer() {
     return (
@@ -21,17 +21,15 @@ export default function Footer() {
 
                     {/* Ko-fi Support - Prominent */}
                     <div className="py-6">
-                        <a
-                            href="https://ko-fi.com/ohanarecovery"
-                            target="_blank"
-                            rel="noopener noreferrer"
+                        <Link
+                            href="/support-us"
                             className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-teal to-purple text-white px-8 py-4 rounded-xl hover:shadow-lg hover:shadow-teal/20 transition-all duration-300 group font-semibold"
                         >
                             <Heart className="w-5 h-5 group-hover:scale-110 transition-transform" fill="white" />
                             <span>Support Us</span>
-                        </a>
+                        </Link>
                         <p className="text-xs text-gray-500 mt-3">
-                            Community-funded • Mahalo 🌺
+                            Community-funded • Mahalo
                         </p>
                     </div>
 
@@ -107,6 +105,11 @@ export default function Footer() {
                                     Toolkit
                                 </Link>
                             </li>
+                            <li>
+                                <Link href="/support-us" className="text-gray-400 hover:text-teal transition-colors text-sm">
+                                    Give
+                                </Link>
+                            </li>
                         </ul>
                     </div>
 
@@ -116,7 +119,7 @@ export default function Footer() {
                         <ul className="space-y-2">
                             <li className="flex items-center justify-center gap-2">
                                 <Users className="w-4 h-4 text-teal flex-shrink-0" />
-                                <Link href="/#meeting" className="text-gray-400 hover:text-teal transition-colors text-sm">
+                                <Link href="/meeting" className="text-gray-400 hover:text-teal transition-colors text-sm">
                                     Join Meeting (11pm PT)
                                 </Link>
                             </li>
@@ -165,17 +168,15 @@ export default function Footer() {
 
                 {/* Ko-fi Support - Centered */}
                 <div className="pt-8 border-t border-dark-700 text-center">
-                    <a
-                        href="https://ko-fi.com/ohanarecovery"
-                        target="_blank"
-                        rel="noopener noreferrer"
+                    <Link
+                        href="/support-us"
                         className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-teal to-purple text-white px-10 py-4 rounded-xl hover:shadow-lg hover:shadow-teal/20 transition-all duration-300 group font-semibold text-lg"
                     >
                         <Heart className="w-5 h-5 group-hover:scale-110 transition-transform" fill="white" />
                         <span>Support Us</span>
-                    </a>
+                    </Link>
                     <p className="text-sm text-gray-400 mt-4 mb-6">
-                        Community-funded • ~$200/month • Mahalo for your kōkua 🌺
+                        Community-funded • ~$200/month • Mahalo for your kōkua
                     </p>
                 </div>
 

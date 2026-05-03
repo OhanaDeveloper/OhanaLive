@@ -91,6 +91,7 @@ npm run lint
 ```
 NEXT_PUBLIC_API_URL=http://localhost:8000
 NEXT_PUBLIC_RECAPTCHA_KEY=your_recaptcha_v3_site_key
+NEXT_PUBLIC_GA_MEASUREMENT_ID=G-NY5ZGB6ZCY
 ```
 
 ### Backend

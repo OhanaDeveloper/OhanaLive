@@ -289,7 +289,7 @@ function MeetingWidget() {
   const [timeLeft, setTimeLeft] = useState("")
   const [isLive, setIsLive] = useState(false)
   const [mounted, setMounted] = useState(false)
-  const { startHour, endHour, timeZone, zoomLink } = MEETING_INFO
+  const { startHour, endHour, timeZone } = MEETING_INFO
 
   useEffect(() => {
     setMounted(true)
@@ -358,9 +358,7 @@ function MeetingWidget() {
       </div>
 
       <motion.a
-        href={zoomLink}
-        target="_blank"
-        rel="noopener noreferrer"
+        href="/meeting"
         whileHover={{ scale: 1.03 }}
         whileTap={{ scale: 0.97 }}
         className={`flex items-center justify-center gap-2 py-3 rounded-xl font-semibold text-sm transition-all ${

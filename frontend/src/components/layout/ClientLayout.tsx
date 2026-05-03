@@ -9,6 +9,8 @@ import Footer from "@/components/layout/Footer"
 import Background from "@/components/layout/Background"
 import RotatingLogo from "@/components/ui/RotatingLogo"
 import SettingsMenu from "@/components/layout/SettingsMenu"
+import CrisisResourceBar from "@/components/shared/CrisisResourceBar"
+import FloatingJoinMeetingButton from "@/components/shared/FloatingJoinMeetingButton"
 import dynamic from "next/dynamic"
 
 const ChatWidget = dynamic(() => import("@/components/chat/ChatWidget"), { ssr: false })
@@ -29,6 +31,7 @@ export default function ClientLayout({ children }: { children: ReactNode }) {
         <MotionConfig reducedMotion="user">
         <AuthProvider>
             <Background />
+            <CrisisResourceBar />
             <header className="fixed top-0 left-0 w-full p-4 justify-center z-50 hidden md:flex">
                 <Navigation />
             </header>
@@ -70,6 +73,9 @@ export default function ClientLayout({ children }: { children: ReactNode }) {
 
             {/* Anonymous peer support chat widget */}
             <ChatWidget />
+
+            {/* Persistent meeting access */}
+            <FloatingJoinMeetingButton />
         </AuthProvider>
         </MotionConfig>
     )

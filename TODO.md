@@ -1,22 +1,29 @@
 # Project To-Do
 
-**Last Updated:** 2026-04-02  
+**Last Updated:** 2026-05-02  
 
 ---
 
 ## Completed This Session
+
+### Project Structure
+- [x] Next.js frontend moved into `frontend/`
+- [x] Django backend remains in `backend/`
+- [x] Root `package.json` added with convenience scripts for frontend dev/build/lint
+- [x] README and project structure docs updated for the new layout
+- [x] Frontend production build verified from repository root
 
 ### Crew Page
 - [x] Real member photos uploaded (Joey, Daniel, Jonni, Anne) — transparent PNG variants
 - [x] CrewGrid rebuilt for transparent PNGs — floating against teal gradient cards
 - [x] Member order set: Joey, Daniel, Jonni, Anne
 - [x] Grid updated to 4-column desktop / 2-column tablet / 1-column mobile
-- [x] "Malama" removed sitewide — replaced with "Crew" throughout all UI
+- [x] Public-facing Crew page copy uses "Crew"
 
 ### Video
 - [x] YouTube replaced with Vimeo (`player.vimeo.com/video/1179537268`)
 - [x] Clean player params: no branding, no tracking
-- [x] Caption updated to "Ohana Recovery"
+- [x] Visible caption references Ohana Recovery
 
 ### Donations
 - [x] `/give` page built — hero, 4 tiers, transparency breakdown, Ko-fi CTAs
@@ -40,27 +47,42 @@
 
 ---
 
-## Still Pending
+## Remaining Tasks
+
+### Priority 1 — Content Needed
 
 ### Crew Page Copy
-- [ ] Roles for Joey, Daniel, Jonni, Anne (currently "Crew Host" for all)
-- [ ] Personal quotes for each member (front of card) — drafts ready, need member approval
-- [ ] Back-of-card content: decide on replacement for "Why Recovery Work?" and "Fun Fact" labels
-- [ ] Once copy is approved, final swap in `frontend/src/components/crew/CrewGrid.tsx`
+- [ ] Replace placeholder roles for Joey, Daniel, Jonni, Anne. Current value is `"Crew Host"` for all.
+- [ ] Replace placeholder bios: `"Bio coming soon."`
+- [ ] Add approved personal quotes or short front-card copy for each member.
+- [ ] Decide whether to keep or replace the back-card labels `"Why Recovery Work?"` and `"Fun Fact"`.
+- [ ] Add approved back-card copy in `frontend/src/components/crew/CrewGrid.tsx`.
+
+### Priority 2 — Product / External Decisions
 
 ### Give Page
-- [ ] Decide when to make `/give` publicly visible (add back to nav/footer when ready)
-- [ ] Confirm Ko-fi account `ko-fi.com/ohanarecovery` is active and linked correctly
+- [ ] Decide whether `/give` should be added to the primary desktop/mobile navigation.
+- [ ] Confirm Ko-fi account `ko-fi.com/ohanarecovery` is active and linked correctly.
 
 ### Vimeo
-- [ ] Set video privacy on Vimeo to "Only on sites I specify" and add `ohanarecovery.org`
+- [ ] Set video privacy on Vimeo to "Only on sites I specify" and add `ohanarecovery.org`.
+- [ ] Confirm the Vimeo embed still loads after privacy restrictions are applied.
+
+### Priority 3 — Backend Wiring
 
 ### Backend Wiring
-- [ ] Admin dashboard pages fetch placeholder data — needs real API calls
-- [ ] Contact, volunteer, and story forms submit to no endpoint — needs Django views
-- [ ] Social features (messaging, friendships, posts) built in backend but not active in frontend
+- [ ] Replace simulated admin dashboard stats with real API calls.
+- [ ] Wire admin sign-up approval/decline actions to the recovery API.
+- [ ] Wire admin announcements create/pin/archive actions to the recovery API.
+- [ ] Wire admin contacts page to the recovery contacts API.
+- [ ] Add Django endpoints for contact, volunteer, and story form submissions.
+- [ ] Update frontend contact, volunteer, and story forms to submit to those endpoints.
+- [ ] Decide whether social features should be exposed in the frontend; backend routes are currently active at `/api/social/`.
 
-### Future
+### Priority 4 — QA / Polish
+
 - [ ] Mobile testing — verify all new pages on actual devices
 - [ ] Accessibility audit on dashboard and give page
-- [ ] SEO: Open Graph tags for `/give`, `/dashboard`, `/crew`
+- [ ] SEO: add explicit Open Graph metadata for `/give`, `/dashboard`, and `/crew`
+- [ ] Clean up remaining internal/public terminology drift around `Mālama`, `Malama`, `malama`, and `Crew`.
+- [ ] Fix existing lint errors so `npm run lint` can pass.

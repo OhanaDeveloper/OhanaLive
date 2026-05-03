@@ -5,6 +5,7 @@ import { Analytics } from "@vercel/analytics/next"
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import "./globals.css"
 import ClientLayout from "@/components/layout/ClientLayout"
+import GoogleAnalytics from "@/components/analytics/GoogleAnalytics"
 
 const ubuntu = Ubuntu({
     weight: ['300', '400', '500', '700'],
@@ -61,6 +62,7 @@ export default function RootLayout({
         <html lang="en" suppressHydrationWarning className={ubuntu.variable}>
         <body className="min-h-screen bg-black text-gray-100 antialiased font-ubuntu">
         <ClientLayout>{children}</ClientLayout>
+        <GoogleAnalytics />
         <Analytics />
         <SpeedInsights />
         </body>

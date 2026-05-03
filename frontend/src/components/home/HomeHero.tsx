@@ -5,7 +5,7 @@ import { useRef, useEffect } from "react"
 import Link from "next/link"
 import LotusBreath from "@/components/ui/LotusBreath"
 import { Calendar, Clock, Users, Video } from "lucide-react"
-import { MEETING_INFO } from "@/lib/meetings"
+import MeetingStatus from "@/components/shared/MeetingStatus"
 
 export default function HomeHero() {
   const ref = useRef<HTMLDivElement>(null)
@@ -211,19 +211,17 @@ export default function HomeHero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.5 }}
-          className="flex flex-col sm:flex-row gap-4 justify-center mt-10 mb-12"
+          className="flex flex-col sm:flex-row gap-4 justify-center mt-8 mb-5"
         >
           <motion.a
-            href={MEETING_INFO.zoomLink}
-            target="_blank"
-            rel="noopener noreferrer"
+            href="/meeting"
             whileHover={{ scale: 1.04, y: -2 }}
             whileTap={{ scale: 0.97 }}
             style={{ willChange: "transform" }}
-            className="inline-flex items-center justify-center gap-3 bg-gradient-to-r from-teal to-teal-dark text-dark-950 font-bold text-base md:text-lg px-6 py-3.5 md:px-8 md:py-4 rounded-xl shadow-lg shadow-teal/20 hover:shadow-teal/40 transition-shadow focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal focus-visible:ring-offset-2 focus-visible:ring-offset-black"
+            className="inline-flex items-center justify-center gap-3 bg-gradient-to-r from-teal via-teal-light to-gold text-dark-950 font-black text-base md:text-xl px-7 py-4 md:px-9 md:py-5 rounded-xl shadow-xl shadow-teal/30 hover:shadow-teal/50 transition-shadow focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal focus-visible:ring-offset-2 focus-visible:ring-offset-black"
           >
             <Video className="w-5 h-5" aria-hidden="true" />
-            Join Tonight's Meeting
+            Join Tonight&apos;s Meeting
           </motion.a>
           <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.97 }}>
             <Link
@@ -234,6 +232,8 @@ export default function HomeHero() {
             </Link>
           </motion.div>
         </motion.div>
+
+        <MeetingStatus className="mb-8 max-w-2xl mx-auto" />
 
         {/* Meeting info cards */}
         <motion.div

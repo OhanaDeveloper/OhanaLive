@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion"
 import { Heart, Star, Zap, Shield } from "lucide-react"
+import { trackEvent } from "@/lib/analytics"
 
 const tiers = [
   {
@@ -170,6 +171,7 @@ export default function GivingTiers() {
                     href="https://ko-fi.com/ohanarecovery"
                     target="_blank"
                     rel="noopener noreferrer"
+                    onClick={() => trackEvent("support_link_click", { tier: tier.label, amount: tier.amount })}
                     whileHover={{ scale: 1.03 }}
                     whileTap={{ scale: 0.97 }}
                     className={`mt-auto text-center py-3 px-4 rounded-xl font-semibold text-sm transition-all ${
@@ -198,7 +200,7 @@ export default function GivingTiers() {
             Where it goes
           </h3>
           <p className="text-gray-400 text-sm text-center mb-6">
-            $200/month keeps everything running. Here&apos;s the honest breakdown.
+            $200/month keeps everything running. No salaries, no advertising, no data sales.
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             {[
@@ -230,7 +232,7 @@ export default function GivingTiers() {
             Ohana Recovery is community-funded. We will never have ads, sell data,
             or lock recovery resources behind a paywall. Free. Always.
           </p>
-          <p className="text-gray-600 text-xs mt-3">Mahalo for your kōkua 🌺</p>
+          <p className="text-gray-600 text-xs mt-3">Mahalo for your kōkua.</p>
         </motion.div>
       </div>
     </section>
