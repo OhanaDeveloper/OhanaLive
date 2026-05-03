@@ -9,7 +9,7 @@ import Footer from "@/components/layout/Footer"
 import Background from "@/components/layout/Background"
 import RotatingLogo from "@/components/ui/RotatingLogo"
 import SettingsMenu from "@/components/layout/SettingsMenu"
-import CrisisResourceBar from "@/components/shared/CrisisResourceBar"
+import CrisisResourceWidget from "@/components/shared/CrisisResourceWidget"
 import FloatingJoinMeetingButton from "@/components/shared/FloatingJoinMeetingButton"
 import dynamic from "next/dynamic"
 
@@ -31,7 +31,7 @@ export default function ClientLayout({ children }: { children: ReactNode }) {
         <MotionConfig reducedMotion="user">
         <AuthProvider>
             <Background />
-            <CrisisResourceBar />
+            <CrisisResourceWidget />
             <header className="fixed top-0 left-0 w-full p-4 justify-center z-50 hidden md:flex">
                 <Navigation />
             </header>
