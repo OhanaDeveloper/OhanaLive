@@ -5,7 +5,7 @@ import Link from "next/link"
 import { motion } from "framer-motion"
 import { Video } from "lucide-react"
 import { trackEvent } from "@/lib/analytics"
-import { MEETING_INFO } from "@/lib/meetings"
+import { MEETING_INFO, isMeetingLinkAvailable } from "@/lib/meetings"
 import { getMeetingStatus, type MeetingStatusInfo } from "@/lib/meetingTime"
 
 export default function FloatingJoinMeetingButton() {
@@ -31,6 +31,10 @@ export default function FloatingJoinMeetingButton() {
       <Link
         href="/meeting"
         onClick={(event) => {
+          if (!isMeetingLinkAvailable()) {
+            // Let Next.js route to /meeting so the fallback page renders.
+            return
+          }
           const hasSeenIntro = window.sessionStorage.getItem("ohana-meeting-intro-seen") === "true"
           if (hasSeenIntro) {
             event.preventDefault()
