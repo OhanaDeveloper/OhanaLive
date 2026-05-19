@@ -12,6 +12,7 @@ export default function ContactForm() {
     })
     const [isSubmitting, setIsSubmitting] = useState(false)
     const [success, setSuccess] = useState(false)
+    const [errorMessage, setErrorMessage] = useState<string | null>(null)
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
         setFormData({
@@ -23,15 +24,24 @@ export default function ContactForm() {
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault()
         setIsSubmitting(true)
+        setErrorMessage(null)
 
-        // TODO: Send to backend/email
-        console.log("Contact Form:", formData)
-
-        // Simulate submission
-        setTimeout(() => {
-            setIsSubmitting(false)
+        try {
+            const res = await fetch("/api/forms/contact", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(formData),
+            })
+            if (!res.ok) {
+                const data = await res.json().catch(() => ({}))
+                throw new Error(data.error || "Submission failed")
+            }
             setSuccess(true)
-        }, 1000)
+        } catch (err) {
+            setErrorMessage(err instanceof Error ? err.message : "Submission failed")
+        } finally {
+            setIsSubmitting(false)
+        }
     }
 
     if (success) {
@@ -130,6 +140,12 @@ export default function ContactForm() {
                     placeholder="How can we help?"
                 />
             </div>
+
+            {errorMessage && (
+                <div role="alert" className="rounded-lg bg-red-500/10 text-red-300 text-sm px-4 py-3">
+                    {errorMessage}. You can also email <a href="mailto:daniel@ohanarecovery.org" className="underline">daniel@ohanarecovery.org</a> directly.
+                </div>
+            )}
 
             {/* Submit */}
             <button

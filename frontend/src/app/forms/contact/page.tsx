@@ -33,17 +33,10 @@ export default function ContactPage() {
 
                 {/* Direct Contact Info */}
                 <div className="mt-8 text-center text-sm text-gray-500 space-y-2">
-                    <p>Or email us directly:</p>
+                    <p>Or email Daniel directly:</p>
                     <p>
-                        General inquiries:{" "}
-                        <a href="mailto:hello@ohanarecovery.org" className="text-teal hover:underline">
-                            hello@ohanarecovery.org
-                        </a>
-                    </p>
-                    <p>
-                        Support:{" "}
-                        <a href="mailto:support@ohanarecovery.org" className="text-teal hover:underline">
-                            support@ohanarecovery.org
+                        <a href="mailto:daniel@ohanarecovery.org" className="text-teal hover:underline">
+                            daniel@ohanarecovery.org
                         </a>
                     </p>
                 </div>
