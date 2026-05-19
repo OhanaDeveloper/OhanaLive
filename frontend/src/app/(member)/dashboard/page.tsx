@@ -13,7 +13,7 @@ import {
   Megaphone,
   User,
   BookOpen,
-  Users,
+  Video,
   PenLine,
   Plus,
   RotateCcw,
@@ -478,7 +478,7 @@ function ProfileCard({ user }: { user: { public_handle: string; first_name: stri
 
 const quickLinks = [
   { label: "Toolkit", desc: "Worksheets & guides", href: "/toolkit", icon: BookOpen, color: "teal" },
-  { label: "Crew", desc: "Meet the hosts", href: "/crew", icon: Users, color: "purple" },
+  { label: "Meeting", desc: "Tonight at 11pm PT", href: "/meeting", icon: Video, color: "purple" },
   { label: "Share Your Story", desc: "Inspire the ʻOhana", href: "/forms/story", icon: PenLine, color: "gold" },
   { label: "Recovery Network", desc: "Find your path", href: "/support", icon: Heart, color: "teal" },
 ]

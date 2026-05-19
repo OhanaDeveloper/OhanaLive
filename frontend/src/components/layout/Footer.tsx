@@ -40,7 +40,6 @@ export default function Footer() {
                             <div className="flex flex-wrap justify-center gap-x-5 gap-y-2 text-sm text-gray-400">
                                 <Link href="/" className="hover:text-teal transition-colors">Home</Link>
                                 <Link href="/story" className="hover:text-teal transition-colors">Story</Link>
-                                <Link href="/crew" className="hover:text-teal transition-colors">Crew</Link>
                                 <Link href="/toolkit" className="hover:text-teal transition-colors">Toolkit</Link>
                                 <Link href="/support" className="hover:text-teal transition-colors">Support</Link>
                             </div>
@@ -62,14 +61,6 @@ export default function Footer() {
                             </div>
                         </div>
 
-                        <div>
-                            <h4 className="text-teal text-xs font-semibold uppercase tracking-wider mb-3">Get Involved</h4>
-                            <div className="flex flex-wrap justify-center gap-x-5 gap-y-2 text-sm text-gray-400">
-                                <Link href="/forms/volunteer" className="hover:text-teal transition-colors">Join the Crew</Link>
-                                <Link href="/forms/story" className="hover:text-teal transition-colors">Share Your Story</Link>
-                                <Link href="/forms/contact" className="hover:text-teal transition-colors">Contact</Link>
-                            </div>
-                        </div>
                     </div>
 
                     {/* Legal + disclaimer */}
@@ -95,8 +86,8 @@ export default function Footer() {
                     </p>
                 </div>
 
-                {/* Three Column Layout */}
-                <div className="grid grid-cols-3 gap-12 mb-10">
+                {/* Two Column Layout */}
+                <div className="grid grid-cols-2 gap-16 mb-10">
                     {/* Column 1: Navigate */}
                     <div className="text-center">
                         <h3 className="text-teal font-semibold text-sm uppercase tracking-wider mb-4">Navigate</h3>
@@ -109,11 +100,6 @@ export default function Footer() {
                             <li>
                                 <Link href="/story" className="text-gray-400 hover:text-teal transition-colors text-sm">
                                     Story
-                                </Link>
-                            </li>
-                            <li>
-                                <Link href="/crew" className="text-gray-400 hover:text-teal transition-colors text-sm">
-                                    Crew
                                 </Link>
                             </li>
                             <li>
@@ -154,28 +140,6 @@ export default function Footer() {
                                 <Heart className="w-4 h-4 text-purple flex-shrink-0" />
                                 <Link href="/recovery-network" className="text-gray-400 hover:text-teal transition-colors text-sm">
                                     Recovery Network
-                                </Link>
-                            </li>
-                        </ul>
-                    </div>
-
-                    {/* Column 3: Get Involved */}
-                    <div className="text-center">
-                        <h3 className="text-teal font-semibold text-sm uppercase tracking-wider mb-4">Get Involved</h3>
-                        <ul className="space-y-2">
-                            <li>
-                                <Link href="/forms/volunteer" className="text-gray-400 hover:text-teal transition-colors text-sm">
-                                    Join the Crew
-                                </Link>
-                            </li>
-                            <li>
-                                <Link href="/forms/story" className="text-gray-400 hover:text-teal transition-colors text-sm">
-                                    Share Your Story
-                                </Link>
-                            </li>
-                            <li>
-                                <Link href="/forms/contact" className="text-gray-400 hover:text-teal transition-colors text-sm">
-                                    Contact Us
                                 </Link>
                             </li>
                         </ul>
