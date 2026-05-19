@@ -3,10 +3,10 @@
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import clsx from "clsx"
-import { Home, BookOpen, FileText, Heart, UserCircle2 } from "lucide-react"
-import { useAuth } from "@/contexts/AuthContext"
+import { Home, BookOpen, FileText, Heart, Settings } from "lucide-react"
+import { useSettingsStore } from "@/lib/settingsStore"
 
-const staticNavItems = [
+const navItems = [
     { label: "Home", href: "/", icon: Home },
     { label: "Story", href: "/story", icon: BookOpen },
     { label: "Toolkit", href: "/toolkit", icon: FileText },
@@ -15,15 +15,7 @@ const staticNavItems = [
 
 export default function MobileNav() {
     const pathname = usePathname()
-    const { isAuthenticated, user } = useAuth()
-
-    const authItem = {
-        label: isAuthenticated ? (user?.public_handle || "Me") : "Login",
-        href: isAuthenticated ? "/dashboard" : "/login",
-        icon: UserCircle2,
-    }
-
-    const navItems = [...staticNavItems, authItem]
+    const { isOpen: settingsOpen, toggle: toggleSettings } = useSettingsStore()
 
     if (pathname.startsWith('/login') || pathname.startsWith('/signup') || pathname.startsWith('/forgot-password') || pathname.startsWith('/reset-password')) {
         return null
@@ -66,6 +58,35 @@ export default function MobileNav() {
                         </Link>
                     )
                 })}
+
+                {/* Settings — opens the shared SettingsMenu panel */}
+                <button
+                    type="button"
+                    onClick={toggleSettings}
+                    aria-expanded={settingsOpen}
+                    aria-label="Open settings"
+                    className="relative flex flex-col items-center justify-center gap-1 flex-1 h-full"
+                >
+                    <div className="relative">
+                        <Settings
+                            className={clsx(
+                                "w-5 h-5 transition-colors",
+                                settingsOpen ? "text-teal" : "text-gray-400"
+                            )}
+                        />
+                        {settingsOpen && (
+                            <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 bg-teal rounded-full" />
+                        )}
+                    </div>
+                    <span
+                        className={clsx(
+                            "text-[10px] font-medium transition-colors",
+                            settingsOpen ? "text-teal" : "text-gray-400"
+                        )}
+                    >
+                        Settings
+                    </span>
+                </button>
             </div>
         </nav>
     )

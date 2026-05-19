@@ -24,7 +24,7 @@ export default function FloatingJoinMeetingButton() {
     <motion.div
       initial={{ opacity: 0, y: 16, scale: 0.96 }}
       animate={{ opacity: 1, y: 0, scale: 1 }}
-      className="fixed bottom-36 right-4 z-[55] md:bottom-28 md:right-6"
+      className={`fixed bottom-36 right-4 z-[55] md:bottom-28 md:right-6 ${isLive ? "" : "hidden md:block"}`}
     >
       <a
         {...meetingLinkProps("floating_button")}

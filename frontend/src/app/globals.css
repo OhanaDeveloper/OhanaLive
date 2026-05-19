@@ -42,6 +42,45 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Live meeting CTA animations — CSS only, no JS loop. */
+@keyframes ohana-live-halo {
+  0%   { box-shadow: 0 0 0 0 rgba(20, 184, 166, 0.55); }
+  70%  { box-shadow: 0 0 0 18px rgba(20, 184, 166, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(20, 184, 166, 0); }
+}
+
+@keyframes ohana-live-breathe {
+  0%, 100% { transform: scale(1); }
+  50%      { transform: scale(1.02); }
+}
+
+@keyframes ohana-live-dot {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: 0.35; }
+}
+
+.ohana-live-halo {
+  animation: ohana-live-halo 2.4s ease-out infinite;
+}
+
+.ohana-live-breathe {
+  animation: ohana-live-breathe 3s ease-in-out infinite;
+  transform-origin: center;
+  will-change: transform;
+}
+
+.ohana-live-dot {
+  animation: ohana-live-dot 1.4s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ohana-live-halo,
+  .ohana-live-breathe,
+  .ohana-live-dot {
+    animation: none !important;
+  }
+}
+
 /* Custom scrollbar for dark theme */
 ::-webkit-scrollbar {
   width: 8px;

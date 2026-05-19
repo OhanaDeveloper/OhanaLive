@@ -4,9 +4,8 @@ import { motion, useScroll, useTransform } from "framer-motion"
 import { useRef, useEffect } from "react"
 import Link from "next/link"
 import LotusBreath from "@/components/ui/LotusBreath"
-import { Calendar, Clock, Users, Video } from "lucide-react"
-import MeetingStatus from "@/components/shared/MeetingStatus"
-import { meetingLinkProps } from "@/lib/meetingLink"
+import { Calendar, Clock, Users } from "lucide-react"
+import HomeMeetingCTA from "@/components/home/HomeMeetingCTA"
 
 export default function HomeHero() {
   const ref = useRef<HTMLDivElement>(null)
@@ -212,29 +211,18 @@ export default function HomeHero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.5 }}
-          className="flex flex-col sm:flex-row gap-4 justify-center mt-8 mb-5"
+          className="flex flex-col items-center gap-5 mt-8 mb-8"
         >
-          <motion.a
-            {...meetingLinkProps("home_hero")}
-            whileHover={{ scale: 1.04, y: -2 }}
-            whileTap={{ scale: 0.97 }}
-            style={{ willChange: "transform" }}
-            className="inline-flex items-center justify-center gap-3 bg-gradient-to-r from-teal via-gold to-purple text-dark-950 font-black text-base md:text-xl px-7 py-4 md:px-9 md:py-5 rounded-xl shadow-xl shadow-teal/30 hover:shadow-teal/50 transition-shadow focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal focus-visible:ring-offset-2 focus-visible:ring-offset-black"
-          >
-            <Video className="w-5 h-5" aria-hidden="true" />
-            Join Tonight&apos;s Meeting
-          </motion.a>
+          <HomeMeetingCTA />
           <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.97 }}>
             <Link
               href="/toolkit"
-              className="inline-flex items-center justify-center gap-2 bg-dark-900/60 hover:bg-dark-800/70 text-gray-300 hover:text-gray-100 font-medium text-base md:text-lg px-6 py-3.5 md:px-8 md:py-4 rounded-xl transition-all backdrop-blur-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal focus-visible:ring-offset-2 focus-visible:ring-offset-black"
+              className="inline-flex items-center justify-center gap-2 bg-dark-900/60 hover:bg-dark-800/70 text-gray-300 hover:text-gray-100 font-medium text-sm md:text-base px-5 py-2.5 rounded-xl transition-all backdrop-blur-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal focus-visible:ring-offset-2 focus-visible:ring-offset-black"
             >
               Free Toolkit
             </Link>
           </motion.div>
         </motion.div>
-
-        <MeetingStatus className="mb-8 max-w-2xl mx-auto" />
 
         {/* Meeting info cards */}
         <motion.div
