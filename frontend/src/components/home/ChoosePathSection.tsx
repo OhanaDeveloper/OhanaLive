@@ -4,13 +4,15 @@ import Link from "next/link"
 import { motion } from "framer-motion"
 import { BookOpen, HeartHandshake, Video } from "lucide-react"
 import MeetingStatus from "@/components/shared/MeetingStatus"
+import { meetingLinkProps } from "@/lib/meetingLink"
 
 const paths = [
   {
     icon: Video,
     title: "Join tonight",
-    description: "Go straight to the nightly room, see the current status, and get the Zoom link when you are ready.",
-    href: "/meeting",
+    description: "Go straight to the nightly Zoom room. No interstitial, no sign-up.",
+    href: "",
+    external: true,
     cta: "Join the meeting",
     accent: "from-teal/20 to-teal/10",
     badge: "teal",
@@ -62,6 +64,36 @@ export default function ChoosePathSection() {
         <div className="grid gap-4 md:grid-cols-3">
           {paths.map((path, index) => {
             const Icon = path.icon
+            const cardClass = `group flex h-full flex-col rounded-lg bg-gradient-to-br ${path.accent} p-6 transition-colors hover:bg-dark-900`
+            const inner = (
+              <>
+                <div className={`mb-5 flex h-11 w-11 items-center justify-center rounded-lg ${
+                  path.badge === "gold"
+                    ? "bg-gold/10 text-gold"
+                    : path.badge === "purple"
+                      ? "bg-purple/10 text-purple"
+                      : "bg-teal/10 text-teal"
+                }`}>
+                  <Icon className="h-5 w-5" />
+                </div>
+                <h3 className="text-xl font-bold text-gray-100 transition-colors group-hover:text-teal">
+                  {path.title}
+                </h3>
+                <p className="mt-3 flex-1 text-sm leading-relaxed text-gray-400">
+                  {path.description}
+                </p>
+                <div className={`mt-5 h-0.5 w-16 rounded-full ${
+                  path.badge === "gold"
+                    ? "bg-gold"
+                    : path.badge === "purple"
+                      ? "bg-purple"
+                      : "bg-teal"
+                }`} />
+                <span className="mt-6 text-sm font-semibold text-teal">
+                  {path.cta} →
+                </span>
+              </>
+            )
 
             return (
               <motion.div
@@ -71,36 +103,15 @@ export default function ChoosePathSection() {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.08, duration: 0.45 }}
               >
-                <Link
-                  href={path.href}
-                  className={`group flex h-full flex-col rounded-lg bg-gradient-to-br ${path.accent} p-6 transition-colors hover:bg-dark-900`}
-                >
-                  <div className={`mb-5 flex h-11 w-11 items-center justify-center rounded-lg border ${
-                    path.badge === "gold"
-                      ? "border-gold/25 bg-gold/10 text-gold"
-                      : path.badge === "purple"
-                        ? "border-purple/25 bg-purple/10 text-purple"
-                        : "border-teal/25 bg-teal/10 text-teal"
-                  }`}>
-                    <Icon className="h-5 w-5" />
-                  </div>
-                  <h3 className="text-xl font-bold text-gray-100 transition-colors group-hover:text-teal">
-                    {path.title}
-                  </h3>
-                  <p className="mt-3 flex-1 text-sm leading-relaxed text-gray-400">
-                    {path.description}
-                  </p>
-                  <div className={`mt-5 h-0.5 w-16 rounded-full ${
-                    path.badge === "gold"
-                      ? "bg-gold"
-                      : path.badge === "purple"
-                        ? "bg-purple"
-                        : "bg-teal"
-                  }`} />
-                  <span className="mt-6 text-sm font-semibold text-teal">
-                    {path.cta} →
-                  </span>
-                </Link>
+                {path.external ? (
+                  <a {...meetingLinkProps("choose_path")} className={cardClass}>
+                    {inner}
+                  </a>
+                ) : (
+                  <Link href={path.href} className={cardClass}>
+                    {inner}
+                  </Link>
+                )}
               </motion.div>
             )
           })}

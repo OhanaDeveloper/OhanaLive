@@ -2,6 +2,7 @@
 
 import Link from "next/link"
 import { Heart, Phone, Users } from "lucide-react"
+import { meetingLinkProps } from "@/lib/meetingLink"
 
 export default function Footer() {
     return (
@@ -48,7 +49,7 @@ export default function Footer() {
                         <div>
                             <h4 className="text-teal text-xs font-semibold uppercase tracking-wider mb-3">Get Help</h4>
                             <div className="flex flex-wrap justify-center gap-x-5 gap-y-2 text-sm text-gray-400">
-                                <Link href="/meeting" className="hover:text-teal transition-colors">Join Meeting</Link>
+                                <a {...meetingLinkProps("footer_mobile")} className="hover:text-teal transition-colors">Join Meeting</a>
                                 <Link href="/recovery-network" className="hover:text-teal transition-colors">Recovery Network</Link>
                                 <a
                                     href="https://988lifeline.org/"
@@ -121,9 +122,9 @@ export default function Footer() {
                         <ul className="space-y-2">
                             <li className="flex items-center justify-center gap-2">
                                 <Users className="w-4 h-4 text-teal flex-shrink-0" />
-                                <Link href="/meeting" className="text-gray-400 hover:text-teal transition-colors text-sm">
+                                <a {...meetingLinkProps("footer_desktop")} className="text-gray-400 hover:text-teal transition-colors text-sm">
                                     Join Meeting (11pm PT)
-                                </Link>
+                                </a>
                             </li>
                             <li className="flex items-center justify-center gap-2">
                                 <Phone className="w-4 h-4 text-purple flex-shrink-0" />

@@ -38,10 +38,10 @@ export default function FeaturedWorksheetSection() {
 
         <div className="rounded-lg bg-gradient-to-br from-teal/10 via-dark-900/80 to-purple/10 p-6 shadow-lg shadow-black/10">
           <div className="mb-5 flex items-center justify-between gap-4">
-            <div className="flex h-12 w-12 items-center justify-center rounded-lg border border-gold/25 bg-gold/10 text-gold">
+            <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-gold/10 text-gold">
               <FileText className="h-6 w-6" />
             </div>
-            <div className="flex items-center gap-2 rounded-full border border-purple/25 bg-purple/10 px-3 py-1.5 text-xs text-purple-100">
+            <div className="flex items-center gap-2 rounded-full bg-purple/10 px-3 py-1.5 text-xs text-purple-100">
               <Clock className="h-3.5 w-3.5 text-teal" />
               {worksheet.estimatedMinutes} min
             </div>

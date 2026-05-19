@@ -6,6 +6,7 @@ import { motion, AnimatePresence, useMotionValue, useTransform, animate } from "
 import { useAuth } from "@/contexts/AuthContext"
 import { api } from "@/lib/api"
 import { MEETING_INFO } from "@/lib/meetings"
+import { meetingLinkProps } from "@/lib/meetingLink"
 import {
   Heart,
   Calendar,
@@ -358,13 +359,13 @@ function MeetingWidget() {
       </div>
 
       <motion.a
-        href="/meeting"
+        {...meetingLinkProps("dashboard_widget")}
         whileHover={{ scale: 1.03 }}
         whileTap={{ scale: 0.97 }}
         className={`flex items-center justify-center gap-2 py-3 rounded-xl font-semibold text-sm transition-all ${
           isLive
             ? "bg-teal text-white shadow-lg shadow-teal/20"
-            : "bg-dark-800 text-gray-300 border border-dark-700 hover:border-teal/30 hover:text-white"
+            : "bg-dark-800 text-gray-300 hover:text-white"
         }`}
       >
         <ExternalLink className="w-4 h-4" />
@@ -476,11 +477,18 @@ function ProfileCard({ user }: { user: { public_handle: string; first_name: stri
 
 // ─── Quick Links ──────────────────────────────────────────────────────────────
 
-const quickLinks = [
-  { label: "Toolkit", desc: "Worksheets & guides", href: "/toolkit", icon: BookOpen, color: "teal" },
-  { label: "Meeting", desc: "Tonight at 11pm PT", href: "/meeting", icon: Video, color: "purple" },
-  { label: "Share Your Story", desc: "Inspire the ʻOhana", href: "/forms/story", icon: PenLine, color: "gold" },
-  { label: "Recovery Network", desc: "Find another room", href: "/recovery-network", icon: Heart, color: "teal" },
+type QuickLink = {
+  label: string
+  desc: string
+  icon: typeof BookOpen
+  color: "teal" | "purple" | "gold"
+} & ({ kind: "internal"; href: string } | { kind: "meeting" })
+
+const quickLinks: QuickLink[] = [
+  { kind: "internal", label: "Toolkit", desc: "Worksheets & guides", href: "/toolkit", icon: BookOpen, color: "teal" },
+  { kind: "meeting", label: "Meeting", desc: "Tonight at 11pm PT", icon: Video, color: "purple" },
+  { kind: "internal", label: "Share Your Story", desc: "Inspire the ʻOhana", href: "/forms/story", icon: PenLine, color: "gold" },
+  { kind: "internal", label: "Recovery Network", desc: "Find another room", href: "/recovery-network", icon: Heart, color: "teal" },
 ]
 
 function QuickLinks() {
@@ -488,39 +496,45 @@ function QuickLinks() {
     <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
       {quickLinks.map((link, i) => {
         const Icon = link.icon
+        const inner = (
+          <motion.div
+            whileHover={{ y: -4, scale: 1.02 }}
+            whileTap={{ scale: 0.97 }}
+            transition={{ type: "spring", stiffness: 300, damping: 20 }}
+            className="group bg-dark-900/60 rounded-xl p-4 flex flex-col gap-2 cursor-pointer transition-colors"
+            style={{ willChange: "transform", transform: "translateZ(0)" }}
+          >
+            <div className="flex items-center justify-between">
+              <Icon
+                className={`w-4 h-4 ${
+                  link.color === "teal"
+                    ? "text-teal"
+                    : link.color === "purple"
+                    ? "text-purple"
+                    : "text-gold"
+                }`}
+              />
+              <ChevronRight className="w-3 h-3 text-gray-600 group-hover:text-gray-400 transition-colors" />
+            </div>
+            <div>
+              <p className="text-sm font-semibold text-gray-200">{link.label}</p>
+              <p className="text-xs text-gray-500 mt-0.5">{link.desc}</p>
+            </div>
+          </motion.div>
+        )
+
         return (
           <motion.div
-            key={link.href}
+            key={link.label}
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 + i * 0.06 }}
           >
-            <Link href={link.href}>
-              <motion.div
-                whileHover={{ y: -4, scale: 1.02 }}
-                whileTap={{ scale: 0.97 }}
-                transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                className="group bg-dark-900/60 border border-dark-700 hover:border-teal/30 rounded-xl p-4 flex flex-col gap-2 cursor-pointer transition-colors"
-                style={{ willChange: "transform", transform: "translateZ(0)" }}
-              >
-                <div className="flex items-center justify-between">
-                  <Icon
-                    className={`w-4 h-4 ${
-                      link.color === "teal"
-                        ? "text-teal"
-                        : link.color === "purple"
-                        ? "text-purple"
-                        : "text-gold"
-                    }`}
-                  />
-                  <ChevronRight className="w-3 h-3 text-gray-600 group-hover:text-gray-400 transition-colors" />
-                </div>
-                <div>
-                  <p className="text-sm font-semibold text-gray-200">{link.label}</p>
-                  <p className="text-xs text-gray-500 mt-0.5">{link.desc}</p>
-                </div>
-              </motion.div>
-            </Link>
+            {link.kind === "meeting" ? (
+              <a {...meetingLinkProps("dashboard_quicklink")}>{inner}</a>
+            ) : (
+              <Link href={link.href}>{inner}</Link>
+            )}
           </motion.div>
         )
       })}

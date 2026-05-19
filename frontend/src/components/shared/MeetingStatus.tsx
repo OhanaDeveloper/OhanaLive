@@ -23,7 +23,7 @@ export default function MeetingStatus({ compact = false, className = "" }: Meeti
 
   if (!status) {
     return (
-      <div className={`rounded-xl border border-dark-700 bg-dark-900/60 p-4 ${className}`}>
+      <div className={`rounded-xl bg-dark-900/60 p-4 ${className}`}>
         <div className="h-5 w-56 max-w-full animate-pulse rounded bg-dark-700" />
       </div>
     )
@@ -39,8 +39,8 @@ export default function MeetingStatus({ compact = false, className = "" }: Meeti
     <motion.div
       initial={{ opacity: 0, y: 8 }}
       animate={{ opacity: 1, y: 0 }}
-      className={`rounded-xl border ${
-        status.isLive ? "border-teal/50 bg-teal/10 shadow-lg shadow-teal/10" : "border-dark-700 bg-dark-900/70"
+      className={`rounded-xl ${
+        status.isLive ? "bg-teal/10 shadow-lg shadow-teal/10" : "bg-dark-900/70"
       } backdrop-blur-sm ${compact ? "px-4 py-3" : "px-5 py-4"} ${className}`}
     >
       <div className="flex items-center justify-center gap-3 text-left">

@@ -134,11 +134,11 @@ export default function ContributionPaths() {
             Ways to be part of it
           </span>
           <h2 className="text-3xl font-bold text-gray-100 md:text-4xl">
-            Money is one way. There are others.
+            Show up however you can.
           </h2>
           <p className="mt-4 text-base leading-relaxed text-gray-400 md:text-lg">
-            Pick what fits. Each of these matters as much as the next one. Nothing on
-            this page is more important than another.
+            Pick what fits. Every contribution carries the same weight — your time, your
+            story, your skills, your presence.
           </p>
         </motion.div>
 

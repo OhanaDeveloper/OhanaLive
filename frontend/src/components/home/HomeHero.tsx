@@ -6,6 +6,7 @@ import Link from "next/link"
 import LotusBreath from "@/components/ui/LotusBreath"
 import { Calendar, Clock, Users, Video } from "lucide-react"
 import MeetingStatus from "@/components/shared/MeetingStatus"
+import { meetingLinkProps } from "@/lib/meetingLink"
 
 export default function HomeHero() {
   const ref = useRef<HTMLDivElement>(null)
@@ -214,7 +215,7 @@ export default function HomeHero() {
           className="flex flex-col sm:flex-row gap-4 justify-center mt-8 mb-5"
         >
           <motion.a
-            href="/meeting"
+            {...meetingLinkProps("home_hero")}
             whileHover={{ scale: 1.04, y: -2 }}
             whileTap={{ scale: 0.97 }}
             style={{ willChange: "transform" }}
@@ -253,13 +254,7 @@ export default function HomeHero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1.8 + i * 0.1 }}
               whileHover={{ y: -5, scale: 1.02 }}
-              className={`relative group bg-dark-900/50 backdrop-blur-sm rounded-xl p-5 transition-all ${
-                item.accent === "gold"
-                  ? "border border-gold/25 hover:border-gold/50"
-                  : item.accent === "purple"
-                    ? "border border-purple/25 hover:border-purple/50"
-                    : "border border-teal/25 hover:border-teal/50"
-              }`}
+              className="relative group bg-dark-900/50 backdrop-blur-sm rounded-xl p-5 transition-all"
             >
               <div
                 className={`absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 ${

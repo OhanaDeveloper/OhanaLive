@@ -1,11 +1,9 @@
 "use client"
 
 import { useEffect, useState } from "react"
-import Link from "next/link"
 import { motion } from "framer-motion"
 import { Video } from "lucide-react"
-import { trackEvent } from "@/lib/analytics"
-import { MEETING_INFO, isMeetingLinkAvailable } from "@/lib/meetings"
+import { meetingLinkProps } from "@/lib/meetingLink"
 import { getMeetingStatus, type MeetingStatusInfo } from "@/lib/meetingTime"
 
 export default function FloatingJoinMeetingButton() {
@@ -28,24 +26,12 @@ export default function FloatingJoinMeetingButton() {
       animate={{ opacity: 1, y: 0, scale: 1 }}
       className="fixed bottom-36 right-4 z-[55] md:bottom-28 md:right-6"
     >
-      <Link
-        href="/meeting"
-        onClick={(event) => {
-          if (!isMeetingLinkAvailable()) {
-            // Let Next.js route to /meeting so the fallback page renders.
-            return
-          }
-          const hasSeenIntro = window.sessionStorage.getItem("ohana-meeting-intro-seen") === "true"
-          if (hasSeenIntro) {
-            event.preventDefault()
-            trackEvent("meeting_link_click", { source: "floating_button" })
-            window.open(MEETING_INFO.zoomLink, "_blank", "noopener,noreferrer")
-          }
-        }}
-        className={`group relative flex max-w-[12rem] items-center gap-2 rounded-full border px-4 py-3 text-sm font-bold shadow-xl backdrop-blur-md transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal focus-visible:ring-offset-2 focus-visible:ring-offset-black ${
+      <a
+        {...meetingLinkProps("floating_button")}
+        className={`group relative flex max-w-[12rem] items-center gap-2 rounded-full px-4 py-3 text-sm font-bold shadow-xl backdrop-blur-md transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal focus-visible:ring-offset-2 focus-visible:ring-offset-black ${
           isLive
-            ? "border-teal/50 bg-gradient-to-r from-teal to-teal-dark text-dark-950 shadow-teal/30"
-            : "border-dark-700 bg-dark-900/85 text-gray-200 hover:border-teal/40"
+            ? "bg-gradient-to-r from-teal to-teal-dark text-dark-950 shadow-teal/30"
+            : "bg-dark-900/85 text-gray-200"
         }`}
       >
         {isLive && <span className="absolute inset-0 animate-pulse rounded-full bg-teal/20" />}
@@ -53,7 +39,7 @@ export default function FloatingJoinMeetingButton() {
         <span className="relative leading-tight">
           {isLive ? "Join live meeting" : `Next: ${status.localStartLabel}`}
         </span>
-      </Link>
+      </a>
     </motion.div>
   )
 }

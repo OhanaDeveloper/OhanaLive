@@ -2,6 +2,8 @@
 
 import { motion } from "framer-motion"
 import Link from "next/link"
+import { Video } from "lucide-react"
+import { meetingLinkProps } from "@/lib/meetingLink"
 
 export default function ResourcesCTA() {
   return (
@@ -33,13 +35,14 @@ export default function ResourcesCTA() {
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>
-            <Link
-              href="/"
+            <a
+              {...meetingLinkProps("resources_cta")}
               className="inline-flex items-center gap-2 bg-teal hover:bg-teal-light text-white font-semibold px-8 py-4 rounded-xl transition-colors"
             >
+              <Video className="w-5 h-5" />
               <span>Join a Meeting</span>
               <span>→</span>
-            </Link>
+            </a>
           </motion.div>
 
           <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>

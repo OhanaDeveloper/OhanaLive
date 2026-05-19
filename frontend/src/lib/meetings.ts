@@ -3,8 +3,7 @@
 // To rotate the Zoom URL without a code change, set
 // NEXT_PUBLIC_MEETING_ZOOM_URL in the Vercel project (or .env.local for dev).
 // Setting it to an empty string disables direct join CTAs and routes
-// visitors through the /meeting interstitial fallback (crisis resources +
-// recovery support directory).
+// visitors to /recovery-network as the fallback.
 // The TinyURL alias is the only thing committed to source. Update the
 // TinyURL target (not this file) to rotate the underlying Zoom URL.
 const DEFAULT_ZOOM_LINK = "https://tinyurl.com/OhanaRecovery"
