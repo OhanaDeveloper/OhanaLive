@@ -23,7 +23,7 @@ export default function MobileNav() {
 
     return (
         <nav
-            className="fixed bottom-0 left-0 right-0 bg-dark-900 border-t border-dark-700 md:hidden z-50"
+            className="fixed bottom-0 left-0 right-0 bg-teal/20 md:hidden z-50"
             style={{ paddingBottom: 'env(safe-area-inset-bottom)', touchAction: 'manipulation' }}
         >
             <div className="flex justify-around items-center h-16 px-2">
