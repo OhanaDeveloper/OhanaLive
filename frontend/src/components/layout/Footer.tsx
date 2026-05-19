@@ -42,8 +42,8 @@ export default function Footer() {
                             <Link href="/story" className="text-sm text-gray-400 hover:text-teal transition-colors text-right">
                                 Story
                             </Link>
-                            <Link href="/story" className="text-sm text-gray-400 hover:text-teal transition-colors text-left">
-                                Story
+                            <Link href="/recovery-network" className="text-sm text-gray-400 hover:text-teal transition-colors text-left">
+                                Recovery Network
                             </Link>
                             <Link href="/forms/contact" className="text-sm text-gray-400 hover:text-teal transition-colors text-right">
                                 Contact
@@ -191,12 +191,6 @@ export default function Footer() {
                     <div className="flex gap-4">
                         <Link href="/privacy" className="hover:text-teal transition-colors">
                             Privacy
-                        </Link>
-                        <Link href="/terms" className="hover:text-teal transition-colors">
-                            Terms
-                        </Link>
-                        <Link href="/independence" className="hover:text-teal transition-colors">
-                            Independence
                         </Link>
                     </div>
                 </div>

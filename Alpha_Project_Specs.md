@@ -586,17 +586,10 @@ Priorities are subject to revision by Daniel. Treat as guidance, not contract.
 
 ## 16. Known issues and gotchas
 
-- `frontend/src/app/admin/meetings/page.tsx` hits `http://127.0.0.1:8000/api/recovery/meetings/` directly. Needs to consume `NEXT_PUBLIC_API_URL`.
-  - `frontend/src/components/home/DonationCTA.tsx` is unused dead code (still references `/support` after the cleanup pass redirect). Recommend deletion in a future cleanup.
-  - `frontend/src/components/home/MeetingSection.tsx` is unused dead code that fetches the dynamic backend Zoom URL the frontend never consumes. Either wire it up (per §11 follow-on) or delete.
-  - `frontend/src/components/home/FeaturesSection.tsx` is unused dead code.
-  - `Footer.tsx` mobile section has a duplicated `/story` link in the quick-links grid (rendered as Story / Story).
-  - `Footer.tsx` desktop bottom bar links to `/terms` and `/independence` which do not exist as routes.
-  - `StoryCTA.tsx` "Get in Touch" button links to `/contact` — route is `/forms/contact`.
-  - ESLint has pre-existing failures across the app. Don't claim a clean lint until the cleanup pass is done.
+- ESLint has pre-existing failures across the app. New work should not introduce additional errors but is not required to fix existing ones unless the task is explicitly lint-cleanup.
   - The four right-edge fixed elements on mobile (`FloatingJoinMeetingButton` `bottom-36`, `CrisisResourceWidget` `clamp(100px, 20vh, 180px)`, `ChatWidget`, `MobileNav` `bottom-0`) are not visually verified for overlap at 375px. Worth a manual mobile pass.
   - The 2026-05-18 cleanup pass removed the `WallOfNights` component and the `NIGHTLY_MEETING_START_DATE` export. Older docs reference both — they are gone.
-  - `Site Status_5_2_2026.md` line 1 has a stray `/btw` typo that is uncommitted and pre-existing. Not introduced by recent work.
+  - The 2026-05-18 §16 tidying pass closed the remaining known defects: `admin/meetings` localhost URL is now env-driven, the unused `DonationCTA` / `MeetingSection` / `FeaturesSection` home components are deleted, `Footer.tsx` no longer contains the duplicated `/story` row or the dead `/terms` and `/independence` links, and `StoryCTA` "Get in Touch" now routes to `/forms/contact`.
 
 ---
 

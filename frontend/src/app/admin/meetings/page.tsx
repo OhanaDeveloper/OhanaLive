@@ -31,7 +31,8 @@ export default function AdminMeetingsPage() {
   const fetchMeetings = async () => {
     try {
       setLoading(true)
-      const response = await fetch("http://127.0.0.1:8000/api/recovery/meetings/")
+      const apiBase = process.env.NEXT_PUBLIC_API_URL || "https://ohanalive-backend-production.up.railway.app"
+      const response = await fetch(`${apiBase}/api/recovery/meetings/`)
       if (response.ok) {
         const data = await response.json()
         setMeetings(data.results || [])
