@@ -5,8 +5,9 @@
 // Setting it to an empty string disables direct join CTAs and routes
 // visitors through the /meeting interstitial fallback (crisis resources +
 // recovery support directory).
-const DEFAULT_ZOOM_LINK =
-  "https://us06web.zoom.us/j/85215704370?pwd=AfvqYFXUgGmCeC6dCr6bieNAw070bs.1"
+// The TinyURL alias is the only thing committed to source. Update the
+// TinyURL target (not this file) to rotate the underlying Zoom URL.
+const DEFAULT_ZOOM_LINK = "https://tinyurl.com/OhanaRecovery"
 
 const envZoomLink = process.env.NEXT_PUBLIC_MEETING_ZOOM_URL
 const resolvedZoomLink =
