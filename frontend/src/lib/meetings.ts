@@ -24,6 +24,3 @@ export const MEETING_INFO = {
 export function isMeetingLinkAvailable(): boolean {
   return Boolean(MEETING_INFO.zoomLink && MEETING_INFO.zoomLink.trim().length > 0)
 }
-
-// Update this if the exact first nightly meeting date differs.
-export const NIGHTLY_MEETING_START_DATE = "2025-05-02"

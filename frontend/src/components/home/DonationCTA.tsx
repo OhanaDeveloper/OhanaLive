@@ -32,7 +32,7 @@ export default function DonationCTA() {
               <span className="text-white font-semibold">$7 keeps one going.</span>
             </p>
 
-            <Link href="/give">
+            <Link href="/support">
               <motion.span
                 whileHover={{ scale: 1.04 }}
                 whileTap={{ scale: 0.97 }}

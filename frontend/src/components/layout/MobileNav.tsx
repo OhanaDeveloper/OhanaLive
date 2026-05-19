@@ -4,13 +4,12 @@ import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { motion } from "framer-motion"
 import clsx from "clsx"
-import { Home, BookOpen, Users, FileText, Heart, UserCircle2 } from "lucide-react"
+import { Home, BookOpen, FileText, Heart, UserCircle2 } from "lucide-react"
 import { useAuth } from "@/contexts/AuthContext"
 
 const staticNavItems = [
     { label: "Home", href: "/", icon: Home },
     { label: "Story", href: "/story", icon: BookOpen },
-    { label: "Crew", href: "/crew", icon: Users },
     { label: "Toolkit", href: "/toolkit", icon: FileText },
     { label: "Support", href: "/support", icon: Heart },
 ]

@@ -22,7 +22,7 @@ export default function Footer() {
                     {/* Ko-fi Support - Prominent */}
                     <div className="py-6">
                         <Link
-                            href="/support-us"
+                            href="/support"
                             className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-teal to-purple text-white px-8 py-4 rounded-xl hover:shadow-lg hover:shadow-teal/20 transition-all duration-300 group font-semibold"
                         >
                             <Heart className="w-5 h-5 group-hover:scale-110 transition-transform" fill="white" />
@@ -106,8 +106,8 @@ export default function Footer() {
                                 </Link>
                             </li>
                             <li>
-                                <Link href="/support-us" className="text-gray-400 hover:text-teal transition-colors text-sm">
-                                    Give
+                                <Link href="/support" className="text-gray-400 hover:text-teal transition-colors text-sm">
+                                    Support
                                 </Link>
                             </li>
                         </ul>
@@ -136,7 +136,7 @@ export default function Footer() {
                             </li>
                             <li className="flex items-center justify-center gap-2">
                                 <Heart className="w-4 h-4 text-purple flex-shrink-0" />
-                                <Link href="/support" className="text-gray-400 hover:text-teal transition-colors text-sm">
+                                <Link href="/recovery-network" className="text-gray-400 hover:text-teal transition-colors text-sm">
                                     Recovery Network
                                 </Link>
                             </li>
@@ -169,7 +169,7 @@ export default function Footer() {
                 {/* Ko-fi Support - Centered */}
                 <div className="pt-8 border-t border-dark-700 text-center">
                     <Link
-                        href="/support-us"
+                        href="/support"
                         className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-teal to-purple text-white px-10 py-4 rounded-xl hover:shadow-lg hover:shadow-teal/20 transition-all duration-300 group font-semibold text-lg"
                     >
                         <Heart className="w-5 h-5 group-hover:scale-110 transition-transform" fill="white" />

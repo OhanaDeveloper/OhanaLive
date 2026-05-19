@@ -6,6 +6,9 @@ const nextConfig: NextConfig = {
     return [
       { source: '/resources', destination: '/toolkit', permanent: true },
       { source: '/resources/:path*', destination: '/toolkit/:path*', permanent: true },
+      { source: '/give', destination: '/support', permanent: true },
+      { source: '/donate', destination: '/support', permanent: true },
+      { source: '/support-us', destination: '/support', permanent: true },
     ]
   },
   images: {

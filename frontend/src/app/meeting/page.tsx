@@ -125,7 +125,7 @@ function MeetingUnavailable() {
             recovery networks. Many run their own meetings.
           </p>
           <Link
-            href="/support"
+            href="/recovery-network"
             className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-teal hover:underline"
           >
             Open the Recovery Network

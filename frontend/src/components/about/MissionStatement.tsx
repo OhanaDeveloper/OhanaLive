@@ -104,40 +104,6 @@ export default function MissionStatement() {
           no one has to face the night alone. Through authentic connection and radical
           acceptance, we build bridges from isolation to community.
         </motion.p>
-
-        {/* Stats/Impact row */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.5 }}
-          className="grid grid-cols-3 gap-4 md:gap-8 mt-10"
-        >
-          {[
-            { number: "365", label: "Nights a Year" },
-            { number: "4", label: "Hours Every Night" },
-            { number: "∞", label: "People Welcome" },
-          ].map((stat, i) => (
-            <motion.div
-              key={stat.label}
-              whileHover={{ scale: 1.05, y: -5 }}
-              className="text-center"
-            >
-              <motion.div
-                initial={{ scale: 0 }}
-                whileInView={{ scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.6 + i * 0.1, type: "spring" }}
-                className="text-3xl md:text-5xl font-bold text-teal mb-2"
-              >
-                {stat.number}
-              </motion.div>
-              <div className="text-gray-500 text-sm uppercase tracking-wider">
-                {stat.label}
-              </div>
-            </motion.div>
-          ))}
-        </motion.div>
       </motion.div>
     </section>
   )

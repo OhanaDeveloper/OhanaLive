@@ -367,7 +367,7 @@ The honest gap is that Thorgal-tier execution requires produced video, illustrat
 | 2.2 Timezone-aware meeting time | Marked done | Verified in `meetingTime.ts`. | Keep as done. |
 | 2.3 Donation page | Marked done | Both `/give` and `/support-us` exist, render the same components. `/donate` redirects to `/support-us`. Dedup needed. | **Add new subtask** to dedupe the three routes. |
 | 2.4 Featured worksheet | Marked done | `FEATURED_WORKSHEET_ID` is a constant. Rotation not implemented. | Lower priority — the constant approach is fine for now. |
-| 2.5 Wall of Nights counter | Marked done | Verified in `WallOfNights.tsx`. **Conflicts with `MissionStatement`'s static 365.** | **Add new subtask** to resolve the duplication. |
+| 2.5 Wall of Nights counter | Marked done | Verified in `WallOfNights.tsx`. **Conflicts with `MissionStatement`'s static 365.** | **Superseded 2026-05-18.** Both the live `WallOfNights` counter and the static `MissionStatement` 365/4/∞ block were removed entirely by the cleanup pass. The decision recorded in `Ohana Site Cleanup — Decisions & Execution Order` is that no nights-counter direction should be revived; replacement copy is a single human line in `app/page.tsx` between `TestimonialsSection` and `PromiseStruggling`. |
 | 2.6 Homepage emotional pacing | Marked done | Section order matches the spec. Inclusivity emoji headers removed. | Keep as done. |
 | 2.7 Privacy-first analytics | Marked done (dashboard pending) | GA4 wired in `layout.tsx`. | Keep as done. |
 | 2.8 Email capture | Intentionally not implemented | Verified — no newsletter form. | Keep as done. |
