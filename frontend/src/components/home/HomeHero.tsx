@@ -226,7 +226,7 @@ export default function HomeHero() {
           <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.97 }}>
             <Link
               href="/toolkit"
-              className="inline-flex items-center justify-center gap-2 bg-dark-900/60 border border-dark-700 hover:border-teal/40 text-gray-300 hover:text-gray-100 font-medium text-base md:text-lg px-6 py-3.5 md:px-8 md:py-4 rounded-xl transition-all backdrop-blur-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal focus-visible:ring-offset-2 focus-visible:ring-offset-black"
+              className="inline-flex items-center justify-center gap-2 bg-dark-900/60 border border-transparent hover:border-teal/40 text-gray-300 hover:text-gray-100 font-medium text-base md:text-lg px-6 py-3.5 md:px-8 md:py-4 rounded-xl transition-all backdrop-blur-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal focus-visible:ring-offset-2 focus-visible:ring-offset-black"
             >
               Free Toolkit
             </Link>

@@ -142,7 +142,7 @@ export default function InteractiveSkills() {
         {/* Skills display */}
         <motion.div
           layout
-          className="bg-dark-900/50 backdrop-blur-sm border border-dark-800 rounded-2xl p-8"
+          className="bg-dark-900/50 backdrop-blur-sm rounded-2xl p-8"
         >
           <AnimatePresence mode="wait">
             <motion.div

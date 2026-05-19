@@ -159,7 +159,7 @@ export default function RecoveryNetworkPage() {
             exit={{ opacity: 0, scale: 0.9 }}
             transition={{ delay: index * 0.1 }}
             whileHover={{ y: -5 }}
-            className="group relative bg-dark-900/50 backdrop-blur-sm border border-dark-800 rounded-2xl p-6 hover:border-teal/50 transition-all"
+            className="group relative bg-dark-900/50 backdrop-blur-sm border border-transparent rounded-2xl p-6 hover:border-teal/50 transition-all"
           >
             {/* Gradient glow on hover */}
             <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-teal/0 via-teal/5 to-purple/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
@@ -208,7 +208,7 @@ export default function RecoveryNetworkPage() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1 }}
-        className="max-w-4xl mx-auto text-center mt-16 p-8 bg-dark-900/30 border border-dark-800 rounded-2xl"
+        className="max-w-4xl mx-auto text-center mt-16 p-8 bg-dark-900/30 rounded-2xl"
       >
         <Heart className="w-8 h-8 text-teal mx-auto mb-4" aria-hidden="true" />
         <p className="text-gray-300 text-lg leading-relaxed">

@@ -50,7 +50,7 @@ function ValueCard({ value }: { value: typeof values[0]; index: number }) {
     >
       <div className="absolute inset-0 bg-gradient-to-br from-accent/20 to-transparent rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
-      <div className="relative bg-dark-900/60 backdrop-blur-sm border border-dark-800 rounded-2xl p-8 h-full hover:border-teal/30 transition-colors duration-300">
+      <div className="relative bg-dark-900/60 backdrop-blur-sm border border-transparent rounded-2xl p-8 h-full hover:border-teal/30 transition-colors duration-300">
         <motion.div
           initial={{ scale: 1 }}
           whileHover={{ scale: 1.2, rotate: 10 }}

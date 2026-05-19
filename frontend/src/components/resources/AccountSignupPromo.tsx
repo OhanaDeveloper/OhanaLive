@@ -96,7 +96,7 @@ export default function AccountSignupPromo() {
                   </Link>
                   <Link
                     href="/login"
-                    className="inline-flex items-center justify-center gap-2 text-gray-400 hover:text-teal font-medium px-7 py-3.5 rounded-xl hover:bg-dark-800/60 border border-transparent hover:border-dark-700 transition-all"
+                    className="inline-flex items-center justify-center gap-2 text-gray-400 hover:text-teal font-medium px-7 py-3.5 rounded-xl hover:bg-dark-800/60 border border-transparent hover:border-teal/30 transition-all"
                   >
                     Already have one? Log in →
                   </Link>
@@ -113,7 +113,7 @@ export default function AccountSignupPromo() {
                       whileInView={{ opacity: 1, x: 0 }}
                       viewport={{ once: true }}
                       transition={{ delay: 0.2 + i * 0.07 }}
-                      className="flex items-start gap-3 bg-dark-800/40 border border-dark-700/60 rounded-xl px-4 py-3 group hover:border-teal/30 transition-colors"
+                      className="flex items-start gap-3 bg-dark-800/40 border border-transparent rounded-xl px-4 py-3 group hover:border-teal/30 transition-colors"
                     >
                       <div className="mt-0.5 flex-shrink-0 w-7 h-7 rounded-lg bg-teal/10 flex items-center justify-center group-hover:bg-teal/20 transition-colors">
                         <feature.icon className="w-3.5 h-3.5 text-teal" aria-hidden="true" />

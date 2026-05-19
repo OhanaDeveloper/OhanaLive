@@ -73,7 +73,7 @@ export default function ChoosePathSection() {
               >
                 <Link
                   href={path.href}
-                  className={`group flex h-full flex-col rounded-lg border border-dark-700 bg-gradient-to-br ${path.accent} p-6 transition-colors hover:bg-dark-900`}
+                  className={`group flex h-full flex-col rounded-lg bg-gradient-to-br ${path.accent} p-6 transition-colors hover:bg-dark-900`}
                 >
                   <div className={`mb-5 flex h-11 w-11 items-center justify-center rounded-lg border ${
                     path.badge === "gold"

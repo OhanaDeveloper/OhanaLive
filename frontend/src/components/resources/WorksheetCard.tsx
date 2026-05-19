@@ -53,7 +53,7 @@ export default function WorksheetCard({ worksheet, index }: WorksheetCardProps) 
 
       <motion.div
         whileHover={{ y: -5 }}
-        className="relative bg-dark-900/70 backdrop-blur-sm border border-dark-800 rounded-2xl overflow-hidden hover:border-dark-700 transition-colors"
+        className="relative bg-dark-900/70 backdrop-blur-sm rounded-2xl overflow-hidden hover:bg-dark-900 transition-colors"
       >
         {/* Header with color accent */}
         <div
@@ -91,7 +91,7 @@ export default function WorksheetCard({ worksheet, index }: WorksheetCardProps) 
               >
                 {worksheet.difficulty}
               </span>
-              <span className="text-xs px-2 py-1 rounded-full bg-dark-800 text-gray-400 border border-dark-700">
+              <span className="text-xs px-2 py-1 rounded-full bg-dark-800 text-gray-400">
                 {worksheet.timeEstimate}
               </span>
             </div>

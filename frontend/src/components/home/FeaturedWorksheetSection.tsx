@@ -36,7 +36,7 @@ export default function FeaturedWorksheetSection() {
           </Link>
         </div>
 
-        <div className="rounded-lg border border-dark-700 bg-gradient-to-br from-teal/10 via-dark-900/80 to-purple/10 p-6 shadow-lg shadow-black/10">
+        <div className="rounded-lg bg-gradient-to-br from-teal/10 via-dark-900/80 to-purple/10 p-6 shadow-lg shadow-black/10">
           <div className="mb-5 flex items-center justify-between gap-4">
             <div className="flex h-12 w-12 items-center justify-center rounded-lg border border-gold/25 bg-gold/10 text-gold">
               <FileText className="h-6 w-6" />
@@ -63,7 +63,7 @@ export default function FeaturedWorksheetSection() {
             </Link>
             <Link
               href="/toolkit"
-              className="inline-flex items-center justify-center rounded-lg border border-dark-700 px-5 py-3 text-sm font-semibold text-gray-300 transition-colors hover:border-teal/40 hover:text-teal"
+              className="inline-flex items-center justify-center rounded-lg border border-transparent px-5 py-3 text-sm font-semibold text-gray-300 transition-colors hover:border-teal/40 hover:text-teal"
             >
               Open Toolkit
             </Link>

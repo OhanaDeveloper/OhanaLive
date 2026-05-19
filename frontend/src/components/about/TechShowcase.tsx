@@ -70,7 +70,7 @@ function TechCard({ tech, index }: { tech: typeof techStack[0]; index: number })
             ? `0 20px 40px -20px ${tech.color}40`
             : "0 0 0 transparent",
         }}
-        className="bg-dark-900/80 backdrop-blur-sm border border-dark-800 rounded-2xl md:rounded-3xl p-6 h-full hover:border-dark-700 transition-colors"
+        className="bg-dark-900/80 backdrop-blur-sm rounded-2xl md:rounded-3xl p-6 h-full hover:bg-dark-900 transition-colors"
         style={{ transformStyle: "preserve-3d" }}
       >
         {/* Floating icon with enhanced parallax */}
@@ -236,7 +236,7 @@ function PerformanceMetrics() {
             transition={{ delay: i * 0.1 }}
             className="relative group"
           >
-            <div className="bg-dark-900/80 backdrop-blur-sm border border-dark-800 rounded-2xl p-6 hover:border-teal/30 transition-all duration-300">
+            <div className="bg-dark-900/80 backdrop-blur-sm border border-transparent rounded-2xl p-6 hover:border-teal/30 transition-all duration-300">
               {/* Grade Badge */}
               <div className="absolute -top-3 -right-3">
                 <motion.div
@@ -325,7 +325,7 @@ function PerformanceMetrics() {
           <motion.div
             key={stat.label}
             whileHover={{ scale: 1.05, y: -5 }}
-            className="bg-dark-800/50 border border-dark-700 rounded-xl p-4 text-center"
+            className="bg-dark-800/50 rounded-xl p-4 text-center"
           >
             <div className="text-2xl mb-2">{stat.icon}</div>
             <div className="text-xl font-bold text-teal mb-1">{stat.value}</div>
@@ -341,7 +341,7 @@ function PerformanceMetrics() {
         transition={{ delay: 0.8 }}
         className="mt-8 text-center"
       >
-        <div className="inline-flex items-center gap-2 bg-dark-800/50 border border-dark-700 rounded-full px-6 py-3">
+        <div className="inline-flex items-center gap-2 bg-dark-800/50 rounded-full px-6 py-3">
           <span className="text-2xl">💪</span>
           <span className="text-gray-400 text-sm">
             Powered by <span className="text-teal font-semibold">Vercel Edge Network</span> ·
@@ -406,7 +406,7 @@ export default function Life() {
           viewport={{ once: true }}
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
-          className="w-full text-center mb-10 bg-dark-900/50 hover:bg-dark-900/70 border-2 border-dark-800 hover:border-teal/30 rounded-2xl p-6 transition-all duration-300"
+          className="w-full text-center mb-10 bg-dark-900/50 hover:bg-dark-900/70 border-2 border-transparent hover:border-teal/30 rounded-2xl p-6 transition-all duration-300"
         >
           <div className="flex items-center justify-center gap-4">
             <motion.span
@@ -478,7 +478,7 @@ export default function Life() {
                   <div className="w-full border-t border-dark-700"></div>
                 </div>
                 <div className="relative flex justify-center">
-                  <span className="bg-black px-6 py-2 text-gray-500 text-xs uppercase tracking-widest border border-dark-700 rounded-full">
+                  <span className="bg-black px-6 py-2 text-gray-500 text-xs uppercase tracking-widest rounded-full">
                     Performance Metrics
                   </span>
                 </div>
@@ -491,7 +491,7 @@ export default function Life() {
               <div className="text-center mt-12">
                 <motion.div
                   whileHover={{ scale: 1.05 }}
-                  className="inline-flex items-center gap-2 bg-dark-800/50 border border-dark-700 rounded-full px-6 py-3"
+                  className="inline-flex items-center gap-2 bg-dark-800/50 rounded-full px-6 py-3"
                 >
                   <motion.span
                     animate={{ rotate: [0, 10, -10, 0] }}
