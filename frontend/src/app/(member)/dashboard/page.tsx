@@ -480,7 +480,7 @@ const quickLinks = [
   { label: "Toolkit", desc: "Worksheets & guides", href: "/toolkit", icon: BookOpen, color: "teal" },
   { label: "Meeting", desc: "Tonight at 11pm PT", href: "/meeting", icon: Video, color: "purple" },
   { label: "Share Your Story", desc: "Inspire the ʻOhana", href: "/forms/story", icon: PenLine, color: "gold" },
-  { label: "Recovery Network", desc: "Find your path", href: "/support", icon: Heart, color: "teal" },
+  { label: "Recovery Network", desc: "Find another room", href: "/recovery-network", icon: Heart, color: "teal" },
 ]
 
 function QuickLinks() {
