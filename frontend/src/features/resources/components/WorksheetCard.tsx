@@ -47,8 +47,7 @@ export default function WorksheetCard({ worksheet, index, isCompleted, isStarted
       }}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      className="group relative flex flex-col rounded-2xl border border-dark-800 bg-dark-900
-                 hover:border-dark-700 cursor-pointer overflow-hidden"
+      className="group relative flex flex-col rounded-2xl bg-dark-900 hover:bg-dark-900/80 cursor-pointer overflow-hidden"
       onClick={() => onOpen(worksheet)}
       role="button"
       tabIndex={0}
@@ -129,7 +128,7 @@ export default function WorksheetCard({ worksheet, index, isCompleted, isStarted
         <div className="flex-1" />
 
         {/* CTA */}
-        <div className="flex items-center justify-between pt-1 border-t border-dark-800/60">
+        <div className="flex items-center justify-between pt-2">
           <span className="text-xs text-gray-600">
             {isCompleted ? 'Completed' : isStarted ? 'In progress' : `${worksheet.sections.length} sections`}
           </span>

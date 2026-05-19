@@ -96,8 +96,8 @@ export default function WorksheetExplorer() {
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 onClick={clearFilters}
-                className="flex items-center gap-1.5 rounded-xl border border-dark-700 bg-dark-900 px-3 py-1.5
-                           text-xs text-gray-500 hover:text-gray-300 hover:border-dark-600 transition-colors"
+                className="flex items-center gap-1.5 rounded-xl bg-dark-900 px-3 py-1.5
+                           text-xs text-gray-500 hover:text-gray-300 hover:bg-dark-800 transition-colors"
               >
                 <X className="w-3 h-3" />
                 Clear

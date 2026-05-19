@@ -1,6 +1,7 @@
 'use client'
 
 import dynamic from 'next/dynamic'
+import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 
 const HeroScene = dynamic(
@@ -9,11 +10,33 @@ const HeroScene = dynamic(
 )
 
 export default function ResourcesHero() {
+  // Gate the 3D scene to viewports >=768px. Mobile pays no WebGL/JS cost; per
+  // Alpha_Project_Specs §7.2 Tier 2 atmosphere is desktop-only.
+  const [showScene, setShowScene] = useState(false)
+  useEffect(() => {
+    const mq = window.matchMedia('(min-width: 768px)')
+    setShowScene(mq.matches)
+    const handler = (event: MediaQueryListEvent) => setShowScene(event.matches)
+    mq.addEventListener('change', handler)
+    return () => mq.removeEventListener('change', handler)
+  }, [])
+
   return (
-    <section className="relative overflow-hidden" style={{ minHeight: '420px' }}>
-      {/* 3D scene */}
+    <section className="relative overflow-hidden min-h-[320px] md:min-h-[420px]">
+      {/* Desktop 3D scene; mobile gets a static teal-glow gradient fallback. */}
       <div className="absolute inset-0" style={{ transform: 'translateZ(0)' }}>
-        <HeroScene />
+        {showScene ? (
+          <HeroScene />
+        ) : (
+          <div
+            className="absolute inset-0"
+            style={{
+              background:
+                'radial-gradient(ellipse 70% 60% at 50% 30%, rgba(20,184,166,0.18) 0%, transparent 60%), radial-gradient(ellipse 50% 40% at 70% 70%, rgba(168,85,247,0.10) 0%, transparent 70%)',
+            }}
+            aria-hidden="true"
+          />
+        )}
       </div>
 
       {/* Deep gradient — scene bleeds through bottom */}

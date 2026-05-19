@@ -66,7 +66,7 @@ export default function CategoryOrbit({ active, onSelect }: Props) {
                          transition-colors duration-200 focus-visible:outline-none focus-visible:ring-1
                          focus-visible:ring-teal"
               style={{
-                borderColor: isActive ? `${item.color}55` : 'rgba(255,255,255,0.07)',
+                borderColor: isActive ? `${item.color}55` : 'transparent',
                 backgroundColor: isActive ? `${item.color}10` : 'rgba(255,255,255,0.02)',
                 boxShadow: isActive ? `0 0 18px -4px ${item.color}35` : 'none',
                 minWidth: '80px',

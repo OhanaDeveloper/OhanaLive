@@ -90,7 +90,7 @@ export default function SearchCommand({ onSelect }: Props) {
       >
         <Search className="w-4 h-4 flex-shrink-0" />
         <span className="flex-1 text-left">Search 108 worksheets…</span>
-        <kbd className="hidden sm:flex items-center gap-0.5 rounded border border-dark-700 bg-dark-800
+        <kbd className="hidden sm:flex items-center gap-0.5 rounded bg-dark-800
                         px-1.5 py-0.5 text-[10px] font-mono text-gray-500">
           ⌘K
         </kbd>
