@@ -8,7 +8,7 @@ export default function Footer() {
         <footer className="relative bg-dark-950 border-t-2 border-dark-700 mt-12 pb-20 md:pb-0">
             {/* Mobile: Simplified footer */}
             <div className="md:hidden max-w-7xl mx-auto px-6 py-8">
-                <div className="text-center space-y-6">
+                <div className="space-y-7 text-center">
                     {/* Tagline */}
                     <div>
                         <h3 className="text-teal font-semibold text-lg mb-2">
@@ -19,8 +19,8 @@ export default function Footer() {
                         </p>
                     </div>
 
-                    {/* Ko-fi Support - Prominent */}
-                    <div className="py-6">
+                    {/* Support CTA - Prominent */}
+                    <div>
                         <Link
                             href="/support"
                             className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-teal to-purple text-white px-8 py-4 rounded-xl hover:shadow-lg hover:shadow-teal/20 transition-all duration-300 group font-semibold"
@@ -33,32 +33,48 @@ export default function Footer() {
                         </p>
                     </div>
 
-                    {/* Quick links - compact grid */}
-                    <div className="border-t border-dark-700 pt-6">
-                        <div className="grid grid-cols-2 gap-x-8 gap-y-3 max-w-xs mx-auto">
-                            <Link href="/toolkit" className="text-sm text-gray-400 hover:text-teal transition-colors text-left">
-                                Toolkit
-                            </Link>
-                            <Link href="/story" className="text-sm text-gray-400 hover:text-teal transition-colors text-right">
-                                Story
-                            </Link>
-                            <Link href="/recovery-network" className="text-sm text-gray-400 hover:text-teal transition-colors text-left">
-                                Recovery Network
-                            </Link>
-                            <Link href="/forms/contact" className="text-sm text-gray-400 hover:text-teal transition-colors text-right">
-                                Contact
-                            </Link>
-                            <Link href="/crew" className="text-sm text-gray-400 hover:text-teal transition-colors text-left">
-                                Crew
-                            </Link>
-                            <Link href="/privacy" className="text-sm text-gray-400 hover:text-teal transition-colors text-right">
-                                Privacy
-                            </Link>
+                    {/* Three sections, mirroring desktop */}
+                    <div className="border-t border-dark-700 pt-6 space-y-6">
+                        <div>
+                            <h4 className="text-teal text-xs font-semibold uppercase tracking-wider mb-3">Navigate</h4>
+                            <div className="flex flex-wrap justify-center gap-x-5 gap-y-2 text-sm text-gray-400">
+                                <Link href="/" className="hover:text-teal transition-colors">Home</Link>
+                                <Link href="/story" className="hover:text-teal transition-colors">Story</Link>
+                                <Link href="/crew" className="hover:text-teal transition-colors">Crew</Link>
+                                <Link href="/toolkit" className="hover:text-teal transition-colors">Toolkit</Link>
+                                <Link href="/support" className="hover:text-teal transition-colors">Support</Link>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h4 className="text-teal text-xs font-semibold uppercase tracking-wider mb-3">Get Help</h4>
+                            <div className="flex flex-wrap justify-center gap-x-5 gap-y-2 text-sm text-gray-400">
+                                <Link href="/meeting" className="hover:text-teal transition-colors">Join Meeting</Link>
+                                <Link href="/recovery-network" className="hover:text-teal transition-colors">Recovery Network</Link>
+                                <a
+                                    href="https://988lifeline.org/"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="hover:text-teal transition-colors"
+                                >
+                                    988 Lifeline
+                                </a>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h4 className="text-teal text-xs font-semibold uppercase tracking-wider mb-3">Get Involved</h4>
+                            <div className="flex flex-wrap justify-center gap-x-5 gap-y-2 text-sm text-gray-400">
+                                <Link href="/forms/volunteer" className="hover:text-teal transition-colors">Join the Crew</Link>
+                                <Link href="/forms/story" className="hover:text-teal transition-colors">Share Your Story</Link>
+                                <Link href="/forms/contact" className="hover:text-teal transition-colors">Contact</Link>
+                            </div>
                         </div>
                     </div>
 
-                    {/* Copyright + disclaimer */}
-                    <div className="pt-4 text-xs text-gray-500 space-y-2">
+                    {/* Legal + disclaimer */}
+                    <div className="pt-4 border-t border-dark-700 text-xs text-gray-500 space-y-2">
+                        <Link href="/privacy" className="hover:text-teal transition-colors">Privacy</Link>
                         <p>© {new Date().getFullYear()} Ohana Recovery — Free. Always.</p>
                         <p className="text-gray-600 max-w-xs mx-auto">
                             Peer-led support. Not a substitute for emergency care, medical advice, therapy, or professional treatment.
