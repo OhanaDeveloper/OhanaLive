@@ -4,7 +4,7 @@
 >
 > **Audience.** Future Claude Code sessions, future contributors, future you.
 >
-> **Last revised.** 2026-05-18.
+> **Last revised.** 2026-05-18 (form delivery wiring, mobile bottom-right declutter, `/meeting` page removal, image weight pass).
 
 ---
 
@@ -96,9 +96,9 @@ OhanaLive/
 │   │   │   ├── (member)/dashboard/  protected member dashboard
 │   │   │   ├── (public)/            crew, story, support, toolkit, recovery-network
 │   │   │   ├── admin/               admin dashboard (UI partially wired)
-│   │   │   ├── forms/               contact, story, volunteer (UI-only)
-│   │   │   ├── meeting/             "What to expect" interstitial + fallback
+│   │   │   ├── forms/               contact, story, volunteer (POST to /api/forms/*)
 │   │   │   ├── api/chat/            anonymous peer support chat endpoint
+│   │   │   ├── api/forms/           contact, story, volunteer email delivery via Resend
 │   │   │   └── privacy/             privacy policy
 │   │   ├── components/
 │   │   │   ├── about/               mission, promise, video intro
@@ -109,17 +109,17 @@ OhanaLive/
 │   │   │   ├── home/                ChoosePathSection, TestimonialsSection, FeaturedWorksheetSection, HomeHero
 │   │   │   ├── layout/              ClientLayout, Navigation, MobileNav, Footer, SettingsMenu
 │   │   │   ├── resources/           toolkit hero + supporting UI
-│   │   │   ├── shared/              MeetingCTA, MeetingStatus, JoinNowButton, FloatingJoinMeetingButton, CrisisResourceWidget
+│   │   │   ├── shared/              MeetingCTA, MeetingStatus, FloatingJoinMeetingButton (mobile-hidden when not live), CrisisResourceWidget (top-right on mobile, right-edge stack on desktop)
 │   │   │   ├── story/
-│   │   │   ├── support/             SupportHero, ContributionPaths   (new 2026-05-18)
+│   │   │   ├── support/             SupportHero, ContributionPaths
 │   │   │   └── ui/                  LotusBreath, RotatingLogo, SectionWrapper, accessibility primitives
 │   │   ├── contexts/                AuthContext
-│   │   ├── data/                    crew.ts (canonical roster, founder-led)   (new 2026-05-18)
+│   │   ├── data/                    crew.ts (canonical roster, founder-led)
 │   │   ├── features/
 │   │   │   └── resources/           worksheet data + Explorer (108 worksheets)
-│   │   ├── lib/                     api.ts, meetings.ts (env-driven), meetingTime.ts, analytics.ts, worksheetStorage.ts
+│   │   ├── lib/                     api.ts, meetings.ts (env-driven), meetingTime.ts, analytics.ts, worksheetStorage.ts, meetingLink.ts (shared meeting CTA href + analytics), sendFormEmail.ts (Resend wrapper), contactSources.ts (?source slug → label), settingsStore.ts (Zustand for shared SettingsMenu open state)
 │   │   └── providers/               ReCaptchaProvider
-│   ├── public/                      lotus logo + crew portraits
+│   ├── public/                      lotus logo + Daniel's WebP portrait (other crew images deleted in image-weight pass)
 │   ├── next.config.ts               redirects (/give|/donate|/support-us → /support; /resources → /toolkit)
 │   ├── .env.example                 documented env vars
 │   └── package.json
@@ -177,10 +177,13 @@ There is also `npm run dev:backend` which shells `cd backend && python3 manage.p
 
 | Variable | Purpose | Required? |
 |---|---|---|
-| `NEXT_PUBLIC_MEETING_ZOOM_URL` | Canonical Zoom URL for "Join Tonight's Meeting". When unset, falls back to a hardcoded literal in `frontend/src/lib/meetings.ts`. When set to empty string, the site renders the crisis fallback. | Strongly recommended in production |
+| `NEXT_PUBLIC_MEETING_ZOOM_URL` | Canonical Zoom URL for "Join Tonight's Meeting". When unset, falls back to a hardcoded literal in `frontend/src/lib/meetings.ts`. When set to empty string, every meeting CTA routes to `/recovery-network` instead of opening Zoom. | Strongly recommended in production |
 | `NEXT_PUBLIC_API_URL` | Django backend base URL. When unset, dynamic meeting/host fetches are skipped and the frontend operates against the env-fallback Zoom URL only. | Recommended |
 | `NEXT_PUBLIC_GA_MEASUREMENT_ID` | GA4 measurement ID. When unset, the GA script is not injected. | Optional |
 | `NEXT_PUBLIC_RECAPTCHA_SITE_KEY` | reCAPTCHA v3 site key for login/register. | Optional in dev, required for auth flows |
+| `RESEND_API_KEY` | Server-only. Used by `/api/forms/{contact,volunteer,story}` via `lib/sendFormEmail.ts`. Without it, every form submission returns 500. The sender domain must also be verified in Resend. | Required for form submissions in production |
+| `OHANA_FORMS_FROM_ADDRESS` | Server-only. Sender address for form emails. Must be on a verified Resend domain. | Optional; default `Ohana Recovery <noreply@ohanarecovery.org>` |
+| `OHANA_FORMS_TO_ADDRESS` | Server-only. Recipient inbox for form emails. | Optional; default `daniel@ohanarecovery.org` |
 
 ### Backend (`backend/.env`, see `backend/.env.example`)
 
@@ -212,9 +215,8 @@ There is also `npm run dev:backend` which shells `cd backend && python3 manage.p
 | `/crew` | `(public)/crew/page.tsx` | Founder-led roster (data-driven, scales 1 → N) |
 | `/toolkit` | `(public)/toolkit/page.tsx` | 108-worksheet explorer with PDF export |
 | `/support` | `(public)/support/page.tsx` | **Canonical broad contribution surface.** Mission-framed, no dollar amounts, multiple contribution paths with equal weight |
-| `/recovery-network` | `(public)/recovery-network/page.tsx` | Curated directory of other recovery orgs (LifeRing, Recovery Dharma, SMART, etc). For crisis-time alternatives. |
-| `/meeting` | `app/meeting/page.tsx` | "What to expect" interstitial. Renders an inline crisis-fallback view when `NEXT_PUBLIC_MEETING_ZOOM_URL` is empty. |
-| `/forms/contact` `/forms/story` `/forms/volunteer` | `app/forms/*` | UI-only forms; simulate success; backend endpoints not yet wired |
+| `/recovery-network` | `(public)/recovery-network/page.tsx` | Curated directory of other recovery orgs (LifeRing, Recovery Dharma, SMART, etc). Also serves as the crisis fallback when `NEXT_PUBLIC_MEETING_ZOOM_URL` is empty (the prior `/meeting` interstitial was removed). |
+| `/forms/contact` `/forms/story` `/forms/volunteer` | `app/forms/*` | Form pages. Submissions POST to `/api/forms/*` which uses `lib/sendFormEmail.ts` (Resend) to email `daniel@ohanarecovery.org`. Contact form reads a `?source=<slug>` query param and tags the email subject + body via `lib/contactSources.ts`. |
 | `/privacy` | `app/privacy/page.tsx` | Privacy policy (GA cookies disclosed) |
 
 ### Auth + member
@@ -249,6 +251,7 @@ There is also `npm run dev:backend` which shells `cd backend && python3 manage.p
 | Route | Backend |
 |---|---|
 | `/api/chat` | Next.js route — anonymous Claude-powered peer support chat (Haiku, streaming) |
+| `/api/forms/contact` `/api/forms/volunteer` `/api/forms/story` | Next.js routes — POST-only. Validate the payload then send via Resend through `lib/sendFormEmail.ts`. Recipient defaults to `daniel@ohanarecovery.org`. 500 responses include a `detail` field with the underlying Resend error message. |
 | `/api/auth/*` | Django auth (register, login, refresh, password reset) |
 | `/api/users/*` | Profile, sobriety dates, privacy settings |
 | `/api/recovery/*` | Meetings (`/tonight/`, `/upcoming/`, `/calendar/`), sign-ups, announcements, Malama contacts |
@@ -262,16 +265,19 @@ There is also `npm run dev:backend` which shells `cd backend && python3 manage.p
 
 ### Active and live
 
-- Public marketing pages (home, story, crew, toolkit, support, recovery-network, meeting, privacy)
+- Public marketing pages (home, story, crew, toolkit, support, recovery-network, privacy)
   - Authentication (register, login, password reset, JWT refresh, reCAPTCHA v3)
   - Member dashboard (protected, sobriety tracker with restart history, announcements feed, profile card)
   - Recovery worksheets (108 worksheets, in-browser PDF generation, category filter, search)
-  - Recovery network directory at `/recovery-network`
+  - Recovery network directory at `/recovery-network` (also the crisis fallback)
   - Anonymous peer support chat (globally mounted floating widget, Claude Haiku 4.5, streaming, no persistence)
   - Meeting status / countdown (timezone-aware, three states)
-  - Centralized meeting URL with env override + crisis fallback
-  - Persistent crisis resource widget (right-edge expandable)
-  - Floating "Join Meeting" button (state-aware, lives globally)
+  - Centralized meeting URL with env override; all meeting CTAs route direct-to-Zoom (the `/meeting` interstitial was removed) and fall back to `/recovery-network` when the URL is unset
+  - Persistent Crisis Resource widget (top-right on mobile, right-edge stack on desktop)
+  - Floating "Join Meeting" button (desktop: always visible, state-aware; mobile: hidden unless live)
+  - Homepage live CTA rework: `HomeMeetingCTA` swaps between a calm rainbow-gradient button (not live) and a CSS-only pulsing-halo + breathing teal CTA (live)
+  - Mobile bottom-right declutter: SettingsMenu trigger lives in `MobileNav` (5-item: Home / Story / Toolkit / Support / Settings); the legacy floating gear is desktop-only
+  - Contact / volunteer / story form submissions delivered to `daniel@ohanarecovery.org` via Resend with per-source tagging on the contact form
   - Google Analytics 4 (gated on env var, GA cookies disclosed in privacy policy)
   - Vercel Analytics + Speed Insights
 
@@ -279,7 +285,7 @@ There is also `npm run dev:backend` which shells `cd backend && python3 manage.p
 
 - Social features in backend (`Conversation`, `Message`, `Friendship`, `Block`, `Post`, `Comment`) — URL router commented out, no frontend integration. **Do not expose** until moderation, privacy, and trust-and-safety policies are written.
   - Admin sign-up approval, announcement management, contact management — UI exists, API calls not wired.
-  - Form submissions for `/forms/contact`, `/forms/story`, `/forms/volunteer` — UI simulates success, Django endpoints not yet created.
+  - Persistence of form submissions — currently fire-and-forget email only via Resend. No DB rows, no admin view. Add a Django endpoint if a paper trail beyond the inbox becomes necessary.
 
 ### Planned but not authorized
 
@@ -471,13 +477,14 @@ The Zoom URL is environment-controlled.
 
 **Helper:** `isMeetingLinkAvailable()` from the same module. Use it before rendering any join CTA.
 
-**Fallback behavior:** when the URL is empty (env var explicitly set to `""`), the `/meeting` route renders a crisis-resources view: Call 988, Text HOME to 741741, link to `/recovery-network`. `JoinNowButton` renders "Find another room tonight" → `/recovery-network`. `FloatingJoinMeetingButton` routes to the interstitial instead of opening `about:blank`.
+**Fallback behavior:** when the URL is empty (env var explicitly set to `""`), the shared helper `lib/meetingLink.ts` returns `href="/recovery-network"` for every meeting CTA on the site. The legacy `/meeting` interstitial was removed because all CTAs now go direct-to-Zoom; `/recovery-network` is the single fallback destination.
 
 **Do not:**
 
-- Hardcode the Zoom URL in new components. Always import `MEETING_INFO` or `isMeetingLinkAvailable`.
+- Hardcode the Zoom URL in new components. Always use `meetingLinkProps("<source>")` from `lib/meetingLink.ts` (handles href + analytics + fallback), or `MEETING_INFO` / `isMeetingLinkAvailable` directly if you need raw access.
   - Open the Zoom URL in `window.open` without first checking `isMeetingLinkAvailable()`.
   - Require a code deploy to rotate the meeting URL.
+  - Recreate the `/meeting` interstitial. It was deliberately removed — direct-to-Zoom is the canonical flow now.
 
 **Recommended follow-on (not yet implemented):** consume `/api/recovery/meetings/tonight/` from the Django backend as the authoritative source when `NEXT_PUBLIC_API_URL` is set, falling back to `MEETING_INFO.zoomLink` only when the API is unreachable. The backend `Meeting.zoom_link` field already exists per-meeting.
 
@@ -566,13 +573,19 @@ Priorities are subject to revision by Daniel. Treat as guidance, not contract.
 ### Next coding pass
 
 - **Homepage hero proof of concept** for the mobile / desktop doctrine (§7.2). Mobile: strip to essential elements. Desktop: introduce a `useDesktopAtmosphere` hook + cursor parallax + single ambient layer not present on mobile. Both: extract a `<Surface>` primitive that handles at-rest vs hover/press borders consistently.
-  - **Wire forms to backend.** Contact, volunteer, story form submissions currently simulate success.
+  - **Drop Three.js if the desktop hero scene gets replaced.** `three` / `@react-three/fiber` / `@react-three/drei` account for ~1.9 MB of the JS bundle but only power one decorative particle hero on `/toolkit` (gated to desktop). Removing them would be a major perf win if a CSS-only replacement is acceptable.
+  - **Replace `Background.tsx` infinite Framer Motion animations with CSS-only gradients.** The three layers of always-on `motion.div` parallax peg the main thread on every route.
+
+### Recently completed (was on this list)
+
+- ~~Wire forms to backend.~~ Done — `/api/forms/{contact,volunteer,story}` deliver to `daniel@ohanarecovery.org` via Resend (see §11 helper + §4 env vars). Per-source tagging on the contact form via `lib/contactSources.ts`.
+- ~~Mobile UX pass on the right-edge fixed-element stack.~~ Done — Crisis moved to top-right on mobile, Settings folded into MobileNav (replacing Login), floating meeting pill hidden on mobile when not live. Desktop right-edge stack standardized at `right-6`.
+- ~~Image weight pass.~~ Done — `public/` images dropped from 27 MB to ~335 KB (Daniel headshot resized 2652px → 1200px and re-encoded as WebP with alpha; six orphan crew portraits deleted).
 
 ### Larger initiatives (require separate scoping)
 
 - Asset commission: koi, ocean loop, lotus animation (§7.4)
   - Backend wiring for admin actions
-  - Mobile UX pass on the right-edge fixed-element stack (FloatingJoinMeetingButton + CrisisResourceWidget + ChatWidget + MobileNav)
   - Social features → trust-and-safety policy first, then exposure
   - Printable one-sheet, SEO/JSON-LD, volunteer onboarding doc (if re-authorized)
   - iOS app (separate scope)
@@ -587,9 +600,10 @@ Priorities are subject to revision by Daniel. Treat as guidance, not contract.
 ## 16. Known issues and gotchas
 
 - ESLint has pre-existing failures across the app. New work should not introduce additional errors but is not required to fix existing ones unless the task is explicitly lint-cleanup.
-  - The four right-edge fixed elements on mobile (`FloatingJoinMeetingButton` `bottom-36`, `CrisisResourceWidget` `clamp(100px, 20vh, 180px)`, `ChatWidget`, `MobileNav` `bottom-0`) are not visually verified for overlap at 375px. Worth a manual mobile pass.
   - The 2026-05-18 cleanup pass removed the `WallOfNights` component and the `NIGHTLY_MEETING_START_DATE` export. Older docs reference both — they are gone.
   - The 2026-05-18 §16 tidying pass closed the remaining known defects: `admin/meetings` localhost URL is now env-driven, the unused `DonationCTA` / `MeetingSection` / `FeaturesSection` home components are deleted, `Footer.tsx` no longer contains the duplicated `/story` row or the dead `/terms` and `/independence` links, and `StoryCTA` "Get in Touch" now routes to `/forms/contact`.
+  - The repo uses npm **workspaces** (declared in root `package.json`, single `package-lock.json` at root). Per-workspace lockfiles are not maintained. Vercel installs via `npm ci` from root; do not reintroduce `frontend/package-lock.json`.
+  - `RESEND_API_KEY` is not set in local `.env.local` by default — local form submissions return 500 with `detail: "RESEND_API_KEY is not set"`. Test forms against the deployed site or paste the key into `frontend/.env.local` temporarily.
 
 ---
 

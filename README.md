@@ -100,9 +100,14 @@ NEXT_PUBLIC_MEETING_ZOOM_URL=<current Zoom meeting URL>
 NEXT_PUBLIC_API_URL=http://localhost:8000
 NEXT_PUBLIC_GA_MEASUREMENT_ID=G-XXXXXXXXXX        # optional
 NEXT_PUBLIC_RECAPTCHA_SITE_KEY=<reCAPTCHA v3 site key>  # required for auth
+
+# Server-only (Vercel project env vars in production)
+RESEND_API_KEY=re_xxx                              # required for /api/forms/* to send
+OHANA_FORMS_FROM_ADDRESS=<verified Resend sender>  # optional; defaults to noreply@ohanarecovery.org
+OHANA_FORMS_TO_ADDRESS=daniel@ohanarecovery.org    # optional; this is the default
 ```
 
-Setting `NEXT_PUBLIC_MEETING_ZOOM_URL` to an empty string disables direct join CTAs sitewide and routes visitors through the `/meeting` interstitial fallback (988, Crisis Text Line, `/recovery-network`).
+Setting `NEXT_PUBLIC_MEETING_ZOOM_URL` to an empty string disables direct join CTAs sitewide and routes visitors to `/recovery-network` (988, Crisis Text Line, curated directory of other recovery orgs).
 
 ### Backend
 
@@ -132,9 +137,8 @@ Swagger UI at `http://localhost:8000/api/docs/` once running.
 | `/crew` | Founder-led roster (data-driven; scales 1 → N members) |
 | `/toolkit` | 108-worksheet explorer |
 | `/support` | Canonical broad contribution surface (donations, volunteering, supplies, partnerships, technical help) |
-| `/recovery-network` | Curated directory of other recovery orgs |
-| `/meeting` | Join interstitial with crisis fallback |
-| `/forms/contact` `/forms/story` `/forms/volunteer` | UI-only forms |
+| `/recovery-network` | Curated directory of other recovery orgs; also serves as the crisis fallback when the Zoom URL is unset |
+| `/forms/contact` `/forms/story` `/forms/volunteer` | Form pages; submissions emailed via Resend to `daniel@ohanarecovery.org`. Contact form supports `?source=<slug>` to tag the submitter's entry point (see `frontend/src/lib/contactSources.ts`) |
 | `/privacy` | Privacy policy |
 | `/dashboard` | Protected member dashboard |
 | `/admin` and sub-pages | Admin dashboard (partial wiring) |
@@ -165,6 +169,9 @@ GET    /api/recovery/announcements/
 GET    /api/recovery/malama-contacts/
 
 POST   /api/chat                    (Next.js route — anonymous peer support chat)
+POST   /api/forms/contact           (Next.js route — emails contact submissions via Resend)
+POST   /api/forms/volunteer         (Next.js route — emails volunteer applications via Resend)
+POST   /api/forms/story             (Next.js route — emails story submissions via Resend)
 ```
 
 Full schema at `GET /api/schema/`. Swagger UI at `/api/docs/`.
@@ -173,9 +180,9 @@ Full schema at `GET /api/schema/`. Swagger UI at `/api/docs/`.
 
 ## Feature status (high-level)
 
-**Active:** public marketing pages · authentication · member dashboard · 108-worksheet toolkit · recovery network directory · anonymous peer support chat · timezone-aware meeting status · env-driven Zoom URL with crisis fallback · persistent crisis widget.
+**Active:** public marketing pages · authentication · member dashboard · 108-worksheet toolkit · recovery network directory · anonymous peer support chat · timezone-aware meeting status · env-driven Zoom URL with `/recovery-network` fallback · persistent crisis widget · contact / volunteer / story form submissions wired to Resend (delivering to `daniel@ohanarecovery.org`, with per-source tagging on the contact form).
 
-**Built, not yet active:** social features (backend models complete, URL router disabled, no frontend integration) · admin actions (UI exists, API wiring incomplete) · form submissions (UI simulates success, Django endpoints not yet created).
+**Built, not yet active:** social features (backend models complete, URL router disabled, no frontend integration) · admin actions (UI exists, API wiring incomplete).
 
 **Planned, not authorized:** printable one-sheet PDF · SEO/JSON-LD work · volunteer onboarding doc · iOS app · partnerships · grant readiness.
 
@@ -187,7 +194,11 @@ For the full feature list, design doctrine, and "do not assume" rules, see [`Alp
 
 See [`backend/DEPLOYMENT.md`](backend/DEPLOYMENT.md) for the Railway backend deployment guide.
 
-**Frontend** — Vercel uses `frontend/` as the project root. Set `NEXT_PUBLIC_MEETING_ZOOM_URL` in the Vercel project before promoting to production.
+**Frontend** — Vercel builds from the repo root via `vercel.json` (`npm ci` + `npm run build`, which proxy through the workspace into `frontend/`). Output directory: `frontend/.next`. Required Vercel env vars before promoting to production:
+
+- `NEXT_PUBLIC_MEETING_ZOOM_URL`
+- `NEXT_PUBLIC_RECAPTCHA_SITE_KEY`
+- `RESEND_API_KEY` (otherwise `/api/forms/*` returns 500). The sender domain must be verified in Resend; `OHANA_FORMS_FROM_ADDRESS` defaults to `noreply@ohanarecovery.org`.
 
 **Backend required environment variables:**
 
