@@ -69,7 +69,7 @@ export default function PrivacyPage() {
         <p className="mt-3 text-sm leading-relaxed text-gray-300">
           For questions about privacy or to request removal of information you submitted,
           contact us through the{" "}
-          <Link href="/forms/contact" className="font-semibold text-teal hover:text-teal-light">
+          <Link href="/forms/contact?source=privacy" className="font-semibold text-teal hover:text-teal-light">
             contact form
           </Link>
           .

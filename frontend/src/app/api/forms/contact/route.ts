@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server"
 import { sendFormEmail } from "@/lib/sendFormEmail"
+import { contactSourceLabel } from "@/lib/contactSources"
 
 export const runtime = "nodejs"
 
@@ -8,6 +9,7 @@ type Body = {
   email?: string
   subject?: string
   message?: string
+  source?: string
 }
 
 export async function POST(request: Request) {
@@ -31,12 +33,17 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Message is too long" }, { status: 400 })
   }
 
+  const sourceSlug = typeof body.source === "string" ? body.source : null
+  const sourceLabel = contactSourceLabel(sourceSlug)
+  const subjectPrefix = sourceSlug ? `[Ohana contact · ${sourceLabel}]` : "[Ohana contact]"
+
   try {
     await sendFormEmail({
       kind: "contact",
-      subject: `[Ohana contact] ${subject} — ${name}`,
+      subject: `${subjectPrefix} ${subject} — ${name}`,
       replyTo: email,
       fields: [
+        { label: "Source", value: sourceLabel },
         { label: "Name", value: name },
         { label: "Email", value: email },
         { label: "Subject", value: subject },

@@ -1,9 +1,15 @@
 "use client"
 
 import { useState } from "react"
+import { useSearchParams } from "next/navigation"
 import { motion } from "framer-motion"
+import { contactSourceLabel } from "@/lib/contactSources"
 
 export default function ContactForm() {
+    const searchParams = useSearchParams()
+    const sourceSlug = searchParams.get("source")
+    const sourceLabel = contactSourceLabel(sourceSlug)
+
     const [formData, setFormData] = useState({
         name: "",
         email: "",
@@ -30,7 +36,7 @@ export default function ContactForm() {
             const res = await fetch("/api/forms/contact", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(formData),
+                body: JSON.stringify({ ...formData, source: sourceSlug ?? undefined }),
             })
             if (!res.ok) {
                 const data = await res.json().catch(() => ({}))
@@ -68,6 +74,13 @@ export default function ContactForm() {
 
     return (
         <form onSubmit={handleSubmit} className="space-y-6">
+            {sourceSlug && (
+                <div className="inline-flex items-center gap-2 rounded-full bg-teal/10 px-3 py-1 text-xs font-mono uppercase tracking-widest text-teal">
+                    <span aria-hidden="true">↳</span>
+                    {sourceLabel}
+                </div>
+            )}
+
             {/* Name */}
             <div>
                 <label htmlFor="name" className="block text-sm font-medium text-light mb-2">

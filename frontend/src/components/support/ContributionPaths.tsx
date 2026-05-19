@@ -44,21 +44,21 @@ const paths: Path[] = [
     title: "Lend a skill",
     description:
       "Writing, design, dev, video, moderation, accessibility, community work. If you do something useful, we'll find where it fits.",
-    action: { label: "Send a note", href: "/forms/contact" },
+    action: { label: "Send a note", href: "/forms/contact?source=support-skill" },
   },
   {
     icon: Boxes,
     title: "Supplies & resources",
     description:
       "Worksheets, art, gift cards for members who need them, books for the toolkit, anything tangible the community can use.",
-    action: { label: "Send a note", href: "/forms/contact" },
+    action: { label: "Send a note", href: "/forms/contact?source=support-supplies" },
   },
   {
     icon: Network,
     title: "Partnership",
     description:
       "Treatment centers, sober living, recovery orgs, podcasts, anything aligned with peer-led, free, late-night support. Reach out.",
-    action: { label: "Start a conversation", href: "/forms/contact" },
+    action: { label: "Start a conversation", href: "/forms/contact?source=support-partnership" },
   },
   {
     icon: Mail,

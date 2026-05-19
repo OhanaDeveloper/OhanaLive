@@ -216,7 +216,7 @@ export default function RecoveryNetworkPage() {
           We&apos;re all just trying to stay alive and find peace.
         </p>
         <p className="text-gray-500 text-sm mt-4">
-          Know of another community we should include? <a href="/forms/contact" className="text-teal hover:underline">Let us know</a>.
+          Know of another community we should include? <a href="/forms/contact?source=recovery-network" className="text-teal hover:underline">Let us know</a>.
         </p>
       </motion.div>
     </div>

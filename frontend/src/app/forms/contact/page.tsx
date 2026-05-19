@@ -1,3 +1,4 @@
+import { Suspense } from "react"
 import ContactForm from "@/components/forms/ContactForm"
 import SectionWrapper from "@/components/ui/SectionWrapper"
 import { Mail } from "lucide-react"
@@ -28,7 +29,9 @@ export default function ContactPage() {
 
                 {/* Form */}
                 <div className="bg-dark-900/50 border-2 border-dark-700 rounded-2xl p-8 md:p-12">
-                    <ContactForm />
+                    <Suspense fallback={null}>
+                        <ContactForm />
+                    </Suspense>
                 </div>
 
                 {/* Direct Contact Info */}

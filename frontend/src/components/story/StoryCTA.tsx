@@ -78,7 +78,7 @@ export default function StoryCTA() {
 
           <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>
             <Link
-              href="/forms/contact"
+              href="/forms/contact?source=story-cta"
               className="inline-flex items-center gap-2 bg-dark-800 hover:bg-dark-700 text-gray-100 font-semibold px-8 py-4 rounded-xl transition-colors text-lg"
             >
               Get in Touch

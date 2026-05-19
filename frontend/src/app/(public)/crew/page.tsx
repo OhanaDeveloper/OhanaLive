@@ -45,7 +45,7 @@ export default function CrewPage() {
             not rebrand it, not save it — write to me.
           </p>
           <Link
-            href="/forms/contact"
+            href="/forms/contact?source=crew"
             className="mt-3 inline-flex items-center gap-2 text-sm font-semibold text-teal transition-colors hover:text-teal-light"
           >
             Open the contact form
