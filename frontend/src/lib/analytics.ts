@@ -1,4 +1,4 @@
-type AnalyticsEventName =
+export type AnalyticsEventName =
   | "meeting_link_click"
   | "support_link_click"
   | "featured_worksheet_click"

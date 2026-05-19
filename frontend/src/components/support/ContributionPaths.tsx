@@ -10,13 +10,13 @@ import {
   Network,
   Mail,
 } from "lucide-react"
-import { trackEvent } from "@/lib/analytics"
+import { trackEvent, type AnalyticsEventName } from "@/lib/analytics"
 
 type Path = {
   icon: typeof Coffee
   title: string
   description: string
-  action: { label: string; href: string; external?: boolean; eventName?: string }
+  action: { label: string; href: string; external?: boolean; eventName?: AnalyticsEventName }
 }
 
 const paths: Path[] = [
