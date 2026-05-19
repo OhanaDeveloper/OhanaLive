@@ -236,7 +236,7 @@ function PerformanceMetrics() {
             transition={{ delay: i * 0.1 }}
             className="relative group"
           >
-            <div className="bg-dark-900/80 backdrop-blur-sm border border-transparent rounded-2xl p-6 hover:border-teal/30 transition-all duration-300">
+            <div className="bg-dark-900/80 backdrop-blur-sm rounded-2xl p-6 transition-all duration-300">
               {/* Grade Badge */}
               <div className="absolute -top-3 -right-3">
                 <motion.div
@@ -406,7 +406,7 @@ export default function Life() {
           viewport={{ once: true }}
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
-          className="w-full text-center mb-10 bg-dark-900/50 hover:bg-dark-900/70 border-2 border-transparent hover:border-teal/30 rounded-2xl p-6 transition-all duration-300"
+          className="w-full text-center mb-10 bg-dark-900/50 hover:bg-dark-900/70 rounded-2xl p-6 transition-all duration-300"
         >
           <div className="flex items-center justify-center gap-4">
             <motion.span

@@ -12,7 +12,7 @@ const paths = [
     description: "Go straight to the nightly room, see the current status, and get the Zoom link when you are ready.",
     href: "/meeting",
     cta: "Join the meeting",
-    accent: "from-teal/20 to-teal/10 hover:border-teal/45",
+    accent: "from-teal/20 to-teal/10",
     badge: "teal",
   },
   {
@@ -21,7 +21,7 @@ const paths = [
     description: "Read the story behind Ohana and what makes this peer-led recovery room different.",
     href: "/story",
     cta: "Read our story",
-    accent: "from-gold/20 to-gold/10 hover:border-gold/45",
+    accent: "from-gold/20 to-gold/10",
     badge: "gold",
   },
   {
@@ -30,7 +30,7 @@ const paths = [
     description: "Use practical recovery worksheets for urges, reflection, grounding, relapse prevention, and daily care.",
     href: "/toolkit",
     cta: "Open the toolkit",
-    accent: "from-purple/20 to-purple/10 hover:border-purple/45",
+    accent: "from-purple/20 to-purple/10",
     badge: "purple",
   },
 ]

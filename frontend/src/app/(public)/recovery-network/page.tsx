@@ -159,7 +159,7 @@ export default function RecoveryNetworkPage() {
             exit={{ opacity: 0, scale: 0.9 }}
             transition={{ delay: index * 0.1 }}
             whileHover={{ y: -5 }}
-            className="group relative bg-dark-900/50 backdrop-blur-sm border border-transparent rounded-2xl p-6 hover:border-teal/50 transition-all"
+            className="group relative bg-dark-900/50 backdrop-blur-sm rounded-2xl p-6 transition-all"
           >
             {/* Gradient glow on hover */}
             <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-teal/0 via-teal/5 to-purple/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />

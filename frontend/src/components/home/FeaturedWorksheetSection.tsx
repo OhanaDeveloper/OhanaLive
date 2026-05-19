@@ -63,7 +63,7 @@ export default function FeaturedWorksheetSection() {
             </Link>
             <Link
               href="/toolkit"
-              className="inline-flex items-center justify-center rounded-lg border border-transparent px-5 py-3 text-sm font-semibold text-gray-300 transition-colors hover:border-teal/40 hover:text-teal"
+              className="inline-flex items-center justify-center rounded-lg px-5 py-3 text-sm font-semibold text-gray-300 transition-colors hover:text-teal"
             >
               Open Toolkit
             </Link>

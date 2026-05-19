@@ -52,7 +52,7 @@ export default function MeetingIntroPage() {
           <JoinNowButton />
           <Link
             href="/toolkit"
-            className="inline-flex items-center justify-center gap-3 rounded-xl border border-transparent bg-dark-900/70 px-8 py-4 text-lg font-semibold text-gray-200 transition-colors hover:border-teal/40 hover:text-white"
+            className="inline-flex items-center justify-center gap-3 rounded-xl bg-dark-900/70 hover:bg-dark-900 px-8 py-4 text-lg font-semibold text-gray-200 transition-colors hover:text-white"
           >
             <BookOpen className="h-5 w-5" aria-hidden="true" />
             Not ready yet? Explore the Toolkit
@@ -136,7 +136,7 @@ function MeetingUnavailable() {
         <div className="mt-10 flex w-full flex-col gap-4 sm:w-auto sm:flex-row">
           <Link
             href="/toolkit"
-            className="inline-flex items-center justify-center gap-3 rounded-xl border border-transparent bg-dark-900/70 px-8 py-4 text-lg font-semibold text-gray-200 transition-colors hover:border-teal/40 hover:text-white"
+            className="inline-flex items-center justify-center gap-3 rounded-xl bg-dark-900/70 hover:bg-dark-900 px-8 py-4 text-lg font-semibold text-gray-200 transition-colors hover:text-white"
           >
             <BookOpen className="h-5 w-5" aria-hidden="true" />
             Use a worksheet while you wait

@@ -39,12 +39,12 @@ function PillarCard({ pillar, index }: { pillar: typeof pillars[0]; index: numbe
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ delay: index * 0.08, duration: 0.45 }}
-      className={`rounded-lg border p-6 transition-colors ${
+      className={`rounded-lg p-6 transition-colors ${
         pillar.accent === "gold"
-          ? "border-gold/25 bg-gradient-to-br from-gold/10 via-dark-900/70 to-transparent hover:border-gold/40"
+          ? "bg-gradient-to-br from-gold/10 via-dark-900/70 to-transparent"
           : pillar.accent === "purple"
-            ? "border-purple/25 bg-gradient-to-br from-purple/10 via-dark-900/70 to-transparent hover:border-purple/40"
-            : "border-teal/25 bg-gradient-to-br from-teal/10 via-dark-900/70 to-transparent hover:border-teal/40"
+            ? "bg-gradient-to-br from-purple/10 via-dark-900/70 to-transparent"
+            : "bg-gradient-to-br from-teal/10 via-dark-900/70 to-transparent"
       }`}
     >
       <div
