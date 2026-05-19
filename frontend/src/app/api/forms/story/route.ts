@@ -55,6 +55,7 @@ export async function POST(request: Request) {
     return NextResponse.json({ ok: true })
   } catch (err) {
     console.error("[story form]", err)
-    return NextResponse.json({ error: "Could not send story" }, { status: 500 })
+    const detail = err instanceof Error ? err.message : "Unknown error"
+    return NextResponse.json({ error: "Could not send story", detail }, { status: 500 })
   }
 }

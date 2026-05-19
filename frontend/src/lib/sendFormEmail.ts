@@ -56,7 +56,12 @@ export async function sendFormEmail(payload: FormPayload) {
   })
 
   if (error) {
-    throw new Error(`Resend error: ${error.message}`)
+    // Surface the underlying name+message so callers (API routes) can include
+    // it in the response and we can diagnose domain-not-verified, invalid-key,
+    // payload-too-large, etc. from the browser without trawling Vercel logs.
+    const err = new Error(`Resend: ${error.name ?? "error"} — ${error.message}`)
+    ;(err as Error & { resendError?: typeof error }).resendError = error
+    throw err
   }
 
   return data

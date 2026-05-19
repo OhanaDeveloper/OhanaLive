@@ -34,7 +34,8 @@ export default function ContactForm() {
             })
             if (!res.ok) {
                 const data = await res.json().catch(() => ({}))
-                throw new Error(data.error || "Submission failed")
+                const base = data.error || "Submission failed"
+                throw new Error(data.detail ? `${base}: ${data.detail}` : base)
             }
             setSuccess(true)
         } catch (err) {
