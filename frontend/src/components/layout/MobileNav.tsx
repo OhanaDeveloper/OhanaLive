@@ -23,8 +23,13 @@ export default function MobileNav() {
 
     return (
         <nav
-            className="fixed bottom-0 left-0 right-0 bg-teal/20 md:hidden z-50"
-            style={{ paddingBottom: 'env(safe-area-inset-bottom)', touchAction: 'manipulation' }}
+            className="fixed bottom-0 left-0 right-0 md:hidden z-50"
+            style={{
+                backgroundColor: '#1a1a1a',
+                backgroundImage: 'linear-gradient(rgba(20, 184, 166, 0.2), rgba(20, 184, 166, 0.2))',
+                paddingBottom: 'env(safe-area-inset-bottom)',
+                touchAction: 'manipulation',
+            }}
         >
             <div className="flex justify-around items-center h-16 px-2">
                 {navItems.map(({ label, href, icon: Icon }) => {
