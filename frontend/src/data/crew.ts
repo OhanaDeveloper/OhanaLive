@@ -27,7 +27,7 @@ export const crew: CrewMember[] = [
     id: "daniel",
     name: "Daniel",
     role: "Founder",
-    image: "/OhanaProfile_Daniel.png",
+    image: "/OhanaProfile_Daniel.jpg",
     // TODO: founder bio
     bio: null,
     isFounder: true,
