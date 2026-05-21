@@ -165,7 +165,7 @@ export default function ContactForm() {
             <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full bg-gradient-to-r from-teal to-teal-dark text-dark-950 font-bold py-4 px-6 rounded-lg hover:shadow-lg hover:shadow-teal/30 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                className="relative z-[60] w-full bg-gradient-to-r from-teal to-teal-dark text-dark-950 font-bold py-4 px-6 rounded-lg hover:shadow-lg hover:shadow-teal/30 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
             >
                 {isSubmitting ? "Sending..." : "Send Message"}
             </button>

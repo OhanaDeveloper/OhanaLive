@@ -22,6 +22,7 @@ import Link from "next/link"
 export default function ClientLayout({ children }: { children: ReactNode }) {
     const [mounted, setMounted] = useState(false)
     const pathname = usePathname()
+    const isFormsRoute = pathname.startsWith("/forms/")
 
     useEffect(() => {
         setMounted(true)
@@ -50,7 +51,7 @@ export default function ClientLayout({ children }: { children: ReactNode }) {
             {/* Unified Settings Menu - bottom right corner */}
             <SettingsMenu />
 
-            <main className="pt-16 p-4 pb-20 md:pb-4">
+            <main className="pt-16 p-4 pb-40 md:pb-4">
                 {mounted ? (
                     <motion.div
                         key={pathname}
@@ -71,11 +72,11 @@ export default function ClientLayout({ children }: { children: ReactNode }) {
             {/* Mobile sticky bottom nav */}
             <MobileNav />
 
-            {/* Anonymous peer support chat widget */}
-            <ChatWidget />
+            {/* Anonymous peer support chat widget — hidden on form pages so it doesn't sit on top of inputs/submit */}
+            {!isFormsRoute && <ChatWidget />}
 
-            {/* Persistent meeting access */}
-            <FloatingJoinMeetingButton />
+            {/* Persistent meeting access — hidden on form pages so it doesn't sit on top of the submit button */}
+            {!isFormsRoute && <FloatingJoinMeetingButton />}
         </AuthProvider>
         </MotionConfig>
     )

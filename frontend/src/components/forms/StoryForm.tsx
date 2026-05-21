@@ -182,7 +182,7 @@ export default function StoryForm() {
             <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full bg-gradient-to-r from-purple to-purple-dark text-light font-bold py-4 px-6 rounded-lg hover:shadow-lg hover:shadow-purple/30 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                className="relative z-[60] w-full bg-gradient-to-r from-purple to-purple-dark text-light font-bold py-4 px-6 rounded-lg hover:shadow-lg hover:shadow-purple/30 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
             >
                 {isSubmitting ? "Sharing Your Journey..." : "Share Your Story"}
             </button>
