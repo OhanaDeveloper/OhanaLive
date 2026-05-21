@@ -103,12 +103,37 @@ export default function WorksheetViewer({ worksheet, onClose }: Props) {
     return () => window.removeEventListener('keydown', handler)
   }, [onClose])
 
+  // Lock body scroll while the viewer is open. Without this, iOS Safari
+  // steals touch events from the internal scroll container and the modal
+  // appears frozen on mobile. Preserve scroll position across open/close.
+  useEffect(() => {
+    const scrollY = window.scrollY
+    const body = document.body
+    const prev = {
+      position: body.style.position,
+      top: body.style.top,
+      width: body.style.width,
+      overflow: body.style.overflow,
+    }
+    body.style.position = 'fixed'
+    body.style.top = `-${scrollY}px`
+    body.style.width = '100%'
+    body.style.overflow = 'hidden'
+    return () => {
+      body.style.position = prev.position
+      body.style.top = prev.top
+      body.style.width = prev.width
+      body.style.overflow = prev.overflow
+      window.scrollTo(0, scrollY)
+    }
+  }, [])
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="fixed inset-0 z-50 flex items-end sm:items-center justify-center p-0 sm:p-4"
+      className="fixed inset-0 z-[80] flex items-end sm:items-center justify-center p-0 sm:p-4"
     >
       {/* Backdrop */}
       <motion.div
@@ -130,6 +155,7 @@ export default function WorksheetViewer({ worksheet, onClose }: Props) {
         style={{
           backgroundColor: 'rgba(12,12,12,0.98)',
           maxHeight: 'min(90dvh, 700px)',
+          paddingBottom: 'env(safe-area-inset-bottom)',
         }}
       >
         {/* Progress bar */}
@@ -174,7 +200,10 @@ export default function WorksheetViewer({ worksheet, onClose }: Props) {
         </div>
 
         {/* Section content */}
-        <div className="flex-1 overflow-y-auto px-5 py-5">
+        <div
+          className="flex-1 overflow-y-auto px-5 py-5"
+          style={{ overscrollBehavior: 'contain', WebkitOverflowScrolling: 'touch' }}
+        >
           <AnimatePresence mode="wait">
             <motion.div
               key={sectionIdx}
